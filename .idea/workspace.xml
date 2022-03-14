@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/client/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/utils/firebase/enableMessaging.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/server.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/_app.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/components/header.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/public/firebase-messaging-sw.js" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="25xDRkI8Btc0zQdTaYCeRF1UfZ9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/server/.env" />
+    <property name="import_schema_mapping" value="&lt;schema-mapping&gt;&lt;databases&gt;&lt;list&gt;&lt;schema-mapping-item&gt;&lt;source-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/source-data-source-id&gt;&lt;source-path&gt;schema/&quot;vsExt&quot;&lt;/source-path&gt;&lt;target-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/target-data-source-id&gt;&lt;target-path&gt;schema/&quot;Toys&quot;&lt;/target-path&gt;&lt;/schema-mapping-item&gt;&lt;/list&gt;&lt;/databases&gt;&lt;/schema-mapping&gt;" />
+    <property name="javascript.nodejs.core.library.configured.version" value="16.13.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/client/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public" />
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$/server" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public" />
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$/client/pages" />
+      <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/client/pages/api/lotgen" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.server build">
+    <configuration name="client with https" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/client">
+      <method v="2" />
+    </configuration>
+    <configuration name="client build" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="client dev" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="client start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="server build" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="server start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="server start:dev" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.client with https" />
+      <item itemvalue="npm.client dev" />
+      <item itemvalue="npm.client build" />
+      <item itemvalue="npm.client start" />
+      <item itemvalue="npm.server start:dev" />
+      <item itemvalue="npm.server build" />
+      <item itemvalue="npm.server start" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="" />
+      <created>1646459840504</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646459840504</updated>
+      <workItem from="1646459842737" duration="2041000" />
+      <workItem from="1646461924660" duration="10275000" />
+      <workItem from="1646479365507" duration="7808000" />
+      <workItem from="1646488364946" duration="55135000" />
+      <workItem from="1646643761193" duration="5994000" />
+      <workItem from="1646649779101" duration="33000" />
+      <workItem from="1646649823080" duration="83000" />
+      <workItem from="1646649918196" duration="106675000" />
+      <workItem from="1647012122202" duration="437000" />
+      <workItem from="1647012768708" duration="3680000" />
+      <workItem from="1647077789629" duration="9858000" />
+      <workItem from="1647109518623" duration="2849000" />
+      <workItem from="1647117233167" duration="32021000" />
+      <workItem from="1647259481083" duration="25442000" />
+    </task>
+    <task id="LOCAL-00001" summary="server structure added">
+      <created>1646480389203</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1646480389203</updated>
+    </task>
+    <task id="LOCAL-00002" summary="working on lotgen">
+      <created>1646496968998</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1646496968998</updated>
+    </task>
+    <task id="LOCAL-00003" summary="working on auth modal">
+      <created>1646514031044</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1646514031044</updated>
+    </task>
+    <task id="LOCAL-00004" summary="change needed layout structure">
+      <created>1646517123041</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1646517123041</updated>
+    </task>
+    <task id="LOCAL-00005" summary="redux toolkit added &amp; layout structure fixed">
+      <created>1646584953776</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1646584953776</updated>
+    </task>
+    <task id="LOCAL-00006" summary="..">
+      <created>1646585114495</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1646585114495</updated>
+    </task>
+    <task id="LOCAL-00007" summary="header bug fixed &amp; opengraph added">
+      <created>1646592821288</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1646592821288</updated>
+    </task>
+    <task id="LOCAL-00008" summary="gmail oauth added &amp; dotenv added">
+      <created>1646650372159</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1646650372159</updated>
+    </task>
+    <task id="LOCAL-00009" summary="working on error handling">
+      <created>1646665407816</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1646665407816</updated>
+    </task>
+    <task id="LOCAL-00010" summary="lottery apis added">
+      <created>1646668074395</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1646668074395</updated>
+    </task>
+    <task id="LOCAL-00011" summary="DI concept added &amp; sequelize switched to mysql2">
+      <created>1646753373291</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1646753373291</updated>
+    </task>
+    <task id="LOCAL-00012" summary="error handling method changed &amp; validator added">
+      <created>1646834453154</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1646834453154</updated>
+    </task>
+    <task id="LOCAL-00013" summary="working on iron-session">
+      <created>1646846237819</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1646846237819</updated>
+    </task>
+    <task id="LOCAL-00014" summary="lottery number save / listing added to client">
+      <created>1646907171494</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1646907171494</updated>
+    </task>
+    <task id="LOCAL-00015" summary="batch job added">
+      <created>1646911744986</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1646911744986</updated>
+    </task>
+    <task id="LOCAL-00016" summary="batch job done">
+      <created>1646915586236</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1646915586236</updated>
+    </task>
+    <task id="LOCAL-00017" summary="lotgen history &amp; hall of fame added">
+      <created>1646917111608</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1646917111608</updated>
+    </task>
+    <task id="LOCAL-00018" summary="spinners added">
+      <created>1646921382319</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1646921382319</updated>
+    </task>
+    <task id="LOCAL-00019" summary="response logger added to express middleware">
+      <created>1646924940133</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1646924940133</updated>
+    </task>
+    <task id="LOCAL-00020" summary="logger phrase beautified">
+      <created>1646925304857</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1646925304857</updated>
+    </task>
+    <task id="LOCAL-00021" summary="numList component beautified &amp; next job is pagination">
+      <created>1646926659461</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1646926659461</updated>
+    </task>
+    <task id="LOCAL-00022" summary="scale meta added &amp; numList beautified &amp; static path added">
+      <created>1646928834461</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1646928834461</updated>
+    </task>
+    <task id="LOCAL-00023" summary="..">
+      <created>1646979471100</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1646979471100</updated>
+    </task>
+    <task id="LOCAL-00024" summary="getWeek() fixed">
+      <created>1647016232853</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1647016232853</updated>
+    </task>
+    <task id="LOCAL-00025" summary="nextjs api error handling fixed">
+      <created>1647085932735</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1647085932735</updated>
+    </task>
+    <task id="LOCAL-00026" summary="password confirm added">
+      <created>1647086929314</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1647086929314</updated>
+    </task>
+    <task id="LOCAL-00027" summary="settings changed">
+      <created>1647112883285</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1647112883285</updated>
+    </task>
+    <task id="LOCAL-00028" summary="debounce search added">
+      <created>1647200705490</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1647200705490</updated>
+    </task>
+    <task id="LOCAL-00029" summary="https done &amp; working on chrome push">
+      <created>1647265858970</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1647265858970</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fcm messaging added to client &amp; token update logic added to server">
+      <created>1647274630632</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1647274630633</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fcm message receive in foreground fixed">
+      <created>1647276994970</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1647276994970</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fcm sender added to server &amp; mailer fixed">
+      <created>1647281014175</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1647281014175</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fcm sender added to server &amp; mailer fixed">
+      <created>1647281024647</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1647281024647</updated>
+    </task>
+    <task id="LOCAL-00034" summary="send push to all added">
+      <created>1647281353716</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1647281353716</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lottery apis added" />
+    <MESSAGE value="DI concept added &amp; sequelize switched to mysql2" />
+    <MESSAGE value="error handling method changed &amp; validator added" />
+    <MESSAGE value="working on iron-session" />
+    <MESSAGE value="lottery number save / listing added to client" />
+    <MESSAGE value="batch job added" />
+    <MESSAGE value="batch job done" />
+    <MESSAGE value="lotgen history &amp; hall of fame added" />
+    <MESSAGE value="spinners added" />
+    <MESSAGE value="response logger added to express middleware" />
+    <MESSAGE value="logger phrase beautified" />
+    <MESSAGE value="numList component beautified &amp; next job is pagination" />
+    <MESSAGE value="scale meta added &amp; numList beautified" />
+    <MESSAGE value="scale meta added &amp; numList beautified &amp; static path added" />
+    <MESSAGE value=".." />
+    <MESSAGE value="getWeek() fixed" />
+    <MESSAGE value="nextjs api error handling fixed" />
+    <MESSAGE value="password confirm added" />
+    <MESSAGE value="settings changed" />
+    <MESSAGE value="debounce search added" />
+    <MESSAGE value="https done &amp; working on chrome push" />
+    <MESSAGE value="fcm messaging added to client &amp; token update logic added to server" />
+    <MESSAGE value="fcm message receive in foreground fixed" />
+    <MESSAGE value="fcm sender added to server &amp; mailer fixed" />
+    <MESSAGE value="send push to all added" />
+    <option name="LAST_COMMIT_MESSAGE" value="send push to all added" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -1,0 +1,29 @@
+.appIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    border-radius: .75rem;
+}
+.appLink {
+    color: #0d6efd;
+    text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
+}
+
+.appBorder{
+    border: 1px solid #0d6efd;
+    border-radius: .75rem;
+    padding: .5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .appBorder{
+        border: 1px solid white;
+    }
+}

@@ -1,0 +1,9 @@
+Index: client/README.md
+===================================================================
+diff --git a/client/README.md b/client/README.md
+deleted file mode 100644
+--- a/client/README.md	
++++ /dev/null	
+@@ -1,1 +0,0 @@
+-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+\ No newline at end of file
