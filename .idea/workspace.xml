@@ -4,8 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="send push to all added">
+      <change afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-128x128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-152x152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-384x384.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-72x72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/icons/icon-96x96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/ipad_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/ipadpro1_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/ipadpro2_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/ipadpro3_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/iphone5_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/iphone6_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/iphoneplus_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/iphonex_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/iphonexr_splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/iphonexsmax_splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +65,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/client/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/components/header.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/client/utils/firebase/enableMessaging.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/client/server.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/client/pages/_app.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/client/components/header.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/client/public/firebase-messaging-sw.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/_app.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,7 +93,7 @@
     <property name="import_schema_mapping" value="&lt;schema-mapping&gt;&lt;databases&gt;&lt;list&gt;&lt;schema-mapping-item&gt;&lt;source-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/source-data-source-id&gt;&lt;source-path&gt;schema/&quot;vsExt&quot;&lt;/source-path&gt;&lt;target-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/target-data-source-id&gt;&lt;target-path&gt;schema/&quot;Toys&quot;&lt;/target-path&gt;&lt;/schema-mapping-item&gt;&lt;/list&gt;&lt;/databases&gt;&lt;/schema-mapping&gt;" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public/splashcreens" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -83,19 +107,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public/splashcreens" />
+      <recent name="$PROJECT_DIR$/client/public/icons" />
       <recent name="$PROJECT_DIR$/client/public" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public/icons" />
       <recent name="$PROJECT_DIR$/client/public" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/client/pages" />
       <recent name="$PROJECT_DIR$/utils" />
-      <recent name="$PROJECT_DIR$/client/pages/api/lotgen" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server build">
+  <component name="RunManager" selected="npm.client build">
     <configuration name="client with https" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/client">
       <method v="2" />
     </configuration>
@@ -191,6 +217,7 @@
       <workItem from="1647109518623" duration="2849000" />
       <workItem from="1647117233167" duration="32021000" />
       <workItem from="1647259481083" duration="25442000" />
+      <workItem from="1647323288447" duration="5395000" />
     </task>
     <task id="LOCAL-00001" summary="server structure added">
       <created>1646480389203</created>
