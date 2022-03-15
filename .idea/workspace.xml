@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="pagination using swrInfinite added">
-      <change afterPath="$PROJECT_DIR$/client/public/worker-vVOJMUaOsu7a6aeb106Kj.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/useNumList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/useNumList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/lotgen/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/worker-YzsabKDpGr4gnooygJGQj.js" beforeDir="false" />
-    </list>
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="null handled" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -469,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647357344999</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="null handled">
+      <created>1647371934330</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1647371934330</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +491,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="working on iron-session" />
     <MESSAGE value="lottery number save / listing added to client" />
     <MESSAGE value="batch job added" />
     <MESSAGE value="batch job done" />
@@ -516,7 +515,8 @@
     <MESSAGE value="pwa applied - splash &amp; apple touch icon not working" />
     <MESSAGE value="minor" />
     <MESSAGE value="pagination using swrInfinite added" />
-    <option name="LAST_COMMIT_MESSAGE" value="pagination using swrInfinite added" />
+    <MESSAGE value="null handled" />
+    <option name="LAST_COMMIT_MESSAGE" value="null handled" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
