@@ -1,18 +1,18 @@
 import Container from 'components/lotGen/container'
 import useNumList from 'lib/useNumList'
 import NumList from 'components/lotGen/numList/numList'
-import Loading from 'components/Loading'
 import {useSelector} from 'react-redux'
+import LoadingFixed from 'components/LoadingFixed'
 
 const HallOfFame = () => {
     const searchInfo = useSelector(({search}) => search)
-    const {data} = useNumList({id: null, type: 1, searchTxt: searchInfo.searchTxt})
+    const {numListData, numListSize, setNumListSize} = useNumList({id: null, type: 1, searchTxt: searchInfo.searchTxt})
 
     return (
         <Container>
             <h3>Hall of fame</h3>
-            <NumList list={data.numList} />
-            {data.isLoading && <Loading />}
+            {numListData.isLoading && <LoadingFixed />}
+            <NumList list={numListData.numList} size={numListSize} setSize={setNumListSize} />
         </Container>
     )
 }

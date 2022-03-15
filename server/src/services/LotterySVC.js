@@ -12,12 +12,12 @@ class LotterySVC {
         return await this.Mappers.lotteryMapper.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
     }
 
-    async getLotteryList(userId = null, searchTxt) {
-        return await this.Mappers.lotteryMapper.getLotteryList(userId, searchTxt)
+    async getLotteryList(userId = null, searchTxt = '', page = 1, limit = 10) {
+        return await this.Mappers.lotteryMapper.getLotteryList(userId, searchTxt, page, limit)
     }
 
-    async getFameList(searchTxt = '') {
-        return await this.Mappers.lotteryMapper.getLotteryFameList(searchTxt)
+    async getFameList(searchTxt = '', page = 1, limit = 10) {
+        return await this.Mappers.lotteryMapper.getLotteryFameList(searchTxt, page, limit)
     }
 
     async batchProcess() {

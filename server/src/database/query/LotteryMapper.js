@@ -5,26 +5,30 @@ const LotteryMapper = dataSource => {
         return lottery.insertId
     }
 
-    const getLotteryList = async (userId = null, searchTxt = '') => {
+    const getLotteryList = async (userId, searchTxt, page, limit) => {
         const filter = userId ? `lottery.userId = ${userId}` : '1=1'
         const query = `
                 SELECT lottery.*, user.name AS userName, user.email AS email, user.status AS userStatus
                 FROM lottery LEFT JOIN user ON lottery.userId = user.id 
-                WHERE ${filter} AND (lottery.roundNo LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%')
+                WHERE ${filter} ${searchTxt && `AND (lottery.roundNo LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%')`}
                 ORDER BY regDate DESC
+                LIMIT ?, ?
             `
-        const [list] = await dataSource.exec(query)
+        const [list] = await dataSource.exec(query, [(+page - 1) * +limit, +limit])
         return list
     }
 
-    const getLotteryFameList = async (searchTxt = '') => {
+    const getLotteryFameList = async (searchTxt, page, limit) => {
         const query = `
                 SELECT lottery.*, user.name AS userName, user.email AS email, user.status AS userStatus
                 FROM lottery LEFT JOIN user ON lottery.userId = user.id 
-                WHERE lottery.rank > 0 AND (lottery.roundNo LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%')
+                WHERE lottery.rank > 0 ${
+                    searchTxt && `AND (lottery.roundNo LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%')`
+                }
                 ORDER BY lottery.\`rank\`, lottery.roundNo DESC, lottery.regDate DESC
+                LIMIT ?, ?
             `
-        const [list] = await dataSource.exec(query)
+        const [list] = await dataSource.exec(query, [(+page - 1) * +limit, +limit])
         return list
     }
 

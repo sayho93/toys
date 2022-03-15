@@ -9,7 +9,7 @@ const Generator = props => {
                 </span>
             </div>
 
-            <div className="row g-3 text-center align-items-center justify-content-center">
+            <div className="row g-3 text-center align-items-center justify-content-center mb-2">
                 <div className="col-md-7 col-lg-4">
                     <div className="row text-center">
                         {Array(6)
@@ -32,12 +32,12 @@ const Generator = props => {
                 </div>
                 <div className="col-md-5 col-lg-4">
                     <div>
-                        <button className="btn btn-primary mx-2" onClick={props.onGenerate} disabled={props.disabled}>
-                            Generate
-                        </button>
-                        <button className="btn btn-outline-primary" onClick={props.onSave} disabled={props.disabled}>
+                        <button className="btn btn-outline-warning" onClick={props.onSave} disabled={props.disabled}>
                             {props.loading && <span className="spinner-border spinner-border-sm me-2" />}
-                            Save
+                            저장
+                        </button>
+                        <button className="btn btn-primary ms-4" onClick={props.onGenerate} disabled={props.disabled}>
+                            번호 생성!
                         </button>
                     </div>
                 </div>
