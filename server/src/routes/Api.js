@@ -155,7 +155,9 @@ const Api = ({Mappers, AsyncHandler}) => {
         AsyncHandler(async (req, res) => {
             const userId = req.query.userId
             const searchTxt = req.query.searchTxt
-            const ret = await lotterySVC.getLotteryList(userId, searchTxt)
+            const page = req.query.page
+            const limit = req.query.limit
+            const ret = await lotterySVC.getLotteryList(userId, searchTxt, page, limit)
             res.json(ret)
         })
     )
@@ -163,7 +165,10 @@ const Api = ({Mappers, AsyncHandler}) => {
     router.get(
         '/lottery/fame',
         AsyncHandler(async (req, res) => {
-            const ret = await lotterySVC.getFameList()
+            const searchTxt = req.query.searchTxt
+            const page = req.query.page
+            const limit = req.query.limit
+            const ret = await lotterySVC.getFameList(searchTxt, page, limit)
             res.json(ret)
         })
     )

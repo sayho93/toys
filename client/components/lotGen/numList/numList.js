@@ -1,6 +1,7 @@
 import dateUtils from 'utils/date'
 
 const NumList = props => {
+    console.log(props)
     const renderNumbers = (num, row) => {
         const corrects = row.correctCSV ? row.correctCSV.split(',') : []
 
@@ -18,8 +19,8 @@ const NumList = props => {
             <div className={`align-items-center justify-content-center`}>
                 <div className="row g-3 py-5 row-cols-1 row-cols-lg-3 row-cols-md-2">
                     {props.list &&
-                        props.list.map(row => {
-                            return (
+                        props.list.map(subList => {
+                            return subList.map(row => (
                                 <div key={row.id} className="col">
                                     <div
                                         className={`
@@ -43,9 +44,19 @@ const NumList = props => {
                                         <small>{`${row.userName} <${row.email}>`}</small>
                                     </div>
                                 </div>
-                            )
+                            ))
                         })}
                 </div>
+                <button
+                    className="btn btn-outline-secondary w-100 mb-5"
+                    onClick={() => {
+                        if (props.list.length !== props.size || props.list[props.list.length - 1].length !== 12) {
+                            alert('더이상 불러올 데이터가 없습니다.')
+                        } else props.setSize(props.size + 1)
+                    }}
+                >
+                    Load More
+                </button>
             </div>
         </>
     )

@@ -7,14 +7,14 @@ import Helper from 'api/Helper'
 import Constants from 'api/Constants'
 import useUser from 'lib/useUser'
 import useNumList from 'lib/useNumList'
-import Loading from 'components/Loading'
 import {useSelector} from 'react-redux'
+import LoadingFixed from 'components/LoadingFixed'
 
 const LotGenApp = () => {
     const {user} = useUser({})
     const searchInfo = useSelector(({search}) => search)
 
-    const {data, mutateNumList} = useNumList({
+    const {numListData, mutateNumList, numListSize, setNumListSize} = useNumList({
         id: user && user.isLoggedIn ? user.id : -1,
         type: 0,
         searchTxt: searchInfo.searchTxt,
@@ -38,14 +38,16 @@ const LotGenApp = () => {
     }
 
     const handleNumChange = event => {
+        const tmp = [...lot]
+        const idx = event.target.dataset.idx
         if (/^\d+$/.test(event.target.value)) {
-            const tmp = [...lot]
-            const idx = event.target.dataset.idx
             if (event.target.value > 45) tmp[idx] = 45
             else if (event.target.value < 1) tmp[idx] = 1
             else tmp[idx] = +event.target.value
-            setLot(tmp)
+        } else {
+            tmp[idx] = ''
         }
+        setLot(tmp)
     }
 
     const onNumSave = async () => {
@@ -54,8 +56,10 @@ const LotGenApp = () => {
         if (!user.isLoggedIn) errMsg = '로그인 후 이용해 주세요.'
 
         const filtered = lot.filter(num => typeof num === 'number').length
-        if (filtered === 0) errMsg = 'Nothing to save'
-        else if (filtered < 6) errMsg = 'Not enough numbers'
+        const set = new Set(lot)
+        if (filtered === 0) errMsg = '숫자를 입력해 주세요.'
+        else if (filtered < 6) errMsg = '6개의 숫자를 입력해 주세요.'
+        if (set.size < 6) errMsg = '중복된 숫자가 있습니다.'
 
         if (errMsg) {
             alert(errMsg)
@@ -88,8 +92,8 @@ const LotGenApp = () => {
                 week={lotteryUtils.getWeek()}
                 disabled={saveStatus.btnDisabled}
             />
-            {data.isLoading && <Loading />}
-            <NumList list={data.numList} />
+            {numListData.isLoading && <LoadingFixed />}
+            {user && user.isLoggedIn && <NumList list={numListData.numList} size={numListSize} setSize={setNumListSize} />}
         </Container>
     )
 }
