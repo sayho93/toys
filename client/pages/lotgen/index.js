@@ -53,13 +53,16 @@ const LotGenApp = () => {
     const onNumSave = async () => {
         setSaveStatus({loading: true, btnDisabled: true})
         let errMsg = null
-        if (!user || !user.isLoggedIn) errMsg = '로그인 후 이용해 주세요.'
+        console.log(user)
+        console.log(user.isLoggedIn)
+        console.log(!user || !user.isLoggedIn)
 
         const filtered = lot.filter(num => typeof num === 'number').length
         const set = new Set(lot)
-        if (filtered === 0) errMsg = '숫자를 입력해 주세요.'
+        if (!user || !user.isLoggedIn) errMsg = '로그인 후 이용해 주세요.'
+        else if (filtered === 0) errMsg = '숫자를 입력해 주세요.'
         else if (filtered < 6) errMsg = '6개의 숫자를 입력해 주세요.'
-        if (set.size < 6) errMsg = '중복된 숫자가 있습니다.'
+        else if (set.size < 6) errMsg = '중복된 숫자가 있습니다.'
 
         if (errMsg) {
             alert(errMsg)
