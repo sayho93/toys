@@ -19,7 +19,6 @@ const useNumList = ({id = null, type = 0, searchTxt = null} = {}) => {
     const getKey = (pageIndex, previousPageData) => {
         if (previousPageData && !previousPageData.length) return null // reached the end
         queryParams.page = pageIndex + 1
-        console.log(queryParams)
         return [url, {...queryParams}] // SWR key
     }
 

@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="pagination using swrInfinite added">
-      <change afterPath="$PROJECT_DIR$/client/public/worker-YzsabKDpGr4gnooygJGQj.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/worker-vVOJMUaOsu7a6aeb106Kj.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Loading.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/LoadingFixed.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/LoadingFixed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/generator/generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/generator/generator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/lib/useNumList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/useNumList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/hallOfFame.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/lotgen/hallOfFame.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/lotgen/history.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/lotgen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/lotgen/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/worker-wX9frZ1gdF5-S1oBlv_Vt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/LotteryMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/LotteryMapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/LotterySVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/LotterySVC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/worker-YzsabKDpGr4gnooygJGQj.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +26,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/main" />
+    <option name="BRANCH" value="pwa" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="pwa" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,6 +43,14 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="sayho93" />
+        <option name="repository" value="toys" />
+      </RepoCoordinatesHolder>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/client/.env" root0="FORCE_HIGHLIGHTING" />

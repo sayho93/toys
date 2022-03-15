@@ -1,7 +1,6 @@
 import dateUtils from 'utils/date'
 
 const NumList = props => {
-    console.log(props)
     const renderNumbers = (num, row) => {
         const corrects = row.correctCSV ? row.correctCSV.split(',') : []
 
@@ -47,16 +46,20 @@ const NumList = props => {
                             ))
                         })}
                 </div>
-                <button
-                    className="btn btn-outline-secondary w-100 mb-5"
-                    onClick={() => {
-                        if (props.list.length !== props.size || props.list[props.list.length - 1].length !== 12) {
-                            alert('더이상 불러올 데이터가 없습니다.')
-                        } else props.setSize(props.size + 1)
-                    }}
-                >
-                    Load More
-                </button>
+                {props.list && props.list[0].length > 0 ? (
+                    <button
+                        className="btn btn-outline-secondary w-100 mb-5"
+                        onClick={() => {
+                            if (props.list.length !== props.size || props.list[props.list.length - 1].length !== 12) {
+                                alert('더이상 불러올 데이터가 없습니다.')
+                            } else props.setSize(props.size + 1)
+                        }}
+                    >
+                        Load More
+                    </button>
+                ) : (
+                    <p className="text-center">데이터가 없습니다...</p>
+                )}
             </div>
         </>
     )

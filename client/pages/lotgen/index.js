@@ -53,7 +53,7 @@ const LotGenApp = () => {
     const onNumSave = async () => {
         setSaveStatus({loading: true, btnDisabled: true})
         let errMsg = null
-        if (!user.isLoggedIn) errMsg = '로그인 후 이용해 주세요.'
+        if (!user || !user.isLoggedIn) errMsg = '로그인 후 이용해 주세요.'
 
         const filtered = lot.filter(num => typeof num === 'number').length
         const set = new Set(lot)
@@ -93,7 +93,11 @@ const LotGenApp = () => {
                 disabled={saveStatus.btnDisabled}
             />
             {numListData.isLoading && <LoadingFixed />}
-            {user && user.isLoggedIn && <NumList list={numListData.numList} size={numListSize} setSize={setNumListSize} />}
+            {user && user.isLoggedIn ? (
+                <NumList list={numListData.numList} size={numListSize} setSize={setNumListSize} />
+            ) : (
+                <p className="mt-5 text-center">로그인 후 이용해 주세요.</p>
+            )}
         </Container>
     )
 }
