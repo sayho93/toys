@@ -33,60 +33,77 @@ const App = ({Component, pageProps}) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no" />
 
                 <link rel="manifest" href="/manifest.json" />
-                <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
-                <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
                 <meta name="theme-color" content="#222222" />
 
                 <link
-                    href="/splashscreens/iphone5_splash.png"
-                    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-2048-2732.jpeg"
+                    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/iphone6_splash.png"
-                    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1668-2388.jpeg"
+                    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/iphoneplus_splash.png"
-                    media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1536-2048.jpeg"
+                    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/iphonex_splash.png"
-                    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1668-2224.jpeg"
+                    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/iphonexr_splash.png"
-                    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1620-2160.jpeg"
+                    media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/iphonexsmax_splash.png"
-                    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1284-2778.jpeg"
+                    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/ipad_splash.png"
-                    media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1170-2532.jpeg"
+                    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/ipadpro1_splash.png"
-                    media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1125-2436.jpeg"
+                    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/ipadpro3_splash.png"
-                    media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1242-2688.jpeg"
+                    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
                 />
                 <link
-                    href="/splashscreens/ipadpro2_splash.png"
-                    media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
                     rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-828-1792.jpeg"
+                    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
                 />
+                <link
+                    rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-1242-2208.jpeg"
+                    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+                />
+                <link
+                    rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-750-1334.jpeg"
+                    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+                />
+                <link
+                    rel="apple-touch-startup-image"
+                    href="/splashscreens/apple-splash-640-1136.jpeg"
+                    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+                />
+
+                <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
             </Head>
             <Layout>
                 <Component {...pageProps} />
