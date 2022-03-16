@@ -6,7 +6,7 @@ const useNumList = ({id = null, type = 0, searchTxt = null} = {}) => {
     const queryParams = {}
     if (id) queryParams.userId = id
     if (searchTxt) queryParams.searchTxt = searchTxt
-    queryParams.limit = 12
+    queryParams.limit = 15
 
     const url = type === 0 ? Constants.API_NUM_LIST : Constants.API_FAME_LIST
 

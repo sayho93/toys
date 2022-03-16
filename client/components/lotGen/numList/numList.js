@@ -1,10 +1,10 @@
 import dateUtils from 'utils/date'
 import {useCallback, useEffect, useRef} from 'react'
+import {ToastContainer, toast} from 'react-toastify'
 
 const NumList = props => {
     const loader = useRef(null)
     useEffect(() => {
-        console.log(props.list)
         const option = {
             root: null,
             rootMargin: '10px',
@@ -19,10 +19,9 @@ const NumList = props => {
         entries => {
             const target = entries[0]
             if (target.isIntersecting) {
-                if (props.list) {
-                    if (props.list.length !== props.size || props.list[props.list.length - 1].length !== 12) {
-                        alert('더이상 불러올 데이터가 없습니다.')
-                    } else props.setSize(props.size + 1)
+                if (props.list && props.list[0].length && props.list[0].length === 15) {
+                    if (props.list[props.list.length - 1].length !== 15) toast('더이상 불러올 데이터가 없습니다.')
+                    else props.setSize(props.size + 1)
                 }
             }
         },
@@ -74,7 +73,19 @@ const NumList = props => {
                             ))
                         })}
                 </div>
-
+                <ToastContainer
+                    position="bottom-center"
+                    autoClose={2000}
+                    hideProgressBar={true}
+                    newestOnTop={true}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                    closeButton={false}
+                    style={{textAlign: 'center', fontSize: '0.8rem'}}
+                />
                 <div className="w-100 mb-3 observerRef" ref={loader} />
                 <style jsx>{`
                     .observerRef {

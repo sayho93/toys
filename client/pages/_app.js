@@ -13,6 +13,7 @@ import {useEffect} from 'react'
 const App = ({Component, pageProps}) => {
     useEffect(() => {
         import('bootstrap/dist/js/bootstrap.bundle')
+        import('react-toastify/dist/ReactToastify.css')
     })
 
     return (
