@@ -1,6 +1,34 @@
 import dateUtils from 'utils/date'
+import {useCallback, useEffect, useRef} from 'react'
 
 const NumList = props => {
+    const loader = useRef(null)
+    useEffect(() => {
+        console.log(props.list)
+        const option = {
+            root: null,
+            rootMargin: '10px',
+            threshold: 0.25,
+        }
+        const observer = new IntersectionObserver(observerHandler, option)
+        if (loader.current) observer.observe(loader.current)
+        return () => observer.disconnect()
+    }, [props.list])
+
+    const observerHandler = useCallback(
+        entries => {
+            const target = entries[0]
+            if (target.isIntersecting) {
+                if (props.list) {
+                    if (props.list.length !== props.size || props.list[props.list.length - 1].length !== 12) {
+                        alert('더이상 불러올 데이터가 없습니다.')
+                    } else props.setSize(props.size + 1)
+                }
+            }
+        },
+        [props.list]
+    )
+
     const renderNumbers = (num, row) => {
         const corrects = row.correctCSV ? row.correctCSV.split(',') : []
 
@@ -16,7 +44,7 @@ const NumList = props => {
     return (
         <>
             <div className={`align-items-center justify-content-center`}>
-                <div className="row g-3 py-5 row-cols-1 row-cols-lg-3 row-cols-md-2">
+                <div className="row g-3 pt-5 pb-2 row-cols-1 row-cols-lg-3 row-cols-md-2">
                     {props.list &&
                         props.list.map(subList => {
                             return subList.map(row => (
@@ -46,20 +74,15 @@ const NumList = props => {
                             ))
                         })}
                 </div>
-                {props.list && props.list[0].length > 0 ? (
-                    <button
-                        className="btn btn-outline-secondary w-100 mb-5"
-                        onClick={() => {
-                            if (props.list.length !== props.size || props.list[props.list.length - 1].length !== 12) {
-                                alert('더이상 불러올 데이터가 없습니다.')
-                            } else props.setSize(props.size + 1)
-                        }}
-                    >
-                        Load More
-                    </button>
-                ) : (
-                    <p className="text-center">데이터가 없습니다...</p>
-                )}
+
+                <div className="w-100 mb-3 observerRef" ref={loader} />
+                <style jsx>{`
+                    .observerRef {
+                        height: 1rem;
+                    }
+                `}</style>
+
+                {(!props.list || !props.list[0].length) && <p className="text-center">데이터가 없습니다...</p>}
             </div>
         </>
     )

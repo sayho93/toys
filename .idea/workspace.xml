@@ -4,46 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment=".">
-      <change afterPath="$PROJECT_DIR$/client/public/icons/apple-icon-180.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/icons/manifest-icon-192.maskable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/icons/manifest-icon-512.maskable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1125-2436.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1170-2532.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1242-2208.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1242-2688.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1284-2778.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1536-2048.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1620-2160.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1668-2224.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1668-2388.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2048-2732.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-640-1136.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-750-1334.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-828-1792.jpeg" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="splash &amp; appIcon on ios safari fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-128x128.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-128x128.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-144x144.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-152x152.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-152x152.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-192x192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-384x384.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-384x384.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-512x512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-72x72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/icons/icon-96x96.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/ipad_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/ipadpro1_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/ipadpro2_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/ipadpro3_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/iphone5_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/iphone6_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/iphoneplus_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/iphonex_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/iphonexr_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/iphonexsmax_splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/worker-6MhGPq2xscIsJ1fnz5bQU.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +112,7 @@
       <recent name="$PROJECT_DIR$/client/pages" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client dev">
+  <component name="RunManager" selected="npm.client build">
     <configuration name="client with https" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/client">
       <method v="2" />
     </configuration>
@@ -249,6 +213,7 @@
       <workItem from="1647355627103" duration="212000" />
       <workItem from="1647355851992" duration="1495000" />
       <workItem from="1647357366288" duration="12161000" />
+      <workItem from="1647431580671" duration="4973000" />
     </task>
     <task id="LOCAL-00001" summary="server structure added">
       <created>1646480389203</created>
@@ -523,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647372747654</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="splash &amp; appIcon on ios safari fixed">
+      <created>1647427410268</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1647427410268</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +517,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="batch job added" />
     <MESSAGE value="batch job done" />
     <MESSAGE value="lotgen history &amp; hall of fame added" />
     <MESSAGE value="spinners added" />
@@ -570,7 +541,8 @@
     <MESSAGE value="pagination using swrInfinite added" />
     <MESSAGE value="null handled" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="splash &amp; appIcon on ios safari fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="splash &amp; appIcon on ios safari fixed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

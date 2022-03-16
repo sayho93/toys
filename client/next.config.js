@@ -17,10 +17,10 @@ module.exports = withPlugins(
             withPWA,
             {
                 pwa: {
+                    disable: process.env.NODE_ENV !== 'production',
                     dest: 'public',
                     scope: '/',
                     runtimeCaching,
-                    disable: process.env.NODE_ENV !== 'production',
                     register: true,
                     sw: 'service-worker.js',
                 },
