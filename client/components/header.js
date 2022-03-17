@@ -29,13 +29,7 @@ const Header = () => {
 
     useEffect(async () => {
         const token = await enableMessaging()
-        if (token && user && user.isLoggedIn) {
-            const data = await Helper.post(Constants.API_USER_UPDATE_TOKEN, {userId: user.id, token})
-            if (data) {
-                console.log('succ!!')
-                // mutateUser(data.user)
-            }
-        }
+        if (token && user && user.isLoggedIn) await Helper.post(Constants.API_USER_UPDATE_TOKEN, {userId: user.id, token})
     }, [user])
 
     const onSearch = async event => {

@@ -53,9 +53,6 @@ const LotGenApp = () => {
     const onNumSave = async () => {
         setSaveStatus({loading: true, btnDisabled: true})
         let errMsg = null
-        console.log(user)
-        console.log(user.isLoggedIn)
-        console.log(!user || !user.isLoggedIn)
 
         const filtered = lot.filter(num => typeof num === 'number').length
         const set = new Set(lot)

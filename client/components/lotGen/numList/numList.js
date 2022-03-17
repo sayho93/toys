@@ -20,7 +20,7 @@ const NumList = props => {
             const target = entries[0]
             if (target.isIntersecting) {
                 if (props.list && props.list[0].length && props.list[0].length === 15) {
-                    if (props.list[props.list.length - 1].length !== 15) toast('더이상 불러올 데이터가 없습니다.')
+                    if (props.list[props.list.length - 1].length !== 15) toast.success('더이상 불러올 데이터가 없습니다.')
                     else props.setSize(props.size + 1)
                 }
             }
@@ -85,6 +85,8 @@ const NumList = props => {
                     pauseOnHover
                     closeButton={false}
                     style={{textAlign: 'center', fontSize: '0.8rem'}}
+                    theme="dark"
+                    limit={3}
                 />
                 <div className="w-100 mb-3 observerRef" ref={loader} />
                 <style jsx>{`

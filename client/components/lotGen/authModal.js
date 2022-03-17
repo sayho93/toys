@@ -4,9 +4,7 @@ const AuthModal = props => {
     useEffect(() => {
         const enterHandler = event => {
             if (event.key === 'Enter') {
-                console.log(props.loginInfo)
                 event.preventDefault()
-                console.log(props.loginInfo)
                 props.modalType === 1 ? props.onLogin() : props.onSignup()
             }
         }

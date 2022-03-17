@@ -31,7 +31,7 @@ const App = ({Component, pageProps}) => {
 
                 <meta name="twitter:card" content="summary_large_image" />
 
-                <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no" />
+                <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no viewport-fit=cover" />
 
                 <link rel="manifest" href="/manifest.json" />
                 <meta name="theme-color" content="#222222" />
@@ -104,6 +104,7 @@ const App = ({Component, pageProps}) => {
 
                 <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
                 <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
             </Head>
             <Layout>
