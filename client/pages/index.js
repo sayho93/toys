@@ -3,10 +3,16 @@ import {useDispatch} from 'react-redux'
 import {setCurrentApp} from 'store/modules/app'
 import AppInfo from 'constants/AppInfo'
 import AppItem from 'components/Home/appItem'
+import useUser from '../lib/useUser'
+import useSWR from 'swr'
+import Constants from '../api/Constants'
+import Helper from '../api/Helper'
 
 const Home = () => {
     const apps = AppInfo
     const dispatch = useDispatch()
+    const {user} = useUser()
+    const latestPlanner = useSWR(`${Constants.API_PLANNER_LATEST}`, Helper.get)
     // const user = useSelector(({user}) => user)
 
     // const ret = useSWR(`http://localhost:4000/api/user/1`, Helper.get)
@@ -32,7 +38,7 @@ const Home = () => {
                     {/*<h2 className="pb-2 border-bottom">Toys</h2>*/}
                     <div className="row g-4 py-5 row-cols-1 row-cols-lg-3 row-cols-md-2">
                         {apps.map((item, idx) => (
-                            <AppItem key={idx} {...item} />
+                            <AppItem key={idx} {...item} user={user} latestPlanner={latestPlanner.data} />
                         ))}
                     </div>
                 </div>

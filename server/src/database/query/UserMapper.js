@@ -65,7 +65,25 @@ const UserMapper = dataSource => {
         return res
     }
 
-    return {getUserById, getUserByEmail, checkLogin, updateUserStatus, addUser, addAuth, deleteAuth, searchAuth, removeAuth, updateToken, getUserHavingToken}
+    const setUserNotified = async ({userId, id}) => {
+        const [res] = await dataSource.exec(`UPDATE user SET lastPlannerId = ? WHERE id = ?`, [id, userId])
+        return res.affectedRows
+    }
+
+    return {
+        getUserById,
+        getUserByEmail,
+        checkLogin,
+        updateUserStatus,
+        addUser,
+        addAuth,
+        deleteAuth,
+        searchAuth,
+        removeAuth,
+        updateToken,
+        getUserHavingToken,
+        setUserNotified,
+    }
 }
 
 export default UserMapper

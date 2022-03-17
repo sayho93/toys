@@ -210,9 +210,9 @@ const Api = ({Mappers, AsyncHandler}) => {
     )
 
     router.post(
-        '/planner/add',
+        '/planner/save',
         body('userId').notEmpty().withMessage('UserId is required'),
-        body('content').notEmpty().withMessage('Content is required'),
+        body('title').notEmpty().withMessage('Title is required'),
         body('targetDate').notEmpty().withMessage('Target date is required'),
         body('color').notEmpty().withMessage('Color is required'),
         AsyncHandler(async (req, res) => {
@@ -224,7 +224,33 @@ const Api = ({Mappers, AsyncHandler}) => {
                 throw err
             }
             const params = req.body
-            const ret = await plannerSVC.addPlanner(params)
+            const ret = await plannerSVC.savePlanner(params)
+            res.json(ret)
+        })
+    )
+
+    router.get(
+        '/planner/delete/:id',
+        AsyncHandler(async (req, res) => {
+            const id = req.params.id
+            const ret = await plannerSVC.deletePlanner(id)
+            res.json(ret)
+        })
+    )
+
+    router.get(
+        '/planner/latest',
+        AsyncHandler(async (req, res) => {
+            const ret = await plannerSVC.getLatest()
+            res.json(ret)
+        })
+    )
+
+    router.get(
+        '/user/setNotified/:id',
+        AsyncHandler(async (req, res) => {
+            const id = req.params.id
+            const ret = await userSVC.setUserNotified(id)
             res.json(ret)
         })
     )

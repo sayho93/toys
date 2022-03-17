@@ -86,6 +86,11 @@ class UserSVC {
         }
         return await this.Utils.postData(url, data)
     }
+
+    async setUserNotified(userId) {
+        const planner = await this.Mappers.plannerMapper.getLatestPlanner()
+        return await this.Mappers.userMapper.setUserNotified({userId, id: planner.id})
+    }
 }
 
 export default UserSVC

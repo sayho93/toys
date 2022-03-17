@@ -1,9 +1,8 @@
-import Day from './Day'
+import Day from 'components/planner/day'
 
-const Calendar = ({days, date, setDate, setTask}) => {
+const Calendar = ({days, date, setDate, onTaskClick}) => {
     const names = ['월', '화', '수', '목', '금', '토', '일']
 
-    console.log(days)
     return (
         <div>
             <div className="calendar borderless day-names">
@@ -11,7 +10,7 @@ const Calendar = ({days, date, setDate, setTask}) => {
                     <h5 key={name}>{name}</h5>
                 ))}
             </div>
-            <div className="calendar">{days.length && days.map(item => <Day key={item.date} day={item} date={date} setDate={setDate} setTask={setTask} />)}</div>
+            <div className="calendar">{days.length && days.map(item => <Day key={item.date} day={item} date={date} setDate={setDate} onTaskClick={onTaskClick} />)}</div>
             <style jsx>{`
                 .calendar {
                     box-sizing: border-box;

@@ -1,8 +1,8 @@
 import Task from 'components/planner/task'
 import DateUtils from 'utils/date'
-import Utils from '../../utils/utils'
+import Utils from 'utils/utils'
 
-const Day = ({day, date, setDay, setDate, setTask}) => {
+const Day = ({day, date, setDay, setDate, onTaskClick}) => {
     const style =
         (day.date.getMonth() !== date.getMonth() ? ' disabled' : '') +
         (DateUtils.sameDay(day.date, new Date()) ? ' current-day' : '') +
@@ -21,12 +21,12 @@ const Day = ({day, date, setDay, setDate, setTask}) => {
                     </div>
                     <div className="tasks">
                         {day.tasks.map(task => (
-                            <Task key={task.id} task={task} setTask={setTask} setDay={setDay} style={getStyle(task.color)} />
+                            <Task key={task.id} task={task} onTaskClick={onTaskClick} setDay={setDay} style={getStyle(task.color)} />
                         ))}
                     </div>
                 </div>
                 {day && date && DateUtils.sameDay(day.date, date) ? (
-                    <div className="btn btn-primary add-button" onClick={() => setTask({})}>
+                    <div className="btn btn-primary add-button" onClick={event => onTaskClick(event, {})}>
                         +
                     </div>
                 ) : null}

@@ -1,12 +1,7 @@
-const Task = ({task, setTask, style}) => {
+const Task = ({task, onTaskClick, style}) => {
     return (
-        <p
-            style={style}
-            onClick={() => {
-                setTask(task)
-            }}
-        >
-            {task.content}
+        <p style={style} onClick={event => onTaskClick(event, task)}>
+            {task.title}
         </p>
     )
 }

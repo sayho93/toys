@@ -6,22 +6,24 @@ import Helper from 'api/Helper'
 import CalendarHeader from 'components/planner/calendarHeader'
 import Calendar from 'components/planner/calendar'
 import DateUtils from 'utils/date'
+import TaskModal from 'components/planner/taskModal'
+import useUser from '../../lib/useUser'
 
 const PlannerApp = () => {
+    const [loading, setLoading] = useState(false)
+    const [modal, setModal] = useState(false)
     const [date, setDate] = useState(new Date())
     const [days, setDays] = useState([])
-    const [task, setTask] = useState([])
+    const [task, setTask] = useState({})
+    const {user, mutateUser} = useUser({})
     const {data, error, isValidating, mutate} = useSWR(Constants.API_PLANNER_LIST, Helper.get)
 
-    useEffect(() => {
-        console.log(date)
-    }, [date])
+    useEffect(async () => {
+        if (user) {
+            await Helper.get(`${Constants.API_USER_NOTIFIED}/${user.id}`)
+            mutateUser()
+        }
 
-    useEffect(() => {
-        console.log(days)
-    }, [days])
-
-    useEffect(() => {
         if (data) {
             const tmpDays = []
             const first = DateUtils.getCalendarFirstDay(date)
@@ -36,15 +38,51 @@ const PlannerApp = () => {
             } while (!DateUtils.sameDay(first, last))
 
             setDays(tmpDays)
-            // console.log(first, last)
-            // console.log(tmpDays)
         }
     }, [data, date])
 
+    const onTaskClick = (event, task) => {
+        event.preventDefault()
+        event.stopPropagation()
+        setTask(task)
+        console.log('onTaskClick')
+        console.log(task)
+        setModal(true)
+    }
+
+    const onSave = async () => {
+        setLoading(true)
+        const ret = await Helper.post(Constants.API_PLANNER_SAVE, {...task, userId: user.id})
+        if (ret) {
+            await mutate()
+            setLoading(false)
+            setModal(false)
+            setTask({})
+        }
+    }
+
+    const onDelete = async () => {
+        setLoading(true)
+        const ret = await Helper.get(`${Constants.API_PLANNER_DELETE}/${task.id}`)
+        if (ret) {
+            await mutate()
+            setLoading(false)
+            setModal(false)
+            setTask({})
+        }
+    }
+
     return (
         <Container>
-            <CalendarHeader date={date} setDate={setDate} />
-            <Calendar days={days} date={date} setDate={setDate} setTask={setTask} />
+            {modal && <TaskModal date={date} task={task} setTask={setTask} setModal={setModal} loading={loading} onSave={onSave} onDelete={onDelete} user={user} />}
+            {user && user.id ? (
+                <>
+                    <CalendarHeader date={date} setDate={setDate} />
+                    <Calendar days={days} date={date} setDate={setDate} onTaskClick={onTaskClick} />
+                </>
+            ) : (
+                <p className="mt-5 text-center">로그인 후 이용해 주세요.</p>
+            )}
         </Container>
     )
 }
