@@ -15,6 +15,7 @@ import {FileUtil, Multipart} from 'src/utils/FileUtil'
 /* Service imports */
 import UserSVC from 'src/services/UserSVC'
 import LotterySVC from '../services/LotterySVC'
+import PlannerSVC from '../services/PlannerSVC'
 import FileSVC from 'src/services/FileSVC'
 
 //TODO implement
@@ -28,6 +29,7 @@ const Api = ({Mappers, AsyncHandler}) => {
 
     const userSVC = new UserSVC(dependency)
     const lotterySVC = new LotterySVC(dependency)
+    const plannerSVC = new PlannerSVC(dependency)
     const filSVC = new FileSVC(dependency)
 
     if (process.env.NODE_ENV === 'production' && process.env.INSTANCE_ID === '0001') {
@@ -196,6 +198,34 @@ const Api = ({Mappers, AsyncHandler}) => {
         AsyncHandler(async (req, res) => {
             await userSVC.sendMail()
             res.json(true)
+        })
+    )
+
+    router.get(
+        '/planner/list',
+        AsyncHandler(async (req, res) => {
+            const ret = await plannerSVC.getPlannerList()
+            res.json(ret)
+        })
+    )
+
+    router.post(
+        '/planner/add',
+        body('userId').notEmpty().withMessage('UserId is required'),
+        body('content').notEmpty().withMessage('Content is required'),
+        body('targetDate').notEmpty().withMessage('Target date is required'),
+        body('color').notEmpty().withMessage('Color is required'),
+        AsyncHandler(async (req, res) => {
+            const errors = validationResult(req)
+            console.log(errors.array())
+            if (!errors.isEmpty()) {
+                const err = new Error(errors.array()[0].msg)
+                err.status = 400
+                throw err
+            }
+            const params = req.body
+            const ret = await plannerSVC.addPlanner(params)
+            res.json(ret)
         })
     )
 

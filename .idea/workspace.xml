@@ -4,14 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="toast added">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="default planner structure added &amp; service logic added">
+      <change afterPath="$PROJECT_DIR$/client/components/planner/calendar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/planner/calendarHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/planner/container.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/planner/day.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/planner/task.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/planner/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/database/query/PlannerMapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/PlannerSVC.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/authModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/authModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Home/appItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Home/appItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/lotGen/authModal.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/lotGen/generator/generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/lotGen/generator/generator.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList/numList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/numList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/HeaderInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/hallOfFame.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/lotgen/hallOfFame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/lotgen/history.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/lotgen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/lotgen/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/posts/tutorial.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/posts/tutorial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/utils/date.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/date.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +107,7 @@
     <property name="import_schema_mapping" value="&lt;schema-mapping&gt;&lt;databases&gt;&lt;list&gt;&lt;schema-mapping-item&gt;&lt;source-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/source-data-source-id&gt;&lt;source-path&gt;schema/&quot;vsExt&quot;&lt;/source-path&gt;&lt;target-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/target-data-source-id&gt;&lt;target-path&gt;schema/&quot;Toys&quot;&lt;/target-path&gt;&lt;/schema-mapping-item&gt;&lt;/list&gt;&lt;/databases&gt;&lt;/schema-mapping&gt;" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public/icons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/components/planner" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -102,21 +121,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/components/planner" />
       <recent name="$PROJECT_DIR$/client/public/icons" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/client/public/splashcreens" />
       <recent name="$PROJECT_DIR$/client/public" />
-      <recent name="$PROJECT_DIR$/server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/public/splashscreens" />
-      <recent name="$PROJECT_DIR$/client/public/icons" />
-      <recent name="$PROJECT_DIR$/client/public" />
+      <recent name="$PROJECT_DIR$/client/components/planner" />
       <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/client/pages" />
+      <recent name="$PROJECT_DIR$/client/components/lotGen" />
+      <recent name="$PROJECT_DIR$/client/components" />
+      <recent name="$PROJECT_DIR$/client/public/splashscreens" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client build">
+  <component name="RunManager" selected="npm.server build">
     <configuration name="client with https" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/client">
       <method v="2" />
     </configuration>
@@ -217,7 +236,7 @@
       <workItem from="1647355627103" duration="212000" />
       <workItem from="1647355851992" duration="1495000" />
       <workItem from="1647357366288" duration="12161000" />
-      <workItem from="1647431580671" duration="15770000" />
+      <workItem from="1647431580671" duration="36320000" />
     </task>
     <task id="LOCAL-00001" summary="server structure added">
       <created>1646480389203</created>
@@ -513,7 +532,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647448293973</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary=".">
+      <created>1647514116433</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1647514116433</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="spinners added" />
     <MESSAGE value="response logger added to express middleware" />
     <MESSAGE value="logger phrase beautified" />
     <MESSAGE value="numList component beautified &amp; next job is pagination" />
@@ -556,11 +581,12 @@
     <MESSAGE value="minor" />
     <MESSAGE value="pagination using swrInfinite added" />
     <MESSAGE value="null handled" />
-    <MESSAGE value="." />
     <MESSAGE value="splash &amp; appIcon on ios safari fixed" />
     <MESSAGE value="infinite scroll with intersectionObserver added" />
     <MESSAGE value="toast added" />
-    <option name="LAST_COMMIT_MESSAGE" value="toast added" />
+    <MESSAGE value="." />
+    <MESSAGE value="default planner structure added &amp; service logic added" />
+    <option name="LAST_COMMIT_MESSAGE" value="default planner structure added &amp; service logic added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

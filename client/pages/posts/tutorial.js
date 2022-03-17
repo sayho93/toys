@@ -1,21 +1,16 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout, {siteTitle} from '../../components/tutorial/layout'
-import utilStyles from '../../styles/utils.module.css'
-import Constants from '../../api/Constants'
+import Layout, {siteTitle} from 'components/tutorial/layout'
+import utilStyles from 'styles/utils.module.css'
+import Constants from 'api/Constants'
 import useSWR from 'swr'
-import Helper from '../../api/Helper'
+import Helper from 'api/Helper'
 import {useRouter} from 'next/router'
 
 export default function Tutorial(props = null) {
-    const {data, error} = useSWR(`${Constants.API_ENDPOINT}/cats/random50`, Helper)
+    const {data, error} = useSWR(Constants.API_NUM_LIST, Helper)
+    console.log(data)
     const router = useRouter()
-    if (error) alert(error)
-    if (!data) return <p>Loading...</p>
-    if (data.returnCode !== 1) {
-        alert(data.returnMessage)
-        router.reload()
-    }
     return (
         <Layout home>
             <Head>
@@ -34,15 +29,16 @@ export default function Tutorial(props = null) {
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
                 <h2 className={utilStyles.headingLg}>Blog</h2>
                 <ul className={utilStyles.list}>
-                    {data.data.map((item, idx) => (
-                        <li className={utilStyles.listItem} key={idx}>
-                            {item.name}
-                            <br />
-                            {/*{id}*/}
-                            <br />
-                            {/*{date}*/}
-                        </li>
-                    ))}
+                    {data &&
+                        data.map((item, idx) => (
+                            <li className={utilStyles.listItem} key={idx}>
+                                {item.name}
+                                <br />
+                                {/*{id}*/}
+                                <br />
+                                {/*{date}*/}
+                            </li>
+                        ))}
                 </ul>
             </section>
         </Layout>

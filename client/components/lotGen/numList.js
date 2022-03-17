@@ -1,4 +1,4 @@
-import dateUtils from 'utils/date'
+import DateUtils from 'utils/date'
 import {useCallback, useEffect, useRef} from 'react'
 import {ToastContainer, toast} from 'react-toastify'
 
@@ -57,7 +57,7 @@ const NumList = props => {
                                     >
                                         <div className="d-flex w-100 justify-content-between mb-2">
                                             <h6 className="mb-1">{row.roundNo}회</h6>
-                                            <small className="text-sm-end">{dateUtils.getDateString(row.regDate)}</small>
+                                            <small className="text-sm-end">{DateUtils.getDateString(row.regDate)}</small>
                                         </div>
                                         <div className="mb-2">{row.numberCSV.split(',').map(num => renderNumbers(num, row))}</div>
                                         {row.rank !== 0 ? (

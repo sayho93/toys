@@ -15,6 +15,12 @@ const HeaderInfo = {
             {name: 'Hall of fame', link: '/lotgen/hallOfFame'},
         ],
     },
+    Planner: {
+        title: 'Planner',
+        icon: 'bi-calendar-event',
+        searchBar: false,
+        menus: [],
+    },
     Tutorial: {
         title: 'Tutorial',
         icon: 'bi-code-slash',

@@ -1,6 +1,6 @@
 import Container from 'components/lotGen/container'
 import useNumList from 'lib/useNumList'
-import NumList from 'components/lotGen/numList/numList'
+import NumList from 'components/lotGen/numList'
 import {useSelector} from 'react-redux'
 import LoadingFixed from 'components/LoadingFixed'
 

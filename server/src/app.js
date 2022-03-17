@@ -13,9 +13,10 @@ import createError from 'http-errors'
 /**
  * Database
  */
-import Datasource from './database/Datasource'
-import UserMapper from './database/query/UserMapper'
-import LotteryMapper from './database/query/LotteryMapper'
+import Datasource from 'src/database/Datasource'
+import UserMapper from 'src/database/query/UserMapper'
+import LotteryMapper from 'src/database/query/LotteryMapper'
+import PlannerMapper from 'src/database/query/PlannerMapper'
 import dotenv from 'dotenv'
 
 const app = express()
@@ -41,7 +42,9 @@ const dataSource = Datasource(
 const Mappers = {
     userMapper: UserMapper(dataSource),
     lotteryMapper: LotteryMapper(dataSource),
+    plannerMapper: PlannerMapper(dataSource),
 }
+
 const AsyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 const api = Api({Mappers, AsyncHandler})
 

@@ -1,5 +1,3 @@
-import styles from './generator.module.css'
-
 const Generator = props => {
     return (
         <>
@@ -20,11 +18,20 @@ const Generator = props => {
                                         <input
                                             type="text"
                                             pattern="\d*"
-                                            className={`form-control ${styles.lotNumber}`}
+                                            className={`form-control lotNumber`}
                                             data-idx={idx}
                                             value={props.numList ? props.numList[idx] : ''}
                                             onChange={props.onChange}
                                         />
+                                        <style jsx>{`
+                                            .lotNumber {
+                                                font-size: 1em !important;
+                                                font-weight: bold;
+                                                text-align: center;
+                                                padding: 0.375rem 0.35rem;
+                                                border-radius: 0.5em;
+                                            }
+                                        `}</style>
                                     </div>
                                 )
                             })}
