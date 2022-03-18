@@ -7,7 +7,9 @@ const Calendar = ({days, date, setDate, onTaskClick}) => {
         <div>
             <div className="calendar borderless day-names">
                 {names.map(name => (
-                    <h5 key={name}>{name}</h5>
+                    <h5 className="text-end fw-bold px-1 py-2 m-0" key={name}>
+                        {name}
+                    </h5>
                 ))}
             </div>
             <div className="calendar">{days.length && days.map(item => <Day key={item.date} day={item} date={date} setDate={setDate} onTaskClick={onTaskClick} />)}</div>
@@ -19,11 +21,7 @@ const Calendar = ({days, date, setDate, onTaskClick}) => {
                     color: white;
                 }
                 .calendar h5 {
-                    text-align: right;
-                    font-weight: bold;
                     color: #ffffff;
-                    padding: 5px 10px 5px 10px;
-                    margin: 0;
                     border-radius: 5px;
                 }
                 .borderless {

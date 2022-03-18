@@ -45,8 +45,6 @@ const PlannerApp = () => {
         event.preventDefault()
         event.stopPropagation()
         setTask(task)
-        console.log('onTaskClick')
-        console.log(task)
         setModal(true)
     }
 

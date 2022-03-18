@@ -5,12 +5,8 @@ import DateUtils from 'utils/date'
 const TaskModal = ({date, task, setTask, setModal, onSave, onDelete, loading, user}) => {
     useEffect(() => {
         if (task && !task.id) setTask({...task, targetDate: DateUtils.getDateString(date), color: '#f44336'})
-        else setTask({...task, targetDate: DateUtils.getDateString(date)})
-    }, [])
-
-    useEffect(() => {
-        console.log(task)
-    }, [task])
+        else setTask({...task, targetDate: DateUtils.getDateString(task.targetDate)})
+    }, [date])
 
     const inputHandler = e => {
         setTask({...task, [e.target.name]: e.target.value})
@@ -63,7 +59,7 @@ const TaskModal = ({date, task, setTask, setModal, onSave, onDelete, loading, us
 
                             <label>Color</label>
 
-                            <div className="mb-4 colorPicker">
+                            <div className="mb-4 mt-2 colorPicker justify-content-center d-flex">
                                 <CirclePicker
                                     color={task.color}
                                     onChange={color => {
@@ -73,7 +69,7 @@ const TaskModal = ({date, task, setTask, setModal, onSave, onDelete, loading, us
                             </div>
 
                             <div className="btn-group w-100">
-                                {task.userId === user.id && (
+                                {(!task.id || task.userId === user.id) && (
                                     <button className="w-100 mb-2 btn btn-lg rounded-4 btn-primary btn-sm" onClick={onSave}>
                                         {loading && <span className="spinner-border spinner-border-sm me-2" />}
                                         저장
@@ -98,13 +94,7 @@ const TaskModal = ({date, task, setTask, setModal, onSave, onDelete, loading, us
 
             <style jsx>{`
                 textarea {
-                    height: 15rem !important;
-                }
-                .colorPicker {
-                    margin-top: 10px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    min-height: 12rem !important;
                 }
             `}</style>
         </>
