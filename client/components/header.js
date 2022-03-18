@@ -8,7 +8,7 @@ import Helper from 'api/Helper'
 import useUser from 'lib/useUser'
 import useNumList from 'lib/useNumList'
 import {setSearchInfo} from 'store/modules/search'
-import Utils from 'utils/utils'
+import {debounce} from 'utils/utils'
 import enableMessaging from 'utils/firebase/enableMessaging'
 
 const Header = () => {
@@ -33,7 +33,7 @@ const Header = () => {
     }, [user])
 
     const onSearch = async event => {
-        Utils.debounce(() => {
+        debounce(() => {
             dispatch(setSearchInfo({currentApp: appInfo.currentApp, searchTxt: event.target.value}))
             mutateNumList()
         }, 500)()

@@ -1,15 +1,15 @@
 import Task from 'components/planner/task'
-import DateUtils from 'utils/date'
-import Utils from 'utils/utils'
+import {sameDay} from 'utils/date'
+import {contrast} from 'utils/utils'
 
 const Day = ({day, date, setDay, setDate, onTaskClick}) => {
     const style =
         (day.date.getMonth() !== date.getMonth() ? ' disabled' : '') +
-        (DateUtils.sameDay(day.date, new Date()) ? ' current-day' : '') +
-        (DateUtils.sameDay(day.date, date) ? ' selected-day' : '')
+        (sameDay(day.date, new Date()) ? ' current-day' : '') +
+        (sameDay(day.date, date) ? ' selected-day' : '')
 
     const getStyle = color => {
-        return {background: color, color: Utils.contrast(color)}
+        return {background: color, color: contrast(color)}
     }
 
     return (
@@ -25,7 +25,7 @@ const Day = ({day, date, setDay, setDate, onTaskClick}) => {
                         ))}
                     </div>
                 </div>
-                {day && date && DateUtils.sameDay(day.date, date) ? (
+                {day && date && sameDay(day.date, date) ? (
                     <div className="btn btn-primary add-button" onClick={event => onTaskClick(event, {})}>
                         +
                     </div>

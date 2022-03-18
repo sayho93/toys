@@ -3,10 +3,10 @@ import {useDispatch} from 'react-redux'
 import {setCurrentApp} from 'store/modules/app'
 import AppInfo from 'constants/AppInfo'
 import AppItem from 'components/Home/appItem'
-import useUser from '../lib/useUser'
+import useUser from 'lib/useUser'
 import useSWR from 'swr'
-import Constants from '../api/Constants'
-import Helper from '../api/Helper'
+import Constants from 'api/Constants'
+import Helper from 'api/Helper'
 
 const Home = () => {
     const apps = AppInfo

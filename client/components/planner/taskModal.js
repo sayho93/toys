@@ -1,11 +1,11 @@
 import {useEffect} from 'react'
 import {CirclePicker} from 'react-color'
-import DateUtils from 'utils/date'
+import {getDateString} from 'utils/date'
 
 const TaskModal = ({date, task, setTask, setModal, onSave, onDelete, loading, user}) => {
     useEffect(() => {
-        if (task && !task.id) setTask({...task, targetDate: DateUtils.getDateString(date), color: '#f44336'})
-        else setTask({...task, targetDate: DateUtils.getDateString(task.targetDate)})
+        if (task && !task.id) setTask({...task, targetDate: getDateString(date), color: '#f44336'})
+        else setTask({...task, targetDate: getDateString(task.targetDate)})
     }, [date])
 
     const inputHandler = e => {
@@ -71,7 +71,7 @@ const TaskModal = ({date, task, setTask, setModal, onSave, onDelete, loading, us
                             <div className="btn-group w-100">
                                 {(!task.id || task.userId === user.id) && (
                                     <button className="w-100 mb-2 btn btn-lg rounded-4 btn-primary btn-sm" onClick={onSave}>
-                                        {loading && <span className="spinner-border spinner-border-sm me-2" />}
+                                        {loading.save && <span className="spinner-border spinner-border-sm me-2" />}
                                         저장
                                     </button>
                                 )}
@@ -83,7 +83,7 @@ const TaskModal = ({date, task, setTask, setModal, onSave, onDelete, loading, us
 
                             {task && task.id && task.userId === user.id && (
                                 <button className="w-100 mb-2 btn btn-lg rounded-4 btn-danger btn-sm" onClick={onDelete}>
-                                    {loading && <span className="spinner-border spinner-border-sm me-2" />}
+                                    {loading.delete && <span className="spinner-border spinner-border-sm me-2" />}
                                     삭제
                                 </button>
                             )}

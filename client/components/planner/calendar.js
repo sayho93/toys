@@ -12,7 +12,9 @@ const Calendar = ({days, date, setDate, onTaskClick}) => {
                     </h5>
                 ))}
             </div>
-            <div className="calendar">{days.length && days.map(item => <Day key={item.date} day={item} date={date} setDate={setDate} onTaskClick={onTaskClick} />)}</div>
+            <div className="calendar">
+                {days.length !== 0 && days.map(item => <Day key={item.date} day={item} date={date} setDate={setDate} onTaskClick={onTaskClick} />)}
+            </div>
             <style jsx>{`
                 .calendar {
                     box-sizing: border-box;

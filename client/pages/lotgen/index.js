@@ -2,7 +2,7 @@ import Generator from 'components/lotGen/generator'
 import {useState} from 'react'
 import NumList from 'components/lotGen/numList'
 import Container from 'components/lotGen/container'
-import lotteryUtils from 'utils/lottery'
+import {getWeek} from 'utils/lottery'
 import Helper from 'api/Helper'
 import Constants from 'api/Constants'
 import useUser from 'lib/useUser'
@@ -68,7 +68,7 @@ const LotGenApp = () => {
         }
 
         const insertId = await Helper.post(`${Constants.API_SAVE_NUM}/${user.id}`, {
-            roundNo: lotteryUtils.getWeek(),
+            roundNo: getWeek(),
             numList: lot.sort((a, b) => a - b),
         })
 
@@ -89,7 +89,7 @@ const LotGenApp = () => {
                 numList={lot}
                 onChange={handleNumChange}
                 onSave={onNumSave}
-                week={lotteryUtils.getWeek()}
+                week={getWeek()}
                 disabled={saveStatus.btnDisabled}
             />
             {numListData.isLoading && <LoadingFixed />}
