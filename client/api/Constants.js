@@ -16,6 +16,9 @@ const Constants = {
     API_PLANNER_SAVE: `${API_ENDPOINT}/planner/save`,
     API_PLANNER_DELETE: `${API_ENDPOINT}/planner/delete`,
     API_PLANNER_LATEST: `${API_ENDPOINT}/planner/latest`,
+
+    //FILE
+    API_FILE_UPLOAD: `${API_ENDPOINT}/file/upload`,
 }
 
 export default Constants

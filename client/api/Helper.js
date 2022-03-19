@@ -34,6 +34,14 @@ const Helper = {
             return catcher(err)
         }
     },
+    multipart: async (url, formData) => {
+        try {
+            const res = await axios.post(url, formData)
+            return res.data
+        } catch (err) {
+            return catcher(err)
+        }
+    },
 }
 
 export default Helper

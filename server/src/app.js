@@ -17,6 +17,7 @@ import Datasource from 'src/database/Datasource'
 import UserMapper from 'src/database/query/UserMapper'
 import LotteryMapper from 'src/database/query/LotteryMapper'
 import PlannerMapper from 'src/database/query/PlannerMapper'
+import FileMapper from 'src/database/query/FileMapper'
 import dotenv from 'dotenv'
 
 const app = express()
@@ -43,6 +44,7 @@ const Mappers = {
     userMapper: UserMapper(dataSource),
     lotteryMapper: LotteryMapper(dataSource),
     plannerMapper: PlannerMapper(dataSource),
+    fileMapper: FileMapper(dataSource),
 }
 
 const AsyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
@@ -123,6 +125,7 @@ app.use(logRequest)
 app.use(logResponseBody)
 // app.use('/', webRouter)
 app.use('/api', api.router)
+app.use('/uploads', express.static('uploads'))
 /**
  * error handlers
  */

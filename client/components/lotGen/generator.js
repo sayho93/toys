@@ -1,4 +1,9 @@
 const Generator = props => {
+    // const onUploadClick = () => {
+    //     inputFileRef.current.dispatchEvent(new Event('click', {bubbles: true}))
+    // }
+    const urlHandler = event => props.setUrl(event.target.value)
+
     return (
         <>
             <div className="mb-3 text-center">
@@ -43,11 +48,26 @@ const Generator = props => {
                             {props.loading && <span className="spinner-border spinner-border-sm me-2" />}
                             저장
                         </button>
-                        <button className="btn btn-primary ms-4" onClick={props.onGenerate} disabled={props.disabled}>
+                        <button className="btn btn-primary ms-2" onClick={props.onGenerate} disabled={props.disabled}>
                             번호 생성!
+                        </button>
+                        <button className="btn btn-secondary ms-2" onClick={() => props.setShowUrl(!props.showUrl)}>
+                            QR URL
                         </button>
                     </div>
                 </div>
+                {props.showUrl && (
+                    <div className="input-group mb-3">
+                        <span className="input-group-text" id="basic-addon3">
+                            QR code URL
+                        </span>
+                        <input type="text" className="form-control" id="url" onChange={urlHandler} value={props.url} />
+                        <button className="btn btn-outline-secondary" type="button" onClick={props.onUrlSave} disabled={props.urlSaveLoading}>
+                            {props.urlSaveLoading && <span className="spinner-border spinner-border-sm me-2" />}
+                            저장
+                        </button>
+                    </div>
+                )}
             </div>
         </>
     )

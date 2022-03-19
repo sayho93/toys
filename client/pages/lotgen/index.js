@@ -2,7 +2,7 @@ import Generator from 'components/lotGen/generator'
 import {useState} from 'react'
 import NumList from 'components/lotGen/numList'
 import Container from 'components/lotGen/container'
-import {getWeek} from 'utils/lottery'
+import {getWeek, parseUrl} from 'utils/lottery'
 import Helper from 'api/Helper'
 import Constants from 'api/Constants'
 import useUser from 'lib/useUser'
@@ -23,6 +23,10 @@ const LotGenApp = () => {
     const [lot, setLot] = useState(Array(6).fill(''))
 
     const [saveStatus, setSaveStatus] = useState({loading: false, btnDisabled: false})
+
+    const [showUrl, setShowUrl] = useState(false)
+    const [url, setUrl] = useState('')
+    const [urlSaveLoading, setUrlSaveLoading] = useState(false)
 
     const onGenerate = () => {
         const list = []
@@ -80,6 +84,49 @@ const LotGenApp = () => {
         setSaveStatus({loading: false, btnDisabled: false})
     }
 
+    const onUrlSave = async () => {
+        try {
+            setUrlSaveLoading(true)
+            const ret = parseUrl(url)
+            const chk = ret.nums.filter(num => num.length !== 6)
+            if (!ret.roundNo || chk.length > 0) {
+                alert('잘못된 URL 입니다.')
+                return
+            }
+            let saveChk = true
+            for (const num of ret.nums) {
+                const insertId = await Helper.post(`${Constants.API_SAVE_NUM}/${user.id}`, {
+                    roundNo: ret.roundNo,
+                    numList: num.sort((a, b) => a - b),
+                })
+                if (!insertId) saveChk = false
+            }
+            if (!saveChk) alert('Error saving numbers')
+            else {
+                setUrlSaveLoading(false)
+                await mutateNumList()
+                setUrl('')
+                setShowUrl(false)
+            }
+        } catch (err) {
+            alert('잘못된 URL 입니다.')
+        }
+    }
+
+    // const onFileChange = async event => {
+    //     const formData = new FormData()
+    //     formData.append('img', event.target.files[0])
+    //     formData.append('userId', user.id)
+    //     const ret = await Helper.multipart(Constants.API_FILE_UPLOAD, formData)
+    //     console.log(ret)
+    //     if (ret) {
+    //         alert('업로드 성공')
+    //     } else {
+    //         alert('업로드 실패')
+    //     }
+    //     event.target.value = ''
+    // }
+
     return (
         <Container>
             <Generator
@@ -91,6 +138,12 @@ const LotGenApp = () => {
                 onSave={onNumSave}
                 week={getWeek()}
                 disabled={saveStatus.btnDisabled}
+                showUrl={showUrl}
+                setShowUrl={setShowUrl}
+                url={url}
+                setUrl={setUrl}
+                onUrlSave={onUrlSave}
+                urlSaveLoading={urlSaveLoading}
             />
             {numListData.isLoading && <LoadingFixed />}
             {user && user.isLoggedIn ? (

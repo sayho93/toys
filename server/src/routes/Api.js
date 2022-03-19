@@ -30,7 +30,7 @@ const Api = ({Mappers, AsyncHandler}) => {
     const userSVC = new UserSVC(dependency)
     const lotterySVC = new LotterySVC(dependency)
     const plannerSVC = new PlannerSVC(dependency)
-    const filSVC = new FileSVC(dependency)
+    const fileSVC = new FileSVC(dependency)
 
     if (process.env.NODE_ENV === 'production' && process.env.INSTANCE_ID === '0001') {
         const rule = new schedule.RecurrenceRule()
@@ -255,6 +255,24 @@ const Api = ({Mappers, AsyncHandler}) => {
         })
     )
 
+    router.post(
+        '/file/upload',
+        Multipart.single('img'),
+        AsyncHandler(async (req, res) => {
+            let userId = req.body.userId
+            let desc = req.body.desc
+            let file = req.file
+            console.log(file)
+            if (file === undefined) {
+                const err = new Error('file is required')
+                err.status = 400
+                throw err
+            }
+            const ret = await fileSVC.processFile(userId, file, desc)
+            res.json(ret)
+        })
+    )
+
     // #######################
     router.get('/info/chatRoom/:userId', (req, res) => {
         chatSVC
@@ -332,19 +350,6 @@ const Api = ({Mappers, AsyncHandler}) => {
             .chatMemberList(34)
             .then(data => {
                 res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, data))
-            })
-            .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-    })
-
-    router.post('/test/fileUpload', Multipart.single('img'), (req, res) => {
-        let userId = req.body.userId
-        let desc = req.body.desc
-        let file = req.file
-        if (file === undefined) return res.json(Response(ResponseConst.CODE.CODE_INVALID_PARAM, ResponseConst.MSG.MSG_INVALID_PARAM))
-        fileSVC
-            .processFile(userId, file, desc)
-            .then(ret => {
-                res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, ret))
             })
             .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
     })

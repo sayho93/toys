@@ -14,39 +14,16 @@ class FileSVC {
 
     async processFile(userId, file, desc) {
         let ext = this.FileUtil.getExtension(file.originalname)
-
-        // const res = await Models.fileModel.create({
-        //     originName: file.originalname,
-        //     path: slash(file.path),
-        //     shortPath: slash(path.join(Config.app.EXTERNAL_PATH, file.filename)),
-        //     size: file.size,
-        //     ext: ext,
-        //     userKey: userId,
-        //     desc: desc,
-        // })
-        // this.Log.warn(JSON.stringify(res))
-        // return Models.fileModel.findByPk(res.id)
+        return await this.Mappers.fileMapper.addFile({
+            userId,
+            originName: file.originalname,
+            path: slash(file.path),
+            shortPath: slash(path.join(this.Config.app.EXTERNAL_PATH, file.filename)),
+            size: file.size,
+            ext: ext,
+            desc: desc,
+        })
     }
 }
 
 export default FileSVC
-
-// const FileSVC = {
-//     processFile: async (userId, file, desc) => {
-//         let ext = fileUtil.getExtension(file.originalname)
-//
-//         const res = await Models.fileModel.create({
-//             originName: file.originalname,
-//             path: slash(file.path),
-//             shortPath: slash(path.join(Config.app.EXTERNAL_PATH, file.filename)),
-//             size: file.size,
-//             ext: ext,
-//             userKey: userId,
-//             desc: desc,
-//         })
-//         Log.warn(JSON.stringify(res))
-//         return Models.fileModel.findByPk(res.id)
-//     },
-// }
-//
-// export default FileSVC
