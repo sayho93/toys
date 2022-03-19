@@ -74,6 +74,14 @@ class LotterySVC {
             await this.PushManager.send(registrationKey, `${week}회 당첨자 발표입니다.`, message)
         }
     }
+
+    async notify() {
+        this.Log.debug('notify batch process ::::: ')
+        const users = await this.Mappers.userMapper.getUserHavingToken()
+        this.Log.debug(users)
+        const registrationKey = users.map(user => user.pushToken)
+        await this.PushManager.send(registrationKey, 'LotGen 알림', `곧 ${this.Utils.getWeek()} 추첨이 시작됩니다.`)
+    }
 }
 
 export default LotterySVC

@@ -39,6 +39,15 @@ const Api = ({Mappers, AsyncHandler}) => {
         schedule.scheduleJob(rule, async () => {
             await lotterySVC.batchProcess()
         })
+
+        const notifyRule = new schedule.RecurrenceRule()
+        notifyRule.second = 0
+        notifyRule.minute = 50
+        notifyRule.hour = 20
+        notifyRule.dayOfWeek = 6
+        schedule.scheduleJob(notifyRule, async () => {
+            await lotterySVC.notify()
+        })
     }
 
     router.get('/', (req, res) => {
