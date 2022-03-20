@@ -1,5 +1,4 @@
 import express from 'express'
-const router = express.Router()
 import {body, validationResult} from 'express-validator'
 
 import Response from 'src/utils/Response'
@@ -12,16 +11,20 @@ import MailSender from 'src/utils/MailSender'
 import PushManager from 'src/utils/PushManager'
 import Log from 'src/utils/Logger'
 import {FileUtil, Multipart} from 'src/utils/FileUtil'
+
 /* Service imports */
 import UserSVC from 'src/services/UserSVC'
 import LotterySVC from 'src/services/LotterySVC'
 import PlannerSVC from 'src/services/PlannerSVC'
+import ArticleSVC from 'src/services/ArticleSVC'
 import FileSVC from 'src/services/FileSVC'
 
 //TODO implement
 import chatSVC from 'src/services/ChatSVC'
 import schedule from 'node-schedule'
 import dotenv from 'dotenv'
+
+const router = express.Router()
 
 dotenv.config()
 const Api = ({Mappers, AsyncHandler}) => {
@@ -30,6 +33,7 @@ const Api = ({Mappers, AsyncHandler}) => {
     const userSVC = new UserSVC(dependency)
     const lotterySVC = new LotterySVC(dependency)
     const plannerSVC = new PlannerSVC(dependency)
+    const articleSVC = new ArticleSVC(dependency)
     const fileSVC = new FileSVC(dependency)
 
     if (process.env.NODE_ENV === 'production' && process.env.INSTANCE_ID === '0001') {
@@ -278,6 +282,46 @@ const Api = ({Mappers, AsyncHandler}) => {
                 throw err
             }
             const ret = await fileSVC.processFile(userId, file, desc)
+            res.json(ret)
+        })
+    )
+
+    router.get(
+        '/article/list',
+        AsyncHandler(async (req, res) => {
+            const ret = await articleSVC.getArticleList(req.query)
+            res.json(ret)
+        })
+    )
+
+    router.get(
+        '/article/:id',
+        AsyncHandler(async (req, res) => {
+            const id = req.params.id
+            const ret = await articleSVC.getArticle(id)
+            res.json(ret)
+        })
+    )
+
+    router.post(
+        '/article/save',
+        Multipart.single('img'),
+        AsyncHandler(async (req, res) => {
+            const userId = req.body.userId
+            const file = req.file
+            const params = req.body
+            if (file) params.fileId = await fileSVC.processFile(userId, file)
+
+            const ret = await articleSVC.saveArticle(params)
+            res.json(ret)
+        })
+    )
+
+    router.post(
+        '/article/comment/save',
+        AsyncHandler(async (req, res) => {
+            const params = req.body
+            const ret = await articleSVC.saveComment(params)
             res.json(ret)
         })
     )

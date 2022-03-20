@@ -18,6 +18,7 @@ import UserMapper from 'src/database/query/UserMapper'
 import LotteryMapper from 'src/database/query/LotteryMapper'
 import PlannerMapper from 'src/database/query/PlannerMapper'
 import FileMapper from 'src/database/query/FileMapper'
+import ArticleMapper from 'src/database/query/ArticleMapper'
 import dotenv from 'dotenv'
 
 const app = express()
@@ -44,6 +45,7 @@ const Mappers = {
     userMapper: UserMapper(dataSource),
     lotteryMapper: LotteryMapper(dataSource),
     plannerMapper: PlannerMapper(dataSource),
+    articleMapper: ArticleMapper(dataSource),
     fileMapper: FileMapper(dataSource),
 }
 

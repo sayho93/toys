@@ -1,256 +1,67 @@
+import dynamic from 'next/dynamic'
+import {useEffect, useState} from 'react'
 import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
+const Fab = dynamic(() => import('react-tiny-fab').then(mod => mod.Fab), {ssr: false})
+import 'react-tiny-fab/dist/styles.css'
+import Card from './card'
 
 const Feed = () => {
+    const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        console.log(open)
+    }, [open])
+
     return (
-        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
-            <Masonry>
-                <div className="card m-2">
-                    <svg
-                        className="bd-placeholder-img card-img-top"
-                        width="100%"
-                        height="200"
-                        xmlns="http://www.w3.org/2000/svg"
-                        role="img"
-                        aria-label="Placeholder: Image cap"
-                        preserveAspectRatio="xMidYMid slice"
-                        focusable="false"
-                    >
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#868e96" />
-                        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-                            Image cap
-                        </text>
-                    </svg>
+        <>
+            <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3, 1400: 4}}>
+                <Masonry>
+                    <Card
+                        data={{
+                            id: 1,
+                            filePath: 'https://dummyimage.com/2268x4032',
+                            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+                            author: 'John Doe',
+                            width: 2268,
+                            height: 4032,
+                        }}
+                    />
+                    <Card
+                        data={{
+                            id: 1,
+                            // filePath: 'https://dummyimage.com/300x900',
+                            content:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non viverra lacus, sed varius lacus. Quisque in tortor nunc. Aliquam at tincidunt nunc. ',
+                            author: 'Karen Doe',
+                        }}
+                    />
+                    <Card
+                        data={{
+                            id: 1,
+                            filePath: 'https://dummyimage.com/4032x2268',
+                            content:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non viverra lacus, sed varius lacus. Quisque in tortor nunc. Aliquam at tincidunt nunc. Donec convallis, urna et cursus gravida, erat diam commodo metus, non pharetra mauris arcu nec justo. Etiam pulvinar volutpat rhoncus. Vestibulum ac pellentesque elit. Vestibulum at lacus lorem. Praesent eget massa lorem. Morbi sit amet porta lectus, a luctus arcu.',
+                            author: 'Cindy Doe',
+                            width: 4032,
+                            height: 2268,
+                        }}
+                    />
+                    <Card
+                        data={{
+                            id: 1,
+                            filePath: 'https://dummyimage.com/1125x2436',
+                            content:
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non viverra lacus, sed varius lacus. Quisque in tortor nunc. Aliquam at tincidunt nunc. Donec convallis, urna et cursus gravida, erat diam commodo metus, non pharetra mauris arcu nec justo. Etiam pulvinar volutpat rhoncus. Vestibulum ac pellentesque elit. Vestibulum at lacus lorem. Praesent eget massa lorem. Morbi sit amet porta lectus, a luctus arcu.',
+                            author: 'Cindy Doe',
+                            width: 1125,
+                            height: 2436,
+                        }}
+                    />
+                </Masonry>
+            </ResponsiveMasonry>
 
-                    <div className="card-body">
-                        <h5 className="card-title">Card title that wraps to a new line</h5>
-                        <p className="card-text">
-                            This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="card p-3 m-2">
-                    <figure className="p-3 mb-0">
-                        <blockquote className="blockquote">
-                            <p>A well-known quote, contained in a blockquote element.</p>
-                        </blockquote>
-                        <figcaption className="blockquote-footer mb-0 text-muted">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </figcaption>
-                    </figure>
-                </div>
-
-                <div className="card m-2">
-                    <svg
-                        className="bd-placeholder-img card-img-top"
-                        width="100%"
-                        height="200"
-                        xmlns="http://www.w3.org/2000/svg"
-                        role="img"
-                        aria-label="Placeholder: Image cap"
-                        preserveAspectRatio="xMidYMid slice"
-                        focusable="false"
-                    >
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#868e96" />
-                        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-                            Image cap
-                        </text>
-                    </svg>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p className="card-text">
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
-
-                <div className="card p-3 m-2">
-                    <figure className="p-3 mb-0">
-                        <blockquote className="blockquote">
-                            <p>A well-known quote, contained in a blockquote element.</p>
-                        </blockquote>
-                        <figcaption className="blockquote-footer mb-0 text-muted">
-                            Someone famous in <cite title="Source Title">Source Title</cite>
-                        </figcaption>
-                    </figure>
-                </div>
-
-                <div className="card m-2">
-                    <svg
-                        className="bd-placeholder-img card-img-top"
-                        width="100%"
-                        height="200"
-                        xmlns="http://www.w3.org/2000/svg"
-                        role="img"
-                        aria-label="Placeholder: Image cap"
-                        preserveAspectRatio="xMidYMid slice"
-                        focusable="false"
-                    >
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#868e96" />
-                        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-                            Image cap
-                        </text>
-                    </svg>
-
-                    <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p className="card-text">
-                            <small className="text-muted">Last updated 3 mins ago</small>
-                        </p>
-                    </div>
-                </div>
-            </Masonry>
-        </ResponsiveMasonry>
-        // <div className="row g-4 py-5 row-cols-1 row-cols-lg-3 row-cols-md-2 grid">
-        //     <div className="col-sm-6 col-lg-4 mb-4 cardContainer gridColumn">
-        //         <div className="card">
-        //             <svg
-        //                 className="bd-placeholder-img card-img-top"
-        //                 width="100%"
-        //                 height="200"
-        //                 xmlns="http://www.w3.org/2000/svg"
-        //                 role="img"
-        //                 aria-label="Placeholder: Image cap"
-        //                 preserveAspectRatio="xMidYMid slice"
-        //                 focusable="false"
-        //             >
-        //                 <title>Placeholder</title>
-        //                 <rect width="100%" height="100%" fill="#868e96" />
-        //                 <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-        //                     Image cap
-        //                 </text>
-        //             </svg>
-        //
-        //             <div className="card-body">
-        //                 <h5 className="card-title">Card title that wraps to a new line</h5>
-        //                 <p className="card-text">
-        //                     This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-        //                 </p>
-        //             </div>
-        //         </div>
-        //     </div>
-        //
-        //     <div className="col-sm-6 col-lg-4 mb-4 gridColumn">
-        //         <div className="card p-3">
-        //             <figure className="p-3 mb-0">
-        //                 <blockquote className="blockquote">
-        //                     <p>A well-known quote, contained in a blockquote element.</p>
-        //                 </blockquote>
-        //                 <figcaption className="blockquote-footer mb-0 text-muted">
-        //                     Someone famous in <cite title="Source Title">Source Title</cite>
-        //                 </figcaption>
-        //             </figure>
-        //         </div>
-        //     </div>
-        //
-        //     <div className="col-sm-6 col-lg-4 mb-4 gridColumn">
-        //         <div className="card">
-        //             <svg
-        //                 className="bd-placeholder-img card-img-top"
-        //                 width="100%"
-        //                 height="200"
-        //                 xmlns="http://www.w3.org/2000/svg"
-        //                 role="img"
-        //                 aria-label="Placeholder: Image cap"
-        //                 preserveAspectRatio="xMidYMid slice"
-        //                 focusable="false"
-        //             >
-        //                 <title>Placeholder</title>
-        //                 <rect width="100%" height="100%" fill="#868e96" />
-        //                 <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-        //                     Image cap
-        //                 </text>
-        //             </svg>
-        //
-        //             <div className="card-body">
-        //                 <h5 className="card-title">Card title</h5>
-        //                 <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        //                 <p className="card-text">
-        //                     <small className="text-muted">Last updated 3 mins ago</small>
-        //                 </p>
-        //             </div>
-        //         </div>
-        //     </div>
-        //
-        //     <div className="col-sm-6 col-lg-4 mb-4 gridColumn">
-        //         <div className="card bg-primary text-white text-center p-3">
-        //             <figure className="mb-0">
-        //                 <blockquote className="blockquote">
-        //                     <p>A well-known quote, contained in a blockquote element.</p>
-        //                 </blockquote>
-        //                 <figcaption className="blockquote-footer mb-0 text-white">
-        //                     Someone famous in <cite title="Source Title">Source Title</cite>
-        //                 </figcaption>
-        //             </figure>
-        //         </div>
-        //     </div>
-        //
-        //     <div className="col-sm-6 col-lg-4 mb-4 gridColumn">
-        //         <div className="card text-center">
-        //             <div className="card-body">
-        //                 <h5 className="card-title">Card title</h5>
-        //                 <p className="card-text">This card has a regular title and short paragraph of text below it.</p>
-        //                 <p className="card-text">
-        //                     <small className="text-muted">Last updated 3 mins ago</small>
-        //                 </p>
-        //             </div>
-        //         </div>
-        //     </div>
-        //
-        //     <div className="col-sm-6 col-lg-4 mb-4 gridColumn">
-        //         <div className="card">
-        //             <svg
-        //                 className="bd-placeholder-img card-img"
-        //                 width="100%"
-        //                 height="260"
-        //                 xmlns="http://www.w3.org/2000/svg"
-        //                 role="img"
-        //                 aria-label="Placeholder: Card image"
-        //                 preserveAspectRatio="xMidYMid slice"
-        //                 focusable="false"
-        //             >
-        //                 <title>Placeholder</title>
-        //                 <rect width="100%" height="100%" fill="#868e96" />
-        //                 <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-        //                     Card image
-        //                 </text>
-        //             </svg>
-        //         </div>
-        //     </div>
-        //
-        //     <div className="col-sm-6 col-lg-4 mb-4 gridColumn">
-        //         <div className="card p-3 text-end">
-        //             <figure className="mb-0">
-        //                 <blockquote className="blockquote">
-        //                     <p>A well-known quote, contained in a blockquote element.</p>
-        //                 </blockquote>
-        //                 <figcaption className="blockquote-footer mb-0 text-muted">
-        //                     Someone famous in <cite title="Source Title">Source Title</cite>
-        //                 </figcaption>
-        //             </figure>
-        //         </div>
-        //     </div>
-        //
-        //     <div className="col-sm-6 col-lg-4 mb-4 gridColumn">
-        //         <div className="card">
-        //             <div className="card-body">
-        //                 <h5 className="card-title">Card title</h5>
-        //                 <p className="card-text">
-        //                     This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.
-        //                 </p>
-        //                 <p className="card-text">
-        //                     <small className="text-muted">Last updated 3 mins ago</small>
-        //                 </p>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
+            <Fab color="primary" icon={<i className="bi bi-pencil-fill" />} event={false} onClick={() => setOpen(true)} />
+        </>
     )
 }
 

@@ -1,6 +1,8 @@
-const API_ENDPOINT = process.env.NODE_ENV === 'production' ? 'https://psyho.pw:3000/api' : 'http://localhost:4000/api'
+const URL = process.env.NODE_ENV === 'production' ? 'https://psyho.pw:3000' : 'http://localhost:4000'
+const API_ENDPOINT = `${URL}/api`
 
 const Constants = {
+    URL: URL,
     // USER
     API_SIGNUP: `${API_ENDPOINT}/signup`,
     API_LOGIN: `${API_ENDPOINT}/login`,
