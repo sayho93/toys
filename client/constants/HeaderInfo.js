@@ -21,6 +21,12 @@ const HeaderInfo = {
         searchBar: false,
         menus: [],
     },
+    'Minimal Flex': {
+        title: 'Minimal Flex',
+        icon: 'bi-camera-fill',
+        searchBar: true,
+        menus: [],
+    },
     Tutorial: {
         title: 'Tutorial',
         icon: 'bi-code-slash',

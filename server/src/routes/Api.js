@@ -6,16 +6,16 @@ import Response from 'src/utils/Response'
 import ResponseConst from 'src/utils/ResponseConst'
 
 /* Dependency imports */
-import Config from '../config/Config'
-import Utils from '../utils/Utils'
-import MailSender from '../utils/MailSender'
-import PushManager from '../utils/PushManager'
+import Config from 'src/config/Config'
+import Utils from 'src/utils/Utils'
+import MailSender from 'src/utils/MailSender'
+import PushManager from 'src/utils/PushManager'
 import Log from 'src/utils/Logger'
 import {FileUtil, Multipart} from 'src/utils/FileUtil'
 /* Service imports */
 import UserSVC from 'src/services/UserSVC'
-import LotterySVC from '../services/LotterySVC'
-import PlannerSVC from '../services/PlannerSVC'
+import LotterySVC from 'src/services/LotterySVC'
+import PlannerSVC from 'src/services/PlannerSVC'
 import FileSVC from 'src/services/FileSVC'
 
 //TODO implement

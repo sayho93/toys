@@ -1,0 +1,17 @@
+GET http://localhost:4000/api/user/45
+Accept: application/json
+
+<> 2022-03-19T185611.200.json
+
+###
+
+GET http://localhost:4000/api/user/45
+Accept: application/json
+
+###
+
+GET http://localhost:4000/api/item?id=99
+Accept: application/json
+
+###
+

@@ -1,7 +1,7 @@
 import Generator from 'components/lotGen/generator'
 import {useState} from 'react'
 import NumList from 'components/lotGen/numList'
-import Container from 'components/lotGen/container'
+import Container from 'components/container'
 import {getWeek, parseUrl} from 'utils/lottery'
 import Helper from 'api/Helper'
 import Constants from 'api/Constants'
@@ -128,7 +128,7 @@ const LotGenApp = () => {
     // }
 
     return (
-        <Container>
+        <Container app="LotGen">
             <Generator
                 loading={saveStatus.loading}
                 user={user}

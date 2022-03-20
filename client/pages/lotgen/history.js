@@ -1,4 +1,4 @@
-import Container from 'components/lotGen/container'
+import Container from 'components/container'
 import NumList from 'components/lotGen/numList'
 import useNumList from 'lib/useNumList'
 import {useSelector} from 'react-redux'
@@ -9,7 +9,7 @@ const History = () => {
     const {numListData, numListSize, setNumListSize} = useNumList({searchTxt: searchInfo.searchTxt})
 
     return (
-        <Container>
+        <Container app="LotGen">
             <h3>History</h3>
             {numListData.isLoading && <LoadingFixed />}
             <NumList list={numListData.numList} size={numListSize} setSize={setNumListSize} />

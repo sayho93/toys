@@ -1,5 +1,5 @@
 import Header from 'components/header'
-// import profile from '../../public/profile'
+
 const Layout = props => {
     return (
         <>

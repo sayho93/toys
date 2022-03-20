@@ -80,33 +80,8 @@ class LotterySVC {
         const users = await this.Mappers.userMapper.getUserHavingToken()
         this.Log.debug(users)
         const registrationKey = users.map(user => user.pushToken)
-        await this.PushManager.send(registrationKey, 'LotGen 알림', `곧 ${this.Utils.getWeek()} 추첨이 시작됩니다.`)
+        await this.PushManager.send(registrationKey, 'LotGen 알림', `곧 ${this.Utils.getWeek()}회 추첨이 시작됩니다.`)
     }
 }
 
 export default LotterySVC
-
-//functional way
-// const LotterySVC = ({Models, MailSender, PushManager, Utils, Config, Log}) => {
-//     const saveLottery = async (userId, params) => {
-//         const res = await Models.lotteryModel.create({userId: userId, roundNo: params.roundNo, numberCSV: params.numList.join(',')})
-//         return res.id
-//     }
-//
-//     const getLotteryList = async (userId = null) => {
-//         let query = `
-//             SELECT lottery.*, user.name AS userName, user.email AS userEmail, user.status AS userStatus
-//             FROM lottery JOIN user ON user.id = lottery.userId
-//             WHERE ${userId ? 'lottery.userId = :userId' : '1=1'}
-//             ORDER BY lottery.regDate DESC
-//         `
-//         return await Models.sequelize.query(query, {
-//             replacements: {userId: userId},
-//             type: QueryTypes.SELECT,
-//         })
-//     }
-//
-//     return [saveLottery, getLotteryList]
-// }
-//
-// export default LotterySVC

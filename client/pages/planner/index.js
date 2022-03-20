@@ -1,4 +1,4 @@
-import Container from 'components/planner/container'
+import Container from 'components/container'
 import {useEffect, useState} from 'react'
 import useSWR from 'swr'
 import Constants from 'api/Constants'
@@ -73,7 +73,7 @@ const PlannerApp = props => {
     }
 
     return (
-        <Container>
+        <Container app="Planner">
             {isValidating && <LoadingFixed />}
             {modal && <TaskModal date={date} task={task} setTask={setTask} setModal={setModal} loading={modalLoading} onSave={onSave} onDelete={onDelete} user={user} />}
             {user && user.id ? (
