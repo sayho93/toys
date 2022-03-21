@@ -1,9 +1,10 @@
 const ArticleMapper = dataSource => {
     const getArticles = async ({searchTxt = '', page = 1, limit = 12}) => {
+        const filter = `AND (content LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%')`
         const query = `
             SELECT article.*, user.name as author, user.email as email, file.originName, file.path, file.shortPath, file.size, file.width, file.height 
             FROM article JOIN user ON article.userId = user.id LEFT JOIN file ON article.fileId = file.id
-            WHERE article.status = 1 ${searchTxt && `AND (content LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%')`}
+            WHERE article.status = 1 ${searchTxt && filter}
             ORDER BY article.regDate DESC
             LIMIT ?, ?
         `
@@ -35,7 +36,7 @@ const ArticleMapper = dataSource => {
             ON DUPLICATE KEY UPDATE fileId = ?, content = ?, status = ?
         `
         const [ret] = await dataSource.exec(query, [id, userId, fileId, content, fileId, content, status])
-        return ret.affectedRows > 0
+        return ret.insertId
     }
 
     const upsertComment = async ({id = 0, userId, articleId, parentId = 0, depth = 0, content, status = 1}) => {
@@ -46,7 +47,7 @@ const ArticleMapper = dataSource => {
             ON DUPLICATE KEY UPDATE content = ?, status = ?
         `
         const [ret] = await dataSource.exec(query, [id, userId, articleId, parentId, depth, content, status, content, status])
-        return ret.affectedRows > 0
+        return ret.insertId
     }
 
     return {getArticles, getArticleInfo, getComments, upsertArticle, upsertComment}

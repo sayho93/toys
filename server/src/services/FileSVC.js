@@ -1,18 +1,18 @@
 import path from 'path'
 import slash from 'slash'
+import sizeOf from 'image-size'
 
 class FileSVC {
-    constructor({Config, Mappers, Utils, Log, MailSender, PushManager, FileUtil}) {
+    constructor({Config, Mappers, Utils, Log, FileUtil}) {
         this.Config = Config
         this.Mappers = Mappers
         this.Utils = Utils
         this.Log = Log
-        this.MailSender = MailSender
-        this.PushManager = PushManager
         this.FileUtil = FileUtil
     }
 
     async processFile(userId, file, desc) {
+        const dimensions = sizeOf(file.path)
         let ext = this.FileUtil.getExtension(file.originalname)
         return await this.Mappers.fileMapper.addFile({
             userId,
@@ -20,6 +20,8 @@ class FileSVC {
             path: slash(file.path),
             shortPath: slash(path.join(this.Config.app.EXTERNAL_PATH, file.filename)),
             size: file.size,
+            width: dimensions.width,
+            height: dimensions.height,
             ext: ext,
             desc: desc,
         })

@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="working on article api">
-      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/public/test.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/database/query/FileMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/FileMapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/FileSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/FileSVC.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,7 @@
     <property name="import_schema_mapping" value="&lt;schema-mapping&gt;&lt;databases&gt;&lt;list&gt;&lt;schema-mapping-item&gt;&lt;source-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/source-data-source-id&gt;&lt;source-path&gt;schema/&quot;vsExt&quot;&lt;/source-path&gt;&lt;target-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/target-data-source-id&gt;&lt;target-path&gt;schema/&quot;Toys&quot;&lt;/target-path&gt;&lt;/schema-mapping-item&gt;&lt;/list&gt;&lt;/databases&gt;&lt;/schema-mapping&gt;" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public/splashscreens" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -104,11 +101,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/public" />
       <recent name="$PROJECT_DIR$/client/public/splashscreens" />
       <recent name="$PROJECT_DIR$/client/components/planner" />
       <recent name="$PROJECT_DIR$/client/public/icons" />
       <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/client/public/splashcreens" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/components" />
@@ -118,7 +115,7 @@
       <recent name="$PROJECT_DIR$/client/public/splashscreens" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client dev">
+  <component name="RunManager" selected="npm.server build">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -240,14 +237,7 @@
       <workItem from="1647680431576" duration="468000" />
       <workItem from="1647680920051" duration="509000" />
       <workItem from="1647681443863" duration="1487000" />
-      <workItem from="1647682946506" duration="28205000" />
-    </task>
-    <task id="LOCAL-00003" summary="working on auth modal">
-      <created>1646514031044</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1646514031044</updated>
+      <workItem from="1647682946506" duration="30542000" />
     </task>
     <task id="LOCAL-00004" summary="change needed layout structure">
       <created>1646517123041</created>
@@ -585,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647780899386</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="working on article api">
+      <created>1647799021553</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1647799021553</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

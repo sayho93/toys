@@ -107,7 +107,7 @@ app.use(morgan('[:remote-addr] [:method] [:url] HTTP/:http-version :user-agent',
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser(Config.app.SESSION_KEY))
-app.use(express.static('public'))
+
 app.use(
     session({
         secret: Config.app.SESSION_KEY,
@@ -121,13 +121,18 @@ app.use(
 )
 
 /**
+ * static file serve
+ */
+app.use(express.static('public'))
+app.use('/uploads', express.static('uploads'))
+
+/**
  * routers
  */
 app.use(logRequest)
 app.use(logResponseBody)
 // app.use('/', webRouter)
 app.use('/api', api.router)
-app.use('/uploads', express.static('uploads'))
 /**
  * error handlers
  */

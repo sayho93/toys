@@ -1,12 +1,11 @@
 class ArticleSVC {
-    constructor({Config, Mappers, Utils, Log, MailSender, PushManager, FileUtil}) {
+    constructor({Config, Mappers, Utils, Log, MailSender, PushManager}) {
         this.Config = Config
         this.Mappers = Mappers
         this.Utils = Utils
         this.Log = Log
         this.MailSender = MailSender
         this.PushManager = PushManager
-        this.FileUtil = FileUtil
     }
 
     async getArticleList(params) {
@@ -26,7 +25,11 @@ class ArticleSVC {
     }
 
     async saveComment(params) {
-        return await this.Mappers.articleMapper.upsertComment(params)
+        if (params.id) return await this.Mappers.articleMapper.upsertComment(params)
+        else {
+            params.parentId = await this.Mappers.articleMapper.upsertComment(params)
+            return await this.Mappers.articleMapper.upsertComment(params)
+        }
     }
 }
 
