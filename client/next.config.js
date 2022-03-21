@@ -9,7 +9,7 @@ const nextConfig = {
         defaultLocale: 'ko',
     },
     images: {
-        domains: ['psyho.pw:3000', 'dummyimage.com'],
+        domains: ['psyho.pw', 'localhost'],
     },
     // webpack:
 }

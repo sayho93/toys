@@ -6,7 +6,6 @@ import Config from 'src/config/Config'
 import Api from 'src/routes/Api'
 import Log, {stream} from 'src/utils/Logger'
 import bodyParser from 'body-parser'
-import session from 'express-session'
 import cors from 'cors'
 import createError from 'http-errors'
 
@@ -56,7 +55,7 @@ const logRequest = (req, res, next) => {
     const {headers} = req
     headers['cache-control'] = 'no-cache'
     if (req.method === 'GET') Log.http(`[${req.method}] parameter: ${JSON.stringify(req.query)}`)
-    else if (req.method === 'POST') Log.http(`[${req.method}] parameter: ${JSON.stringify(req.body)}`)
+    else Log.http(`[${req.method}] parameter: ${JSON.stringify(req.body)}`)
     res.locals.user = req.user
     res.locals.param = req.query
     next()
@@ -103,22 +102,22 @@ const apiErrorHandler = (err, req, res, next) => {
 // const  accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 app.use(cors())
 app.use(morgan('[:remote-addr] [:method] [:url] HTTP/:http-version :user-agent', {stream: stream, immediate: true}))
-// app.use(express.json())
 app.use(bodyParser.json())
+app.use(bodyParser.text())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cookieParser(Config.app.SESSION_KEY))
 
-app.use(
-    session({
-        secret: Config.app.SESSION_KEY,
-        resave: false,
-        saveUninitialized: true,
-        cookie: {
-            httpOnly: true,
-            secure: false,
-        },
-    })
-)
+// app.use(
+//     session({
+//         secret: Config.app.SESSION_KEY,
+//         resave: false,
+//         saveUninitialized: true,
+//         cookie: {
+//             httpOnly: true,
+//             secure: false,
+//         },
+//     })
+// )
 
 /**
  * static file serve

@@ -5,7 +5,19 @@ const FileMapper = dataSource => {
         return res.insertId
     }
 
-    return {addFile}
+    const getFile = async ({id}) => {
+        const query = `SELECT * FROM file WHERE id = ?`
+        const [res] = await dataSource.exec(query, [id])
+        return res
+    }
+
+    const removeFile = async ({id}) => {
+        const query = `UPDATE file SET status = 0 WHERE id = ?`
+        const [res] = await dataSource.exec(query, [id])
+        return res.affectedRows > 0
+    }
+
+    return {addFile, getFile, removeFile}
 }
 
 export default FileMapper

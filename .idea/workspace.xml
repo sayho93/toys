@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="working on article api">
-      <change afterPath="$PROJECT_DIR$/server/public/test.png" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="filepond added">
+      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/writeModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/lib/useArticleList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/static/images/imgPlaceholder.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/database/query/FileMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/FileMapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/FileSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/FileSVC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/FileUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/FileUtil.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +96,7 @@
     <property name="import_schema_mapping" value="&lt;schema-mapping&gt;&lt;databases&gt;&lt;list&gt;&lt;schema-mapping-item&gt;&lt;source-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/source-data-source-id&gt;&lt;source-path&gt;schema/&quot;vsExt&quot;&lt;/source-path&gt;&lt;target-data-source-id&gt;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&lt;/target-data-source-id&gt;&lt;target-path&gt;schema/&quot;Toys&quot;&lt;/target-path&gt;&lt;/schema-mapping-item&gt;&lt;/list&gt;&lt;/databases&gt;&lt;/schema-mapping&gt;" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/public/static/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -101,11 +110,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public/static/images" />
       <recent name="$PROJECT_DIR$/server/public" />
       <recent name="$PROJECT_DIR$/client/public/splashscreens" />
       <recent name="$PROJECT_DIR$/client/components/planner" />
       <recent name="$PROJECT_DIR$/client/public/icons" />
-      <recent name="$PROJECT_DIR$/client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/components" />
@@ -115,7 +124,7 @@
       <recent name="$PROJECT_DIR$/client/public/splashscreens" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server build">
+  <component name="RunManager" selected="npm.client build">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -237,14 +246,8 @@
       <workItem from="1647680431576" duration="468000" />
       <workItem from="1647680920051" duration="509000" />
       <workItem from="1647681443863" duration="1487000" />
-      <workItem from="1647682946506" duration="30542000" />
-    </task>
-    <task id="LOCAL-00004" summary="change needed layout structure">
-      <created>1646517123041</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1646517123041</updated>
+      <workItem from="1647682946506" duration="46058000" />
+      <workItem from="1647878944827" duration="6606000" />
     </task>
     <task id="LOCAL-00005" summary="redux toolkit added &amp; layout structure fixed">
       <created>1646584953776</created>
@@ -582,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647799021553</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="static file serve on uploads &amp; article api roughly done">
+      <created>1647859906769</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1647859906769</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,8 +620,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="password confirm added" />
-    <MESSAGE value="settings changed" />
     <MESSAGE value="debounce search added" />
     <MESSAGE value="https done &amp; working on chrome push" />
     <MESSAGE value="fcm messaging added to client &amp; token update logic added to server" />
@@ -635,7 +643,9 @@
     <MESSAGE value="time notification added" />
     <MESSAGE value="masonry added" />
     <MESSAGE value="working on article api" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on article api" />
+    <MESSAGE value="static file serve on uploads &amp; article api roughly done" />
+    <MESSAGE value="filepond added" />
+    <option name="LAST_COMMIT_MESSAGE" value="filepond added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

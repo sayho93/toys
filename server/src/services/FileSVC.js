@@ -26,6 +26,15 @@ class FileSVC {
             desc: desc,
         })
     }
+
+    async removeFile(id) {
+        const file = await this.Mappers.fileMapper.getFile({id})
+        console.log(file)
+        if (file.length) {
+            await this.FileUtil.removeFile(file[0].path)
+            return await this.Mappers.fileMapper.removeFile({id})
+        } else return false
+    }
 }
 
 export default FileSVC

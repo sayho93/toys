@@ -269,7 +269,7 @@ const Api = ({Mappers, AsyncHandler}) => {
     )
 
     router.post(
-        '/file/upload',
+        '/file/upload/single',
         Multipart.single('img'),
         AsyncHandler(async (req, res) => {
             let userId = req.body.userId
@@ -282,6 +282,17 @@ const Api = ({Mappers, AsyncHandler}) => {
                 throw err
             }
             const ret = await fileSVC.processFile(userId, file, desc)
+            res.header('Access-Control-Allow-Origin', '*')
+            res.json(ret)
+        })
+    )
+
+    router.delete(
+        '/file/remove/single',
+        AsyncHandler(async (req, res) => {
+            const id = +req.body
+            const ret = await fileSVC.removeFile(id)
+            res.header('Access-Control-Allow-Origin', '*')
             res.json(ret)
         })
     )
@@ -305,13 +316,8 @@ const Api = ({Mappers, AsyncHandler}) => {
 
     router.post(
         '/article/save',
-        Multipart.single('img'),
         AsyncHandler(async (req, res) => {
-            const userId = req.body.userId
-            const file = req.file
             const params = req.body
-            if (file) params.fileId = await fileSVC.processFile(userId, file)
-
             const ret = await articleSVC.saveArticle(params)
             res.json(ret)
         })
