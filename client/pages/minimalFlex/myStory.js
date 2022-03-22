@@ -1,12 +1,14 @@
-import Container from 'components/container'
-import Feed from 'components/minimalFlex/feed'
-import useArticleList from 'lib/useArticleList'
-import LoadingFixed from 'components/LoadingFixed'
 import {useSelector} from 'react-redux'
+import useUser from 'lib/useUser'
+import useArticleList from 'lib/useArticleList'
+import Container from 'components/container'
+import LoadingFixed from 'components/LoadingFixed'
+import Feed from 'components/minimalFlex/feed'
 
-const MinimalFlexApp = () => {
+const MyStory = () => {
+    const {user} = useUser()
     const searchInfo = useSelector(({search}) => search)
-    const {articleListData, mutateArticleList, articleListSize, setArticleListSize} = useArticleList({searchTxt: searchInfo.searchTxt})
+    const {articleListData, mutateArticleList, articleListSize, setArticleListSize} = useArticleList({id: user ? user.id : null, searchTxt: searchInfo.searchTxt})
 
     return (
         <Container app="Minimal Flex">
@@ -16,4 +18,4 @@ const MinimalFlexApp = () => {
     )
 }
 
-export default MinimalFlexApp
+export default MyStory

@@ -1,12 +1,14 @@
 const ArticleMapper = dataSource => {
-    const getArticles = async ({searchTxt = '', page = 1, limit = 12}) => {
-        const filter = `AND (content LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%')`
+    const getArticles = async ({userId = 0, searchTxt = '', page = 1, limit = 12}) => {
+        const userFilter = userId ? `article.userId = ${userId}` : '1=1'
+        const searchFilter = searchTxt ? `(content LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%')` : '1=1'
+
         const query = `
-            SELECT article.*, user.name as author, user.email as email, file.originName, file.path, file.shortPath, file.size, file.width, file.height 
+            SELECT article.*, user.name as author, user.email as email, file.originName, file.path, file.shortPath, file.size, file.width, file.height
             FROM article JOIN user ON article.userId = user.id LEFT JOIN file ON article.fileId = file.id
-            WHERE article.status = 1 ${searchTxt && filter}
+            WHERE article.status = 1 AND ${userFilter} AND ${searchFilter}
             ORDER BY article.regDate DESC
-            LIMIT ?, ?
+            LIMIT ?, ?            
         `
         const [list] = await dataSource.exec(query, [(+page - 1) * +limit, +limit])
         return list

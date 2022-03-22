@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="filepond added">
-      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/writeModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/lib/useArticleList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/static/images/imgPlaceholder.png" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="my story added">
+      <change afterPath="$PROJECT_DIR$/client/pages/minimalFlex/myStory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/HeaderInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/useArticleList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/useArticleList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/FileMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/FileMapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/FileSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/FileSVC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/FileUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/FileUtil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +95,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/client/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -124,8 +115,8 @@
       <recent name="$PROJECT_DIR$/client/public/splashscreens" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client build">
-    <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1" runType="Run single request">
+  <component name="RunManager" selected="npm.server build">
+    <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
     <configuration name="client with https" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/client">
@@ -192,26 +183,26 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.rest-api | #1" />
+      <item itemvalue="HTTP 요청.rest-api | #1" />
       <item itemvalue="Node.js.client with https" />
-      <item itemvalue="npm.client dev" />
       <item itemvalue="npm.client build" />
+      <item itemvalue="npm.client dev" />
       <item itemvalue="npm.client start" />
-      <item itemvalue="npm.server start:dev" />
       <item itemvalue="npm.server build" />
       <item itemvalue="npm.server start" />
+      <item itemvalue="npm.server start:dev" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.rest-api | #1" />
+        <item itemvalue="HTTP 요청.rest-api | #1" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
-    <option name="myConnectionType" value="SSH_CONFIG" />
-    <option name="myConnectionId" value="sayhoLightSail" />
+    <option name="myConnectionType" value="NONE" />
+    <option name="myConnectionId" value="" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -247,14 +238,12 @@
       <workItem from="1647680920051" duration="509000" />
       <workItem from="1647681443863" duration="1487000" />
       <workItem from="1647682946506" duration="46058000" />
-      <workItem from="1647878944827" duration="6606000" />
-    </task>
-    <task id="LOCAL-00005" summary="redux toolkit added &amp; layout structure fixed">
-      <created>1646584953776</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1646584953776</updated>
+      <workItem from="1647878944827" duration="6749000" />
+      <workItem from="1647885721308" duration="29000" />
+      <workItem from="1647885760817" duration="299000" />
+      <workItem from="1647886074243" duration="53000" />
+      <workItem from="1647886142480" duration="72000" />
+      <workItem from="1647886225421" duration="5587000" />
     </task>
     <task id="LOCAL-00006" summary="..">
       <created>1646585114495</created>
@@ -592,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647859906769</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="filepond added">
+      <created>1647885588644</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1647885588644</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,7 +616,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debounce search added" />
     <MESSAGE value="https done &amp; working on chrome push" />
     <MESSAGE value="fcm messaging added to client &amp; token update logic added to server" />
     <MESSAGE value="fcm message receive in foreground fixed" />
@@ -645,7 +640,8 @@
     <MESSAGE value="working on article api" />
     <MESSAGE value="static file serve on uploads &amp; article api roughly done" />
     <MESSAGE value="filepond added" />
-    <option name="LAST_COMMIT_MESSAGE" value="filepond added" />
+    <MESSAGE value="my story added" />
+    <option name="LAST_COMMIT_MESSAGE" value="my story added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

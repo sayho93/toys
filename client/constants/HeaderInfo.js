@@ -25,7 +25,10 @@ const HeaderInfo = {
         title: 'Minimal Flex',
         icon: 'bi-camera-fill',
         searchBar: true,
-        menus: [],
+        menus: [
+            {name: 'Feed', link: '/minimalFlex'},
+            {name: 'My story', link: '/minimalFlex/myStory'},
+        ],
     },
     Tutorial: {
         title: 'Tutorial',
