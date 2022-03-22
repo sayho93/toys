@@ -20,13 +20,13 @@ const ArticleMapper = dataSource => {
             FROM article JOIN user ON article.userId = user.id LEFT JOIN file ON article.fileId = file.id
             WHERE article.id = ?
         `
-        const [ret] = dataSource.exec(query, [id])
+        const [ret] = await dataSource.exec(query, [id])
         return ret
     }
 
     const getComments = async ({id}) => {
-        const query = `SELECT * FROM comment WHERE articleId = ? ORDER BY parentId, depth, regDate`
-        const [ret] = dataSource.exec(query, [id])
+        const query = `SELECT comment.*, user.name FROM comment JOIN user ON comment.userId = user.id WHERE articleId = ? ORDER BY parentId, depth, regDate`
+        const [ret] = await dataSource.exec(query, [id])
         return ret
     }
 
@@ -43,10 +43,11 @@ const ArticleMapper = dataSource => {
 
     const upsertComment = async ({id = 0, userId, articleId, parentId = 0, depth = 0, content, status = 1}) => {
         //delete comment available
+        const updateParent = parentId ? `, parentId = ${parentId}` : ''
         const query = `
             INSERT INTO comment (id, userId, articleId, parentId, depth, content, status)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-            ON DUPLICATE KEY UPDATE content = ?, status = ?
+            ON DUPLICATE KEY UPDATE content = ?, status = ? ${updateParent}
         `
         const [ret] = await dataSource.exec(query, [id, userId, articleId, parentId, depth, content, status, content, status])
         return ret.insertId

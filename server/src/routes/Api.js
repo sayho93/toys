@@ -309,7 +309,7 @@ const Api = ({Mappers, AsyncHandler}) => {
         '/article/:id',
         AsyncHandler(async (req, res) => {
             const id = req.params.id
-            const ret = await articleSVC.getArticle(id)
+            const ret = await articleSVC.getArticle({id})
             res.json(ret)
         })
     )

@@ -24,7 +24,9 @@ const Constants = {
 
     //ARTICLE
     API_ARTICLE_LIST: `${API_ENDPOINT}/article/list`,
+    API_ARTICLE: `${API_ENDPOINT}/article`,
     API_ARTICLE_SAVE: `${API_ENDPOINT}/article/save`,
+    API_ARTICLE_COMMENT_SAVE: `${API_ENDPOINT}/article/comment/save`,
 
     //FILE
     API_FILE_UPLOAD_SINGLE: `${API_ENDPOINT}/file/upload/single`,

@@ -10,7 +10,7 @@ import WriteModal from 'components/minimalFlex/writeModal'
 import {useRouter} from 'next/router'
 import {toast, ToastContainer} from 'react-toastify'
 
-const Feed = ({list, mutateList, listSize, setListSize, userId}) => {
+const Feed = ({list, mutateList, listSize, setListSize, user}) => {
     const router = useRouter()
     const [writeInfo, setWriteInfo] = useState({fileId: 0, content: ''})
     const [modalOpen, setModalOpen] = useState(false)
@@ -41,9 +41,14 @@ const Feed = ({list, mutateList, listSize, setListSize, userId}) => {
         [list]
     )
 
+    const onFABClick = () => {
+        if (user && user.id) setModalOpen(true)
+        else toast.error('로그인이 필요합니다.')
+    }
+
     const onSave = async () => {
         setLoading(true)
-        const params = {...writeInfo, userId}
+        const params = {...writeInfo, userId: user.id}
         const res = await Helper.post(Constants.API_ARTICLE_SAVE, params)
         if (res) {
             await mutateList()
@@ -54,12 +59,12 @@ const Feed = ({list, mutateList, listSize, setListSize, userId}) => {
         }
     }
 
-    const onClick = async id => await router.push(`minimalFlex/article?id=${id}`)
+    const onClick = async id => await router.push(`/minimalFlex/article?id=${id}`)
 
     return (
         <>
             {modalOpen && <WriteModal loading={loading} onSave={onSave} onClose={() => setModalOpen(false)} info={writeInfo} setInfo={setWriteInfo} />}
-            <Fab color="primary" icon={<i className="bi bi-pencil-fill" />} event={false} onClick={() => setModalOpen(true)} />
+            <Fab color="primary" icon={<i className="bi bi-pencil-fill" />} event={false} onClick={onFABClick} />
             {list && (
                 <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3, 1400: 4}}>
                     <Masonry>{list.map(row => row.map(item => <Card key={item.id} data={item} onClick={onClick} />))}</Masonry>

@@ -13,7 +13,7 @@ const MinimalFlexApp = () => {
     return (
         <Container app="Minimal Flex">
             {articleListData.isLoading && <LoadingFixed />}
-            <Feed list={articleListData.articleList} mutateList={mutateArticleList} listSize={articleListSize} setListSize={setArticleListSize} userId={user.id} />
+            <Feed list={articleListData.articleList} mutateList={mutateArticleList} listSize={articleListSize} setListSize={setArticleListSize} user={user} />
         </Container>
     )
 }

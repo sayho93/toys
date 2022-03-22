@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="feed done">
-      <change afterPath="$PROJECT_DIR$/client/pages/minimalFlex/article.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/articleView.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/commentModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/static/images/defaultUser.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/article.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/myStory.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/myStory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,11 +113,11 @@
       <recent name="$PROJECT_DIR$/client/public/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/public/static/images" />
       <recent name="$PROJECT_DIR$/client/components" />
       <recent name="$PROJECT_DIR$/client/components/planner" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/client/components/lotGen" />
-      <recent name="$PROJECT_DIR$/client/public/splashscreens" />
     </key>
   </component>
   <component name="RunManager" selected="npm.client build">
@@ -243,14 +248,7 @@
       <workItem from="1647885760817" duration="299000" />
       <workItem from="1647886074243" duration="53000" />
       <workItem from="1647886142480" duration="72000" />
-      <workItem from="1647886225421" duration="8369000" />
-    </task>
-    <task id="LOCAL-00007" summary="header bug fixed &amp; opengraph added">
-      <created>1646592821288</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1646592821288</updated>
+      <workItem from="1647886225421" duration="21138000" />
     </task>
     <task id="LOCAL-00008" summary="gmail oauth added &amp; dotenv added">
       <created>1646650372159</created>
@@ -588,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647914125192</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="feed done">
+      <created>1647918724892</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1647918724892</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

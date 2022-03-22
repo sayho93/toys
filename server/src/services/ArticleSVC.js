@@ -25,10 +25,16 @@ class ArticleSVC {
     }
 
     async saveComment(params) {
-        if (params.id) return await this.Mappers.articleMapper.upsertComment(params)
+        this.Log.error(params.id !== 0)
+        if (+params.id !== 0) return await this.Mappers.articleMapper.upsertComment(params)
         else {
-            params.parentId = await this.Mappers.articleMapper.upsertComment(params)
-            return await this.Mappers.articleMapper.upsertComment(params)
+            const insertId = await this.Mappers.articleMapper.upsertComment(params)
+            if (+params.depth === 0) {
+                params.id = insertId
+                params.parentId = params.id
+                return await this.Mappers.articleMapper.upsertComment(params)
+            }
+            return insertId
         }
     }
 }
