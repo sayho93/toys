@@ -6,7 +6,6 @@ import HeaderInfo from 'constants/HeaderInfo'
 import Constants from 'api/Constants'
 import Helper from 'api/Helper'
 import useUser from 'lib/useUser'
-import useNumList from 'lib/useNumList'
 import {setSearchInfo} from 'store/modules/search'
 import {debounce} from 'utils/utils'
 import enableMessaging from 'utils/firebase/enableMessaging'
@@ -15,7 +14,6 @@ const Header = () => {
     const dispatch = useDispatch()
 
     const {user, mutateUser} = useUser({})
-    const {mutateNumList} = useNumList()
     const appInfo = useSelector(({app}) => app)
     const headerInfo = HeaderInfo[appInfo.currentApp]
 
@@ -35,7 +33,6 @@ const Header = () => {
     const onSearch = async event => {
         debounce(() => {
             dispatch(setSearchInfo({currentApp: appInfo.currentApp, searchTxt: event.target.value}))
-            mutateNumList()
         }, 500)()
     }
 

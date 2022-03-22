@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import Constants from 'api/Constants'
 
-const Card = ({data}) => {
+const Card = ({data, onClick}) => {
     if (!data) return null
     else
         return (
             <>
                 {data.shortPath ? (
-                    <div className="card m-2">
+                    <div className="card m-2" onClick={() => onClick(data.id)}>
                         <Image
                             className="bd-placeholder-img card-img-top"
                             src={`${Constants.URL}${data.shortPath}`}
@@ -24,7 +24,7 @@ const Card = ({data}) => {
                         </div>
                     </div>
                 ) : (
-                    <div className="card p-3 m-2">
+                    <div className="card p-3 m-2" onClick={() => onClick(data.id)}>
                         <figure className="p-3 mb-0">
                             <blockquote className="blockquote">
                                 <p>{data.content}</p>

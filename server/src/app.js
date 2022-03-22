@@ -129,7 +129,7 @@ app.use('/uploads', express.static('uploads'))
  * routers
  */
 app.use(logRequest)
-app.use(logResponseBody)
+// app.use(logResponseBody)
 // app.use('/', webRouter)
 app.use('/api', api.router)
 /**
