@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="feed done">
-      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/articleView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/minimalFlex/commentModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/static/images/defaultUser.png" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="comment view &amp; write added">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]2/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM__________1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM__________2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/myStory.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/minimalFlex/myStory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +93,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/client/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -209,6 +202,9 @@
     <option name="myConnectionType" value="NONE" />
     <option name="myConnectionId" value="" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
       <changelist id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="" />
@@ -248,14 +244,11 @@
       <workItem from="1647885760817" duration="299000" />
       <workItem from="1647886074243" duration="53000" />
       <workItem from="1647886142480" duration="72000" />
-      <workItem from="1647886225421" duration="21138000" />
-    </task>
-    <task id="LOCAL-00008" summary="gmail oauth added &amp; dotenv added">
-      <created>1646650372159</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1646650372159</updated>
+      <workItem from="1647886225421" duration="21284000" />
+      <workItem from="1648131356118" duration="243000" />
+      <workItem from="1648131619919" duration="119000" />
+      <workItem from="1648131751903" duration="1524000" />
+      <workItem from="1648133293767" duration="20000" />
     </task>
     <task id="LOCAL-00009" summary="working on error handling">
       <created>1646665407816</created>
@@ -593,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647918724892</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="comment view &amp; write added">
+      <created>1647942862836</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1647942862837</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +621,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fcm messaging added to client &amp; token update logic added to server" />
     <MESSAGE value="fcm message receive in foreground fixed" />
     <MESSAGE value="fcm sender added to server &amp; mailer fixed" />
     <MESSAGE value="send push to all added" />
@@ -646,7 +645,9 @@
     <MESSAGE value="filepond added" />
     <MESSAGE value="my story added" />
     <MESSAGE value="feed done" />
-    <option name="LAST_COMMIT_MESSAGE" value="feed done" />
+    <MESSAGE value="comment view &amp; write added" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment view &amp; write added" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
