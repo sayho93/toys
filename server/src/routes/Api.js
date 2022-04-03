@@ -27,8 +27,8 @@ import dotenv from 'dotenv'
 const router = express.Router()
 
 dotenv.config()
-const Api = ({Mappers, AsyncHandler}) => {
-    const dependency = {Config, Mappers, Utils, Log, MailSender, PushManager, FileUtil}
+const Api = ({Mappers, Models, AsyncHandler}) => {
+    const dependency = {Config, Mappers, Models, Utils, Log, MailSender, PushManager, FileUtil}
 
     const userSVC = new UserSVC(dependency)
     const lotterySVC = new LotterySVC(dependency)
@@ -329,6 +329,25 @@ const Api = ({Mappers, AsyncHandler}) => {
             const params = req.body
             const ret = await articleSVC.saveComment(params)
             res.json(ret)
+        })
+    )
+
+    router.get(
+        '/test/mongo',
+        AsyncHandler(async (req, res) => {
+            const message = new Models.Message({
+                user: {
+                    id: 192,
+                    email: 'test@test.com',
+                    name: 'test',
+                },
+                content: 'from express',
+            })
+            await message.save()
+            Log.info('save success')
+            Log.info(JSON.stringify(message))
+
+            res.json(message)
         })
     )
 

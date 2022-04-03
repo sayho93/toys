@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="comment view &amp; write added">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]2/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM__________1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_03_15_4_32_AM__________2.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/database/Mongo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/database/models/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/client/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Custom File Colors" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -113,7 +113,7 @@
       <recent name="$PROJECT_DIR$/client/components/lotGen" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client build">
+  <component name="RunManager" selected="npm.server start:dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -248,14 +248,10 @@
       <workItem from="1648131356118" duration="243000" />
       <workItem from="1648131619919" duration="119000" />
       <workItem from="1648131751903" duration="1524000" />
-      <workItem from="1648133293767" duration="20000" />
-    </task>
-    <task id="LOCAL-00009" summary="working on error handling">
-      <created>1646665407816</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1646665407816</updated>
+      <workItem from="1648133293767" duration="519000" />
+      <workItem from="1649009498268" duration="107000" />
+      <workItem from="1649009623238" duration="1079000" />
+      <workItem from="1649010718650" duration="4273000" />
     </task>
     <task id="LOCAL-00010" summary="lottery apis added">
       <created>1646668074395</created>
@@ -593,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647942862837</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="comment view &amp; write added">
+      <created>1648133790295</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1648133790296</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

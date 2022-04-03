@@ -18,6 +18,8 @@ import LotteryMapper from 'src/database/query/LotteryMapper'
 import PlannerMapper from 'src/database/query/PlannerMapper'
 import FileMapper from 'src/database/query/FileMapper'
 import ArticleMapper from 'src/database/query/ArticleMapper'
+import Mongo from 'src/database/Mongo'
+import Message from 'src/database/models/Message'
 import dotenv from 'dotenv'
 
 const app = express()
@@ -40,6 +42,19 @@ const dataSource = Datasource(
     Log
 )
 
+Mongo(
+    {
+        host: process.env.MONGO_HOST,
+        user: process.env.MONGO_USERNAME,
+        password: process.env.MONGO_PASSWORD,
+    },
+    Log
+)
+
+const Models = {
+    Message: Message,
+}
+
 const Mappers = {
     userMapper: UserMapper(dataSource),
     lotteryMapper: LotteryMapper(dataSource),
@@ -49,7 +64,7 @@ const Mappers = {
 }
 
 const AsyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
-const api = Api({Mappers, AsyncHandler})
+const api = Api({Mappers, Models, AsyncHandler})
 
 const logRequest = (req, res, next) => {
     const {headers} = req
