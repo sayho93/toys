@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="react version migrated to 18">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="working on express modules migration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/FileSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/FileSVC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/Logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/Logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/Response.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/Response.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,14 +248,7 @@
       <workItem from="1648133293767" duration="519000" />
       <workItem from="1649009498268" duration="107000" />
       <workItem from="1649009623238" duration="1079000" />
-      <workItem from="1649010718650" duration="32842000" />
-    </task>
-    <task id="LOCAL-00013" summary="working on iron-session">
-      <created>1646846237819</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1646846237819</updated>
+      <workItem from="1649010718650" duration="33493000" />
     </task>
     <task id="LOCAL-00014" summary="lottery number save / listing added to client">
       <created>1646907171494</created>
@@ -596,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649091352716</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="working on express modules migration">
+      <created>1649093637419</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1649093637419</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +621,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="pwa applied - splash &amp; apple touch icon not working" />
     <MESSAGE value="minor" />
     <MESSAGE value="pagination using swrInfinite added" />
     <MESSAGE value="null handled" />
@@ -649,7 +645,8 @@
     <MESSAGE value="mongoose added" />
     <MESSAGE value="working on chat related" />
     <MESSAGE value="react version migrated to 18" />
-    <option name="LAST_COMMIT_MESSAGE" value="react version migrated to 18" />
+    <MESSAGE value="working on express modules migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on express modules migration" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
