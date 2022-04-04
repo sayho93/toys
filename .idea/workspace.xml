@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="working on chat related">
-      <change afterPath="$PROJECT_DIR$/client/pages/chat/index.js" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="react version migrated to 18">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/HeaderInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/planner/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/planner/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/FileSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/FileSVC.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/Logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/Logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/Response.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/Response.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +113,7 @@
       <recent name="$PROJECT_DIR$/client/components/lotGen" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client start">
+  <component name="RunManager" selected="npm.server build">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -254,14 +251,7 @@
       <workItem from="1648133293767" duration="519000" />
       <workItem from="1649009498268" duration="107000" />
       <workItem from="1649009623238" duration="1079000" />
-      <workItem from="1649010718650" duration="30720000" />
-    </task>
-    <task id="LOCAL-00012" summary="error handling method changed &amp; validator added">
-      <created>1646834453154</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1646834453154</updated>
+      <workItem from="1649010718650" duration="32842000" />
     </task>
     <task id="LOCAL-00013" summary="working on iron-session">
       <created>1646846237819</created>
@@ -599,7 +589,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649089119334</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="react version migrated to 18">
+      <created>1649091352716</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1649091352716</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +624,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="send push to all added" />
     <MESSAGE value="pwa applied - splash &amp; apple touch icon not working" />
     <MESSAGE value="minor" />
     <MESSAGE value="pagination using swrInfinite added" />
@@ -652,7 +648,8 @@
     <MESSAGE value="comment view &amp; write added" />
     <MESSAGE value="mongoose added" />
     <MESSAGE value="working on chat related" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on chat related" />
+    <MESSAGE value="react version migrated to 18" />
+    <option name="LAST_COMMIT_MESSAGE" value="react version migrated to 18" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
