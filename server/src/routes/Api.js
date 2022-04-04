@@ -17,10 +17,9 @@ import UserSVC from 'src/services/UserSVC'
 import LotterySVC from 'src/services/LotterySVC'
 import PlannerSVC from 'src/services/PlannerSVC'
 import ArticleSVC from 'src/services/ArticleSVC'
-import FileSVC from 'src/services/FileSVC'
-
 //TODO implement
-import chatSVC from 'src/services/ChatSVC'
+import ChatSVC from 'src/services/ChatSVC'
+import FileSVC from 'src/services/FileSVC'
 import schedule from 'node-schedule'
 import dotenv from 'dotenv'
 
@@ -34,6 +33,7 @@ const Api = ({Mappers, Models, AsyncHandler}) => {
     const lotterySVC = new LotterySVC(dependency)
     const plannerSVC = new PlannerSVC(dependency)
     const articleSVC = new ArticleSVC(dependency)
+    const chatSVC = new ChatSVC(dependency)
     const fileSVC = new FileSVC(dependency)
 
     if (process.env.NODE_ENV === 'production' && process.env.INSTANCE_ID === '0001') {
@@ -333,15 +333,53 @@ const Api = ({Mappers, Models, AsyncHandler}) => {
     )
 
     router.get(
-        '/test/mongo',
+        '/chat/room/list',
         AsyncHandler(async (req, res) => {
-            const message = new Models.Message({
+            const ret = await chatSVC.getChatRooms()
+            res.json(ret)
+        })
+    )
+
+    router.get(
+        '/chat/room/:id',
+        AsyncHandler(async (req, res) => {
+            const id = req.params.id
+            const ret = await chatSVC.getChatRoom(id)
+            res.json(ret)
+        })
+    )
+
+    router.post(
+        '/chat/room/add',
+        AsyncHandler(async (req, res) => {
+            const params = req.body
+            const ret = await chatSVC.addChatRoom(params)
+            res.json(ret)
+        })
+    )
+
+    router.post(
+        '/chat/message/add/:id',
+        body('content').notEmpty().withMessage('Content is required'),
+        body('userId').notEmpty().withMessage('User id is required'),
+        AsyncHandler(async (req, res) => {
+            const params = req.body
+            const ret = await chatSVC.addChatMessage({roomId: req.params.id, ...params})
+            res.json(ret)
+        })
+    )
+
+    router.get(
+        '/test/mongo/add/message',
+        AsyncHandler(async (req, res) => {
+            const message = new Models.message({
+                roomId: Models.types.ObjectId('624af6c8d8d955eadc612f83'),
                 user: {
                     id: 192,
                     email: 'test@test.com',
-                    name: 'test',
+                    name: 'tester',
                 },
-                content: 'from express',
+                content: '?????????????????????????',
             })
             await message.save()
             Log.info('save success')
@@ -351,64 +389,23 @@ const Api = ({Mappers, Models, AsyncHandler}) => {
         })
     )
 
+    router.get(
+        '/test/mongo/add/room',
+        AsyncHandler(async (req, res) => {
+            const room = new Models.room({
+                title: 'testRoom2222',
+                members: [
+                    {id: 45, email: 'fishcreek@naver.com', name: 'sayho'},
+                    {id: 192, email: 'test@test.com', name: 'tester'},
+                ],
+            })
+            await room.save()
+            Log.info(JSON.stringify(room))
+            res.json(room)
+        })
+    )
+
     // #######################
-    router.get('/info/chatRoom/:userId', (req, res) => {
-        chatSVC
-            .chatList(req.params.userId)
-            .then(list => {
-                if (list.length === 0) return res.json(Response(ResponseConst.CODE.CODE_NOT_EXISTING, ResponseConst.MSG.MSG_NOT_EXISTING))
-                return res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, list))
-            })
-            .catch(err => {
-                Log.debug(err)
-                return res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE))
-            })
-    })
-
-    router.get('/info/chatMember/:roomId', (req, res) => {
-        chatSVC
-            .chatMemberList(req.params.roomId)
-            .then(list => {
-                if (list.length === 0) return res.json(Response(ResponseConst.CODE.CODE_NOT_EXISTING, ResponseConst.MSG.MSG_NOT_EXISTING))
-                res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, list))
-            })
-            .catch(() => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE)))
-    })
-
-    router.get('/info/chatMessage/:roomId', (req, res) => {
-        chatSVC
-            .chatMessageList(req.params.roomId)
-            .then(list => {
-                if (list.length === 0) return res.json(Response(ResponseConst.CODE.CODE_NOT_EXISTING, ResponseConst.MSG.MSG_NOT_EXISTING))
-                return res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, list))
-            })
-            .catch(() => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE)))
-    })
-
-    router.get('/add/chatRoom', (req, res) => {
-        let user = req.query.user
-        if (!Array.isArray(user)) return res.json(Response(ResponseConst.CODE.CODE_INVALID_PARAM, ResponseConst.MSG.MSG_INVALID_PARAM))
-        chatSVC
-            .addChatRoom(user)
-            .then(() => {
-                res.json(Response(1, ''))
-            })
-            .catch(() => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE)))
-    })
-
-    router.get('/add/chatMessage/:roomId', (req, res) => {
-        let roomId = req.params.roomId
-        let userId = req.query.userId
-        let content = req.query.content
-        if (roomId == null || userId == null || content == null) return res.json(Response(ResponseConst.CODE.CODE_INVALID_PARAM, ResponseConst.MSG.MSG_INVALID_PARAM))
-        chatSVC
-            .addChatMessage(userId, roomId, content)
-            .then(() => {
-                res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS))
-            })
-            .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-    })
-
     /* TEST */
     router.get('/user', (req, res) => {
         userSVC
@@ -456,246 +453,3 @@ const Api = ({Mappers, Models, AsyncHandler}) => {
 }
 
 export default Api
-
-//
-// const userSVC = new UserSVC({Config, Utils, Models, Log, MailSender, PushManager})
-// const lotterySVC = new LotterySVC({Config, Utils, Models, Log, MailSender, PushManager})
-// const filSVC = new FileSVC({Config, Utils, FileUtil, Models, Log, MailSender, PushManager})
-//
-// router.get('/', (req, res) => {
-//     res.json(`${Config.app.SERVICE_NAME} Server running..`)
-// })
-//
-// router.post('/signup', async (req, res) => {
-//     try {
-//         const user = await userSVC.signup(req.body)
-//         if (user) res.status(200).json(user)
-//         else
-//             res.status(300).json({
-//                 code: ResponseConst.CODE.CODE_ALREADY_EXIST,
-//                 message: ResponseConst.MSG.MSG_ALREADY_EXIST,
-//             })
-//     } catch (err) {
-//         console.error(err)
-//         res.sendStatus(500)
-//     }
-// })
-//
-// router.get('/auth/:userId', async (req, res) => {
-//     try {
-//         const userId = req.params.userId
-//         const token = req.query.token
-//         if (userId && token) {
-//             const check = await userSVC.auth(userId, token)
-//             if (check) res.sendStatus(200)
-//             else
-//                 res.status(300).json({
-//                     code: ResponseConst.CODE.CODE_FAILURE,
-//                     message: ResponseConst.MSG.MSG_FAILURE,
-//                 })
-//         } else
-//             res.status(400).json({
-//                 code: ResponseConst.CODE.CODE_INVALID_PARAM,
-//                 message: ResponseConst.MSG.MSG_INVALID_PARAM,
-//             })
-//     } catch (err) {
-//         console.error(err)
-//         res.sendStatus(500)
-//     }
-// })
-//
-// router.post('/login', async (req, res) => {
-//     try {
-//         const user = await userSVC.login(req.body)
-//         if (user) res.status(200).json(user)
-//         else
-//             res.status(300).json({
-//                 code: ResponseConst.CODE.CODE_NOT_EXISTING,
-//                 message: ResponseConst.MSG.MSG_NOT_EXISTING,
-//             })
-//     } catch (err) {
-//         console.log(err)
-//         res.sendStatus(500)
-//     }
-// })
-//
-// router.get('/user/:id', async (req, res) => {
-//     let id = req.params.id
-//     try {
-//         const user = await userSVC.getUser(id)
-//         if (user) res.status(200).json(user)
-//         else
-//             res.status(300).json({
-//                 code: ResponseConst.CODE.CODE_NOT_EXISTING,
-//                 message: ResponseConst.MSG.MSG_NOT_EXISTING,
-//             })
-//     } catch (err) {
-//         console.log(err)
-//         res.sendStatus(500)
-//     }
-// })
-//
-// router.post('/lottery/save/:userId', async (req, res) => {
-//     const userId = req.params.userId
-//     const params = req.body
-//     try {
-//         const ret = await lotterySVC.saveLottery(userId, params)
-//         if (ret) res.sendStatus(200)
-//         else
-//             res.status(300).json({
-//                 code: ResponseConst.CODE.CODE_FAILURE,
-//                 message: ResponseConst.MSG.MSG_FAILURE,
-//             })
-//     } catch (err) {
-//         console.error(err)
-//         res.sendStatus(500)
-//     }
-// })
-//
-// router.get('/lottery/list', async (req, res) => {
-//     const userId = req.query.userId
-//     try {
-//         const ret = await lotterySVC.getLotteryList(userId)
-//         if (ret) res.status(200).json(ret)
-//         else
-//             res.status(300).json({
-//                 code: ResponseConst.CODE.CODE_NOT_EXISTING,
-//                 message: ResponseConst.MSG.MSG_NOT_EXISTING,
-//             })
-//     } catch (err) {
-//         console.error(err)
-//         res.sendStatus(500)
-//     }
-// })
-//
-// router.get('/info/chatRoom/:userId', (req, res) => {
-//     chatSVC
-//         .chatList(req.params.userId)
-//         .then(list => {
-//             if (list.length === 0) return res.json(Response(ResponseConst.CODE.CODE_NOT_EXISTING, ResponseConst.MSG.MSG_NOT_EXISTING))
-//             return res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, list))
-//         })
-//         .catch(err => {
-//             Log.debug(err)
-//             return res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE))
-//         })
-// })
-//
-// router.get('/info/chatMember/:roomId', (req, res) => {
-//     chatSVC
-//         .chatMemberList(req.params.roomId)
-//         .then(list => {
-//             if (list.length === 0) return res.json(Response(ResponseConst.CODE.CODE_NOT_EXISTING, ResponseConst.MSG.MSG_NOT_EXISTING))
-//             res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, list))
-//         })
-//         .catch(() => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE)))
-// })
-//
-// router.get('/info/chatMessage/:roomId', (req, res) => {
-//     chatSVC
-//         .chatMessageList(req.params.roomId)
-//         .then(list => {
-//             if (list.length === 0) return res.json(Response(ResponseConst.CODE.CODE_NOT_EXISTING, ResponseConst.MSG.MSG_NOT_EXISTING))
-//             return res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, list))
-//         })
-//         .catch(() => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE)))
-// })
-//
-// router.get('/add/chatRoom', (req, res) => {
-//     let user = req.query.user
-//     if (!Array.isArray(user)) return res.json(Response(ResponseConst.CODE.CODE_INVALID_PARAM, ResponseConst.MSG.MSG_INVALID_PARAM))
-//     chatSVC
-//         .addChatRoom(user)
-//         .then(() => {
-//             res.json(Response(1, ''))
-//         })
-//         .catch(() => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE)))
-// })
-//
-// router.get('/add/chatMessage/:roomId', (req, res) => {
-//     let roomId = req.params.roomId
-//     let userId = req.query.userId
-//     let content = req.query.content
-//     if (roomId == null || userId == null || content == null) return res.json(Response(ResponseConst.CODE.CODE_INVALID_PARAM, ResponseConst.MSG.MSG_INVALID_PARAM))
-//     chatSVC
-//         .addChatMessage(userId, roomId, content)
-//         .then(() => {
-//             res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS))
-//         })
-//         .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-// })
-//
-// /* TEST */
-// router.get('/user', (req, res) => {
-//     userSVC
-//         .userList()
-//         .then(list => {
-//             res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, list))
-//         })
-//         .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-// })
-//
-// router.post('/test', Multipart.any(), (req, res) => {
-//     // console.log("::")
-//     console.log(JSON.stringify(req.body))
-//     console.log(req.body.email)
-//     console.log(req.body.type)
-//     chatSVC
-//         .chatMemberList(34)
-//         .then(data => {
-//             res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, data))
-//         })
-//         .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-// })
-//
-// router.post('/test/fileUpload', Multipart.single('img'), (req, res) => {
-//     let userId = req.body.userId
-//     let desc = req.body.desc
-//     let file = req.file
-//     if (file === undefined) return res.json(Response(ResponseConst.CODE.CODE_INVALID_PARAM, ResponseConst.MSG.MSG_INVALID_PARAM))
-//     fileSVC
-//         .processFile(userId, file, desc)
-//         .then(ret => {
-//             res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, ret))
-//         })
-//         .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-// })
-//
-// router.get('/test/push', (req, res) => {
-//     userSVC
-//         .sendPushToAll()
-//         .then(ret => {
-//             res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, ret))
-//         })
-//         .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-// })
-//
-// router.get('/test/mail', (req, res) => {
-//     userSVC
-//         .sendMail()
-//         .then(ret => {
-//             res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, ret))
-//         })
-//         .catch(err => res.json(Response(ResponseConst.CODE.CODE_FAILURE, ResponseConst.MSG.MSG_FAILURE, err)))
-// })
-//
-// router.post('/test/encrypt', async (req, res) => {
-//     const ret = await userSVC.testEncryption(req.body.str, req.body.salt === undefined ? null : req.body.salt)
-//     Log.debug(JSON.stringify(ret))
-//     res.json(Response(ResponseConst.CODE.CODE_SUCCESS, ResponseConst.MSG.MSG_SUCCESS, ret))
-// })
-//
-// router.get('/test/get', (req, res) => {
-//     userSVC
-//         .getTest('http://193.122.100.94/midnight/shared/public/route.php')
-//         .then(ret => res.json(ret))
-//         .catch(err => res.json(err))
-// })
-//
-// router.get('/test/post', (req, res) => {
-//     userSVC
-//         .postTest('http://localhost:3000/api/test')
-//         .then(ret => res.json(ret))
-//         .catch(err => res.json(err))
-// })
-// export default router

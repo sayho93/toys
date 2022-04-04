@@ -1,6 +1,4 @@
-import mongoose from 'mongoose'
-
-const Mongo = (config, Log) => {
+const Mongo = (mongoose, config, Log) => {
     if (!config.host || !config.user || !config.password) throw new Error('DatasourceMongo configuration error')
     mongoose.connect(
         `mongodb://${config.host}`,

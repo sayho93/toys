@@ -11,7 +11,7 @@ export default server => {
             credentials: true,
         },
         transports: ['websocket'],
-        path: '/midnightSocket',
+        path: '/toysChat',
     })
 
     io.use((socket, next) => {

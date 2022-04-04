@@ -1,90 +1,106 @@
-import Log from 'src/utils/Logger'
-// import Models from 'src/models'
-import {QueryTypes} from 'sequelize'
-import PushManager from 'src/utils/PushManager'
+class ChatSVC {
+    constructor({Config, Mappers, Models, Utils, Log, MailSender, PushManager, FileUtil}) {
+        this.Config = Config
+        this.Mappers = Mappers
+        this.Models = Models
+        this.Utils = Utils
+        this.Log = Log
+        this.MailSender = MailSender
+        this.PushManager = PushManager
+        this.FileUtil = FileUtil
+    }
 
-const ChatSVC = {
-    addChatRoom: async users => {
-        let ids = []
-        let title = ''
-        for (let [i, item] of users.entries()) {
-            let tmp = await Models.userModel.findByPk(item)
-            ids.push(tmp.id)
-            if (i !== 0) title = title + ', ' + tmp.nickname
-            else title += tmp.nickname
-        }
-        const res = await Models.chatRoomModel.create({name: title})
-        Log.info(res.id)
-        ids.forEach(item => Models.chatMemberModel.create({userId: item, roomId: res.id}))
-    },
-    addChatMessage: async (userId, roomId, content, timestamp) => {
-        Log.info(userId, roomId, content, timestamp)
-        const res = await Models.chatMessageModel.create({
-            userId: userId,
-            roomId: roomId,
-            content: content,
-            timestamp: timestamp,
+    async getChatRooms() {
+        return await this.Models.room.aggregate().addFields({
+            createdAt: {$dateToString: {date: '$createdAt', timezone: '+0900', format: '%Y-%m-%d %H:%M:%S'}},
+            updatedAt: {$dateToString: {date: '$updatedAt', timezone: '+0900', format: '%Y-%m-%d %H:%M:%S'}},
         })
-        Log.info(res.id)
+    }
 
-        const query = `
-                SELECT M.*, U.nickname
-                FROM tblChatMessage M
-                         JOIN tblUser U ON M.userId = U.id
-                WHERE M.id = :messageId
-            `
-        const item = await Models.sequelize.query(query, {
-            replacements: {messageId: res.id},
-            type: QueryTypes.SELECT,
-        })
-        return item[0]
-    },
-    chatMessageList: async roomId => {
-        let query = `
-            SELECT *
-            FROM tblChatMessage M
-                     JOIN tblUser U on M.userId = U.id
-            WHERE roomId = :id
-        `
-        return await Models.sequelize.query(query, {
-            replacements: {id: roomId},
-            type: QueryTypes.SELECT,
-        })
-    },
-    chatMemberList: async roomId => {
-        return await Models.sequelize.query(
-            `
-            SELECT *
-            FROM tblChatMember CM
-                     JOIN tblUser U ON CM.userId = U.id
-            WHERE roomId = :roomId
-        `,
+    async getChatRoom(id) {
+        return await this.Models.room.aggregate([
+            {$lookup: {from: 'messages', localField: '_id', foreignField: 'roomId', as: 'messages'}},
+            {$match: {_id: this.Models.types.ObjectId(id)}},
             {
-                replacements: {roomId: roomId},
-                type: QueryTypes.SELECT,
-            }
-        )
-    },
-    chatList: async userId => {
-        let query = `
-            SELECT *
-            FROM app_midnight.tblUser
-            WHERE id IN (
-                select userId
-                FROM app_midnight.tblChatMember
-                WHERE roomId IN (SELECT roomId
-                                 FROM app_midnight.tblChatRoom R
-                                          JOIN app_midnight.tblChatMember M ON R.id = M.roomId
-                                 WHERE M.userid = :id)
-                  AND userId != :id
-                )
-        `
-        return await Models.sequelize.query(query, {
-            replacements: {id: userId},
-            type: QueryTypes.SELECT,
+                $addFields: {
+                    messages: {
+                        $map: {
+                            input: '$messages',
+                            in: {
+                                $mergeObjects: [
+                                    '$$this',
+                                    {
+                                        createdAt: {$dateToString: {date: '$$this.createdAt', timezone: '+0900', format: '%Y-%m-%d %H:%M:%S'}},
+                                        updatedAt: {$dateToString: {date: '$$this.updatedAt', timezone: '+0900', format: '%Y-%m-%d %H:%M:%S'}},
+                                    },
+                                ],
+                            },
+                        },
+                    },
+                    createdAt: {$dateToString: {date: '$createdAt', timezone: '+0900', format: '%Y-%m-%d %H:%M:%S'}},
+                    updatedAt: {$dateToString: {date: '$updatedAt', timezone: '+0900', format: '%Y-%m-%d %H:%M:%S'}},
+                },
+            },
+            {$sort: {'messages._id': 1}},
+            {$limit: 10},
+        ])
+    }
+
+    async addChatRoom({title = null, members}) {
+        let memberList = members.split(',').map(Number)
+        const membersObj = []
+
+        const promises = memberList.map(async id => {
+            const user = await this.Mappers.userMapper.getUserById(id)
+            if (user.length) membersObj.push({id, email: user[0].email, name: user[0].name})
         })
-    },
-    sendChatPush: (senderId, receiverId, message, data = '') => {
+        await Promise.allSettled(promises)
+
+        const room = this.Models.room({
+            title: !title ? membersObj.map(i => i.name).join(', ') : title,
+            members: membersObj,
+        })
+        await room.save()
+        return room
+    }
+
+    async addChatMessage({roomId, userId, content}) {
+        const err = new Error()
+        err.status = 400
+        const user = await this.Mappers.userMapper.getUserById(userId)
+        if (!user.length) {
+            err.message = '유저가 존재하지 않습니다.'
+            throw err
+        }
+        const room = await this.Models.room.find({_id: this.Models.types.ObjectId(roomId)})
+        if (!room.length) {
+            err.message = '존재하지 않는 방입니다.'
+            throw err
+        }
+
+        const members = room[0].members.filter(i => i.id === +userId)
+        if (!members.length) {
+            err.message = '채팅방에 참여하지 않은 사용자입니다.'
+            throw err
+        }
+
+        const message = this.Models.message({
+            roomId: this.Models.types.ObjectId(roomId),
+            user: {
+                id: user[0].id,
+                email: user[0].email,
+                name: user[0].name,
+            },
+            content: content,
+        })
+        await message.save()
+        this.Log.debug(JSON.stringify(message))
+        return message
+    }
+
+    // ###################### TODO
+
+    async sendChatPush(senderId, receiverId, message, data = '') {
         return new Promise((resolve, reject) => {
             Promise.all([Models.userModel.findByPk(senderId), Models.userModel.findByPk(receiverId)])
                 .then(async res => {
@@ -93,7 +109,7 @@ const ChatSVC = {
                 })
                 .catch(err => reject(err))
         })
-    },
+    }
 }
 
 export default ChatSVC

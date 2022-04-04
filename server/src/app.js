@@ -18,8 +18,11 @@ import LotteryMapper from 'src/database/query/LotteryMapper'
 import PlannerMapper from 'src/database/query/PlannerMapper'
 import FileMapper from 'src/database/query/FileMapper'
 import ArticleMapper from 'src/database/query/ArticleMapper'
+import mongoose from 'mongoose'
 import Mongo from 'src/database/Mongo'
 import Message from 'src/database/models/Message'
+import Room from 'src/database/models/Room'
+
 import dotenv from 'dotenv'
 
 const app = express()
@@ -43,6 +46,7 @@ const dataSource = Datasource(
 )
 
 Mongo(
+    mongoose,
     {
         host: process.env.MONGO_HOST,
         user: process.env.MONGO_USERNAME,
@@ -52,7 +56,9 @@ Mongo(
 )
 
 const Models = {
-    Message: Message,
+    types: mongoose.Types,
+    message: Message(mongoose),
+    room: Room(mongoose),
 }
 
 const Mappers = {
