@@ -19,28 +19,34 @@ const PlannerApp = props => {
     const {user, mutateUser} = useUser()
     const {data, error, isValidating, mutate} = useSWR(Constants.API_PLANNER_LIST, Helper.get, {fallbackData: props.data})
 
-    useEffect(async () => {
-        if (user) {
-            await Helper.get(`${Constants.API_USER_NOTIFIED}/${user.id}`)
-            mutateUser()
+    useEffect(() => {
+        const getUser = async () => {
+            if (user) {
+                await Helper.get(`${Constants.API_USER_NOTIFIED}/${user.id}`)
+                mutateUser()
+            }
         }
+        getUser()
     }, [])
 
-    useEffect(async () => {
-        if (data) {
-            const tmpDays = []
-            const first = getCalendarFirstDay(date)
-            const last = getCalendarLastDay(date)
+    useEffect(() => {
+        const init = async () => {
+            if (data) {
+                const tmpDays = []
+                const first = getCalendarFirstDay(date)
+                const last = getCalendarLastDay(date)
 
-            do {
-                first.setDate(first.getDate() + 1)
-                tmpDays.push({
-                    date: new Date(first.getTime()),
-                    tasks: data.filter(task => sameDay(first, new Date(task.targetDate))),
-                })
-            } while (!sameDay(first, last))
-            setDays(tmpDays)
+                do {
+                    first.setDate(first.getDate() + 1)
+                    tmpDays.push({
+                        date: new Date(first.getTime()),
+                        tasks: data.filter(task => sameDay(first, new Date(task.targetDate))),
+                    })
+                } while (!sameDay(first, last))
+                setDays(tmpDays)
+            }
         }
+        init()
     }, [data, date])
 
     const onTaskClick = (event, task) => {

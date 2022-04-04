@@ -21,6 +21,12 @@ const HeaderInfo = {
         searchBar: false,
         menus: [],
     },
+    Chat: {
+        title: 'Chat',
+        icon: 'bi-chat-fill',
+        searchBar: false,
+        menus: [],
+    },
     'Minimal Flex': {
         title: 'Minimal Flex',
         icon: 'bi-camera-fill',

@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="mongoose added">
-      <change afterPath="$PROJECT_DIR$/server/src/database/models/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="working on chat related">
+      <change afterPath="$PROJECT_DIR$/client/pages/chat/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/Mongo.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/Mongo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/models/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/database/models/Message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/Api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/ChatSVC.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/ChatSVC.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/socketIO/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/socketIO/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/HeaderInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/planner/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/planner/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +116,7 @@
       <recent name="$PROJECT_DIR$/client/components/lotGen" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client dev">
+  <component name="RunManager" selected="npm.client start">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -255,14 +254,7 @@
       <workItem from="1648133293767" duration="519000" />
       <workItem from="1649009498268" duration="107000" />
       <workItem from="1649009623238" duration="1079000" />
-      <workItem from="1649010718650" duration="28422000" />
-    </task>
-    <task id="LOCAL-00011" summary="DI concept added &amp; sequelize switched to mysql2">
-      <created>1646753373291</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1646753373291</updated>
+      <workItem from="1649010718650" duration="30720000" />
     </task>
     <task id="LOCAL-00012" summary="error handling method changed &amp; validator added">
       <created>1646834453154</created>
@@ -600,7 +592,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649015294516</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="working on chat related">
+      <created>1649089119334</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1649089119334</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +627,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fcm sender added to server &amp; mailer fixed" />
     <MESSAGE value="send push to all added" />
     <MESSAGE value="pwa applied - splash &amp; apple touch icon not working" />
     <MESSAGE value="minor" />
@@ -653,7 +651,8 @@
     <MESSAGE value="feed done" />
     <MESSAGE value="comment view &amp; write added" />
     <MESSAGE value="mongoose added" />
-    <option name="LAST_COMMIT_MESSAGE" value="mongoose added" />
+    <MESSAGE value="working on chat related" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on chat related" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

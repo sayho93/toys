@@ -25,9 +25,12 @@ const Header = () => {
 
     const [authLoading, setAuthLoading] = useState(false)
 
-    useEffect(async () => {
-        const token = await enableMessaging()
-        if (token && user && user.isLoggedIn) await Helper.post(Constants.API_USER_UPDATE_TOKEN, {userId: user.id, token})
+    useEffect(() => {
+        const init = async () => {
+            const token = await enableMessaging()
+            if (token && user && user.isLoggedIn) await Helper.post(Constants.API_USER_UPDATE_TOKEN, {userId: user.id, token})
+        }
+        init()
     }, [user])
 
     const onSearch = async event => {
