@@ -1,7 +1,6 @@
-import dynamic from 'next/dynamic'
-import Container from 'components/container'
-import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
-import {useDebouncedCallback} from 'use-debounce'
+import dynamic from "next/dynamic";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useDebouncedCallback } from "use-debounce";
 
 const ChatFeed = dynamic(() => import('react-bell-chat').then(mod => mod.ChatFeed), {ssr: false})
 const BubbleGroup = dynamic(() => import('react-bell-chat').then(mod => mod.BubbleGroup), {ssr: false})
@@ -313,69 +312,62 @@ const ChatApp = () => {
     )
 
     return (
-        <Container app="Chat">
-            <div className="chatfeed-wrapper">
-                <ChatFeed
-                    ref={chat}
-                    yourAuthorId={0}
-                    messages={messages}
-                    authors={authors}
-                    style={style}
-                    avatarStyles={avatarStyles}
-                    chatBubbleStyles={chatBubbleStyles}
-                    // maxHeight={350}
-                    CustomChatBubble={useCustomBubble ? customBubble : undefined}
-                    CustomIsTyping={CustomIsTyping}
-                    showRecipientAvatar={true}
-                    showIsTyping={showIsTyping}
-                    showDateRow={true}
-                    showLoadingMessages={true}
-                    hasOldMessages={hasOldMessages}
-                    onLoadOldMessages={onLoadOldMessages}
-                />
+        <div className="chatfeed-wrapper">
+            <ChatFeed
+                ref={chat}
+                yourAuthorId={0}
+                messages={messages}
+                authors={authors}
+                style={style}
+                avatarStyles={avatarStyles}
+                chatBubbleStyles={chatBubbleStyles}
+                // maxHeight={350}
+                CustomChatBubble={useCustomBubble ? customBubble : undefined}
+                CustomIsTyping={CustomIsTyping}
+                showRecipientAvatar={true}
+                showIsTyping={showIsTyping}
+                showDateRow={true}
+                showLoadingMessages={true}
+                hasOldMessages={hasOldMessages}
+                onLoadOldMessages={onLoadOldMessages}
+            />
 
-                <form onSubmit={event => onMessageSubmit(event)}>
-                    <input
-                        placeholder="Type a message..."
-                        className="message-input form-control bg-white rounded-pill mt-4"
-                        value={messageText}
-                        onChange={onMessageChange}
-                    />
-                </form>
+            <form onSubmit={event => onMessageSubmit(event)} className="px-2">
+                <input placeholder="Type a message..." className="message-input form-control bg-white rounded-pill mt-4" value={messageText} onChange={onMessageChange} />
+            </form>
 
-                <div className="label mt-0 bt-0 mt-5">Authors:</div>
-                <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                    <button role="button" style={{...styles.button, ...(currentUser === 0 ? styles.selected : {})}} onClick={() => onPress(0)}>
-                        You
-                    </button>
-                    <button style={{...styles.button, ...(currentUser === 1 ? styles.selected : {})}} onClick={() => onPress(1)}>
-                        Mark
-                    </button>
-                    <button style={{...styles.button, ...(currentUser === 2 ? styles.selected : {})}} onClick={() => onPress(2)}>
-                        Evan
-                    </button>
-                </div>
-
-                <div className="label">Simulate input:</div>
-
-                <div style={{display: 'flex', justifyContent: 'space-around', marginTop: 10}}>
-                    <button style={{...styles.button}} onClick={onSystemMessageClick}>
-                        System message
-                    </button>
-                </div>
-
-                <div className="label">Switches:</div>
-
-                <div style={{display: 'flex', justifyContent: 'space-around', marginTop: 10}}>
-                    <button style={{...styles.button, ...(useAvatarBg ? styles.selected : {})}} onClick={onUseAvatarBgClick}>
-                        Avatars images
-                    </button>
-                    <button style={{...styles.button, ...(hasOldMessages ? styles.selected : {})}} onClick={onHasOldMessagesClick}>
-                        Has more messages
-                    </button>
-                </div>
+            <div className="label mt-0 bt-0 mt-5">Authors:</div>
+            <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                <button role="button" style={{...styles.button, ...(currentUser === 0 ? styles.selected : {})}} onClick={() => onPress(0)}>
+                    You
+                </button>
+                <button style={{...styles.button, ...(currentUser === 1 ? styles.selected : {})}} onClick={() => onPress(1)}>
+                    Mark
+                </button>
+                <button style={{...styles.button, ...(currentUser === 2 ? styles.selected : {})}} onClick={() => onPress(2)}>
+                    Evan
+                </button>
             </div>
-        </Container>
+
+            <div className="label">Simulate input:</div>
+
+            <div style={{display: 'flex', justifyContent: 'space-around', marginTop: 10}}>
+                <button style={{...styles.button}} onClick={onSystemMessageClick}>
+                    System message
+                </button>
+            </div>
+
+            <div className="label">Switches:</div>
+
+            <div style={{display: 'flex', justifyContent: 'space-around', marginTop: 10}}>
+                <button style={{...styles.button, ...(useAvatarBg ? styles.selected : {})}} onClick={onUseAvatarBgClick}>
+                    Avatars images
+                </button>
+                <button style={{...styles.button, ...(hasOldMessages ? styles.selected : {})}} onClick={onHasOldMessagesClick}>
+                    Has more messages
+                </button>
+            </div>
+        </div>
     )
 }
 
