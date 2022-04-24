@@ -1,13 +1,13 @@
-import * as firebase from 'firebase-admin'
-import Config from 'src/config/Config'
+import admin from 'firebase-admin'
+import Config from '#configs/config'
 import Underscore from 'underscore'
-import cloneDeep from 'lodash/cloneDeep'
-import Log from 'src/utils/Logger'
+import _ from 'lodash'
+import Log from '#utils/logger'
 
-const serviceAccount = require(Config.app.FCM_CONFIG)
+const {default: serviceAccount} = await import(Config.app.FCM_CONFIG, {assert: {type: 'json'}})
 
-firebase.initializeApp({
-    credential: firebase.credential.cert(serviceAccount),
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
 })
 
 const payload = {
@@ -28,24 +28,24 @@ class PushManager {
     async _sendOnlyData(registrationKeys, extras) {
         if (registrationKeys.length === 0) return
         Log.verbose(JSON.stringify(registrationKeys))
-        const json = cloneDeep(payload)
+        const json = _.cloneDeep(payload)
         Log.verbose(`payload: ${JSON.stringify(payload)}`)
         json.data.message = extras
 
-        const response = await firebase.messaging().sendMulticast(json)
+        const response = await admin.messaging().sendMulticast(json)
         const failedTokens = registrationKeys.filter((_, idx) => !response.responses[idx].success)
         Log.warn('List of tokens failed: ' + failedTokens)
     }
 
     async _send(registrationKeys, title, message, extras) {
         if (registrationKeys.length === 0) return
-        const json = cloneDeep(payload)
+        const json = _.cloneDeep(payload)
         json.notification.title = title
         json.notification.body = message
         json.data = extras
         json.tokens = registrationKeys
         Log.info(JSON.stringify(json))
-        const response = await firebase.messaging().sendMulticast(json)
+        const response = await admin.messaging().sendMulticast(json)
         Log.verbose(JSON.stringify(response))
         const failedTokens = registrationKeys.filter((_, idx) => !response.responses[idx].success)
         Log.warn('List of tokens failed: ' + failedTokens)

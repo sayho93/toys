@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/server/src/services/ChatSVC.js" dialect="GenericSQL" />
-  </component>
   <component name="SqlResolveMappings">
-    <file url="file://$PROJECT_DIR$/server/src/services/LotterySVC.js" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;@negative&quot;:&quot;1&quot;   }  } }}" />
     <file url="PROJECT" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;76cb6ae8-34e7-4d47-86d2-0ff00ddecedc&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;schema&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;Toys&quot;      }     }    }   }  } }}" />
   </component>
 </project>

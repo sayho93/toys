@@ -1,12 +1,12 @@
 const URL = process.env.NODE_ENV === 'production' ? 'https://psyho.pw:3000' : 'http://localhost:4000'
-const API_ENDPOINT = `${URL}/api`
+const API_ENDPOINT = `${URL}/api/v1`
 
 const Constants = {
     URL: URL,
 
     // USER
-    API_SIGNUP: `${API_ENDPOINT}/signup`,
-    API_LOGIN: `${API_ENDPOINT}/login`,
+    API_SIGNUP: `${API_ENDPOINT}/user/signup`,
+    API_LOGIN: `${API_ENDPOINT}/user/login`,
     API_USER: `${API_ENDPOINT}/user`,
     API_USER_UPDATE_TOKEN: `${API_ENDPOINT}/user/updateToken`,
     API_USER_NOTIFIED: `${API_ENDPOINT}/user/setNotified`,
