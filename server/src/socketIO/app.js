@@ -1,5 +1,5 @@
 import chatSVC from '#src/services/chat.service'
-import Log from '#utils/Logger'
+import Log from '#utils/logger'
 import {Server} from 'socket.io'
 
 const SocketIO = server => {
