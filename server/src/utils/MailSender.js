@@ -1,19 +1,15 @@
 import nodemailer from 'nodemailer'
-import Config from 'src/config/Config'
-import Log from 'src/utils/Logger'
+import Config from '#configs/config'
+import Log from '#utils/logger'
 import Underscore from 'underscore'
-import dotenv from 'dotenv'
 
-dotenv.config()
+const config = Config.mail
 
-const config = Config.app.MAIL
-const {OAUTH_USER, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_REFRESH_TOKEN, OAUTH_ACCESS_TOKEN} = process.env
-if (!OAUTH_USER || !OAUTH_CLIENT_ID || !OAUTH_CLIENT_SECRET || !OAUTH_REFRESH_TOKEN) throw Error('OAuth 인증에 필요한 환경변수가 없습니다.')
-config.CONFIG.auth.user = OAUTH_USER
-config.CONFIG.auth.clientId = OAUTH_CLIENT_ID
-config.CONFIG.auth.clientSecret = OAUTH_CLIENT_SECRET
-config.CONFIG.auth.refreshToken = OAUTH_REFRESH_TOKEN
-config.CONFIG.auth.accessToken = OAUTH_ACCESS_TOKEN
+const auth = config.CONFIG.auth
+if (!auth.user || !auth.clientId || !auth.clientSecret || !auth.refreshToken || !auth.accessToken) {
+    Log.error('MailSender: Missing mail configuration')
+    throw new Error('MailSender: Missing mail configuration')
+}
 
 const MULTICAST_LIMIT_SIZE = 3
 

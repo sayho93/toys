@@ -1,9 +1,9 @@
-import chatSVC from 'src/services/ChatSVC'
-import Log from 'src/utils/Logger'
-import socketIo from 'socket.io'
+import chatSVC from '#src/services/chat.service'
+import Log from '#utils/logger'
+import {Server} from 'socket.io'
 
-export default server => {
-    const io = socketIo(server, {
+const SocketIO = server => {
+    const io = new Server(server, {
         cors: {
             origin: '*',
             methods: ['GET', 'POST'],
@@ -98,3 +98,5 @@ const ioEvents = io => {
             })
         })
 }
+
+export default SocketIO

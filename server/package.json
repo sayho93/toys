@@ -1,54 +1,79 @@
 {
-  "name": "pkcexpress",
+  "name": "toys",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "babel src -d dist --copy-files",
-    "start": "node dist/bin/www.js",
-    "start:dev": "nodemon --exec babel-node src/bin/www.js",
-    "swagger-autogen": "node src/utils/Swagger.js"
+    "start:dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "imports": {
+    "#src/*": "./src/*.js",
+    "#bin/*": "./src/bin/*.js",
+    "#configs/*": "./src/configs/*.js",
+    "#datasources/*": "./src/datasources/*.js",
+    "#models/*": "./src/models/*.js",
+    "#repositories/*": "./src/repositories/*.js",
+    "#routes/*": "./src/routes/*.js",
+    "#controllers/*": "./src/controllers/*.js",
+    "#services/*": "./src/services/*.js",
+    "#utils/*": "./src/utils/*.js",
+    "#tests/*": "./tests/*.js"
+  },
+  "jest": {
+    "transform": {},
+    "rootDir": "./",
+    "moduleNameMapper": {
+      "#src/(.*)$": "<rootDir>/src/$1",
+      "#bin/(.*)$": "<rootDir>/src/bin/$1",
+      "#configs/(.*)$": "<rootDir>/src/configs/$1",
+      "#datasources/(.*)$": "<rootDir>/src/datasources/$1",
+      "#models/(.*)$": "<rootDir>/src/models/$1",
+      "#repositories/(.*)$": "<rootDir>/src/repositories/$1",
+      "#routes/(.*)$": "<rootDir>/src/routes/$1",
+      "#controllers/(.*)$": "<rootDir>/src/controllers/$1",
+      "#services/(.*)$": "<rootDir>/src/services/$1",
+      "#utils/(.*)$": "<rootDir>/src/utils/$1",
+      "#tests/(.*)$": "<rootDir>/tests/$1"
+    }
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.9",
-    "app-root-path": "^3.0.0",
     "axios": "^0.26.1",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "~1.4.4",
-    "core-js": "^3.22.0",
     "cors": "^2.8.5",
-    "debug": "^4.3.1",
     "dotenv": "^16.0.0",
+    "enhanced-resolve": "^5.9.3",
     "express": "^4.17.3",
-    "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
     "firebase-admin": "^10.0.2",
     "http-errors": "^2.0.0",
     "image-size": "^1.0.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
-    "mongoose": "^6.3.0",
+    "mongoose": "^6.3.1",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2",
+    "multer": "^1.4.4",
     "mysql2": "^2.3.3",
     "node-schedule": "^2.1.0",
-    "nodemailer": "^6.6.0",
-    "process": "^0.11.10",
-    "slash": "^3.0.0",
-    "socket.io": "^4.1.1",
-    "underscore": "^1.13.1",
-    "validator": "^13.7.0",
+    "nodemailer": "^6.7.3",
+    "pretty-format": "^27.5.1",
+    "qs": "^6.10.3",
+    "slash": "^4.0.0",
+    "socket.io": "^4.5.0",
+    "underscore": "^1.13.3",
     "winston": "^3.7.2",
-    "winston-daily-rotate-file": "^4.5.5"
+    "winston-daily-rotate-file": "^4.6.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.17.9",
-    "@babel/node": "^7.14.2",
-    "@babel/plugin-transform-runtime": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
-    "babel-loader": "^8.2.2",
-    "babel-plugin-module-resolver": "^4.1.0",
-    "nodemon": "^2.0.7",
-    "request": "^2.88.2"
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2",
+    "supertest": "^6.2.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json",
+      "*.html",
+      "*.test.js"
+    ]
   }
 }
