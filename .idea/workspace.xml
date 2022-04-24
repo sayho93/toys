@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="client dependency renewed">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="firebase key renewed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +106,7 @@
     "dart.analysis.tool.window.visible": "false",
     "javascript.nodejs.core.library.configured.version": "17.8.0",
     "javascript.nodejs.core.library.typings.version": "17.0.24",
-    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys/server/src/configs",
+    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys/client",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -118,11 +120,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/server/src/configs" />
       <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/client/public/static/images" />
       <recent name="$PROJECT_DIR$/server/public" />
-      <recent name="$PROJECT_DIR$/client/public/splashscreens" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/public/static/images" />
@@ -132,7 +134,7 @@
       <recent name="$PROJECT_DIR$/client/components/lotGen" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server start:dev">
+  <component name="RunManager" selected="npm.client dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -329,14 +331,7 @@
       <workItem from="1650734792261" duration="12516000" />
       <workItem from="1650752692038" duration="3330000" />
       <workItem from="1650809566522" duration="13325000" />
-      <workItem from="1650824932660" duration="657000" />
-    </task>
-    <task id="LOCAL-00020" summary="logger phrase beautified">
-      <created>1646925304857</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1646925304857</updated>
+      <workItem from="1650824932660" duration="7002000" />
     </task>
     <task id="LOCAL-00021" summary="numList component beautified &amp; next job is pagination">
       <created>1646926659461</created>
@@ -674,7 +669,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650821958404</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="firebase key renewed">
+      <created>1650825628277</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1650825628277</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,7 +704,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="." />
     <MESSAGE value="default planner structure added &amp; service logic added" />
     <MESSAGE value="planner CRUD done &amp; planner news added" />
     <MESSAGE value="planner bug fix" />
@@ -727,7 +728,8 @@
     <MESSAGE value="server dependency renewed" />
     <MESSAGE value="user.service.js test code added" />
     <MESSAGE value="lottery.service.js unit test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="lottery.service.js unit test added" />
+    <MESSAGE value="firebase key renewed" />
+    <option name="LAST_COMMIT_MESSAGE" value="firebase key renewed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
