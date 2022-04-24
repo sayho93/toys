@@ -1,12 +1,15 @@
 // noinspection DuplicatedCode
+import {jest} from '@jest/globals'
 import Log from '#utils/logger'
-import UserService from '#services/user.service'
-import {encryptSHA} from '#utils/common.util'
+
+import {Repositories} from '#src/loaders/dependencies'
+
+import {encryptSHA, getData, getWeek} from '#utils/common.util'
 import MailSender from '#utils/MailSender'
 import PushManager from '#utils/PushManager'
 
-import {Repositories} from '#src/loaders/dependencies'
-import {jest} from '@jest/globals'
+import UserService from '#services/user.service'
+import LotteryService from '#services/lottery.service'
 
 const mockUser = {
     id: 45,
@@ -33,7 +36,10 @@ const mockPlanner = {
 
 describe('UserService', () => {
     const userService = UserService({
-        Repositories,
+        Repositories: {
+            userRepository: Repositories.userRepository,
+            plannerRepository: Repositories.plannerRepository,
+        },
         Utils: {encryptSHA},
         MailSender,
         PushManager,
@@ -265,4 +271,237 @@ describe('UserService', () => {
     })
 })
 
-describe('LotteryService', () => {})
+describe('LotteryService', () => {
+    const Utils = {getWeek, getData}
+    const lotteryService = LotteryService({
+        Repositories: {
+            lotteryRepository: Repositories.lotteryRepository,
+            userRepository: Repositories.userRepository,
+        },
+        Utils,
+        MailSender,
+        PushManager,
+    })
+
+    describe('saveLottery', () => {
+        beforeEach(() => {
+            jest.clearAllMocks()
+        })
+
+        test('original flow', async () => {
+            const addLotterySpy = jest.spyOn(Repositories.lotteryRepository, 'addLottery').mockReturnValue(0)
+
+            const ret = await lotteryService.saveLottery(0, {})
+            Log.debug(JSON.stringify(ret))
+            expect(addLotterySpy).toHaveBeenCalledTimes(1)
+            expect(ret).toBe(0)
+        })
+    })
+
+    describe('getLotteryList', () => {
+        beforeEach(() => {
+            jest.clearAllMocks()
+        })
+
+        test('original flow', async () => {
+            const getLotteryListSpy = jest.spyOn(Repositories.lotteryRepository, 'getLotteryList')
+            const ret = await lotteryService.getLotteryList()
+            Log.debug(JSON.stringify(ret))
+            expect(getLotteryListSpy).toHaveBeenCalledTimes(1)
+            expect(ret).toBeInstanceOf(Array)
+        })
+    })
+
+    describe('getFameList', () => {
+        test('original flow', async () => {
+            const getFameListSpy = jest.spyOn(Repositories.lotteryRepository, 'getLotteryFameList')
+            const ret = await lotteryService.getFameList()
+            Log.debug(JSON.stringify(ret))
+            expect(getFameListSpy).toHaveBeenCalledTimes(1)
+            expect(ret).toBeInstanceOf(Array)
+        })
+    })
+
+    describe('batchProcess', () => {
+        beforeEach(() => {
+            jest.clearAllMocks()
+        })
+
+        const getWeekSpy = jest.spyOn(Utils, 'getWeek').mockReturnValue(1)
+        let getDataSpy = jest.spyOn(Utils, 'getData').mockReturnValue({
+            totSellamnt: 3681782000,
+            returnValue: 'success',
+            drwNoDate: '2002-12-07',
+            firstWinamnt: 0,
+            firstPrzwnerCo: 0,
+            firstAccumamnt: 863604600,
+            drwNo: 1,
+            drwtNo1: 10,
+            drwtNo2: 23,
+            drwtNo3: 29,
+            drwtNo4: 33,
+            drwtNo5: 37,
+            drwtNo6: 40,
+            bnusNo: 16,
+        })
+        const updateLotterySpy = jest.spyOn(Repositories.lotteryRepository, 'updateLottery').mockReturnValue(true)
+        const mailSenderSpy = jest.spyOn(MailSender, 'sendMailTo').mockReturnValue(true)
+        const pushManagerSpy = jest.spyOn(PushManager, 'send').mockReturnValue(true)
+
+        test('nothing to process', async () => {
+            const getBatchTargetListSpy = jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([])
+            await lotteryService.batchProcess()
+            expect(getWeekSpy).toHaveBeenCalledTimes(1)
+            expect(getBatchTargetListSpy).toHaveBeenCalledTimes(1)
+
+            expect(getDataSpy).toHaveBeenCalledTimes(0)
+            expect(updateLotterySpy).toHaveBeenCalledTimes(0)
+            expect(mailSenderSpy).toHaveBeenCalledTimes(0)
+            expect(pushManagerSpy).toHaveBeenCalledTimes(0)
+        })
+
+        test('no one won', async () => {
+            const getBatchTargetListSpy = jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([
+                {
+                    id: 1,
+                    userId: 45,
+                    roundNo: 1,
+                    numberCSV: '2,3,9,18,31,40',
+                    correctCSV: '',
+                    bonusNo: '',
+                    rank: '',
+                    isProcessed: 0,
+                    name: 'sayho1',
+                    email: 'sayho1@sayho.com',
+                },
+                {
+                    id: 2,
+                    userId: 45,
+                    roundNo: 1,
+                    numberCSV: '1,7,15,19,31,35',
+                    correctCSV: '',
+                    bonusNo: '',
+                    rank: '',
+                    isProcessed: 0,
+                    name: 'sayho1',
+                    email: 'sayho1@sayho.com',
+                },
+            ])
+
+            await lotteryService.batchProcess()
+            expect(getWeekSpy).toHaveBeenCalledTimes(1)
+            expect(getBatchTargetListSpy).toHaveBeenCalledTimes(1)
+            expect(getDataSpy).toHaveBeenCalledTimes(1)
+
+            expect(updateLotterySpy).toHaveBeenCalledTimes(2)
+            expect(mailSenderSpy).toHaveBeenCalledTimes(0)
+            expect(pushManagerSpy).toHaveBeenCalledTimes(0)
+        })
+
+        test('1won - 1st', async () => {
+            const getBatchTargetListSpy = jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([
+                {
+                    id: 1,
+                    userId: 45,
+                    roundNo: 1,
+                    numberCSV: '2,3,9,18,31,40',
+                    correctCSV: '',
+                    bonusNo: '',
+                    rank: '',
+                    isProcessed: 0,
+                    name: 'sayho1',
+                    email: 'sayho1@sayho.com',
+                },
+                {
+                    id: 2,
+                    userId: 45,
+                    roundNo: 1,
+                    numberCSV: '10,23,29,33,37,40',
+                    correctCSV: '',
+                    bonusNo: '',
+                    rank: '',
+                    isProcessed: 0,
+                    name: 'sayho1',
+                    email: 'sayho1@sayho.com',
+                },
+            ])
+
+            await lotteryService.batchProcess()
+            expect(getWeekSpy).toHaveBeenCalledTimes(1)
+            expect(getBatchTargetListSpy).toHaveBeenCalledTimes(1)
+            expect(getDataSpy).toHaveBeenCalledTimes(1)
+
+            expect(updateLotterySpy).toHaveBeenCalledTimes(2)
+            expect(mailSenderSpy).toHaveBeenCalledTimes(1)
+            expect(pushManagerSpy).toHaveBeenCalledTimes(1)
+
+            expect(pushManagerSpy).toHaveBeenCalledWith(
+                [
+                    'es-ktlZ-X_spC7thRilymu:APA91bGU1Q457wILfaaGjsX66wbGkKcEdKjYG2rmofuZIFhS7knQrML_dIumThY5CyXlxyKu7lf1xh74SunZ709GKQY_CNWiHjr1t-vq5drPVwiSISqOpjjtLvGbWKpD1wfYFwE4x_6q',
+                ],
+                `1회 당첨자 발표입니다.`,
+                '1등 당첨을 축하합니다!'
+            )
+        })
+
+        test('draw delayed (api with current week returns failed)', async () => {
+            getDataSpy = jest
+                .spyOn(Utils, 'getData')
+                .mockReturnValueOnce({
+                    returnValue: 'fail',
+                })
+                .mockReturnValueOnce({
+                    totSellamnt: 3681782000,
+                    returnValue: 'success',
+                    drwNoDate: '2002-12-07',
+                    firstWinamnt: 0,
+                    firstPrzwnerCo: 0,
+                    firstAccumamnt: 863604600,
+                    drwNo: 0,
+                    drwtNo1: 10,
+                    drwtNo2: 23,
+                    drwtNo3: 29,
+                    drwtNo4: 33,
+                    drwtNo5: 37,
+                    drwtNo6: 40,
+                    bnusNo: 16,
+                })
+
+            const getBatchTargetListSpy = jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([
+                {
+                    id: 1,
+                    userId: 45,
+                    roundNo: 1,
+                    numberCSV: '2,3,9,18,31,40',
+                    correctCSV: '',
+                    bonusNo: '',
+                    rank: '',
+                    isProcessed: 0,
+                    name: 'sayho1',
+                    email: 'sayho1@sayho.com',
+                },
+                {
+                    id: 2,
+                    userId: 45,
+                    roundNo: 0,
+                    numberCSV: '1,2,3,4,31,35',
+                    correctCSV: '',
+                    bonusNo: '',
+                    rank: '',
+                    isProcessed: 0,
+                    name: 'sayho1',
+                    email: 'sayho1@sayho.com',
+                },
+            ])
+
+            await lotteryService.batchProcess()
+            expect(getWeekSpy).toHaveBeenCalledTimes(1)
+            expect(getBatchTargetListSpy).toHaveBeenCalledTimes(1)
+            expect(getDataSpy).toHaveBeenCalledTimes(2)
+
+            expect(updateLotterySpy).toHaveBeenCalledTimes(2)
+            expect(mailSenderSpy).toHaveBeenCalledTimes(0)
+            expect(pushManagerSpy).toHaveBeenCalledTimes(0)
+        })
+    })
+})

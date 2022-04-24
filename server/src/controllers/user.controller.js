@@ -43,6 +43,12 @@ const UserController = UserService => {
         res.json(true)
     }
 
+    const setUserNotified = async (req, res) => {
+        const userId = req.params.userId
+        const result = await UserService.setUserNotified(userId)
+        res.json(result)
+    }
+
     return {
         signup,
         auth,
@@ -50,6 +56,7 @@ const UserController = UserService => {
         getUser,
         updateToken,
         testPush,
+        setUserNotified,
     }
 }
 

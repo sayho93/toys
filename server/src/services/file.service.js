@@ -5,6 +5,13 @@ import Config from '#configs/config'
 
 const FileService = ({Repositories, FileUtil}) => {
     const processFile = async (userId, file, desc) => {
+        console.log(file)
+        if (file === undefined) {
+            const err = new Error('file is required')
+            err.status = 401
+            throw err
+        }
+
         const dimensions = sizeOf(file.path)
         let ext = FileUtil.getExtension(file.originalname)
         return await Repositories.fileRepository.addFile({

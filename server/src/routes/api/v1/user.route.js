@@ -28,6 +28,8 @@ const UserRoute = UserController => {
 
     router.get('/test/push', AsyncHandler(UserController.testPush))
 
+    router.get('/notified/:userId', AsyncHandler(UserController.setUserNotified))
+
     return {router}
 }
 

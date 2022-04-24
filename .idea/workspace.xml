@@ -4,84 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="server dependency renewed">
-      <change afterPath="$PROJECT_DIR$/server/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/configs/FirebaseConfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/configs/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/configs/server.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/configs/server.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controllers/article.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controllers/user.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/loaders/dependencies.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/loaders/initApp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/loaders/startupUtils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/models/schemas/customField.shema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/repositories/chat.repository.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/api.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/v1.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/article.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/chat.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/file.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/planner.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/user.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/utils/common.util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tests/app.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tests/controller.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tests/service.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tests/utils/interceptor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="user.service.js test code added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.prettierrc.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/nginx.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/public/test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/bin/www.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/config/Config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/Datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/datasources/mariaDB.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/Mongo.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/datasources/mongoDB.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/models/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/models/message.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/models/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/models/room.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/ArticleMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/article.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/FileMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/file.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/LotteryMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/lottery.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/PlannerMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/planner.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/database/query/UserMapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/user.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/Api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/Web.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/ArticleSVC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/ChatSVC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/FileSVC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/LotterySVC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/PlannerSVC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/UserSVC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/socketIO/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/socketIO/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/FileUtil.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/file.util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/Logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/logger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/MailSender.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/MailSender.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/PushManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/PushManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/Response.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/ResponseConst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/Utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/file.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/file.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/file.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/service.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/service.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -403,14 +334,7 @@
       <workItem from="1650704255619" duration="1968000" />
       <workItem from="1650734792261" duration="12516000" />
       <workItem from="1650752692038" duration="3330000" />
-      <workItem from="1650809566522" duration="6630000" />
-    </task>
-    <task id="LOCAL-00018" summary="spinners added">
-      <created>1646921382319</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1646921382319</updated>
+      <workItem from="1650809566522" duration="12155000" />
     </task>
     <task id="LOCAL-00019" summary="response logger added to express middleware">
       <created>1646924940133</created>
@@ -748,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650225402002</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="user.service.js test code added">
+      <created>1650816258226</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1650816258227</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -776,7 +707,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="infinite scroll with intersectionObserver added" />
     <MESSAGE value="toast added" />
     <MESSAGE value="." />
     <MESSAGE value="default planner structure added &amp; service logic added" />
@@ -801,7 +731,8 @@
     <MESSAGE value="working on react-bell-chat" />
     <MESSAGE value="client dependency renewed" />
     <MESSAGE value="server dependency renewed" />
-    <option name="LAST_COMMIT_MESSAGE" value="server dependency renewed" />
+    <MESSAGE value="user.service.js test code added" />
+    <option name="LAST_COMMIT_MESSAGE" value="user.service.js test code added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

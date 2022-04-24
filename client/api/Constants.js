@@ -9,7 +9,7 @@ const Constants = {
     API_LOGIN: `${API_ENDPOINT}/user/login`,
     API_USER: `${API_ENDPOINT}/user`,
     API_USER_UPDATE_TOKEN: `${API_ENDPOINT}/user/updateToken`,
-    API_USER_NOTIFIED: `${API_ENDPOINT}/user/setNotified`,
+    API_USER_NOTIFIED: `${API_ENDPOINT}/user/notified`,
 
     // LOTGEN
     API_NUM_LIST: `${API_ENDPOINT}/lottery/list`,
