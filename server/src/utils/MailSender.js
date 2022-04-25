@@ -54,14 +54,16 @@ const MailSender = () => {
         const promises = multicastUnit.map(async list => {
             const to = list.map(item => `${item.name} <${item.addr}>`)
             Log.verbose(JSON.stringify(to))
-            try {
-                for (let item of to) {
-                    mailObj.to = item
+
+            for (let item of to) {
+                mailObj.to = item
+
+                try {
                     await transporter.sendMail(mailObj)
+                } catch (err) {
+                    Log.error(err.stack)
+                    failed.push(item)
                 }
-            } catch (err) {
-                console.error(err)
-                failed.push(err)
             }
         })
         await Promise.all(promises)

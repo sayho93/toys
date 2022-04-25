@@ -15,6 +15,9 @@ const Config = {
         APNS_SERVER_KEY: process.env.APNS_SERVER_KEY,
         // FCM_CONFIG: path.resolve(process.env.FCM_CONFIG),
         AUTH_URI: process.env.NODE_ENV === 'production' ? 'https://psyho.pw:3000/api/v1/user/auth' : 'http://localhost:4000/api/v1/user/auth',
+        externalApi: {
+            LOTTERY_CHECK: 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=',
+        },
     },
     datasource: {
         mariaDB: {

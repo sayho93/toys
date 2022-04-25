@@ -1,10 +1,10 @@
 const PlannerService = ({Repositories, PushManager}) => {
-    const getPlanners = async (params = {}) => {
-        return await Repositories.plannerRepository.getPlannerList(params)
+    const getPlanners = async () => {
+        return await Repositories.plannerRepository.getPlannerList()
     }
 
     const savePlanner = async params => {
-        const reqUser = await Repositories.plannerRepository.getUserById(params.userId)
+        const reqUser = await Repositories.userRepository.getUserById(params.userId)
         const insertId = await Repositories.plannerRepository.savePlanner(params)
         if (!reqUser.length || !insertId) return null
 
