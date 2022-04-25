@@ -1,5 +1,5 @@
 import express from 'express'
-import {body} from 'express-validator'
+import {body, param} from 'express-validator'
 import {AsyncHandler} from '#utils/common.util'
 
 const router = express.Router({mergeParams: true})
@@ -7,7 +7,7 @@ const router = express.Router({mergeParams: true})
 const ChatRoute = ChatController => {
     router.get('/rooms', AsyncHandler(ChatController.rooms))
 
-    router.get('/room/:id', AsyncHandler(ChatController.room))
+    router.get('/room/:id', param('id').isMongoId().withMessage('invalid request parameter'), AsyncHandler(ChatController.room))
 
     router.post('/room/add', AsyncHandler(ChatController.addRoom))
 

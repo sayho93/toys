@@ -26,6 +26,8 @@ const UserRoute = UserController => {
 
     router.post('/updateToken', body('userId').notEmpty().withMessage('UserId is required'), AsyncHandler(UserController.updateToken))
 
+    router.get('/test/email', AsyncHandler(UserController.testEmail))
+
     router.get('/test/push', AsyncHandler(UserController.testPush))
 
     router.get('/notified/:userId', AsyncHandler(UserController.setUserNotified))

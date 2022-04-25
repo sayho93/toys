@@ -3,34 +3,33 @@ import Config from '#configs/config'
 import Log from '#utils/logger'
 import Underscore from 'underscore'
 
-const config = Config.mail
+const MailSender = () => {
+    const config = Config.mail
 
-const auth = config.CONFIG.auth
-if (!auth.user || !auth.clientId || !auth.clientSecret || !auth.refreshToken || !auth.accessToken) {
-    Log.error('MailSender: Missing mail configuration')
-    throw new Error('MailSender: Missing mail configuration')
-}
+    const auth = config.CONFIG.auth
+    if (!auth.user || !auth.clientId || !auth.clientSecret || !auth.refreshToken || !auth.accessToken) {
+        Log.error('MailSender: Missing mail configuration')
+        throw new Error('MailSender: Missing mail configuration')
+    }
 
-const MULTICAST_LIMIT_SIZE = 3
+    const transporter = nodemailer.createTransport(config.CONFIG)
 
-const transporter = nodemailer.createTransport(config.CONFIG)
+    const MULTICAST_LIMIT_SIZE = 3
+    const failed = []
 
-const failed = []
-
-const MailSender = {
-    sendMailTo: async (title, message, {name, addr}, html = '') => {
+    const sendMailTo = async (title, message, {name, addr}, html = '') => {
         const to = `${name} <${addr}>`
-        Log.http(to)
-        const mail = {
+        const mailObj = {
             from: `${config.NAME} <${config.CONFIG.auth.user}>`,
             to: to,
             subject: title,
             text: message,
             html: html,
         }
-        Log.verbose(JSON.stringify(mail))
+        Log.verbose(JSON.stringify(mailObj))
+
         try {
-            const res = await transporter.sendMail(mail)
+            const res = await transporter.sendMail(mailObj)
             Log.verbose(JSON.stringify(res))
             return true
         } catch (err) {
@@ -39,15 +38,14 @@ const MailSender = {
             failed.push(to)
             return false
         }
-    },
+    }
 
-    async sendMailToMulti(title, message, list) {
+    const sendMailToMulti = async (title, message, list) => {
         const multicastUnit = Underscore.chunk(list, MULTICAST_LIMIT_SIZE)
         Log.verbose(JSON.stringify(multicastUnit))
 
-        const mail = {
+        const mailObj = {
             from: `${config.NAME} <${config.CONFIG.auth.user}>`,
-            to: null,
             subject: title,
             text: message,
             html: '',
@@ -58,8 +56,8 @@ const MailSender = {
             Log.verbose(JSON.stringify(to))
             try {
                 for (let item of to) {
-                    mail.to = item
-                    await transporter.sendMail(mail)
+                    mailObj.to = item
+                    await transporter.sendMail(mailObj)
                 }
             } catch (err) {
                 console.error(err)
@@ -68,6 +66,8 @@ const MailSender = {
         })
         await Promise.all(promises)
         return failed
-    },
+    }
+
+    return {sendMailTo, sendMailToMulti}
 }
-export default MailSender
+export default MailSender()

@@ -77,19 +77,30 @@ const UserService = ({Repositories, Utils, MailSender, PushManager}) => {
     }
 
     const sendPushToAll = async message => {
-        const target = await Repositories.userRepository.getUserById(45)
+        const target = await Repositories.userRepository.getUserHavingToken()
         const registrationKeys = target.map(user => user.pushToken)
 
         console.log(target)
-
-        const data = {score: '850', time: '2:45', name: 'test::'}
-        await PushManager.send(registrationKeys, 'LotGen 알림', message, data)
+        await PushManager.send(registrationKeys, 'LotGen 알림', message)
     }
 
     const setUserNotified = async userId => {
         const planner = await Repositories.plannerRepository.getLatestPlanner()
         if (planner) await Repositories.userRepository.setUserNotified({userId, id: planner.id})
         return true
+    }
+
+    const testEmail = async message => {
+        const [target] = await Repositories.userRepository.getUserById(45)
+        console.log(target)
+        await MailSender.sendMailTo('Test mail', message, {name: target.name, addr: target.email})
+    }
+
+    const testPush = async message => {
+        const target = await Repositories.userRepository.getUserById(45)
+        const registrationKeys = target.map(user => user.pushToken)
+        console.log(target)
+        await PushManager.send(registrationKeys, 'LotGen 알림', message)
     }
 
     return {
@@ -100,6 +111,8 @@ const UserService = ({Repositories, Utils, MailSender, PushManager}) => {
         updateToken,
         sendPushToAll,
         setUserNotified,
+        testEmail,
+        testPush,
     }
 }
 

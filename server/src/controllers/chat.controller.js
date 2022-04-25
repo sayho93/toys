@@ -1,3 +1,5 @@
+import {validationErrorHandler} from '#utils/common.util'
+
 const ChatController = ChatService => {
     const rooms = async (req, res) => {
         const ret = await ChatService.getChatRooms()
@@ -5,6 +7,7 @@ const ChatController = ChatService => {
     }
 
     const room = async (req, res) => {
+        validationErrorHandler(req)
         const id = req.params.id
         const ret = await ChatService.getChatRoom(id)
         res.json(ret)

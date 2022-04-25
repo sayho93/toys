@@ -1,82 +1,95 @@
 import admin from 'firebase-admin'
 import Config from '#configs/config'
 import Underscore from 'underscore'
-import _ from 'lodash'
 import Log from '#utils/logger'
 
-const {default: serviceAccount} = await import(Config.app.FCM_CONFIG, {assert: {type: 'json'}})
+// const serviceAccount = JSON.parse(fs.readFileSync(Config.app.FCM_CONFIG, 'utf8'))
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-})
+const PushManager = () => {
+    const serviceAccount = Config.firebaseConfig
 
-const payload = {
-    notification: {
-        body: '',
-        title: '',
-    },
-    data: {},
-    token: '',
-    tokens: '',
-}
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+    })
 
-class PushManager {
-    constructor() {
-        this.MULTICAST_LIMIT_SIZE = 500
+    const MULTICAST_LIMIT_SIZE = 500
+
+    const _checkMessageLength = message => {
+        if (message.length > 20) return message.substring(0, 15) + ' ...'
+        else return message
     }
 
-    async _sendOnlyData(registrationKeys, extras) {
-        if (registrationKeys.length === 0) return
+    const _sendOnlyData = async (registrationKeys, extras) => {
+        if (!registrationKeys.length) return
+
         Log.verbose(JSON.stringify(registrationKeys))
-        const json = _.cloneDeep(payload)
-        Log.verbose(`payload: ${JSON.stringify(payload)}`)
-        json.data.message = extras
 
-        const response = await admin.messaging().sendMulticast(json)
+        const msgObj = {
+            notification: {
+                body: '',
+                title: '',
+            },
+            data: {
+                message: extras,
+            },
+            token: '',
+            tokens: '',
+        }
+        Log.verbose(`payload: ${JSON.stringify(msgObj)}`)
+
+        const response = await admin.messaging().sendMulticast(msgObj)
         const failedTokens = registrationKeys.filter((_, idx) => !response.responses[idx].success)
         Log.warn('List of tokens failed: ' + failedTokens)
     }
 
-    async _send(registrationKeys, title, message, extras) {
-        if (registrationKeys.length === 0) return
-        const json = _.cloneDeep(payload)
-        json.notification.title = title
-        json.notification.body = message
-        json.data = extras
-        json.tokens = registrationKeys
-        Log.info(JSON.stringify(json))
-        const response = await admin.messaging().sendMulticast(json)
+    const _send = async (registrationKeys, title, message, extras) => {
+        if (!registrationKeys.length) return
+
+        const msgObj = {
+            notification: {
+                title: title,
+                body: message,
+            },
+            data: extras,
+            token: '',
+            tokens: registrationKeys,
+        }
+        Log.info(JSON.stringify(msgObj))
+
+        const response = await admin.messaging().sendMulticast(msgObj)
         Log.verbose(JSON.stringify(response))
+
         const failedTokens = registrationKeys.filter((_, idx) => !response.responses[idx].success)
         Log.warn('List of tokens failed: ' + failedTokens)
     }
 
-    sendOnlyData(registrationKeys, extras) {
-        const multicastUnit = Underscore.chunk(this.MULTICAST_LIMIT_SIZE)
-        const checkMessage = this.checkMessageLength(message)
+    const sendOnlyData = (registrationKeys, extras) => {
+        const multicastUnit = Underscore.chunk(MULTICAST_LIMIT_SIZE)
+        // const checkMessage = checkMessageLength(message)
         //TODO
         multicastUnit.forEach(item => {
-            this._sendOnlyData(item, extras)
+            _sendOnlyData(item, extras)
         })
     }
 
-    async send(registrationKeys, title, message, extras = {}) {
-        const multicastUnit = Underscore.chunk(registrationKeys, this.MULTICAST_LIMIT_SIZE)
-        Log.verbose(JSON.stringify(multicastUnit))
-        const checkMessage = this.checkMessageLength(message)
+    const send = async (registrationKeys, title, message, extras = {}) => {
+        const multicastChunks = Underscore.chunk(registrationKeys, MULTICAST_LIMIT_SIZE)
+        Log.verbose(JSON.stringify(multicastChunks))
+
+        const checkMessage = _checkMessageLength(message)
         Log.verbose(`message: ${checkMessage}`)
 
-        const promises = multicastUnit.map(async list => {
+        const promises = multicastChunks.map(async list => {
             Log.verbose(JSON.stringify(list))
-            await this._send(list, title, checkMessage, extras)
+            await _send(list, title, checkMessage, extras)
         })
         await Promise.all(promises)
     }
 
-    checkMessageLength(message) {
-        if (message.length > 20) return message.substring(0, 15) + ' ...'
-        else return message
+    return {
+        send,
+        sendOnlyData,
     }
 }
 
-export default new PushManager()
+export default PushManager()

@@ -13,8 +13,7 @@ const Config = {
         EXTERNAL_PATH: '/uploads',
         GOOGLE_SERVER_KEY: process.env.GOOGLE_SERVER_KEY,
         APNS_SERVER_KEY: process.env.APNS_SERVER_KEY,
-        FCM_SERVER: process.env.FCM_SERVER,
-        FCM_CONFIG: path.resolve(process.env.FCM_CONFIG),
+        // FCM_CONFIG: path.resolve(process.env.FCM_CONFIG),
         AUTH_URI: process.env.NODE_ENV === 'production' ? 'https://psyho.pw:3000/api/v1/user/auth' : 'http://localhost:4000/api/v1/user/auth',
     },
     datasource: {
@@ -51,6 +50,18 @@ const Config = {
             },
         },
         NAME: 'Toy Project 안내 메일',
+    },
+    firebaseConfig: {
+        type: process.env.FIREBASE_TYPE,
+        project_id: process.env.FIREBASE_PROJECT_ID,
+        private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
+        private_key: process.env.FIREBASE_PRIVATE_KEY,
+        client_email: process.env.FIREBASE_CLIENT_EMAIL,
+        client_id: process.env.FIREBASE_CLIENT_ID,
+        auth_uri: process.env.FIREBASE_AUTH_URI,
+        token_uri: process.env.FIREBASE_TOKEN_URI,
+        auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
+        client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
     },
     cert: {
         development: {

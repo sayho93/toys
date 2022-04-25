@@ -37,16 +37,22 @@ const UserController = UserService => {
         res.json(result)
     }
 
-    const testPush = async (req, res) => {
-        const message = req.query.message
-        await UserService.sendPushToAll(message)
-        res.json(true)
-    }
-
     const setUserNotified = async (req, res) => {
         const userId = req.params.userId
         const result = await UserService.setUserNotified(userId)
         res.json(result)
+    }
+
+    const testEmail = async (req, res) => {
+        const message = req.query.message
+        await UserService.testEmail(message)
+        res.json(true)
+    }
+
+    const testPush = async (req, res) => {
+        const message = req.query.message
+        await UserService.testPush(message)
+        res.json(true)
     }
 
     return {
@@ -55,8 +61,9 @@ const UserController = UserService => {
         login,
         getUser,
         updateToken,
-        testPush,
         setUserNotified,
+        testEmail,
+        testPush,
     }
 }
 
