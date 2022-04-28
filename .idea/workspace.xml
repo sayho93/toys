@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="planner unit test added">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="batch process performance improved">
+      <change afterPath="$PROJECT_DIR$/server/src/jobs/average.job.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/tests/workerThread.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/configs/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/configs/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/planner.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/planner.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/MailSender.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/MailSender.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tests/service.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/service.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +114,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;17.8.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;17.0.24&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys/client&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -117,7 +122,7 @@
     &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -130,14 +135,14 @@
       <recent name="$PROJECT_DIR$/server/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/tests" />
       <recent name="$PROJECT_DIR$/client/public/static/images" />
       <recent name="$PROJECT_DIR$/client/components" />
       <recent name="$PROJECT_DIR$/client/components/planner" />
       <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/client/components/lotGen" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.service.test.js">
+  <component name="RunManager" selected="npm.server start:dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -336,14 +341,16 @@
       <workItem from="1650809566522" duration="13325000" />
       <workItem from="1650824932660" duration="11525000" />
       <workItem from="1650850729073" duration="4259000" />
-      <workItem from="1650856262488" duration="16956000" />
-    </task>
-    <task id="LOCAL-00023" summary="..">
-      <created>1646979471100</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1646979471100</updated>
+      <workItem from="1650856262488" duration="17398000" />
+      <workItem from="1650900751432" duration="2173000" />
+      <workItem from="1650908204349" duration="802000" />
+      <workItem from="1650909542113" duration="1519000" />
+      <workItem from="1650978526950" duration="1182000" />
+      <workItem from="1651003291431" duration="178000" />
+      <workItem from="1651004461975" duration="8000" />
+      <workItem from="1651014754649" duration="9000" />
+      <workItem from="1651074656209" duration="1852000" />
+      <workItem from="1651161949144" duration="9463000" />
     </task>
     <task id="LOCAL-00024" summary="getWeek() fixed">
       <created>1647016232853</created>
@@ -681,7 +688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650858788714</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="batch process performance improved">
+      <created>1650900317894</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1650900317894</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +723,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="planner bug fix" />
     <MESSAGE value="planner bug fix &amp; imports optimized" />
     <MESSAGE value="ipad landscape splash added yet not working, lottery qr url parser added" />
     <MESSAGE value="time notification added" />
@@ -734,7 +747,8 @@
     <MESSAGE value=".." />
     <MESSAGE value="sender class -&gt; function" />
     <MESSAGE value="planner unit test added" />
-    <option name="LAST_COMMIT_MESSAGE" value="planner unit test added" />
+    <MESSAGE value="batch process performance improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="batch process performance improved" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

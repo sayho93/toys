@@ -55,6 +55,11 @@ const UserController = UserService => {
         res.json(true)
     }
 
+    const workerTest = async (req, res) => {
+        const ret = await UserService.workerTest(req.params.num)
+        res.json(Number(ret))
+    }
+
     return {
         signup,
         auth,
@@ -64,6 +69,7 @@ const UserController = UserService => {
         setUserNotified,
         testEmail,
         testPush,
+        workerTest,
     }
 }
 

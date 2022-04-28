@@ -1,4 +1,6 @@
 import Config from '#configs/config'
+import {Worker} from 'worker_threads'
+import Log from '#utils/logger'
 
 const UserService = ({Repositories, Utils, MailSender, PushManager}) => {
     const signUp = async data => {
@@ -103,6 +105,33 @@ const UserService = ({Repositories, Utils, MailSender, PushManager}) => {
         await PushManager.send(registrationKeys, 'LotGen 알림', message)
     }
 
+    const workerTest = num => {
+        return new Promise((resolve, reject) => {
+            const worker = new Worker(Config.app.JOB_PATH + '/average.job.js', {
+                workerData: num,
+            })
+
+            const startTime = performance.now()
+
+            worker
+                .on('message', ret => {
+                    Log.info(ret)
+                    Log.debug(`Worker finished in ${performance.now() - startTime}ms`)
+                    resolve(ret)
+                })
+                .on('error', err => {
+                    Log.error(err.stack)
+                    reject(err)
+                })
+                .on('exit', code => {
+                    if (code !== 0) {
+                        Log.error(`Worker stopped with exit code ${code}`)
+                        reject(new Error(`Worker stopped with exit code ${code}`))
+                    }
+                })
+        })
+    }
+
     return {
         signUp,
         auth,
@@ -113,6 +142,7 @@ const UserService = ({Repositories, Utils, MailSender, PushManager}) => {
         setUserNotified,
         testEmail,
         testPush,
+        workerTest,
     }
 }
 

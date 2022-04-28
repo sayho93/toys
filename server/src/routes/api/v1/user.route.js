@@ -5,6 +5,8 @@ import {AsyncHandler} from '#utils/common.util'
 const router = express.Router({mergeParams: true})
 
 const UserRoute = UserController => {
+    router.get('/worker-test/:num', AsyncHandler(UserController.workerTest))
+
     router.post(
         '/signup',
         body('email').isEmail().withMessage('Invalid email'),

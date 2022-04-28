@@ -18,6 +18,7 @@ const Config = {
         externalApi: {
             LOTTERY_CHECK: 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=',
         },
+        JOB_PATH: path.resolve('src/jobs'),
     },
     datasource: {
         mariaDB: {
