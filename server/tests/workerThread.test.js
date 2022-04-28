@@ -1,53 +1,35 @@
-import {isMainThread, parentPort, Worker, workerData} from 'worker_threads'
-import {fileURLToPath} from 'url'
-import Log from '#utils/logger'
+import {jest} from '@jest/globals'
+import request from 'supertest'
+import InitApp from '#src/loaders/initApp'
+import {Controllers, Services} from '#src/loaders/dependencies'
 
-// const n = 45000000
-// let sum = BigInt(0)
-// console.time('calc')
-// for (let i = 0; i < n; i++) {
-//     sum += BigInt(i)
-// }
-// const avg = sum / BigInt(n - 1)
-// console.timeEnd('calc')
-// console.log('avg: ' + avg)
+const app = InitApp({Controllers})
+jest.setTimeout(13000)
+test('/api/v1/user/worker-test/:num', async () => {
+    const queue = []
+    const spy = jest.spyOn(Services.userService, 'workerTest')
 
-if (isMainThread) {
-    const calcAvg = function calcAvg(script) {
-        return new Promise((resolve, reject) => {
-            const worker = new Worker(fileURLToPath(import.meta.url), {
-                workerData: script,
-            })
-            worker
-                .on('message', resolve)
-                .on('error', err => {
-                    Log.error(err.stack)
-                    // reject(err)
-                })
-                .on('exit', code => {
-                    if (code === 0) Log.info(`Worker stopped with exit code ${code}`)
-                    else {
-                        Log.error(`Worker stopped with exit code ${code}`)
-                        // reject(new Error(`Worker stopped with exit code ${code}`))
-                    }
-                })
-        })
+    // spy.mockImplementation(num => {
+    //     let sum = BigInt(0)
+    //     console.time('calc')
+    //     for (let i = 0; i < num; i++) {
+    //         sum += BigInt(i)
+    //     }
+    //     const avg = sum / BigInt(num - 1)
+    //     console.timeEnd('calc')
+    //     return avg
+    // })
+
+    jest.spyOn(Services.plannerService, 'getPlanners')
+
+    queue.push(async () => await request(app).get('/api/v1/user/worker-test/80000000'))
+
+    for (let i = 0; i < 5; i++) {
+        queue.push(async () => await request(app).get('/api/v1/planner/list'))
     }
-    const n = 45000000
-    console.time('calc')
 
-    calcAvg(n).then(avg => {
-        console.timeEnd('calc')
-        console.log('avg: ' + avg)
-    })
-} else {
-    const n = workerData
-    let sum = BigInt(0)
-    for (let i = 0; i < n; i++) {
-        sum += BigInt(i)
-    }
-    const avg = sum / BigInt(n - 1)
-    // const avg = sum / (n - 1)
+    await Promise.all(queue.map(fn => fn()))
 
-    parentPort.postMessage(avg)
-}
+    expect(Services.userService.workerTest).toHaveBeenCalledTimes(1)
+    expect(Services.plannerService.getPlanners).toHaveBeenCalledTimes(5)
+})

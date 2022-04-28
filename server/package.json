@@ -38,7 +38,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.27.1",
+    "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "enhanced-resolve": "^5.9.3",
@@ -55,7 +55,7 @@
     "mysql2": "^2.3.3",
     "node-schedule": "^2.1.0",
     "nodemailer": "^6.7.3",
-    "pretty-format": "^28.0.1",
+    "pretty-format": "^28.0.2",
     "qs": "^6.10.3",
     "slash": "^4.0.0",
     "socket.io": "^4.5.0",
@@ -64,10 +64,10 @@
     "winston-daily-rotate-file": "^4.6.1"
   },
   "devDependencies": {
-    "jest": "^28.0.1",
+    "jest": "^28.0.2",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
-    "supertest": "^6.2.2"
+    "supertest": "^6.2.3"
   },
   "nodemonConfig": {
     "ignore": [

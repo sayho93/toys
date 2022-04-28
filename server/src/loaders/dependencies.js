@@ -47,6 +47,7 @@ import {FileUtil} from '#utils/file.util'
 import MailSender from '#utils/MailSender'
 import PushManager from '#utils/PushManager'
 import {encryptSHA, getData, getWeek} from '#utils/common.util'
+import {AverageJob} from '#src/jobs/average.job'
 
 // dotenv.config()
 
@@ -85,6 +86,7 @@ export const Services = {
         Utils: {encryptSHA},
         MailSender,
         PushManager,
+        Workers: {AverageJob},
     }),
 
     lotteryService: LotteryService({

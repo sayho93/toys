@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="batch process performance improved">
-      <change afterPath="$PROJECT_DIR$/server/src/jobs/average.job.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tests/workerThread.test.js" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="worker test added">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configs/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/configs/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/jobs/average.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/average.job.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/dependencies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/controller.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/controller.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/utils/interceptor.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/utils/interceptor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/workerThread.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/workerThread.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +143,7 @@
       <recent name="$PROJECT_DIR$/client" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server start:dev">
+  <component name="RunManager" selected="Jest.service.test.js">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -168,6 +169,18 @@
       </envs>
       <scope-kind value="TEST_FILE" />
       <test-file value="$PROJECT_DIR$/server/tests/service.test.js" />
+      <method v="2" />
+    </configuration>
+    <configuration name="workerThread.test" type="JavaScriptTestRunnerJest">
+      <node-interpreter value="project" />
+      <node-options value="--experimental-vm-modules" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs>
+        <env name="NODE_NO_WARNINGS" value="1" />
+      </envs>
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/server/tests/workerThread.test.js" />
       <method v="2" />
     </configuration>
     <configuration name="client with https" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/client">
@@ -241,6 +254,7 @@
       <item itemvalue="HTTP 요청.rest-api | #1" />
       <item itemvalue="Jest.모든 테스트" />
       <item itemvalue="Jest.service.test.js" />
+      <item itemvalue="Jest.workerThread.test" />
       <item itemvalue="Node.js.client with https" />
       <item itemvalue="npm.client build" />
       <item itemvalue="npm.client dev" />
@@ -350,14 +364,7 @@
       <workItem from="1651004461975" duration="8000" />
       <workItem from="1651014754649" duration="9000" />
       <workItem from="1651074656209" duration="1852000" />
-      <workItem from="1651161949144" duration="9463000" />
-    </task>
-    <task id="LOCAL-00024" summary="getWeek() fixed">
-      <created>1647016232853</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1647016232853</updated>
+      <workItem from="1651161949144" duration="13445000" />
     </task>
     <task id="LOCAL-00025" summary="nextjs api error handling fixed">
       <created>1647085932735</created>
@@ -695,7 +702,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650900317894</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="worker test added">
+      <created>1651174902342</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1651174902343</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -723,7 +737,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="planner bug fix &amp; imports optimized" />
     <MESSAGE value="ipad landscape splash added yet not working, lottery qr url parser added" />
     <MESSAGE value="time notification added" />
     <MESSAGE value="masonry added" />
@@ -748,7 +761,8 @@
     <MESSAGE value="sender class -&gt; function" />
     <MESSAGE value="planner unit test added" />
     <MESSAGE value="batch process performance improved" />
-    <option name="LAST_COMMIT_MESSAGE" value="batch process performance improved" />
+    <MESSAGE value="worker test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="worker test added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

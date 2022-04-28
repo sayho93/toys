@@ -27,6 +27,8 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
         let lotteryRes = await Utils.getData(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
         Log.debug(JSON.stringify(lotteryRes))
 
+        const updateJobs = []
+
         for (let item of list) {
             if (skipList.includes(item.roundNo)) continue
 
@@ -56,8 +58,13 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
 
             if (rank !== 0) winnerList.push({userId: item.userId, name: item.name, email: item.email, roundNo: item.roundNo, rank})
 
-            await Repositories.lotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank})
+            updateJobs.push(
+                async () => await Repositories.lotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank})
+            )
+            // await Repositories.lotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank})
         }
+
+        await Promise.all(updateJobs.map(job => job()))
 
         Log.debug(` winnerList: ${winnerList.length} items`)
         const jobs = []
@@ -77,25 +84,6 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
 
         await Promise.all(jobs.map(job => job()))
         Log.verbose('batchProcess done')
-
-        // for (let user of winnerList) {
-        //     const template = `
-        //         <p>${user.roundNo}회차</p>
-        //         <p>${user.rank}등 당첨을 축하합니다!</p>
-        //     `
-        //
-        //     const pushTarget = await Repositories.userRepository.getUserById(user.userId)
-        //     const message = `${user.rank}등 당첨을 축하합니다!`
-        //     const registrationKey = [pushTarget[0].pushToken]
-        //
-        //     Log.debug(`Push target: ${JSON.stringify(pushTarget)}`)
-        //     Log.debug(`registrationKey: ${registrationKey}`)
-        //
-        //     await Promise.all([
-        //         MailSender.sendMailTo('LotGen 당첨 안내 메일', '', {name: user.name, addr: user.email}, template),
-        //         PushManager.send(registrationKey, `${week}회 당첨자 발표입니다.`, message),
-        //     ])
-        // }
     }
 
     const notify = async () => {

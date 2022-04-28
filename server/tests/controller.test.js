@@ -6,7 +6,7 @@ import {Services} from '#src/loaders/dependencies'
 describe('user.controller', () => {
     const userController = UserController(Services.userService)
     it('should return object array', async () => {
-        const req = mockRequest()
+        const req = mockRequest({id: 45})
         const res = mockResponse()
         const ret = await userController.getUser(req, res)
         console.log(ret)

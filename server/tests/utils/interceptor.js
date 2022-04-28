@@ -1,9 +1,9 @@
 import {jest} from '@jest/globals'
 
-export const mockRequest = () => {
+export const mockRequest = (params = {}, body = {}) => {
     const req = {}
-    req.body = jest.fn().mockReturnValue(req)
-    req.params = jest.fn().mockReturnValue(req)
+    req.params = params
+    req.body = body
     return req
 }
 
