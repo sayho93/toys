@@ -2,11 +2,13 @@
  * Module dependencies.
  */
 import Config from '#configs/config'
+import RequestBatch from '#src/loaders/requestBatch'
 /**
  * Datasource
  */
 import MariaDBDatasource from '#src/loaders/datasources/mariaDB.datasource'
 import MongoDBDatasource from '#src/loaders/datasources/mongoDB.datasource'
+import RedisDatasource from '#src/loaders/datasources/redis.datasource'
 /**
  * Models
  */
@@ -49,10 +51,11 @@ import PushManager from '#utils/PushManager'
 import {encryptSHA, getData, getWeek} from '#utils/common.util'
 import {AverageJob} from '#src/jobs/average.job'
 
-// dotenv.config()
+export const requestBatch = RequestBatch()
 
 const dataSourceMariaDB = MariaDBDatasource(Config.datasource.mariaDB)
 MongoDBDatasource(mongoose, Config.datasource.mongoDB)
+const redisClient = RedisDatasource(Config.datasource.redis)
 
 export const Models = {
     types: mongoose.Types,
@@ -97,6 +100,7 @@ export const Services = {
         Utils: {getWeek, getData},
         MailSender,
         PushManager,
+        RedisClient: redisClient,
     }),
 
     plannerService: PlannerService({
@@ -114,7 +118,7 @@ export const Services = {
 
 export const Controllers = {
     userController: UserController(Services.userService),
-    lotteryController: LotteryController(Services.lotteryService),
+    lotteryController: LotteryController(Services.lotteryService, requestBatch),
     fileController: FileController(Services.fileService),
     plannerController: PlannerController(Services.plannerService),
     articleController: ArticleController(Services.articleService),

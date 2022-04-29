@@ -1,6 +1,6 @@
 import {validationErrorHandler} from '#utils/common.util'
 
-const LotteryController = LotteryService => {
+const LotteryController = (LotteryService, requestBatch) => {
     const saveLottery = async (req, res) => {
         validationErrorHandler(req)
         const userId = req.params.userId
@@ -14,7 +14,8 @@ const LotteryController = LotteryService => {
         const searchTxt = req.query.searchTxt
         const page = req.query.page
         const limit = req.query.limit
-        const ret = await LotteryService.getLotteryList(userId, searchTxt, page, limit)
+        const ret = await requestBatch.check(`lottery_list_${userId}_${searchTxt}_${page}_${limit}`, () => LotteryService.getLotteryList(userId, searchTxt, page, limit))
+        // const ret = await LotteryService.getLotteryList(userId, searchTxt, page, limit)
         res.json(ret)
     }
 

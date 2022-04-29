@@ -36,6 +36,11 @@ const Config = {
             user: process.env.MONGO_USERNAME,
             password: process.env.MONGO_PASSWORD,
         },
+        redis: {
+            host: process.env.REDIS_HOST,
+            port: process.env.REDIS_PORT,
+            password: process.env.REDIS_PASSWORD,
+        },
     },
     mail: {
         CONFIG: {
