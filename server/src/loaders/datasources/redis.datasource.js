@@ -1,5 +1,6 @@
 import Redis from 'ioredis'
 import Log from '#utils/logger'
+import {redisClient} from '#src/loaders/dependencies'
 
 const RedisDataSource = config => {
     const redis = new Redis(config)
@@ -19,17 +20,15 @@ const RedisDataSource = config => {
         redis.del(key)
     })
 
-    redis.on('delWithPrefix', prefix => {
+    redis.on('delWithPrefix', async prefix => {
         Log.debug(`Redis delWithPrefix prefix: ${prefix}`)
-        redis.keys(`${prefix}*`, (err, keys) => {
-            if (err) {
-                Log.error(err)
-            } else {
-                keys.forEach(key => {
-                    redis.del(key)
-                })
-            }
-        })
+        try {
+            const keys = await redisClient.keys(`/api/v1/${prefix}*`)
+            console.log(keys)
+            keys.forEach(key => redisClient.del(key))
+        } catch (error) {
+            Log.error(error)
+        }
     })
 
     return redis

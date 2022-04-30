@@ -9,7 +9,7 @@ const LotteryJob = LotteryService => {
         rule.minute = 0
         schedule.scheduleJob(rule, async () => {
             await LotteryService.batchProcess()
-            redisClient.emit('deleteWithPrefix', 'lottery')
+            redisClient.emit('delWithPrefix', 'lottery')
         })
     }
 

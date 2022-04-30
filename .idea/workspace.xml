@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="api baching with map &amp; redis(only connection) added">
+      <change afterPath="$PROJECT_DIR$/server/tests/cache.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/useNumList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/useNumList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/numList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/dependencies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +137,7 @@
       <recent name="$PROJECT_DIR$/client" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.batching.test.js">
+  <component name="RunManager" selected="Jest.cache.test.js">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -170,6 +163,16 @@
       </envs>
       <scope-kind value="TEST_FILE" />
       <test-file value="$PROJECT_DIR$/server/tests/batching.test.js" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cache.test.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="--experimental-vm-modules" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/server/tests/cache.test.js" />
       <method v="2" />
     </configuration>
     <configuration name="service.test.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
@@ -266,6 +269,7 @@
     <list>
       <item itemvalue="HTTP 요청.rest-api | #1" />
       <item itemvalue="Jest.batching.test.js" />
+      <item itemvalue="Jest.cache.test.js" />
       <item itemvalue="Jest.모든 테스트" />
       <item itemvalue="Jest.service.test.js" />
       <item itemvalue="Jest.workerThread.test" />
@@ -381,8 +385,8 @@
       <workItem from="1651161949144" duration="14850000" />
       <workItem from="1651180248000" duration="722000" />
       <workItem from="1651222389354" duration="8008000" />
-      <workItem from="1651316302527" duration="2065000" />
-      <workItem from="1651325422150" duration="10551000" />
+      <workItem from="1651316302527" duration="2996000" />
+      <workItem from="1651338997818" duration="1014000" />
     </task>
     <task id="LOCAL-00027" summary="settings changed">
       <created>1647112883285</created>
