@@ -8,7 +8,7 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
 
     const getLotteryList = async (userId = null, searchTxt = '', page = 1, limit = 10) => {
         const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
-        await wait(3000)
+        await wait(2000)
         return await Repositories.lotteryRepository.getLotteryList(userId, searchTxt, page, limit)
     }
 

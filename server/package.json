@@ -1,6 +1,6 @@
 {
   "name": "toys",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -42,7 +42,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "enhanced-resolve": "^5.9.3",
-    "express": "^4.18.0",
+    "express": "^4.18.1",
     "express-validator": "^6.14.0",
     "firebase-admin": "^10.0.2",
     "http-errors": "^2.0.0",
@@ -55,7 +55,7 @@
     "multer": "^1.4.4",
     "mysql2": "^2.3.3",
     "node-schedule": "^2.1.0",
-    "nodemailer": "^6.7.3",
+    "nodemailer": "^6.7.4",
     "pretty-format": "^28.0.2",
     "qs": "^6.10.3",
     "slash": "^4.0.0",
@@ -65,8 +65,8 @@
     "winston-daily-rotate-file": "^4.6.1"
   },
   "devDependencies": {
-    "jest": "^28.0.2",
-    "nodemon": "^2.0.15",
+    "jest": "^28.0.3",
+    "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "supertest": "^6.2.3"
   },

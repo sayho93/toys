@@ -55,7 +55,13 @@ export const requestBatch = RequestBatch()
 
 const dataSourceMariaDB = MariaDBDatasource(Config.datasource.mariaDB)
 MongoDBDatasource(mongoose, Config.datasource.mongoDB)
-const redisClient = RedisDatasource(Config.datasource.redis)
+
+export const redisClient = RedisDatasource(Config.datasource.redis)
+
+export const Datasources = {
+    mariaDB: dataSourceMariaDB,
+    redisClient: redisClient,
+}
 
 export const Models = {
     types: mongoose.Types,
@@ -100,7 +106,6 @@ export const Services = {
         Utils: {getWeek, getData},
         MailSender,
         PushManager,
-        RedisClient: redisClient,
     }),
 
     plannerService: PlannerService({
@@ -120,7 +125,7 @@ export const Controllers = {
     userController: UserController(Services.userService),
     lotteryController: LotteryController(Services.lotteryService, requestBatch),
     fileController: FileController(Services.fileService),
-    plannerController: PlannerController(Services.plannerService),
+    plannerController: PlannerController(Services.plannerService, requestBatch),
     articleController: ArticleController(Services.articleService),
     chatController: ChatController(Services.chatService),
 }

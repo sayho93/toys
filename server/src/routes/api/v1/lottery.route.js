@@ -1,6 +1,7 @@
 import express from 'express'
 import {body} from 'express-validator'
 import {AsyncHandler} from '#utils/common.util'
+import {checkCache} from '#src/loaders/middlewares'
 
 const router = express.Router({mergeParams: true})
 
@@ -12,9 +13,9 @@ const LotteryRoute = LotteryController => {
         AsyncHandler(LotteryController.saveLottery)
     )
 
-    router.get('/list', AsyncHandler(LotteryController.getLotteries))
+    router.get('/list', checkCache, AsyncHandler(LotteryController.getLotteries))
 
-    router.get('/fame', AsyncHandler(LotteryController.fame))
+    router.get('/fame', checkCache, AsyncHandler(LotteryController.fame))
 
     router.get('/batchTest', AsyncHandler(LotteryController.batchTest))
 

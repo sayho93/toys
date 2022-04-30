@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="workers injected">
-      <change afterPath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/loaders/requestBatch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tests/batching.test.js" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="api baching with map &amp; redis(only connection) added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/lib/useNumList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/useNumList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configs/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/configs/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/loaders/dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/dependencies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tests/utils/interceptor.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/utils/interceptor.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,14 +380,9 @@
       <workItem from="1651074656209" duration="1852000" />
       <workItem from="1651161949144" duration="14850000" />
       <workItem from="1651180248000" duration="722000" />
-      <workItem from="1651222389354" duration="6438000" />
-    </task>
-    <task id="LOCAL-00026" summary="password confirm added">
-      <created>1647086929314</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1647086929314</updated>
+      <workItem from="1651222389354" duration="8008000" />
+      <workItem from="1651316302527" duration="2065000" />
+      <workItem from="1651325422150" duration="10551000" />
     </task>
     <task id="LOCAL-00027" summary="settings changed">
       <created>1647112883285</created>
@@ -722,7 +720,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651178944298</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="api baching with map &amp; redis(only connection) added">
+      <created>1651230524438</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1651230524438</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -750,7 +755,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="time notification added" />
     <MESSAGE value="masonry added" />
     <MESSAGE value="working on article api" />
     <MESSAGE value="static file serve on uploads &amp; article api roughly done" />
@@ -775,7 +779,8 @@
     <MESSAGE value="batch process performance improved" />
     <MESSAGE value="worker test added" />
     <MESSAGE value="workers injected" />
-    <option name="LAST_COMMIT_MESSAGE" value="workers injected" />
+    <MESSAGE value="api baching with map &amp; redis(only connection) added" />
+    <option name="LAST_COMMIT_MESSAGE" value="api baching with map &amp; redis(only connection) added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

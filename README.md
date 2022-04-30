@@ -1,1 +1,1 @@
-# Next.js + express toy project
+# Next.js(with PWA) + express toy project

@@ -1,5 +1,6 @@
 import schedule from 'node-schedule'
 import Log from '#utils/logger'
+import {redisClient} from '#src/loaders/dependencies'
 
 const LotteryJob = LotteryService => {
     const checkNums = () => {
@@ -8,6 +9,7 @@ const LotteryJob = LotteryService => {
         rule.minute = 0
         schedule.scheduleJob(rule, async () => {
             await LotteryService.batchProcess()
+            redisClient.emit('deleteWithPrefix', 'lottery')
         })
     }
 

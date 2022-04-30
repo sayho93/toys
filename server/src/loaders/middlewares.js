@@ -1,5 +1,6 @@
 import Log from '#utils/logger'
 import createError from 'http-errors'
+import {redisClient} from '#src/loaders/dependencies'
 
 export const logRequest = (req, res, next) => {
     const {headers} = req
@@ -41,4 +42,18 @@ export const apiErrorHandler = (err, req, res, next) => {
     Log.error(JSON.stringify({error: err.message, status: err.status}))
     if (err.status) res.status(err.status).json({error: err.message, status: err.status})
     else res.status(500).json({error: 'Internal server error', status: 500})
+}
+
+export const checkCache = async (req, res, next) => {
+    if (req.method !== 'GET') return next()
+
+    const cachedData = await redisClient.get(req.originalUrl)
+
+    if (!cachedData) {
+        Log.verbose(`[${req.originalUrl}] cache miss`)
+        return next()
+    }
+
+    Log.verbose(`[${req.originalUrl}] cache hit`)
+    res.send(JSON.parse(cachedData))
 }

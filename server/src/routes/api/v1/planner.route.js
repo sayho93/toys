@@ -1,11 +1,12 @@
 import express from 'express'
 import {body} from 'express-validator'
 import {AsyncHandler} from '#utils/common.util'
+import {checkCache} from '#src/loaders/middlewares'
 
 const router = express.Router({mergeParams: true})
 
 const PlannerRoute = PlannerController => {
-    router.get('/list', AsyncHandler(PlannerController.getPlanners))
+    router.get('/list', checkCache, AsyncHandler(PlannerController.getPlanners))
 
     router.post(
         '/save',
@@ -18,7 +19,7 @@ const PlannerRoute = PlannerController => {
 
     router.get('/delete/:id', AsyncHandler(PlannerController.deletePlanner))
 
-    router.get('/latest', AsyncHandler(PlannerController.getLatestPlanner))
+    router.get('/latest', checkCache, AsyncHandler(PlannerController.getLatestPlanner))
 
     return {router}
 }
