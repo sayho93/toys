@@ -1,6 +1,6 @@
 import Log from '#utils/logger'
 import createError from 'http-errors'
-import {redisClient} from '#src/loaders/dependencies'
+// import {redisClient} from '#src/loaders/dependencies'
 
 export const logRequest = (req, res, next) => {
     const {headers} = req

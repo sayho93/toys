@@ -1,7 +1,8 @@
 import mysql2 from 'mysql2/promise'
 import Log from '#utils/logger'
 
-const MariaDBDatasource = config => {
+const MariaDBDatasource = ({Config}) => {
+    const config = Config.datasource.mariaDB
     if (!config.host || !config.user || !config.password || !config.database) throw new Error('Datasource configuration error')
 
     const pool = mysql2.createPool(config)

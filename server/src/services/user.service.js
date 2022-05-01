@@ -1,15 +1,15 @@
 import Config from '#configs/config'
 
-const UserService = ({Repositories, Utils, MailSender, PushManager, Workers}) => {
+const UserService = ({UserRepository, PlannerRepository, Utils, MailSender, PushManager, AverageJob}) => {
     const signUp = async data => {
-        const [user] = await Repositories.userRepository.getUserByEmail(data.email)
+        const [user] = await UserRepository.getUserByEmail(data.email)
         if (user) {
             const err = new Error('중복된 이메일이 존재합니다.')
             err.status = 400
             throw err
         }
 
-        const insertId = await Repositories.userRepository.addUser({email: data.email, name: data.name, password: Utils.encryptSHA(data.password)})
+        const insertId = await UserRepository.addUser({email: data.email, name: data.name, password: Utils.encryptSHA(data.password)})
         if (!insertId) {
             const err = new Error('회원가입에 실패했습니다.')
             err.status = 400
@@ -17,9 +17,9 @@ const UserService = ({Repositories, Utils, MailSender, PushManager, Workers}) =>
         }
 
         const token = Math.random().toString(36).substring(2, 11)
-        const [newUser] = await Repositories.userRepository.getUserById(insertId)
+        const [newUser] = await UserRepository.getUserById(insertId)
         await Promise.all([
-            await Repositories.userRepository.addAuth({token: token, userId: insertId}),
+            await UserRepository.addAuth({token: token, userId: insertId}),
             MailSender.sendMailTo(
                 'Toy Project account verification',
                 `Click following link to verify your account \n${Config.app.AUTH_URI}/${newUser.id}?token=${encodeURI(token)}`,
@@ -32,17 +32,17 @@ const UserService = ({Repositories, Utils, MailSender, PushManager, Workers}) =>
     }
 
     const auth = async (userId, token) => {
-        const chk = await Repositories.userRepository.searchAuth(userId, token)
+        const chk = await UserRepository.searchAuth(userId, token)
         if (!chk.length) return false
 
-        await Repositories.userRepository.updateUserStatus(userId, 1)
-        await Repositories.userRepository.deleteAuth(userId)
+        await UserRepository.updateUserStatus(userId, 1)
+        await UserRepository.deleteAuth(userId)
         return true
     }
 
     const login = async ({email, password}) => {
         const pass = Utils.encryptSHA(password)
-        const [user] = await Repositories.userRepository.checkLogin({email: email, password: pass})
+        const [user] = await UserRepository.checkLogin({email: email, password: pass})
 
         let err
         if (!user) err = new Error('이메일이나 비밀번호가 잘못되었습니다.')
@@ -56,7 +56,7 @@ const UserService = ({Repositories, Utils, MailSender, PushManager, Workers}) =>
     }
 
     const getUserById = async userId => {
-        const [user] = await Repositories.userRepository.getUserById(userId)
+        const [user] = await UserRepository.getUserById(userId)
         if (!user) {
             const err = new Error('존재하지 않는 유저입니다.')
             err.status = 404
@@ -67,17 +67,17 @@ const UserService = ({Repositories, Utils, MailSender, PushManager, Workers}) =>
     }
 
     const updateToken = async (userId, token) => {
-        const [user] = await Repositories.userRepository.getUserById(userId)
+        const [user] = await UserRepository.getUserById(userId)
         if (!user) {
             const err = new Error('존재하지 않는 유저입니다.')
             err.status = 404
             throw err
         }
-        return await Repositories.userRepository.updateToken(userId, token)
+        return await UserRepository.updateToken(userId, token)
     }
 
     const sendPushToAll = async message => {
-        const target = await Repositories.userRepository.getUserHavingToken()
+        const target = await UserRepository.getUserHavingToken()
         const registrationKeys = target.map(user => user.pushToken)
 
         console.log(target)
@@ -85,26 +85,26 @@ const UserService = ({Repositories, Utils, MailSender, PushManager, Workers}) =>
     }
 
     const setUserNotified = async userId => {
-        const planner = await Repositories.plannerRepository.getLatestPlanner()
-        if (planner) await Repositories.userRepository.setUserNotified({userId, id: planner.id})
+        const planner = await PlannerRepository.getLatestPlanner()
+        if (planner) await UserRepository.setUserNotified({userId, id: planner.id})
         return true
     }
 
     const testEmail = async message => {
-        const [target] = await Repositories.userRepository.getUserById(45)
+        const [target] = await UserRepository.getUserById(45)
         console.log(target)
         await MailSender.sendMailTo('Test mail', message, {name: target.name, addr: target.email})
     }
 
     const testPush = async message => {
-        const target = await Repositories.userRepository.getUserById(45)
+        const target = await UserRepository.getUserById(45)
         const registrationKeys = target.map(user => user.pushToken)
         console.log(target)
         await PushManager.send(registrationKeys, 'LotGen 알림', message)
     }
 
     const workerTest = async num => {
-        return await Workers.AverageJob(num)
+        return await AverageJob(num)
     }
 
     return {
