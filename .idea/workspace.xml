@@ -4,45 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="working on di-container implementation using awilix">
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/index.js" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="implementation done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/article.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/article.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/file.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/loaders/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/mariaDB.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/mariaDB.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/mongoDB.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/mongoDB.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/redis.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/dependencies_deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/models/message.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/models/message.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/models/room.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/models/room.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/repositories/article.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/article.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/repositories/chat.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/chat.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/repositories/file.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/file.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/repositories/lottery.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/lottery.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/repositories/planner.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/planner.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/repositories/user.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/user.repository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/api.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/api.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/v1.route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/article.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/article.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/chat.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/chat.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/file.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/file.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/planner.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/planner.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/common.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/common.util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/batching.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/batching.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,30 +94,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;17.8.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;17.0.24&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "javascript.nodejs.core.library.configured.version": "17.8.0",
+    "javascript.nodejs.core.library.typings.version": "17.0.24",
+    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/Users/sayho/WebstormProjects/toys/server/node_modules/jest",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/sayho/WebstormProjects/toys/server/node_modules/prettier",
+    "settings.editor.selected.configurable": "editing.templates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client" />
@@ -169,7 +134,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client dev">
+  <component name="RunManager" selected="Jest.batching.test.js">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -420,14 +385,7 @@
       <workItem from="1651316302527" duration="2996000" />
       <workItem from="1651338997818" duration="2153000" />
       <workItem from="1651347699259" duration="18359000" />
-      <workItem from="1651427032515" duration="938000" />
-    </task>
-    <task id="LOCAL-00029" summary="https done &amp; working on chrome push">
-      <created>1647265858970</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1647265858970</updated>
+      <workItem from="1651427032515" duration="2562000" />
     </task>
     <task id="LOCAL-00030" summary="fcm messaging added to client &amp; token update logic added to server">
       <created>1647274630632</created>
@@ -765,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651420044663</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="implementation done">
+      <created>1651427997371</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1651427997372</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -793,7 +758,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="static file serve on uploads &amp; article api roughly done" />
     <MESSAGE value="filepond added" />
     <MESSAGE value="my story added" />
     <MESSAGE value="feed done" />
@@ -818,7 +782,8 @@
     <MESSAGE value="api baching with map &amp; redis(only connection) added" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="working on di-container implementation using awilix" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on di-container implementation using awilix" />
+    <MESSAGE value="implementation done" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementation done" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

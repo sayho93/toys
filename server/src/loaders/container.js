@@ -1,4 +1,5 @@
 import {asFunction, asValue, createContainer, InjectionMode} from 'awilix'
+import path from 'path'
 
 import Config from '#configs/config'
 
@@ -35,9 +36,11 @@ const Container = () => {
     }
 
     const init = async () => {
+        console.log(path.resolve(''))
         await container.loadModules(['src/routes/api/v1/*.route.js', 'src/models/*.js', 'src/repositories/*.js', 'src/services/*.js', 'src/controllers/*.js'], {
             esModules: true,
             formatName,
+            cwd: path.resolve(''),
         })
 
         await container.register({
