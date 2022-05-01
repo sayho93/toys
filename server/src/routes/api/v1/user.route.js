@@ -1,10 +1,10 @@
 import express from 'express'
 import {body} from 'express-validator'
-import {AsyncHandler} from '#utils/common.util'
-
-const router = express.Router({mergeParams: true})
+import {AsyncHandler} from '#src/loaders/middlewares'
 
 const UserRoute = ({UserController}) => {
+    const router = express.Router({mergeParams: true})
+
     router.get('/worker-test/:num', AsyncHandler(UserController.workerTest))
 
     router.post(

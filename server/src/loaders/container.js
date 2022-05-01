@@ -1,57 +1,69 @@
-import {asFunction, asValue, createContainer, InjectionMode, Lifetime} from 'awilix'
+import {asFunction, asValue, createContainer, InjectionMode} from 'awilix'
+
 import Config from '#configs/config'
 
-import MariaDBDatasource from '#src/loaders/datasources/mariaDB.datasource'
-import RedisDatasource from '#src/loaders/datasources/redis.datasource'
+/* Loaders */
+import RequestBatch from '#src/loaders/requestBatch'
 
-import UserRepository from '#repositories/user.repository'
+/* Datasources */
+import RedisDatasource from '#datasources/redis.datasource'
+import MariaDBDatasource from '#datasources/mariaDB.datasource'
+import MongoDBDatasource from '#datasources/mongoDB.datasource'
 
-import UserService from '#services/user.service'
-
-import UserController from '#controllers/user.controller'
+/* Utils */
 import Log from '#utils/logger'
-import PlannerRepository from '#repositories/planner.repository'
 import * as Utils from '#utils/common.util'
 import MailSender from '#utils/MailSender'
 import PushManager from '#utils/PushManager'
+
+/* Jobs */
 import {AverageJob} from '#src/jobs/average.job'
+import LotteryJob from '#src/jobs/lottery.job'
+import {FileUtil, Multipart} from '#utils/file.util'
 
 const Container = () => {
     const container = createContainer({
         injectionMode: InjectionMode.PROXY,
     })
 
-    container.loadModules(['#repositories/*.repository.js', '#services/*.service.js', '#controllers/*.controller.js'], {
-        resolverOptions: {
-            lifetime: Lifetime.SINGLETON,
-            formatName: 'camelCase',
-        },
-    })
+    const formatName = name => {
+        const [fName, namespace] = name.split('.')
+        const fNameFormatted = fName.charAt(0).toUpperCase() + fName.slice(1)
+        const namespaceFormatted = namespace.charAt(0).toUpperCase() + namespace.slice(1)
+        Log.debug(`${fNameFormatted}${namespaceFormatted} registered`)
+        return `${fNameFormatted}${namespaceFormatted}`
+    }
 
-    container.register({
-        Config: asValue(Config),
+    const init = async () => {
+        await container.loadModules(['src/routes/api/v1/*.route.js', 'src/models/*.js', 'src/repositories/*.js', 'src/services/*.js', 'src/controllers/*.js'], {
+            esModules: true,
+            formatName,
+        })
 
-        Utils: asValue(Utils),
-        MailSender: asValue(MailSender),
-        PushManager: asValue(PushManager),
+        await container.register({
+            Config: asValue(Config),
+            RequestBatch: asFunction(RequestBatch).singleton(),
 
-        AverageJob: asValue(AverageJob),
+            RedisClient: asFunction(RedisDatasource).singleton(),
+            DataSourceMariaDB: asFunction(MariaDBDatasource).singleton(),
+            DataSourceMongoDB: asFunction(MongoDBDatasource).singleton(),
 
-        RedisClient: asValue(RedisDatasource),
+            Utils: asValue(Utils),
+            FileUtil: asValue(FileUtil),
+            Multipart: asValue(Multipart),
+            MailSender: asValue(MailSender),
+            PushManager: asValue(PushManager),
+            Log: asValue(Log),
 
-        UserController: asFunction(UserController),
+            AverageJob: asValue(AverageJob),
+            LotteryJob: asFunction(LotteryJob),
+        })
 
-        UserService: asFunction(UserService),
+        console.log(container)
+        Log.debug(`Container created`)
+    }
 
-        UserRepository: asFunction(UserRepository),
-        PlannerRepository: asFunction(PlannerRepository),
-
-        DataSourceMariaDB: asFunction(MariaDBDatasource),
-    })
-
-    Log.debug('Container created')
-
-    return container
+    return {get: name => container.resolve(name), init}
 }
 
 export default Container()

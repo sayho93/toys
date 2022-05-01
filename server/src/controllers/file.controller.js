@@ -1,4 +1,4 @@
-const FileController = FileService => {
+const FileController = ({FileService}) => {
     const uploadSingleFile = async (req, res) => {
         let userId = req.body.userId
         let desc = req.body.desc

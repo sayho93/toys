@@ -1,8 +1,8 @@
 import Redis from 'ioredis'
 import Log from '#utils/logger'
 
-const RedisDataSource = config => {
-    const redis = new Redis(config)
+const RedisDataSource = ({Config}) => {
+    const redis = new Redis(Config.datasource.redis)
     process.env.NODE_ENV === 'development' ? redis.select(15) : redis.select(0)
 
     redis.on('connect', () => {

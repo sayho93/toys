@@ -4,23 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="bugfix">
-      <change afterPath="$PROJECT_DIR$/server/src/loaders/container.js" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="working on di-container implementation using awilix">
+      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/mariaDB.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/datasources/mariaDB.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/dependencies_deprecated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/initApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/initApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/article.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/article.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/file.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/mariaDB.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/mariaDB.datasource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/mongoDB.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/mongoDB.datasource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/redis.datasource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/dependencies_deprecated.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/message.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/models/message.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/room.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/models/room.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/article.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/article.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/chat.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/chat.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/file.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/file.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/lottery.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/lottery.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/planner.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/planner.repository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/repositories/user.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/user.repository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/routes/api/api.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/api.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/v1.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/v1.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/v1.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/article.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/article.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/chat.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/chat.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/file.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/file.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/planner.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/planner.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/common.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/common.util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,14 +162,14 @@
       <recent name="$PROJECT_DIR$/server/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src" />
       <recent name="$PROJECT_DIR$/server/tests" />
       <recent name="$PROJECT_DIR$/client/public/static/images" />
       <recent name="$PROJECT_DIR$/client/components" />
       <recent name="$PROJECT_DIR$/client/components/planner" />
-      <recent name="$PROJECT_DIR$/client" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server start:dev">
+  <component name="RunManager" selected="npm.client dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -397,14 +419,8 @@
       <workItem from="1651222389354" duration="8008000" />
       <workItem from="1651316302527" duration="2996000" />
       <workItem from="1651338997818" duration="2153000" />
-      <workItem from="1651347699259" duration="11306000" />
-    </task>
-    <task id="LOCAL-00028" summary="debounce search added">
-      <created>1647200705490</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1647200705490</updated>
+      <workItem from="1651347699259" duration="18359000" />
+      <workItem from="1651427032515" duration="938000" />
     </task>
     <task id="LOCAL-00029" summary="https done &amp; working on chrome push">
       <created>1647265858970</created>
@@ -742,7 +758,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651340090144</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="working on di-container implementation using awilix">
+      <created>1651420044663</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1651420044663</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -770,7 +793,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="working on article api" />
     <MESSAGE value="static file serve on uploads &amp; article api roughly done" />
     <MESSAGE value="filepond added" />
     <MESSAGE value="my story added" />
@@ -795,7 +817,8 @@
     <MESSAGE value="workers injected" />
     <MESSAGE value="api baching with map &amp; redis(only connection) added" />
     <MESSAGE value="bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
+    <MESSAGE value="working on di-container implementation using awilix" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on di-container implementation using awilix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

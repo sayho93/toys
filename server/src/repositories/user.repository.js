@@ -1,11 +1,11 @@
 const UserRepository = ({DataSourceMariaDB}) => {
     const getUserById = async id => {
-        const [user] = await DataSourceMariaDB.exec(`SELECT *FROM user WHERE id = ?`, [id])
+        const [user] = await DataSourceMariaDB.exec(`SELECT * FROM user WHERE id = ?`, [id])
         return user
     }
 
     const getUserByEmail = async email => {
-        const [user] = await DataSourceMariaDB.exec(`SELECT *FROM user WHERE email = ?`, [email])
+        const [user] = await DataSourceMariaDB.exec(`SELECT * FROM user WHERE email = ?`, [email])
         return user
     }
 
@@ -30,7 +30,7 @@ const UserRepository = ({DataSourceMariaDB}) => {
     }
 
     const updateUserStatus = async (id, status) => {
-        const [user] = await DataSourceMariaDB.exec(`UPDATE user SET status = ?WHERE id = ?`, [status, id])
+        const [user] = await DataSourceMariaDB.exec(`UPDATE user SET status = ? WHERE id = ?`, [status, id])
         return [user]
     }
 

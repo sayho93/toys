@@ -1,13 +1,12 @@
 import {validationErrorHandler} from '#utils/common.util'
-import {redisClient} from '#src/loaders/dependencies'
 
-const LotteryController = (LotteryService, requestBatch) => {
+const LotteryController = ({LotteryService, RequestBatch, RedisClient}) => {
     const saveLottery = async (req, res) => {
         validationErrorHandler(req)
         const userId = req.params.userId
         const params = req.body
         const ret = await LotteryService.saveLottery(userId, params)
-        redisClient.emit('delWithPrefix', 'lottery')
+        RedisClient.emit('delWithPrefix', 'lottery')
         res.json(ret)
     }
 
@@ -16,8 +15,8 @@ const LotteryController = (LotteryService, requestBatch) => {
         const searchTxt = req.query.searchTxt ?? ''
         const page = req.query.page ?? 1
         const limit = req.query.limit ?? 27
-        const ret = await requestBatch.check(`lottery_list_${userId}_${searchTxt}_${page}_${limit}`, () => LotteryService.getLotteryList(userId, searchTxt, page, limit))
-        redisClient.emit('set', req.originalUrl, ret, 60 * 60)
+        const ret = await RequestBatch.check(`lottery_list_${userId}_${searchTxt}_${page}_${limit}`, () => LotteryService.getLotteryList(userId, searchTxt, page, limit))
+        RedisClient.emit('set', req.originalUrl, ret, 60 * 60)
         res.json(ret)
     }
 
@@ -25,8 +24,8 @@ const LotteryController = (LotteryService, requestBatch) => {
         const searchTxt = req.query.searchTxt
         const page = req.query.page
         const limit = req.query.limit
-        const ret = await requestBatch.check(`lottery_fame_${searchTxt}_${page}_${limit}`, () => LotteryService.getFameList(searchTxt, page, limit))
-        redisClient.emit('set', req.originalUrl, ret, 60 * 60)
+        const ret = await RequestBatch.check(`lottery_fame_${searchTxt}_${page}_${limit}`, () => LotteryService.getFameList(searchTxt, page, limit))
+        RedisClient.emit('set', req.originalUrl, ret, 60 * 60)
         res.json(ret)
     }
 

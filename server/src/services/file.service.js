@@ -3,7 +3,7 @@ import slash from 'slash'
 import sizeOf from 'image-size'
 import Config from '#configs/config'
 
-const FileService = ({Repositories, FileUtil}) => {
+const FileService = ({FileRepository, FileUtil}) => {
     const processFile = async (userId, file, desc) => {
         console.log(file)
         if (file === undefined) {
@@ -14,7 +14,7 @@ const FileService = ({Repositories, FileUtil}) => {
 
         const dimensions = sizeOf(file.path)
         let ext = FileUtil.getExtension(file.originalname)
-        return await Repositories.fileRepository.addFile({
+        return await FileRepository.addFile({
             userId,
             originName: file.originalname,
             path: slash(file.path),
@@ -28,11 +28,11 @@ const FileService = ({Repositories, FileUtil}) => {
     }
 
     const removeFile = async id => {
-        const file = await Repositories.fileRepository.getFile({id})
+        const file = await FileRepository.getFile({id})
         console.log(file)
         if (file.length) {
             await FileUtil.removeFile(file[0].path)
-            return await Repositories.fileRepository.removeFile({id})
+            return await FileRepository.removeFile({id})
         } else return false
     }
 

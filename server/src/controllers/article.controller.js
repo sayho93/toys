@@ -1,4 +1,4 @@
-const ArticleController = ArticleService => {
+const ArticleController = ({ArticleService}) => {
     const list = async (req, res) => {
         const ret = await ArticleService.getArticleList(req.query)
         res.json(ret)

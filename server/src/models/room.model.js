@@ -1,5 +1,5 @@
-const RoomModel = mongoose => {
-    const Members = new mongoose.Schema(
+const RoomModel = ({DataSourceMongoDB}) => {
+    const Members = new DataSourceMongoDB.Schema(
         {
             id: Number,
             email: String,
@@ -8,7 +8,7 @@ const RoomModel = mongoose => {
         {_id: false}
     )
 
-    const model = new mongoose.Schema(
+    const model = new DataSourceMongoDB.Schema(
         {
             title: {
                 type: String,
@@ -18,7 +18,7 @@ const RoomModel = mongoose => {
         },
         {versionKey: false, timestamps: true}
     )
-    return mongoose.model('Room', model)
+    return DataSourceMongoDB.model('Room', model)
 }
 
 export default RoomModel

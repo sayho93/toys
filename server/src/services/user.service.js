@@ -1,6 +1,4 @@
-import Config from '#configs/config'
-
-const UserService = ({UserRepository, PlannerRepository, Utils, MailSender, PushManager, AverageJob}) => {
+const UserService = ({Config, UserRepository, PlannerRepository, Utils, MailSender, PushManager, AverageJob}) => {
     const signUp = async data => {
         const [user] = await UserRepository.getUserByEmail(data.email)
         if (user) {

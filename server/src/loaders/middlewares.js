@@ -1,6 +1,6 @@
 import Log from '#utils/logger'
 import createError from 'http-errors'
-// import {redisClient} from '#src/loaders/dependencies'
+import Container from '#src/loaders/container'
 
 export const logRequest = (req, res, next) => {
     const {headers} = req
@@ -45,6 +45,7 @@ export const apiErrorHandler = (err, req, res, next) => {
 }
 
 export const checkCache = async (req, res, next) => {
+    const redisClient = Container.get('RedisClient')
     if (req.method !== 'GET') return next()
 
     const cachedData = await redisClient.get(req.originalUrl)
@@ -57,3 +58,5 @@ export const checkCache = async (req, res, next) => {
     Log.verbose(`[${req.originalUrl}] cache hit`)
     res.send(JSON.parse(cachedData))
 }
+
+export const AsyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)

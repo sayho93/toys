@@ -1,10 +1,10 @@
-const ChatService = ({Repositories}) => {
+const ChatService = ({ChatRepository, UserRepository}) => {
     const getChatRooms = async () => {
-        return await Repositories.chatRepository.chatRooms()
+        return await ChatRepository.chatRooms()
     }
 
     const getChatRoom = async id => {
-        return await Repositories.chatRepository.chatRoom(id)
+        return await ChatRepository.chatRoom(id)
     }
 
     const addChatRoom = async ({title = null, members}) => {
@@ -12,23 +12,23 @@ const ChatService = ({Repositories}) => {
         const membersObj = []
 
         const promises = memberList.map(async id => {
-            const user = await Repositories.userRepository.getUserById(id)
+            const user = await UserRepository.getUserById(id)
             if (user.length) membersObj.push({id, email: user[0].email, name: user[0].name})
         })
         await Promise.allSettled(promises)
 
-        return await Repositories.chatRepository.saveRoom(title, membersObj)
+        return await ChatRepository.saveRoom(title, membersObj)
     }
 
     const addChatMessage = async ({roomId, userId, content}) => {
         const err = new Error()
         err.status = 400
-        const user = await Repositories.userRepository.getUserById(userId)
+        const user = await UserRepository.getUserById(userId)
         if (!user.length) {
             err.message = '유저가 존재하지 않습니다.'
             throw err
         }
-        const room = await Repositories.chatRepository.findRoomById(roomId)
+        const room = await ChatRepository.findRoomById(roomId)
         if (!room.length) {
             err.message = '존재하지 않는 방입니다.'
             throw err
@@ -40,7 +40,7 @@ const ChatService = ({Repositories}) => {
             throw err
         }
 
-        return await Repositories.chatRepository.saveMessage(roomId, user, content)
+        return await ChatRepository.saveMessage(roomId, user, content)
     }
 
     // ###################### TODO

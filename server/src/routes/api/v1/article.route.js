@@ -1,9 +1,9 @@
 import express from 'express'
-import {AsyncHandler} from '#utils/common.util'
+import {AsyncHandler} from '#src/loaders/middlewares'
 
-const router = express.Router({mergeParams: true})
+const ArticleRoute = ({ArticleController}) => {
+    const router = express.Router({mergeParams: true})
 
-const ArticleRoute = ArticleController => {
     router.get('/list', AsyncHandler(ArticleController.list))
 
     router.get('/:id', AsyncHandler(ArticleController.getById))
