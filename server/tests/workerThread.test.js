@@ -1,13 +1,19 @@
 import {jest} from '@jest/globals'
 import request from 'supertest'
-import InitApp from '#src/loaders/initApp'
-import {Controllers, Services} from '#src/loaders/dependencies'
+import Container from '#src/loaders/container'
+import {asValue} from 'awilix'
 
-const app = InitApp({Controllers})
+const container = await Container.init()
+
+const {default: InitApp} = await import('#src/loaders/initApp')
+
+const app = InitApp()
 jest.setTimeout(13000)
+
 test('/api/v1/user/worker-test/:num', async () => {
-    const queue = []
-    const spy = jest.spyOn(Services.userService, 'workerTest')
+    const UserService = Container.get('UserService')
+    const PlannerService = Container.get('PlannerService')
+    const spy = jest.spyOn(UserService, 'workerTest')
 
     // spy.mockImplementation(num => {
     //     let sum = BigInt(0)
@@ -20,7 +26,14 @@ test('/api/v1/user/worker-test/:num', async () => {
     //     return avg
     // })
 
-    jest.spyOn(Services.plannerService, 'getPlanners')
+    jest.spyOn(PlannerService, 'getPlanners')
+
+    container.register({
+        UserService: asValue(UserService),
+        PlannerService: asValue(PlannerService),
+    })
+
+    const queue = []
 
     queue.push(async () => await request(app).get('/api/v1/user/worker-test/80000000'))
 
@@ -30,6 +43,7 @@ test('/api/v1/user/worker-test/:num', async () => {
 
     await Promise.all(queue.map(fn => fn()))
 
-    expect(Services.userService.workerTest).toHaveBeenCalledTimes(1)
-    expect(Services.plannerService.getPlanners).toHaveBeenCalledTimes(5)
+    console.log(Container.get('UserService').workerTest)
+    // expect(Container.get('UserService').workerTest).toHaveBeenCalledTimes(1)
+    // expect(Container.get('PlannerService').getPlanners).toHaveBeenCalledTimes(5)
 })

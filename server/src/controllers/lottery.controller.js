@@ -15,8 +15,12 @@ const LotteryController = ({LotteryService, RequestBatch, RedisClient}) => {
         const searchTxt = req.query.searchTxt ?? ''
         const page = req.query.page ?? 1
         const limit = req.query.limit ?? 27
-        const ret = await RequestBatch.check(`lottery_list_${userId}_${searchTxt}_${page}_${limit}`, () => LotteryService.getLotteryList(userId, searchTxt, page, limit))
-        RedisClient.emit('set', req.originalUrl, ret, 60 * 60)
+        const ret = await RequestBatch.check(`lottery_list_${userId}_${searchTxt}_${page}_${limit}`, async () => {
+            const ret = await LotteryService.getLotteryList(userId, searchTxt, page, limit)
+            RedisClient.emit('set', req.originalUrl, ret, 60 * 60)
+            return ret
+        })
+
         res.json(ret)
     }
 

@@ -1,26 +1,53 @@
 import {asFunction, asValue, createContainer, InjectionMode} from 'awilix'
-import path from 'path'
 
 import Config from '#configs/config'
-
 /* Loaders */
 import RequestBatch from '#src/loaders/requestBatch'
-
 /* Datasources */
 import RedisDatasource from '#datasources/redis.datasource'
 import MariaDBDatasource from '#datasources/mariaDB.datasource'
 import MongoDBDatasource from '#datasources/mongoDB.datasource'
-
 /* Utils */
 import Log from '#utils/logger'
 import * as Utils from '#utils/common.util'
 import MailSender from '#utils/MailSender'
 import PushManager from '#utils/PushManager'
-
 /* Jobs */
 import {AverageJob} from '#src/jobs/average.job'
 import LotteryJob from '#src/jobs/lottery.job'
 import {FileUtil, Multipart} from '#utils/file.util'
+
+/* Models */
+import RoomModel from '#models/room.model'
+import MessageModel from '#models/message.model'
+/* Repositories */
+import ArticleRepository from '#repositories/article.repository'
+import ChatRepository from '#repositories/chat.repository'
+import UserRepository from '#repositories/user.repository'
+import FileRepository from '#repositories/file.repository'
+import PlannerRepository from '#repositories/planner.repository'
+import LotteryRepository from '#repositories/lottery.repository'
+/* Services */
+import ArticleService from '#services/article.service'
+import ChatService from '#services/chat.service'
+import FileService from '#services/file.service'
+import LotteryService from '#services/lottery.service'
+import UserService from '#services/user.service'
+import PlannerService from '#services/planner.service'
+/* Controllers */
+import ArticleController from '#controllers/article.controller'
+import ChatController from '#controllers/chat.controller'
+import FileController from '#controllers/file.controller'
+import LotteryController from '#controllers/lottery.controller'
+import PlannerController from '#controllers/planner.controller'
+import UserController from '#controllers/user.controller'
+/* Routes */
+import ArticleRoute from '#routes/api/v1/article.route'
+import ChatRoute from '#routes/api/v1/chat.route'
+import FileRoute from '#routes/api/v1/file.route'
+import LotteryRoute from '#routes/api/v1/lottery.route'
+import PlannerRoute from '#routes/api/v1/planner.route'
+import UserRoute from '#routes/api/v1/user.route'
 
 const Container = () => {
     const container = createContainer({
@@ -36,14 +63,7 @@ const Container = () => {
     }
 
     const init = async () => {
-        console.log(path.resolve(''))
-        await container.loadModules(['src/routes/api/v1/*.route.js', 'src/models/*.js', 'src/repositories/*.js', 'src/services/*.js', 'src/controllers/*.js'], {
-            esModules: true,
-            formatName,
-            cwd: path.resolve(''),
-        })
-
-        await container.register({
+        container.register({
             Config: asValue(Config),
             RequestBatch: asFunction(RequestBatch).singleton(),
 
@@ -62,8 +82,47 @@ const Container = () => {
             LotteryJob: asFunction(LotteryJob),
         })
 
-        console.log(container)
+        // await container.loadModules(['src/routes/api/v1/*.route.js', 'src/models/*.js', 'src/repositories/*.js', 'src/services/*.js', 'src/controllers/*.js'], {
+        //     esModules: true,
+        //     formatName,
+        //     cwd: path.resolve(''),
+        // })
+
+        /* Dynamic import 사용시 jest error */
+        container.register({
+            MessageModel: asFunction(MessageModel),
+            RoomModel: asFunction(RoomModel),
+
+            ArticleRepository: asFunction(ArticleRepository),
+            ChatRepository: asFunction(ChatRepository),
+            FileRepository: asFunction(FileRepository),
+            LotteryRepository: asFunction(LotteryRepository),
+            PlannerRepository: asFunction(PlannerRepository),
+            UserRepository: asFunction(UserRepository),
+
+            ArticleService: asFunction(ArticleService),
+            ChatService: asFunction(ChatService),
+            FileService: asFunction(FileService),
+            LotteryService: asFunction(LotteryService),
+            PlannerService: asFunction(PlannerService),
+            UserService: asFunction(UserService),
+
+            ArticleController: asFunction(ArticleController),
+            ChatController: asFunction(ChatController),
+            FileController: asFunction(FileController),
+            LotteryController: asFunction(LotteryController),
+            PlannerController: asFunction(PlannerController),
+            UserController: asFunction(UserController),
+
+            ArticleRoute: asFunction(ArticleRoute),
+            ChatRoute: asFunction(ChatRoute),
+            FileRoute: asFunction(FileRoute),
+            LotteryRoute: asFunction(LotteryRoute),
+            PlannerRoute: asFunction(PlannerRoute),
+            UserRoute: asFunction(UserRoute),
+        })
         Log.debug(`Container created`)
+        return container
     }
 
     return {get: name => container.resolve(name), init}
