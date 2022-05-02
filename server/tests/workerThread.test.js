@@ -3,18 +3,12 @@ import request from 'supertest'
 import Container from '#src/loaders/container'
 import {asValue} from 'awilix'
 
-const container = await Container.init()
-
-const {default: InitApp} = await import('#src/loaders/initApp')
-
-const app = InitApp()
-jest.setTimeout(13000)
-
 test('/api/v1/user/worker-test/:num', async () => {
-    const UserService = Container.get('UserService')
-    const PlannerService = Container.get('PlannerService')
-    const spy = jest.spyOn(UserService, 'workerTest')
+    const container = await Container.init()
 
+    const UserService = Container.get('UserService')
+    const spy = jest.spyOn(UserService, 'workerTest')
+    // job on main thread
     // spy.mockImplementation(num => {
     //     let sum = BigInt(0)
     //     console.time('calc')
@@ -26,24 +20,29 @@ test('/api/v1/user/worker-test/:num', async () => {
     //     return avg
     // })
 
+    const RedisClient = {
+        get: jest.fn(),
+        emit: jest.fn(),
+    }
+
+    const PlannerService = Container.get('PlannerService')
     jest.spyOn(PlannerService, 'getPlanners')
 
     container.register({
         UserService: asValue(UserService),
         PlannerService: asValue(PlannerService),
+        RedisClient: asValue(RedisClient),
     })
 
+    const {default: InitApp} = await import('#src/loaders/initApp')
+    const app = InitApp()
+
     const queue = []
-
-    queue.push(async () => await request(app).get('/api/v1/user/worker-test/80000000'))
-
-    for (let i = 0; i < 5; i++) {
-        queue.push(async () => await request(app).get('/api/v1/planner/list'))
-    }
+    queue.push(async () => await request(app).get('/api/v1/user/worker-test/20000000'))
+    for (let i = 0; i < 5; i++) queue.push(async () => await request(app).get('/api/v1/planner/list'))
 
     await Promise.all(queue.map(fn => fn()))
 
-    console.log(Container.get('UserService').workerTest)
-    // expect(Container.get('UserService').workerTest).toHaveBeenCalledTimes(1)
-    // expect(Container.get('PlannerService').getPlanners).toHaveBeenCalledTimes(5)
+    expect(UserService.workerTest).toHaveBeenCalledTimes(1)
+    expect(PlannerService.getPlanners).toHaveBeenCalledTimes(1)
 })

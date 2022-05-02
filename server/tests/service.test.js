@@ -2,15 +2,12 @@
 import {jest} from '@jest/globals'
 import Log from '#utils/logger'
 
-import {Repositories} from '#src/loaders/dependencies'
-
-import {encryptSHA, getData, getWeek} from '#utils/common.util'
-import MailSender from '#utils/MailSender'
-import PushManager from '#utils/PushManager'
+import Container from '#src/loaders/container'
 
 import UserService from '#services/user.service'
 import LotteryService from '#services/lottery.service'
 import PlannerService from '#services/planner.service'
+import {asValue} from 'awilix'
 
 const mockUser = {
     id: 45,
@@ -65,23 +62,59 @@ const mockPlanner = {
     regDate: '2022-03-12 19:20:10.0',
 }
 
+const container = await Container.init()
+
+const Config = Container.get('Config')
+
+const UserRepository = Container.get('UserRepository')
+const LotteryRepository = Container.get('LotteryRepository')
+const PlannerRepository = Container.get('PlannerRepository')
+
+const DateUtil = Container.get('DateUtil')
+const EncryptUtil = Container.get('EncryptUtil')
+const ErrorHandlerUtil = Container.get('ErrorHandlerUtil')
+const FileUtil = Container.get('FileUtil')
+const HttpUtil = Container.get('HttpUtil')
+const MailSender = Container.get('MailSender')
+const PushManager = Container.get('PushManager')
+
+const AverageJob = Container.get('AverageJob')
+
+container.register({
+    Config: asValue(Config),
+
+    UserRepository: asValue(UserRepository),
+    LotteryRepository: asValue(LotteryRepository),
+    PlannerRepository: asValue(PlannerRepository),
+
+    DateUtil: asValue(DateUtil),
+    EncryptUtil: asValue(EncryptUtil),
+    ErrorHandler: asValue(ErrorHandlerUtil),
+    FileUtil: asValue(FileUtil),
+    HttpUtil: asValue(HttpUtil),
+    MailSender: asValue(MailSender),
+    PushManager: asValue(PushManager),
+
+    AverageJob: asValue(AverageJob),
+})
+
 describe('UserService', () => {
     const userService = UserService({
-        Repositories: {
-            userRepository: Repositories.userRepository,
-            plannerRepository: Repositories.plannerRepository,
-        },
-        Utils: {encryptSHA},
+        Config,
+        UserRepository,
+        PlannerRepository,
+        EncryptUtil,
         MailSender,
         PushManager,
+        AverageJob,
     })
 
     describe('signUp', () => {
         beforeEach(() => {
             jest.clearAllMocks()
             jest.spyOn(MailSender, 'sendMailTo').mockReturnValue(true)
-            jest.spyOn(Repositories.userRepository, 'addUser').mockReturnValue(45)
-            jest.spyOn(Repositories.userRepository, 'addAuth').mockReturnValue(true)
+            jest.spyOn(UserRepository, 'addUser').mockReturnValue(45)
+            jest.spyOn(UserRepository, 'addAuth').mockReturnValue(true)
         })
 
         test('default flow', async () => {
@@ -92,14 +125,14 @@ describe('UserService', () => {
             }
             const ret = await userService.signUp(input)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.addUser).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.addAuth).toHaveBeenCalledTimes(1)
+            expect(UserRepository.addUser).toHaveBeenCalledTimes(1)
+            expect(UserRepository.addAuth).toHaveBeenCalledTimes(1)
             expect(ret).toBeInstanceOf(Object)
             expect(ret).toHaveProperty('id')
         })
 
         test('duplicated email', async () => {
-            jest.spyOn(Repositories.userRepository, 'getUserByEmail').mockReturnValue([mockUser])
+            jest.spyOn(UserRepository, 'getUserByEmail').mockReturnValue([mockUser])
             try {
                 await userService.signUp({})
             } catch (error) {
@@ -108,7 +141,7 @@ describe('UserService', () => {
                 err.status = 400
                 expect(err).toEqual(err)
             }
-            expect(Repositories.userRepository.getUserByEmail).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserByEmail).toHaveBeenCalledTimes(1)
         })
     })
 
@@ -118,7 +151,7 @@ describe('UserService', () => {
         })
 
         test('default flow', async () => {
-            jest.spyOn(Repositories.userRepository, 'searchAuth').mockReturnValue([
+            jest.spyOn(UserRepository, 'searchAuth').mockReturnValue([
                 {
                     id: 1,
                     userId: 45,
@@ -126,21 +159,21 @@ describe('UserService', () => {
                     regDate: '2020-01-01 00:00:00',
                 },
             ])
-            jest.spyOn(Repositories.userRepository, 'updateUserStatus').mockReturnValue(true)
-            jest.spyOn(Repositories.userRepository, 'deleteAuth').mockReturnValue(true)
+            jest.spyOn(UserRepository, 'updateUserStatus').mockReturnValue(true)
+            jest.spyOn(UserRepository, 'deleteAuth').mockReturnValue(true)
 
             const ret = await userService.auth(45, 'aaaaaaaa')
 
-            expect(Repositories.userRepository.searchAuth).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.updateUserStatus).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.deleteAuth).toHaveBeenCalledTimes(1)
+            expect(UserRepository.searchAuth).toHaveBeenCalledTimes(1)
+            expect(UserRepository.updateUserStatus).toHaveBeenCalledTimes(1)
+            expect(UserRepository.deleteAuth).toHaveBeenCalledTimes(1)
             expect(ret).toBe(true)
         })
 
         test('invalid token', async () => {
-            jest.spyOn(Repositories.userRepository, 'searchAuth').mockReturnValue([])
+            jest.spyOn(UserRepository, 'searchAuth').mockReturnValue([])
             const ret = await userService.auth(45, 'aaaaaaaa')
-            expect(Repositories.userRepository.searchAuth).toHaveBeenCalledTimes(1)
+            expect(UserRepository.searchAuth).toHaveBeenCalledTimes(1)
             expect(ret).toBe(false)
         })
     })
@@ -151,14 +184,14 @@ describe('UserService', () => {
         })
 
         test('default flow', async () => {
-            jest.spyOn(Repositories.userRepository, 'checkLogin').mockReturnValue([mockUser])
+            jest.spyOn(UserRepository, 'checkLogin').mockReturnValue([mockUser])
             const ret = await userService.login({email: '', password: ''})
-            expect(Repositories.userRepository.checkLogin).toHaveBeenCalledTimes(1)
+            expect(UserRepository.checkLogin).toHaveBeenCalledTimes(1)
             expect(ret).toBe(mockUser)
         })
 
         test('there is no matching user', async () => {
-            jest.spyOn(Repositories.userRepository, 'checkLogin').mockReturnValue([])
+            jest.spyOn(UserRepository, 'checkLogin').mockReturnValue([])
             try {
                 await userService.login({email: '', password: ''})
             } catch (error) {
@@ -167,7 +200,7 @@ describe('UserService', () => {
                 err.status = 400
                 expect(err).toEqual(err)
             }
-            expect(Repositories.userRepository.checkLogin).toHaveBeenCalledTimes(1)
+            expect(UserRepository.checkLogin).toHaveBeenCalledTimes(1)
         })
 
         test('not authorized', async () => {
@@ -175,7 +208,7 @@ describe('UserService', () => {
                 ...mockUser,
                 status: 0,
             }
-            jest.spyOn(Repositories.userRepository, 'checkLogin').mockReturnValue([tmpMockUser])
+            jest.spyOn(UserRepository, 'checkLogin').mockReturnValue([tmpMockUser])
             try {
                 await userService.login({email: '', password: ''})
             } catch (error) {
@@ -184,7 +217,7 @@ describe('UserService', () => {
                 err.status = 400
                 expect(err).toEqual(err)
             }
-            expect(Repositories.userRepository.checkLogin).toHaveBeenCalledTimes(1)
+            expect(UserRepository.checkLogin).toHaveBeenCalledTimes(1)
         })
     })
 
@@ -194,15 +227,15 @@ describe('UserService', () => {
         })
 
         test('default flow', async () => {
-            jest.spyOn(Repositories.userRepository, 'getUserById').mockReturnValue([mockUser])
+            jest.spyOn(UserRepository, 'getUserById').mockReturnValue([mockUser])
             const ret = await userService.getUserById(0)
-            expect(Repositories.userRepository.getUserById).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserById).toHaveBeenCalledTimes(1)
             expect(ret).toBeInstanceOf(Object)
             expect(ret).toHaveProperty('id')
         })
 
         test('not exists', async () => {
-            jest.spyOn(Repositories.userRepository, 'getUserById').mockReturnValue([])
+            jest.spyOn(UserRepository, 'getUserById').mockReturnValue([])
             try {
                 await userService.getUserById(0)
             } catch (error) {
@@ -211,7 +244,7 @@ describe('UserService', () => {
                 err.status = 400
                 expect(err).toEqual(err)
             }
-            expect(Repositories.userRepository.getUserById).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserById).toHaveBeenCalledTimes(1)
         })
     })
 
@@ -221,16 +254,16 @@ describe('UserService', () => {
         })
 
         test('default flow', async () => {
-            jest.spyOn(Repositories.userRepository, 'getUserById').mockReturnValue([mockUser])
-            jest.spyOn(Repositories.userRepository, 'updateToken').mockReturnValue(true)
+            jest.spyOn(UserRepository, 'getUserById').mockReturnValue([mockUser])
+            jest.spyOn(UserRepository, 'updateToken').mockReturnValue(true)
             const ret = await userService.updateToken(0, 'token')
-            expect(Repositories.userRepository.getUserById).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.updateToken).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserById).toHaveBeenCalledTimes(1)
+            expect(UserRepository.updateToken).toHaveBeenCalledTimes(1)
             expect(ret).toBe(true)
         })
 
         test('not exists', async () => {
-            jest.spyOn(Repositories.userRepository, 'getUserById').mockReturnValue([])
+            jest.spyOn(UserRepository, 'getUserById').mockReturnValue([])
             try {
                 await userService.updateToken(0, 'token')
             } catch (error) {
@@ -239,12 +272,12 @@ describe('UserService', () => {
                 err.status = 400
                 expect(err).toEqual(err)
             }
-            expect(Repositories.userRepository.getUserById).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserById).toHaveBeenCalledTimes(1)
         })
 
         test('database error', async () => {
-            jest.spyOn(Repositories.userRepository, 'getUserById').mockReturnValue([mockUser])
-            jest.spyOn(Repositories.userRepository, 'updateToken').mockImplementation(() => {
+            jest.spyOn(UserRepository, 'getUserById').mockReturnValue([mockUser])
+            jest.spyOn(UserRepository, 'updateToken').mockImplementation(() => {
                 const err = new Error('database error')
                 err.status = 500
                 throw err
@@ -258,71 +291,69 @@ describe('UserService', () => {
                 expect(err).toEqual(err)
             }
 
-            expect(Repositories.userRepository.getUserById).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.updateToken).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserById).toHaveBeenCalledTimes(1)
+            expect(UserRepository.updateToken).toHaveBeenCalledTimes(1)
         })
     })
 
     describe('setUserNotified', () => {
         beforeEach(() => {
             jest.clearAllMocks()
-            jest.spyOn(Repositories.userRepository, 'setUserNotified').mockReturnValue(true)
+            jest.spyOn(UserRepository, 'setUserNotified').mockReturnValue(true)
         })
 
         test('default flow', async () => {
-            jest.spyOn(Repositories.plannerRepository, 'getLatestPlanner').mockReturnValue([mockPlanner])
+            jest.spyOn(PlannerRepository, 'getLatestPlanner').mockReturnValue([mockPlanner])
             const ret = await userService.setUserNotified(0)
-            expect(Repositories.plannerRepository.getLatestPlanner).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.setUserNotified).toHaveBeenCalledTimes(1)
+            expect(PlannerRepository.getLatestPlanner).toHaveBeenCalledTimes(1)
+            expect(UserRepository.setUserNotified).toHaveBeenCalledTimes(1)
             expect(ret).toBe(true)
         })
 
         test('planner doesnt exists', async () => {
-            jest.spyOn(Repositories.plannerRepository, 'getLatestPlanner').mockReturnValue([])
+            jest.spyOn(PlannerRepository, 'getLatestPlanner').mockReturnValue([])
             const ret = await userService.setUserNotified(0)
-            expect(Repositories.plannerRepository.getLatestPlanner).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.setUserNotified).toHaveBeenCalledTimes(1)
+            expect(PlannerRepository.getLatestPlanner).toHaveBeenCalledTimes(1)
+            expect(UserRepository.setUserNotified).toHaveBeenCalledTimes(1)
             expect(ret).toBe(true)
         })
     })
 })
 
 describe('LotteryService', () => {
-    const Utils = {getWeek, getData}
     const lotteryService = LotteryService({
-        Repositories: {
-            lotteryRepository: Repositories.lotteryRepository,
-            userRepository: Repositories.userRepository,
-        },
-        Utils,
+        LotteryRepository,
+        UserRepository,
+        DateUtil,
+        HttpUtil,
         MailSender,
         PushManager,
     })
 
     describe('saveLottery', () => {
         test('default flow', async () => {
-            jest.spyOn(Repositories.lotteryRepository, 'addLottery').mockReturnValue(0)
+            jest.spyOn(LotteryRepository, 'addLottery').mockReturnValue(0)
             const ret = await lotteryService.saveLottery(0, {})
             Log.debug(JSON.stringify(ret))
-            expect(Repositories.lotteryRepository.addLottery).toHaveBeenCalledTimes(1)
+            expect(LotteryRepository.addLottery).toHaveBeenCalledTimes(1)
             expect(ret).toBe(0)
         })
     })
 
     describe('getLotteryList', () => {
         test('default flow', async () => {
-            jest.spyOn(Repositories.lotteryRepository, 'getLotteryList')
+            jest.spyOn(LotteryRepository, 'getLotteryList')
             const ret = await lotteryService.getLotteryList()
-            expect(Repositories.lotteryRepository.getLotteryList).toHaveBeenCalledTimes(1)
+            expect(LotteryRepository.getLotteryList).toHaveBeenCalledTimes(1)
             expect(ret).toBeInstanceOf(Array)
         })
     })
 
     describe('getFameList', () => {
         test('default flow', async () => {
-            jest.spyOn(Repositories.lotteryRepository, 'getLotteryFameList')
+            jest.spyOn(LotteryRepository, 'getLotteryFameList')
             const ret = await lotteryService.getFameList()
-            expect(Repositories.lotteryRepository.getLotteryList).toHaveBeenCalledTimes(1)
+            expect(LotteryRepository.getLotteryList).toHaveBeenCalledTimes(1)
             expect(ret).toBeInstanceOf(Array)
         })
     })
@@ -330,43 +361,43 @@ describe('LotteryService', () => {
     describe('batchProcess', () => {
         beforeEach(() => {
             jest.clearAllMocks()
-            jest.spyOn(Utils, 'getWeek').mockReturnValue(1)
-            jest.spyOn(Utils, 'getData').mockReturnValue(mockRoundRes)
-            jest.spyOn(Repositories.lotteryRepository, 'updateLottery').mockReturnValue(true)
+            jest.spyOn(DateUtil, 'getWeek').mockReturnValue(1)
+            jest.spyOn(HttpUtil, 'getData').mockReturnValue(mockRoundRes)
+            jest.spyOn(LotteryRepository, 'updateLottery').mockReturnValue(true)
             jest.spyOn(MailSender, 'sendMailTo').mockReturnValue(true)
             jest.spyOn(PushManager, 'send').mockReturnValue(true)
         })
 
         test('nothing to process', async () => {
-            jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([])
+            jest.spyOn(LotteryRepository, 'getBatchTargetList').mockReturnValue([])
             await lotteryService.batchProcess()
-            expect(Utils.getWeek).toHaveBeenCalledTimes(1)
-            expect(Repositories.lotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
+            expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
+            expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
 
-            expect(Utils.getData).toHaveBeenCalledTimes(0)
-            expect(Repositories.lotteryRepository.updateLottery).toHaveBeenCalledTimes(0)
+            expect(HttpUtil.getData).toHaveBeenCalledTimes(0)
+            expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(0)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(0)
             expect(PushManager.send).toHaveBeenCalledTimes(0)
         })
 
         test('no one won', async () => {
-            jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([
+            jest.spyOn(LotteryRepository, 'getBatchTargetList').mockReturnValue([
                 {...mockLottery, id: 1, roundNo: 1, numberCSV: '2,3,9,18,31,40'},
                 {...mockLottery, id: 2, roundNo: 1, numberCSV: '1,7,15,19,31,35'},
             ])
 
             await lotteryService.batchProcess()
-            expect(Utils.getWeek).toHaveBeenCalledTimes(1)
-            expect(Repositories.lotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
-            expect(Utils.getData).toHaveBeenCalledTimes(1)
+            expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
+            expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
+            expect(HttpUtil.getData).toHaveBeenCalledTimes(1)
 
-            expect(Repositories.lotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
+            expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(0)
             expect(PushManager.send).toHaveBeenCalledTimes(0)
         })
 
         test('1won - 1st', async () => {
-            jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([
+            jest.spyOn(LotteryRepository, 'getBatchTargetList').mockReturnValue([
                 {...mockLottery, id: 1, roundNo: 1, numberCSV: '2,3,9,18,31,40'},
                 {...mockLottery, id: 2, roundNo: 1, numberCSV: '10,23,29,33,37,40'},
             ])
@@ -375,11 +406,11 @@ describe('LotteryService', () => {
             // MailSender.sendMailTo.mockRestore()
 
             await lotteryService.batchProcess()
-            expect(Utils.getWeek).toHaveBeenCalledTimes(1)
-            expect(Repositories.lotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
-            expect(Utils.getData).toHaveBeenCalledTimes(1)
+            expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
+            expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
+            expect(HttpUtil.getData).toHaveBeenCalledTimes(1)
 
-            expect(Repositories.lotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
+            expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(1)
             expect(PushManager.send).toHaveBeenCalledTimes(1)
 
@@ -393,20 +424,20 @@ describe('LotteryService', () => {
         })
 
         test('draw delayed (api with current week returns failed)', async () => {
-            jest.spyOn(Utils, 'getData')
+            jest.spyOn(HttpUtil, 'getData')
                 .mockReturnValueOnce({returnValue: 'fail'})
                 .mockReturnValueOnce({...mockLottery, drwNo: 0})
-            jest.spyOn(Repositories.lotteryRepository, 'getBatchTargetList').mockReturnValue([
+            jest.spyOn(LotteryRepository, 'getBatchTargetList').mockReturnValue([
                 {...mockLottery, id: 1, roundNo: 1, numberCSV: '2,3,9,18,31,40'},
                 {...mockLottery, id: 2, roundNo: 0, numberCSV: '1,2,3,4,31,35'},
             ])
 
             await lotteryService.batchProcess()
-            expect(Utils.getWeek).toHaveBeenCalledTimes(1)
-            expect(Repositories.lotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
-            expect(Utils.getData).toHaveBeenCalledTimes(2)
+            expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
+            expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
+            expect(HttpUtil.getData).toHaveBeenCalledTimes(2)
 
-            expect(Repositories.lotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
+            expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(0)
             expect(PushManager.send).toHaveBeenCalledTimes(0)
         })
@@ -415,19 +446,17 @@ describe('LotteryService', () => {
 
 describe('PlannerService', () => {
     const plannerService = PlannerService({
-        Repositories: {
-            plannerRepository: Repositories.plannerRepository,
-            userRepository: Repositories.userRepository,
-        },
+        PlannerRepository,
+        UserRepository,
         PushManager,
     })
 
     describe('getPlanners', () => {
         test('default flow', async () => {
-            jest.spyOn(Repositories.plannerRepository, 'getPlannerList')
+            jest.spyOn(PlannerRepository, 'getPlannerList')
 
             const ret = await plannerService.getPlanners()
-            expect(Repositories.plannerRepository.getPlannerList).toHaveBeenCalledTimes(1)
+            expect(PlannerRepository.getPlannerList).toHaveBeenCalledTimes(1)
             expect(ret).toBeInstanceOf(Array)
         })
     })
@@ -435,18 +464,18 @@ describe('PlannerService', () => {
     describe('savePlanner', () => {
         beforeEach(() => {
             jest.clearAllMocks()
-            jest.spyOn(Repositories.userRepository, 'getUserById').mockReturnValue([mockUser])
-            jest.spyOn(Repositories.plannerRepository, 'savePlanner').mockReturnValue(1)
-            jest.spyOn(Repositories.userRepository, 'getUserHavingToken').mockReturnValue([mockUser])
+            jest.spyOn(UserRepository, 'getUserById').mockReturnValue([mockUser])
+            jest.spyOn(PlannerRepository, 'savePlanner').mockReturnValue(1)
+            jest.spyOn(UserRepository, 'getUserHavingToken').mockReturnValue([mockUser])
             jest.spyOn(PushManager, 'send').mockReturnValue(true)
         })
 
         test('new plan', async () => {
             const ret = await plannerService.savePlanner({userId: mockUser.id})
 
-            expect(Repositories.userRepository.getUserById).toHaveBeenCalledTimes(1)
-            expect(Repositories.plannerRepository.savePlanner).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.getUserHavingToken).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserById).toHaveBeenCalledTimes(1)
+            expect(PlannerRepository.savePlanner).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserHavingToken).toHaveBeenCalledTimes(1)
             expect(PushManager.send).toHaveBeenCalledTimes(1)
             expect(typeof ret).toBe('number')
         })
@@ -454,25 +483,25 @@ describe('PlannerService', () => {
         test('patch existing plan', async () => {
             const ret = await plannerService.savePlanner({userId: mockUser.id, id: 1})
 
-            expect(Repositories.userRepository.getUserById).toHaveBeenCalledTimes(1)
-            expect(Repositories.plannerRepository.savePlanner).toHaveBeenCalledTimes(1)
-            expect(Repositories.userRepository.getUserHavingToken).toHaveBeenCalledTimes(0)
+            expect(UserRepository.getUserById).toHaveBeenCalledTimes(1)
+            expect(PlannerRepository.savePlanner).toHaveBeenCalledTimes(1)
+            expect(UserRepository.getUserHavingToken).toHaveBeenCalledTimes(0)
             expect(PushManager.send).toHaveBeenCalledTimes(0)
             expect(typeof ret).toBe('number')
         })
     })
 
     test('deletePlanner', async () => {
-        jest.spyOn(Repositories.plannerRepository, 'deletePlanner').mockReturnValue(1)
+        jest.spyOn(PlannerRepository, 'deletePlanner').mockReturnValue(1)
         const ret = await plannerService.deletePlanner(1)
-        expect(Repositories.plannerRepository.deletePlanner).toHaveBeenCalledTimes(1)
+        expect(PlannerRepository.deletePlanner).toHaveBeenCalledTimes(1)
         expect(ret).toBe(1)
     })
 
     test('getLatest', async () => {
-        jest.spyOn(Repositories.plannerRepository, 'getLatestPlanner').mockReturnValue([mockPlanner])
+        jest.spyOn(PlannerRepository, 'getLatestPlanner').mockReturnValue([mockPlanner])
         const ret = await plannerService.getLatest()
-        expect(Repositories.plannerRepository.getLatestPlanner).toHaveBeenCalledTimes(1)
+        expect(PlannerRepository.getLatestPlanner).toHaveBeenCalledTimes(1)
         expect(ret).toBeInstanceOf(Array)
     })
 })

@@ -1,14 +1,15 @@
-import {validationErrorHandler} from '#utils/common.util'
-
-const PlannerController = ({PlannerService, RequestBatch, RedisClient}) => {
+const PlannerController = ({PlannerService, RequestBatch, RedisClient, ErrorHandlerUtil}) => {
     const getPlanners = async (req, res) => {
-        const ret = await RequestBatch.check(`planner_list`, () => PlannerService.getPlanners())
-        RedisClient.emit('set', req.originalUrl, ret, 60 * 60 * 24 * 3)
+        const ret = await RequestBatch.check(`planner_list`, async () => {
+            const res = await PlannerService.getPlanners()
+            RedisClient.emit('set', req.originalUrl, res, 60 * 60 * 24 * 3)
+            return res
+        })
         res.json(ret)
     }
 
     const savePlanner = async (req, res) => {
-        validationErrorHandler(req)
+        ErrorHandlerUtil.validationErrorHandler(req)
         const params = req.body
         const ret = await PlannerService.savePlanner(params)
         RedisClient.emit('del', '/api/v1/planner/list')

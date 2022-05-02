@@ -7,16 +7,9 @@ import RequestBatch from '#src/loaders/requestBatch'
 import RedisDatasource from '#datasources/redis.datasource'
 import MariaDBDatasource from '#datasources/mariaDB.datasource'
 import MongoDBDatasource from '#datasources/mongoDB.datasource'
-/* Utils */
-import Log from '#utils/logger'
-import * as Utils from '#utils/common.util'
-import MailSender from '#utils/MailSender'
-import PushManager from '#utils/PushManager'
 /* Jobs */
 import {AverageJob} from '#src/jobs/average.job'
 import LotteryJob from '#src/jobs/lottery.job'
-import {FileUtil, Multipart} from '#utils/file.util'
-
 /* Models */
 import RoomModel from '#models/room.model'
 import MessageModel from '#models/message.model'
@@ -48,6 +41,15 @@ import FileRoute from '#routes/api/v1/file.route'
 import LotteryRoute from '#routes/api/v1/lottery.route'
 import PlannerRoute from '#routes/api/v1/planner.route'
 import UserRoute from '#routes/api/v1/user.route'
+/* Utils */
+import Log from '#utils/logger'
+import HttpUtil from '#utils/http.util'
+import EncryptUtil from '#utils/encrypt.util'
+import MailSender from '#utils/MailSender'
+import PushManager from '#utils/PushManager'
+import FileUtil from '#utils/file.util'
+import ErrorHandlerUtil from '#utils/errorHandler.util'
+import DateUtil from '#utils/date.util'
 
 const Container = () => {
     const container = createContainer({
@@ -71,12 +73,14 @@ const Container = () => {
             DataSourceMariaDB: asFunction(MariaDBDatasource).singleton(),
             DataSourceMongoDB: asFunction(MongoDBDatasource).singleton(),
 
-            Utils: asValue(Utils),
+            DateUtil: asValue(DateUtil),
+            EncryptUtil: asValue(EncryptUtil),
+            ErrorHandlerUtil: asValue(ErrorHandlerUtil),
             FileUtil: asValue(FileUtil),
-            Multipart: asValue(Multipart),
+            HttpUtil: asValue(HttpUtil),
+            Log: asValue(Log),
             MailSender: asValue(MailSender),
             PushManager: asValue(PushManager),
-            Log: asValue(Log),
 
             AverageJob: asValue(AverageJob),
             LotteryJob: asFunction(LotteryJob),

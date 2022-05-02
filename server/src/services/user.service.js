@@ -1,4 +1,4 @@
-const UserService = ({Config, UserRepository, PlannerRepository, Utils, MailSender, PushManager, AverageJob}) => {
+const UserService = ({Config, UserRepository, PlannerRepository, EncryptUtil, MailSender, PushManager, AverageJob}) => {
     const signUp = async data => {
         const [user] = await UserRepository.getUserByEmail(data.email)
         if (user) {
@@ -7,7 +7,7 @@ const UserService = ({Config, UserRepository, PlannerRepository, Utils, MailSend
             throw err
         }
 
-        const insertId = await UserRepository.addUser({email: data.email, name: data.name, password: Utils.encryptSHA(data.password)})
+        const insertId = await UserRepository.addUser({email: data.email, name: data.name, password: EncryptUtil.encryptSHA(data.password)})
         if (!insertId) {
             const err = new Error('회원가입에 실패했습니다.')
             err.status = 400
@@ -39,7 +39,7 @@ const UserService = ({Config, UserRepository, PlannerRepository, Utils, MailSend
     }
 
     const login = async ({email, password}) => {
-        const pass = Utils.encryptSHA(password)
+        const pass = EncryptUtil.encryptSHA(password)
         const [user] = await UserRepository.checkLogin({email: email, password: pass})
 
         let err

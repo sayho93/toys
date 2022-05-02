@@ -1,8 +1,6 @@
-import {validationErrorHandler} from '#utils/common.util'
-
-const LotteryController = ({LotteryService, RequestBatch, RedisClient}) => {
+const LotteryController = ({LotteryService, RequestBatch, RedisClient, ErrorHandlerUtil}) => {
     const saveLottery = async (req, res) => {
-        validationErrorHandler(req)
+        ErrorHandlerUtil.validationErrorHandler(req)
         const userId = req.params.userId
         const params = req.body
         const ret = await LotteryService.saveLottery(userId, params)
@@ -16,9 +14,9 @@ const LotteryController = ({LotteryService, RequestBatch, RedisClient}) => {
         const page = req.query.page ?? 1
         const limit = req.query.limit ?? 27
         const ret = await RequestBatch.check(`lottery_list_${userId}_${searchTxt}_${page}_${limit}`, async () => {
-            const ret = await LotteryService.getLotteryList(userId, searchTxt, page, limit)
-            RedisClient.emit('set', req.originalUrl, ret, 60 * 60)
-            return ret
+            const res = await LotteryService.getLotteryList(userId, searchTxt, page, limit)
+            RedisClient.emit('set', req.originalUrl, res, 60 * 60)
+            return res
         })
 
         res.json(ret)
@@ -28,8 +26,12 @@ const LotteryController = ({LotteryService, RequestBatch, RedisClient}) => {
         const searchTxt = req.query.searchTxt
         const page = req.query.page
         const limit = req.query.limit
-        const ret = await RequestBatch.check(`lottery_fame_${searchTxt}_${page}_${limit}`, () => LotteryService.getFameList(searchTxt, page, limit))
-        RedisClient.emit('set', req.originalUrl, ret, 60 * 60)
+        const ret = await RequestBatch.check(`lottery_fame_${searchTxt}_${page}_${limit}`, async () => {
+            const res = await LotteryService.getFameList(searchTxt, page, limit)
+            RedisClient.emit('set', req.originalUrl, res, 60 * 60)
+            return res
+        })
+
         res.json(ret)
     }
 

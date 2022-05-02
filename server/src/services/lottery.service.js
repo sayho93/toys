@@ -1,7 +1,7 @@
 import Log from '#utils/logger'
 import Config from '#configs/config'
 
-const LotteryService = ({LotteryRepository, UserRepository, Utils, MailSender, PushManager}) => {
+const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, MailSender, PushManager}) => {
     const saveLottery = async (userId, params) => {
         return await LotteryRepository.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
     }
@@ -18,7 +18,7 @@ const LotteryService = ({LotteryRepository, UserRepository, Utils, MailSender, P
 
     const batchProcess = async () => {
         Log.verbose('batchProcess start')
-        const week = Utils.getWeek()
+        const week = DateUtil.getWeek()
         const list = await LotteryRepository.getBatchTargetList(week)
         Log.debug(`${list.length} items`)
         Log.debug(JSON.stringify(list))
@@ -26,7 +26,7 @@ const LotteryService = ({LotteryRepository, UserRepository, Utils, MailSender, P
 
         const winnerList = []
         const skipList = []
-        let lotteryRes = await Utils.getData(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
+        let lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
         Log.debug(JSON.stringify(lotteryRes))
 
         const updateJobs = []
@@ -35,7 +35,7 @@ const LotteryService = ({LotteryRepository, UserRepository, Utils, MailSender, P
             if (skipList.includes(item.roundNo)) continue
 
             if (item.roundNo !== lotteryRes.drwNo) {
-                lotteryRes = await Utils.getData(`${Config.app.externalApi.LOTTERY_CHECK}${item.roundNo}`)
+                lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${item.roundNo}`)
                 Log.debug(JSON.stringify(lotteryRes))
                 if (lotteryRes.returnValue === 'fail') {
                     Log.verbose(`skip ${item.roundNo}`)
@@ -90,7 +90,7 @@ const LotteryService = ({LotteryRepository, UserRepository, Utils, MailSender, P
         const users = await UserRepository.getUserHavingToken()
         Log.debug(`notify batch process: ${users.length} items`)
         const registrationKey = users.map(user => user.pushToken)
-        await PushManager.send(registrationKey, 'LotGen 알림', `곧 ${Utils.getWeek()}회 추첨이 시작됩니다.`)
+        await PushManager.send(registrationKey, 'LotGen 알림', `곧 ${DateUtil.getWeek()}회 추첨이 시작됩니다.`)
     }
 
     return {

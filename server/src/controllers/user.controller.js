@@ -1,8 +1,6 @@
-import {validationErrorHandler} from '#utils/common.util'
-
-const UserController = ({UserService}) => {
+const UserController = ({UserService, ErrorHandlerUtil}) => {
     const signup = async (req, res) => {
-        validationErrorHandler(req)
+        ErrorHandlerUtil.validationErrorHandler(req)
         const user = await UserService.signup(req.body)
         res.json(user)
     }
@@ -19,7 +17,7 @@ const UserController = ({UserService}) => {
     }
 
     const login = async (req, res) => {
-        validationErrorHandler(req)
+        ErrorHandlerUtil.validationErrorHandler(req)
         const user = await UserService.login(req.body)
         res.json(user)
     }
