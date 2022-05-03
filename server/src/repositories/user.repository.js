@@ -66,7 +66,7 @@ const UserRepository = ({DataSourceMariaDB}) => {
     }
 
     const setUserNotified = async ({userId, id}) => {
-        const [res] = await DataSourceMariaDB.exec(`UPDATE user SET lastPlannerId = ?WHERE id = ?`, [id, userId])
+        const [res] = await DataSourceMariaDB.exec(`UPDATE user SET lastPlannerId = ? WHERE id = ?`, [id, userId])
         return res.affectedRows
     }
 

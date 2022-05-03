@@ -2,46 +2,29 @@ import Log from '#utils/logger'
 import Config from '#configs/config'
 
 const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, MailSender, PushManager}) => {
-    const saveLottery = async (userId, params) => {
-        return await LotteryRepository.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
-    }
-
-    const getLotteryList = async (userId = null, searchTxt = '', page = 1, limit = 10) => {
-        const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
-        await wait(2000)
-        return await LotteryRepository.getLotteryList(userId, searchTxt, page, limit)
-    }
-
-    const getFameList = async (searchTxt = '', page = 1, limit = 10) => {
-        return await LotteryRepository.getLotteryFameList(searchTxt, page, limit)
-    }
-
-    const batchProcess = async () => {
-        Log.verbose('batchProcess start')
-        const week = DateUtil.getWeek()
-        const list = await LotteryRepository.getBatchTargetList(week)
+    const _updateLotteries = async list => {
         Log.debug(`${list.length} items`)
         Log.debug(JSON.stringify(list))
-        if (!list.length) return
 
-        const winnerList = []
-        const skipList = []
+        const winners = []
+        const skips = new Set()
         let lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
         Log.debug(JSON.stringify(lotteryRes))
 
         const updateJobs = []
 
         for (let item of list) {
-            if (skipList.includes(item.roundNo)) continue
+            if (skips.has(item.roundNo)) continue
 
             if (item.roundNo !== lotteryRes.drwNo) {
                 lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${item.roundNo}`)
                 Log.debug(JSON.stringify(lotteryRes))
-                if (lotteryRes.returnValue === 'fail') {
-                    Log.verbose(`skip ${item.roundNo}`)
-                    skipList.push(item.roundNo)
-                    continue
-                }
+            }
+
+            if (lotteryRes.returnValue === 'fail') {
+                Log.verbose(`skip ${item.roundNo}`)
+                skips.set(item.roundNo)
+                continue
             }
 
             const corrects = []
@@ -58,18 +41,20 @@ const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, 
             else if (corrects.length === 4) rank = 4
             else if (corrects.length === 3) rank = 5
 
-            if (rank !== 0) winnerList.push({userId: item.userId, name: item.name, email: item.email, roundNo: item.roundNo, rank})
+            if (rank !== 0) winners.push({userId: item.userId, name: item.name, email: item.email, roundNo: item.roundNo, rank})
 
             updateJobs.push(async () => await LotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank}))
             // await Repositories.LotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank})
         }
-
+        Log.debug(` winners: ${winners.length} items`)
         await Promise.all(updateJobs.map(job => job()))
+        return winners
+    }
 
-        Log.debug(` winnerList: ${winnerList.length} items`)
+    const _sendNotification = async (week, winners) => {
         const jobs = []
 
-        for (let user of winnerList) {
+        for (let user of winners) {
             const template = `<p>---${user.roundNo}회차---</p><p>${user.rank}등 당첨을 축하합니다!</p>`
             jobs.push(() => MailSender.sendMailTo('LotGen 당첨 안내 메일', '', {name: user.name, addr: user.email}, template))
 
@@ -83,6 +68,16 @@ const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, 
         }
 
         await Promise.all(jobs.map(job => job()))
+    }
+
+    const batchProcess = async () => {
+        Log.verbose('batchProcess start')
+        const week = DateUtil.getWeek()
+        const list = await LotteryRepository.getBatchTargetList(week)
+        if (!list.length) return
+
+        const winners = await _updateLotteries(list)
+        if (winners.length) await _sendNotification(week, winners)
         Log.verbose('batchProcess done')
     }
 
@@ -94,9 +89,17 @@ const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, 
     }
 
     return {
-        saveLottery,
-        getLotteryList,
-        getFameList,
+        saveLottery: async (userId, params) => {
+            return await LotteryRepository.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
+        },
+        getLotteryList: async (userId = null, searchTxt = '', page = 1, limit = 10) => {
+            const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
+            await wait(2000)
+            return await LotteryRepository.getLotteryList(userId, searchTxt, page, limit)
+        },
+        getFameList: async (searchTxt = '', page = 1, limit = 10) => {
+            return await LotteryRepository.getLotteryFameList(searchTxt, page, limit)
+        },
         batchProcess,
         notify,
     }
