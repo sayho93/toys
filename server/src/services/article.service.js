@@ -1,31 +1,31 @@
 import Log from '#utils/logger'
 
-const ArticleService = ({Repositories}) => {
+const ArticleService = ({ArticleRepository}) => {
     const getArticleList = async params => {
-        return await Repositories.articleRepository.getArticles(params)
+        return await ArticleRepository.getArticles(params)
     }
 
     const getArticle = async params => {
         const ret = {}
-        const article = await Repositories.articleRepository.getArticleInfo(params)
+        const article = await ArticleRepository.getArticleInfo(params)
         if (article.length) ret.article = article[0]
-        ret.comments = await Repositories.articleRepository.getComments(params)
+        ret.comments = await ArticleRepository.getComments(params)
         return ret
     }
 
     const saveArticle = async params => {
-        return await Repositories.articleRepository.upsertArticle(params)
+        return await ArticleRepository.upsertArticle(params)
     }
 
     const saveComment = async params => {
         Log.error(params.id !== 0)
-        if (+params.id !== 0) return await Repositories.articleRepository.upsertComment(params)
+        if (+params.id !== 0) return await ArticleRepository.upsertComment(params)
         else {
-            const insertId = await Repositories.articleRepository.upsertComment(params)
+            const insertId = await ArticleRepository.upsertComment(params)
             if (+params.depth === 0) {
                 params.id = insertId
                 params.parentId = params.id
-                return await Repositories.articleRepository.upsertComment(params)
+                return await ArticleRepository.upsertComment(params)
             }
             return insertId
         }

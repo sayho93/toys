@@ -1,11 +1,25 @@
 // noinspection DuplicatedCode
+import Container from '#src/loaders/container'
 import {mockRequest, mockResponse} from '#tests/utils/interceptor'
-import {requestBatch, Services} from '#src/loaders/dependencies'
+import {jest} from '@jest/globals'
 import LotteryController from '#controllers/lottery.controller'
 
+const container = await Container.init()
+
 describe('batching test', () => {
-    const lotteryController = LotteryController(Services.lotteryService, requestBatch)
+    const LotteryService = Container.get('LotteryService')
+    const RequestBatch = Container.get('RequestBatch')
+    let RedisClient = {
+        emit: jest.fn(),
+    }
+
+    beforeEach(() => {
+        jest.clearAllMocks()
+        jest.spyOn(LotteryService, 'getLotteryList')
+    })
     test('', async () => {
+        const lotteryController = LotteryController({LotteryService, RequestBatch, RedisClient})
+
         const req = mockRequest({}, {}, {userId: 45})
         const res = mockResponse()
 
@@ -16,8 +30,7 @@ describe('batching test', () => {
         }
 
         await Promise.allSettled(jobs)
-        // expect(res.json).toHaveBeenCalledTimes(1)
-        // expect(res.json.mock.calls.length).toBe(1)
-        // expect(res.json).toHaveBeenCalledWith({message: 'Not Found'})
+        expect(RedisClient.emit).toHaveBeenCalledTimes(1)
+        expect(LotteryService.getLotteryList).toHaveBeenCalledTimes(1)
     })
 })

@@ -1,15 +1,15 @@
-const PlannerService = ({Repositories, PushManager}) => {
+const PlannerService = ({PlannerRepository, UserRepository, PushManager}) => {
     const getPlanners = async () => {
-        return await Repositories.plannerRepository.getPlannerList()
+        return await PlannerRepository.getPlannerList()
     }
 
     const savePlanner = async params => {
-        const reqUser = await Repositories.userRepository.getUserById(params.userId)
-        const insertId = await Repositories.plannerRepository.savePlanner(params)
+        const reqUser = await UserRepository.getUserById(params.userId)
+        const insertId = await PlannerRepository.savePlanner(params)
         if (!reqUser.length || !insertId) return null
 
         if (!params.id) {
-            const users = await Repositories.userRepository.getUserHavingToken()
+            const users = await UserRepository.getUserHavingToken()
             await PushManager.send(
                 users.map(user => user.pushToken),
                 'Planner 알림',
@@ -20,11 +20,11 @@ const PlannerService = ({Repositories, PushManager}) => {
     }
 
     const deletePlanner = async id => {
-        return await Repositories.plannerRepository.deletePlanner(id)
+        return await PlannerRepository.deletePlanner(id)
     }
 
     const getLatest = async () => {
-        return await Repositories.plannerRepository.getLatestPlanner()
+        return await PlannerRepository.getLatestPlanner()
     }
 
     return {

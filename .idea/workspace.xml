@@ -4,13 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="api baching with map &amp; redis(only connection) added">
-      <change afterPath="$PROJECT_DIR$/server/tests/cache.test.js" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="how to retrieve called times?">
+      <change afterPath="$PROJECT_DIR$/server/src/utils/date.util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/encrypt.util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/errorHandler.util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/http.util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_04_25_3_04_AM,_체크아웃_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022_04_25_3_04_AM__________.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/lotGen/numList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/datasources/redis.datasource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/common.util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/file.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/file.util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/app.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/app.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/cache.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/controller.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/controller.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/service.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/service.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/utils/interceptor.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/utils/interceptor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/workerThread.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/workerThread.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +71,8 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="server-structure-migration" />
-                    <option name="lastUsedInstant" value="1650809626" />
+                    <option name="branchName" value="feature/di-container" />
+                    <option name="lastUsedInstant" value="1651419948" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -97,30 +114,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;17.8.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;17.0.24&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "javascript.nodejs.core.library.configured.version": "17.8.0",
+    "javascript.nodejs.core.library.typings.version": "17.0.24",
+    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/Users/sayho/WebstormProjects/toys/server/node_modules/jest",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/sayho/WebstormProjects/toys/server/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client" />
@@ -130,14 +147,14 @@
       <recent name="$PROJECT_DIR$/server/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src" />
       <recent name="$PROJECT_DIR$/server/tests" />
       <recent name="$PROJECT_DIR$/client/public/static/images" />
       <recent name="$PROJECT_DIR$/client/components" />
       <recent name="$PROJECT_DIR$/client/components/planner" />
-      <recent name="$PROJECT_DIR$/client" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.cache.test.js">
+  <component name="RunManager" selected="Jest.모든 테스트">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -151,6 +168,18 @@
         <env name="NODE_NO_WARNINGS" value="1" />
       </envs>
       <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="app.test.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="--experimental-vm-modules" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs>
+        <env name="NODE_NO_WARNINGS" value="1" />
+      </envs>
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/server/tests/app.test.js" />
       <method v="2" />
     </configuration>
     <configuration name="batching.test.js" type="JavaScriptTestRunnerJest">
@@ -173,6 +202,18 @@
       <envs />
       <scope-kind value="TEST_FILE" />
       <test-file value="$PROJECT_DIR$/server/tests/cache.test.js" />
+      <method v="2" />
+    </configuration>
+    <configuration name="controller.test.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="--experimental-vm-modules" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs>
+        <env name="NODE_NO_WARNINGS" value="1" />
+      </envs>
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/server/tests/controller.test.js" />
       <method v="2" />
     </configuration>
     <configuration name="service.test.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
@@ -268,10 +309,12 @@
     </configuration>
     <list>
       <item itemvalue="HTTP 요청.rest-api | #1" />
-      <item itemvalue="Jest.batching.test.js" />
-      <item itemvalue="Jest.cache.test.js" />
       <item itemvalue="Jest.모든 테스트" />
       <item itemvalue="Jest.service.test.js" />
+      <item itemvalue="Jest.controller.test.js" />
+      <item itemvalue="Jest.app.test.js" />
+      <item itemvalue="Jest.batching.test.js" />
+      <item itemvalue="Jest.cache.test.js" />
       <item itemvalue="Jest.workerThread.test" />
       <item itemvalue="Node.js.client with https" />
       <item itemvalue="npm.client build" />
@@ -283,7 +326,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP 요청.rest-api | #1" />
         <item itemvalue="HTTP 요청.rest-api | #1" />
       </list>
     </recent_temporary>
@@ -386,42 +428,10 @@
       <workItem from="1651180248000" duration="722000" />
       <workItem from="1651222389354" duration="8008000" />
       <workItem from="1651316302527" duration="2996000" />
-      <workItem from="1651338997818" duration="1014000" />
-    </task>
-    <task id="LOCAL-00027" summary="settings changed">
-      <created>1647112883285</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1647112883285</updated>
-    </task>
-    <task id="LOCAL-00028" summary="debounce search added">
-      <created>1647200705490</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1647200705490</updated>
-    </task>
-    <task id="LOCAL-00029" summary="https done &amp; working on chrome push">
-      <created>1647265858970</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1647265858970</updated>
-    </task>
-    <task id="LOCAL-00030" summary="fcm messaging added to client &amp; token update logic added to server">
-      <created>1647274630632</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1647274630633</updated>
-    </task>
-    <task id="LOCAL-00031" summary="fcm message receive in foreground fixed">
-      <created>1647276994970</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1647276994970</updated>
+      <workItem from="1651338997818" duration="2153000" />
+      <workItem from="1651347699259" duration="18359000" />
+      <workItem from="1651427032515" duration="8202000" />
+      <workItem from="1651489518119" duration="6429000" />
     </task>
     <task id="LOCAL-00032" summary="fcm sender added to server &amp; mailer fixed">
       <created>1647281014175</created>
@@ -731,7 +741,42 @@
       <option name="project" value="LOCAL" />
       <updated>1651230524438</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="bugfix">
+      <created>1651340090144</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1651340090144</updated>
+    </task>
+    <task id="LOCAL-00077" summary="working on di-container implementation using awilix">
+      <created>1651420044663</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1651420044663</updated>
+    </task>
+    <task id="LOCAL-00078" summary="implementation done">
+      <created>1651427997371</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1651427997372</updated>
+    </task>
+    <task id="LOCAL-00079" summary="node segfaults when using dynamic imports">
+      <created>1651429855762</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1651429855762</updated>
+    </task>
+    <task id="LOCAL-00080" summary="how to retrieve called times?">
+      <created>1651433784348</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1651433784348</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -759,11 +804,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="masonry added" />
-    <MESSAGE value="working on article api" />
-    <MESSAGE value="static file serve on uploads &amp; article api roughly done" />
-    <MESSAGE value="filepond added" />
-    <MESSAGE value="my story added" />
     <MESSAGE value="feed done" />
     <MESSAGE value="comment view &amp; write added" />
     <MESSAGE value="mongoose added" />
@@ -784,7 +824,12 @@
     <MESSAGE value="worker test added" />
     <MESSAGE value="workers injected" />
     <MESSAGE value="api baching with map &amp; redis(only connection) added" />
-    <option name="LAST_COMMIT_MESSAGE" value="api baching with map &amp; redis(only connection) added" />
+    <MESSAGE value="bugfix" />
+    <MESSAGE value="working on di-container implementation using awilix" />
+    <MESSAGE value="implementation done" />
+    <MESSAGE value="node segfaults when using dynamic imports" />
+    <MESSAGE value="how to retrieve called times?" />
+    <option name="LAST_COMMIT_MESSAGE" value="how to retrieve called times?" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

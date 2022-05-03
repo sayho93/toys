@@ -1,11 +1,10 @@
 import express from 'express'
 import {body} from 'express-validator'
-import {AsyncHandler} from '#utils/common.util'
-import {checkCache} from '#src/loaders/middlewares'
+import {AsyncHandler, checkCache} from '#src/loaders/middlewares'
 
-const router = express.Router({mergeParams: true})
+const LotteryRoute = ({LotteryController}) => {
+    const router = express.Router({mergeParams: true})
 
-const LotteryRoute = LotteryController => {
     router.post(
         '/save/:userId',
         body('roundNo').notEmpty().withMessage('Round number is required'),

@@ -1,7 +1,7 @@
-const LotteryRepository = dataSource => {
+const LotteryRepository = ({DataSourceMariaDB}) => {
     const addLottery = async data => {
         const {userId, roundNo, numberCSV} = data
-        const [lottery] = await dataSource.exec(`INSERT INTO lottery(userId, roundNo, numberCSV)VALUES (?, ?, ?)`, [userId, roundNo, numberCSV])
+        const [lottery] = await DataSourceMariaDB.exec(`INSERT INTO lottery(userId, roundNo, numberCSV)VALUES (?, ?, ?)`, [userId, roundNo, numberCSV])
         return lottery.insertId
     }
 
@@ -14,7 +14,7 @@ const LotteryRepository = dataSource => {
                 ORDER BY regDate DESC
                 LIMIT ?, ?
             `
-        const [list] = await dataSource.exec(query, [(+page - 1) * +limit, +limit])
+        const [list] = await DataSourceMariaDB.exec(query, [(+page - 1) * +limit, +limit])
         return list
     }
 
@@ -31,12 +31,12 @@ const LotteryRepository = dataSource => {
                 lottery.regDate DESC
             LIMIT ?, ?
         `
-        const [list] = await dataSource.exec(query, [(+page - 1) * +limit, +limit])
+        const [list] = await DataSourceMariaDB.exec(query, [(+page - 1) * +limit, +limit])
         return list
     }
 
     const getBatchTargetList = async week => {
-        const [list] = await dataSource.exec(
+        const [list] = await DataSourceMariaDB.exec(
             `
                 SELECT
                     *,
@@ -52,7 +52,7 @@ const LotteryRepository = dataSource => {
     }
 
     const updateLottery = async data => {
-        const [lottery] = await dataSource.exec('UPDATE lottery SET correctCSV = ?, bonusNo = ?, `rank` = ?, isProcessed = 1 WHERE id = ?', [
+        const [lottery] = await DataSourceMariaDB.exec('UPDATE lottery SET correctCSV = ?, bonusNo = ?, `rank` = ?, isProcessed = 1 WHERE id = ?', [
             data.correctCSV,
             data.bonusNo,
             data.rank,

@@ -1,10 +1,10 @@
 import express from 'express'
 import {body, param} from 'express-validator'
-import {AsyncHandler} from '#utils/common.util'
+import {AsyncHandler} from '#src/loaders/middlewares'
 
-const router = express.Router({mergeParams: true})
+const ChatRoute = ({ChatController}) => {
+    const router = express.Router({mergeParams: true})
 
-const ChatRoute = ChatController => {
     router.get('/rooms', AsyncHandler(ChatController.rooms))
 
     router.get('/room/:id', param('id').isMongoId().withMessage('invalid request parameter'), AsyncHandler(ChatController.room))

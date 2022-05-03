@@ -1,4 +1,4 @@
-const ArticleRepository = dataSource => {
+const ArticleRepository = ({DataSourceMariaDB}) => {
     const getArticles = async ({userId = 0, searchTxt = '', page = 1, limit = 12}) => {
         const userFilter = userId ? `article.userId = ${userId}` : '1=1'
         const searchFilter = searchTxt ? `(content LIKE '%${searchTxt}%' OR user.name LIKE '%${searchTxt}%' OR user.email LIKE '%${searchTxt}%')` : '1=1'
@@ -10,7 +10,7 @@ const ArticleRepository = dataSource => {
             ORDER BY article.regDate DESC
             LIMIT ?, ?            
         `
-        const [list] = await dataSource.exec(query, [(+page - 1) * +limit, +limit])
+        const [list] = await DataSourceMariaDB.exec(query, [(+page - 1) * +limit, +limit])
         return list
     }
 
@@ -20,13 +20,13 @@ const ArticleRepository = dataSource => {
             FROM article JOIN user ON article.userId = user.id LEFT JOIN file ON article.fileId = file.id
             WHERE article.id = ?
         `
-        const [ret] = await dataSource.exec(query, [id])
+        const [ret] = await DataSourceMariaDB.exec(query, [id])
         return ret
     }
 
     const getComments = async ({id}) => {
         const query = `SELECT comment.*, user.name FROM comment JOIN user ON comment.userId = user.id WHERE articleId = ? ORDER BY parentId, depth, regDate`
-        const [ret] = await dataSource.exec(query, [id])
+        const [ret] = await DataSourceMariaDB.exec(query, [id])
         return ret
     }
 
@@ -37,7 +37,7 @@ const ArticleRepository = dataSource => {
             VALUES (?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE fileId = ?, content = ?, status = ?
         `
-        const [ret] = await dataSource.exec(query, [id, userId, fileId, content, fileId, content, status])
+        const [ret] = await DataSourceMariaDB.exec(query, [id, userId, fileId, content, fileId, content, status])
         return ret.insertId
     }
 
@@ -49,7 +49,7 @@ const ArticleRepository = dataSource => {
             VALUES (?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE content = ?, status = ? ${updateParent}
         `
-        const [ret] = await dataSource.exec(query, [id, userId, articleId, parentId, depth, content, status, content, status])
+        const [ret] = await DataSourceMariaDB.exec(query, [id, userId, articleId, parentId, depth, content, status, content, status])
         return ret.insertId
     }
 

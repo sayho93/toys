@@ -1,8 +1,8 @@
-const MessageModel = mongoose => {
-    const model = new mongoose.Schema(
+const MessageModel = ({DataSourceMongoDB}) => {
+    const model = new DataSourceMongoDB.Schema(
         {
             roomId: {
-                type: mongoose.Schema.Types.ObjectId,
+                type: DataSourceMongoDB.Schema.Types.ObjectId,
                 ref: 'rooms',
             },
             user: {
@@ -16,7 +16,7 @@ const MessageModel = mongoose => {
         },
         {versionKey: false, timestamps: true}
     )
-    return mongoose.model('Message', model)
+    return DataSourceMongoDB.model('Message', model)
 }
 
 export default MessageModel

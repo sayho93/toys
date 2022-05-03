@@ -13,8 +13,8 @@ export const mockResponse = () => {
     const res = {}
     res.send = jest.fn().mockReturnValue(res)
     res.status = jest.fn().mockReturnValue(res)
-    res.json = ret => {
+    res.json = jest.fn(ret => {
         Log.info(JSON.stringify(ret))
-    }
+    })
     return res
 }

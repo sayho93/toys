@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 import * as http from 'http'
-import Config from '#configs/config'
 import {normalizePort, onError, onListening} from '#src/loaders/startupUtils'
-import InitApp from '#src/loaders/initApp'
-import {Controllers, Services} from '#src/loaders/dependencies'
+import Container from '#src/loaders/container'
 
-import socketIo from '#src/socketIO/app'
-import LotteryJob from '#src/jobs/lottery.job'
+await Container.init()
 
-const app = InitApp({Controllers})
-LotteryJob(Services.lotteryService).start()
+// import InitApp from '#src/loaders/initApp'
+// import socketIo from '#src/socketIO/app'
+const {default: InitApp} = await import('#src/loaders/initApp')
+const {default: socketIo} = await import('#src/socketIO/app')
+
+const Config = Container.get('Config')
+const app = InitApp()
+const LotteryJob = Container.get('LotteryJob')
+LotteryJob.start()
 
 const port = normalizePort(process.env.PORT || Config.app.PORT)
 app.set('port', port)
@@ -19,5 +23,3 @@ socketIo(server)
 server.listen(port)
 server.on('error', error => onError(error, port))
 server.on('listening', () => onListening(server))
-
-export {}

@@ -1,32 +1,32 @@
 import Log from '#utils/logger'
 import Config from '#configs/config'
 
-const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
+const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, MailSender, PushManager}) => {
     const saveLottery = async (userId, params) => {
-        return await Repositories.lotteryRepository.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
+        return await LotteryRepository.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
     }
 
     const getLotteryList = async (userId = null, searchTxt = '', page = 1, limit = 10) => {
-        // const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
-        // await wait(2000)
-        return await Repositories.lotteryRepository.getLotteryList(userId, searchTxt, page, limit)
+        const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
+        await wait(2000)
+        return await LotteryRepository.getLotteryList(userId, searchTxt, page, limit)
     }
 
     const getFameList = async (searchTxt = '', page = 1, limit = 10) => {
-        return await Repositories.lotteryRepository.getLotteryFameList(searchTxt, page, limit)
+        return await LotteryRepository.getLotteryFameList(searchTxt, page, limit)
     }
 
     const batchProcess = async () => {
         Log.verbose('batchProcess start')
-        const week = Utils.getWeek()
-        const list = await Repositories.lotteryRepository.getBatchTargetList(week)
+        const week = DateUtil.getWeek()
+        const list = await LotteryRepository.getBatchTargetList(week)
         Log.debug(`${list.length} items`)
         Log.debug(JSON.stringify(list))
         if (!list.length) return
 
         const winnerList = []
         const skipList = []
-        let lotteryRes = await Utils.getData(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
+        let lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
         Log.debug(JSON.stringify(lotteryRes))
 
         const updateJobs = []
@@ -35,7 +35,7 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
             if (skipList.includes(item.roundNo)) continue
 
             if (item.roundNo !== lotteryRes.drwNo) {
-                lotteryRes = await Utils.getData(`${Config.app.externalApi.LOTTERY_CHECK}${item.roundNo}`)
+                lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${item.roundNo}`)
                 Log.debug(JSON.stringify(lotteryRes))
                 if (lotteryRes.returnValue === 'fail') {
                     Log.verbose(`skip ${item.roundNo}`)
@@ -60,10 +60,8 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
 
             if (rank !== 0) winnerList.push({userId: item.userId, name: item.name, email: item.email, roundNo: item.roundNo, rank})
 
-            updateJobs.push(
-                async () => await Repositories.lotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank})
-            )
-            // await Repositories.lotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank})
+            updateJobs.push(async () => await LotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank}))
+            // await Repositories.LotteryRepository.updateLottery({id: item.id, correctCSV: corrects.join(','), bonusNo: lotteryRes.bnusNo, rank: rank})
         }
 
         await Promise.all(updateJobs.map(job => job()))
@@ -75,7 +73,7 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
             const template = `<p>---${user.roundNo}회차---</p><p>${user.rank}등 당첨을 축하합니다!</p>`
             jobs.push(() => MailSender.sendMailTo('LotGen 당첨 안내 메일', '', {name: user.name, addr: user.email}, template))
 
-            const pushTarget = await Repositories.userRepository.getUserById(user.userId)
+            const pushTarget = await UserRepository.getUserById(user.userId)
             const message = `${user.rank}등 당첨을 축하합니다!`
             const registrationKey = [pushTarget[0].pushToken]
 
@@ -89,10 +87,10 @@ const LotteryService = ({Repositories, Utils, MailSender, PushManager}) => {
     }
 
     const notify = async () => {
-        const users = await Repositories.userRepository.getUserHavingToken()
+        const users = await UserRepository.getUserHavingToken()
         Log.debug(`notify batch process: ${users.length} items`)
         const registrationKey = users.map(user => user.pushToken)
-        await PushManager.send(registrationKey, 'LotGen 알림', `곧 ${Utils.getWeek()}회 추첨이 시작됩니다.`)
+        await PushManager.send(registrationKey, 'LotGen 알림', `곧 ${DateUtil.getWeek()}회 추첨이 시작됩니다.`)
     }
 
     return {

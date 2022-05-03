@@ -1,13 +1,11 @@
-import {validationErrorHandler} from '#utils/common.util'
-
-const ChatController = ChatService => {
+const ChatController = ({ChatService, ErrorHandlerUtil}) => {
     const rooms = async (req, res) => {
         const ret = await ChatService.getChatRooms()
         res.json(ret)
     }
 
     const room = async (req, res) => {
-        validationErrorHandler(req)
+        ErrorHandlerUtil.validationErrorHandler(req)
         const id = req.params.id
         const ret = await ChatService.getChatRoom(id)
         res.json(ret)
