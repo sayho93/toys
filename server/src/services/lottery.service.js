@@ -93,8 +93,8 @@ const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, 
             return await LotteryRepository.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
         },
         getLotteryList: async (userId = null, searchTxt = '', page = 1, limit = 10) => {
-            const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
-            await wait(2000)
+            // const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
+            // await wait(2000)
             return await LotteryRepository.getLotteryList(userId, searchTxt, page, limit)
         },
         getFameList: async (searchTxt = '', page = 1, limit = 10) => {

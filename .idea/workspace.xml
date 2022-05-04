@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="minor">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="logResponse switched &amp; fileDown stream test added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/file.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/initApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/initApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/file.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/file.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/PushManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/PushManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tests/service.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/service.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +136,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server start:dev">
+  <component name="RunManager" selected="npm.client dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -419,14 +414,7 @@
       <workItem from="1651347699259" duration="18359000" />
       <workItem from="1651427032515" duration="8202000" />
       <workItem from="1651489518119" duration="6429000" />
-      <workItem from="1651662760276" duration="7128000" />
-    </task>
-    <task id="LOCAL-00033" summary="fcm sender added to server &amp; mailer fixed">
-      <created>1647281024647</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1647281024647</updated>
+      <workItem from="1651662760276" duration="9789000" />
     </task>
     <task id="LOCAL-00034" summary="send push to all added">
       <created>1647281353716</created>
@@ -764,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651584409957</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="logResponse switched &amp; fileDown stream test added">
+      <created>1651670829027</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1651670829027</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +787,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="comment view &amp; write added" />
     <MESSAGE value="mongoose added" />
     <MESSAGE value="working on chat related" />
     <MESSAGE value="react version migrated to 18" />
@@ -817,7 +811,8 @@
     <MESSAGE value="node segfaults when using dynamic imports" />
     <MESSAGE value="how to retrieve called times?" />
     <MESSAGE value="minor" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor" />
+    <MESSAGE value="logResponse switched &amp; fileDown stream test added" />
+    <option name="LAST_COMMIT_MESSAGE" value="logResponse switched &amp; fileDown stream test added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
