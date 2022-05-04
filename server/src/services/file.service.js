@@ -36,9 +36,16 @@ const FileService = ({FileRepository, FileUtil}) => {
         } else return false
     }
 
+    const getFile = async id => {
+        const [file] = await FileRepository.getFile({id})
+        if (!file) return false
+        return file
+    }
+
     return {
         processFile,
         removeFile,
+        getFile,
     }
 }
 

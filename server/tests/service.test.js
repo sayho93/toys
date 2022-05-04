@@ -7,7 +7,6 @@ import Container from '#src/loaders/container'
 import UserService from '#services/user.service'
 import LotteryService from '#services/lottery.service'
 import PlannerService from '#services/planner.service'
-import {asValue} from 'awilix'
 
 const mockUser = {
     id: 45,
@@ -80,23 +79,23 @@ const PushManager = Container.get('PushManager')
 
 const AverageJob = Container.get('AverageJob')
 
-container.register({
-    Config: asValue(Config),
-
-    UserRepository: asValue(UserRepository),
-    LotteryRepository: asValue(LotteryRepository),
-    PlannerRepository: asValue(PlannerRepository),
-
-    DateUtil: asValue(DateUtil),
-    EncryptUtil: asValue(EncryptUtil),
-    ErrorHandler: asValue(ErrorHandlerUtil),
-    FileUtil: asValue(FileUtil),
-    HttpUtil: asValue(HttpUtil),
-    MailSender: asValue(MailSender),
-    PushManager: asValue(PushManager),
-
-    AverageJob: asValue(AverageJob),
-})
+// container.register({
+//     Config: asValue(Config),
+//
+//     UserRepository: asValue(UserRepository),
+//     LotteryRepository: asValue(LotteryRepository),
+//     PlannerRepository: asValue(PlannerRepository),
+//
+//     DateUtil: asValue(DateUtil),
+//     EncryptUtil: asValue(EncryptUtil),
+//     ErrorHandler: asValue(ErrorHandlerUtil),
+//     FileUtil: asValue(FileUtil),
+//     HttpUtil: asValue(HttpUtil),
+//     MailSender: asValue(MailSender),
+//     PushManager: asValue(PushManager),
+//
+//     AverageJob: asValue(AverageJob),
+// })
 
 describe('UserService', () => {
     const userService = UserService({

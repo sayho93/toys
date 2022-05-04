@@ -2,7 +2,7 @@ import schedule from 'node-schedule'
 import Log from '#utils/logger'
 
 const LotteryJob = ({LotteryService, RedisClient}) => {
-    const checkNums = () => {
+    const _checkNums = () => {
         const rule = new schedule.RecurrenceRule()
         rule.second = 0
         rule.minute = 0
@@ -12,7 +12,7 @@ const LotteryJob = ({LotteryService, RedisClient}) => {
         })
     }
 
-    const notifier = () => {
+    const _notifier = () => {
         const rule = new schedule.RecurrenceRule()
         rule.second = 0
         rule.minute = 50
@@ -25,8 +25,8 @@ const LotteryJob = ({LotteryService, RedisClient}) => {
 
     const start = () => {
         if (process.env.NODE_ENV === 'production' && process.env.INSTANCE_ID === '0001') {
-            checkNums()
-            notifier()
+            _checkNums()
+            _notifier()
             Log.verbose('LotteryJob initialized')
         }
     }

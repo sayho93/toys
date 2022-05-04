@@ -8,6 +8,8 @@ const FileRoute = ({FileController, FileUtil}) => {
 
     router.delete('/remove/single', AsyncHandler(FileController.removeSingleFile))
 
+    router.get('/download/single/:id', AsyncHandler(FileController.downloadSingleFile))
+
     return {router}
 }
 

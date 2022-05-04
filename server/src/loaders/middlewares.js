@@ -2,6 +2,12 @@ import Log from '#utils/logger'
 import createError from 'http-errors'
 import Container from '#src/loaders/container'
 
+const _resInterceptor = (res, send) => content => {
+    res.contentBody = content
+    res.send = send
+    res.send(content)
+}
+
 export const logRequest = (req, res, next) => {
     const {headers} = req
     headers['cache-control'] = 'no-cache'
@@ -9,26 +15,12 @@ export const logRequest = (req, res, next) => {
     else Log.http(`[${req.method}] parameter: ${JSON.stringify(req.body)}`)
     res.locals.user = req.user
     res.locals.param = req.query
-    next()
-}
 
-export const logResponseBody = (req, res, next) => {
-    const oldWrite = res.write,
-        oldEnd = res.end
+    res.send = _resInterceptor(res, res.send)
 
-    const chunks = []
-
-    res.write = chunk => {
-        chunks.push(chunk)
-        return oldWrite.apply(res, arguments)
-    }
-
-    res.end = function (chunk) {
-        if (chunk) chunks.push(chunk)
-        const body = Buffer.concat(chunks.map(x => (typeof x === 'string' ? Buffer.from(x, 'binary') : x))).toString('utf8')
-        Log.verbose(`[${req.originalUrl}] response: ${body}`)
-        oldEnd.apply(res, arguments)
-    }
+    res.on('finish', () => {
+        Log.http(`[${req.method}] [${req.originalUrl}] response: [${res.statusCode}] ${res.contentBody}`)
+    })
 
     next()
 }
@@ -56,7 +48,7 @@ export const checkCache = async (req, res, next) => {
     }
 
     Log.verbose(`[${req.originalUrl}] cache hit`)
-    res.send(JSON.parse(cachedData))
+    res.json(JSON.parse(cachedData))
 }
 
 export const AsyncHandler = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)

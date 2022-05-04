@@ -3,7 +3,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import Log, {stream} from '#utils/logger'
 
-import {apiErrorHandler, logRequest, logResponseBody, notFoundErrorHandler} from '#src/loaders/middlewares'
+import {apiErrorHandler, logRequest, notFoundErrorHandler} from '#src/loaders/middlewares'
 /* Routes */
 import apiRoute from '#routes/api/api.route'
 
@@ -17,7 +17,6 @@ const InitApp = () => {
     app.use(express.urlencoded({extended: true}))
     app.use('/uploads', express.static('uploads'))
     app.use(logRequest)
-    app.use(logResponseBody)
 
     /*Routes*/
     app.use('/api', apiRoute)

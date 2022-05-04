@@ -56,7 +56,7 @@ const Container = () => {
         injectionMode: InjectionMode.PROXY,
     })
 
-    const formatName = name => {
+    const _formatName = name => {
         const [fName, namespace] = name.split('.')
         const fNameFormatted = fName.charAt(0).toUpperCase() + fName.slice(1)
         const namespaceFormatted = namespace.charAt(0).toUpperCase() + namespace.slice(1)

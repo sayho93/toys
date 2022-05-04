@@ -79,11 +79,12 @@ const PushManager = () => {
         const checkMessage = _checkMessageLength(message)
         Log.verbose(`message: ${checkMessage}`)
 
-        const promises = multicastChunks.map(async list => {
-            Log.verbose(JSON.stringify(list))
-            await _send(list, title, checkMessage, extras)
-        })
-        await Promise.all(promises)
+        await Promise.all(
+            multicastChunks.map(async list => {
+                Log.verbose(JSON.stringify(list))
+                await _send(list, title, checkMessage, extras)
+            })
+        )
     }
 
     return {
