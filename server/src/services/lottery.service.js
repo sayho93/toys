@@ -1,14 +1,15 @@
 import Log from '#utils/logger'
-import Config from '#configs/config'
 
-const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, MailSender, PushManager}) => {
+const LotteryService = ({Config, LotteryRepository, UserRepository, DateUtil, HttpUtil, MailSender, PushManager}) => {
     const _updateLotteries = async list => {
         Log.debug(`${list.length} items`)
         Log.debug(JSON.stringify(list))
 
         const winners = []
         const skips = new Set()
-        let lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
+
+        HttpUtil.use(HttpUtil.strategy.axios.get)
+        let lotteryRes = await HttpUtil.fetch(`${Config.app.externalApi.LOTTERY_CHECK}${list[0].roundNo}`)
         Log.debug(JSON.stringify(lotteryRes))
 
         const updateJobs = []
@@ -17,7 +18,7 @@ const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, 
             if (skips.has(item.roundNo)) continue
 
             if (item.roundNo !== lotteryRes.drwNo) {
-                lotteryRes = await HttpUtil.getData(`${Config.app.externalApi.LOTTERY_CHECK}${item.roundNo}`)
+                lotteryRes = await HttpUtil.fetch(`${Config.app.externalApi.LOTTERY_CHECK}${item.roundNo}`)
                 Log.debug(JSON.stringify(lotteryRes))
             }
 
@@ -93,8 +94,8 @@ const LotteryService = ({LotteryRepository, UserRepository, DateUtil, HttpUtil, 
             return await LotteryRepository.addLottery({userId, roundNo: params.roundNo, numberCSV: params.numList})
         },
         getLotteryList: async (userId = null, searchTxt = '', page = 1, limit = 10) => {
-            // const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
-            // await wait(2000)
+            const wait = timeToDelay => new Promise(resolve => setTimeout(resolve, timeToDelay))
+            await wait(2000)
             return await LotteryRepository.getLotteryList(userId, searchTxt, page, limit)
         },
         getFameList: async (searchTxt = '', page = 1, limit = 10) => {

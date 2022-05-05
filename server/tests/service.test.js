@@ -321,6 +321,7 @@ describe('UserService', () => {
 
 describe('LotteryService', () => {
     const lotteryService = LotteryService({
+        Config,
         LotteryRepository,
         UserRepository,
         DateUtil,
@@ -361,7 +362,7 @@ describe('LotteryService', () => {
         beforeEach(() => {
             jest.clearAllMocks()
             jest.spyOn(DateUtil, 'getWeek').mockReturnValue(1)
-            jest.spyOn(HttpUtil, 'getData').mockReturnValue(mockRoundRes)
+            jest.spyOn(HttpUtil, 'fetch').mockReturnValue(mockRoundRes)
             jest.spyOn(LotteryRepository, 'updateLottery').mockReturnValue(true)
             jest.spyOn(MailSender, 'sendMailTo').mockReturnValue(true)
             jest.spyOn(PushManager, 'send').mockReturnValue(true)
@@ -373,7 +374,7 @@ describe('LotteryService', () => {
             expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
             expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
 
-            expect(HttpUtil.getData).toHaveBeenCalledTimes(0)
+            expect(HttpUtil.fetch).toHaveBeenCalledTimes(0)
             expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(0)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(0)
             expect(PushManager.send).toHaveBeenCalledTimes(0)
@@ -388,7 +389,7 @@ describe('LotteryService', () => {
             await lotteryService.batchProcess()
             expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
             expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
-            expect(HttpUtil.getData).toHaveBeenCalledTimes(1)
+            expect(HttpUtil.fetch).toHaveBeenCalledTimes(1)
 
             expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(0)
@@ -407,7 +408,7 @@ describe('LotteryService', () => {
             await lotteryService.batchProcess()
             expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
             expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
-            expect(HttpUtil.getData).toHaveBeenCalledTimes(1)
+            expect(HttpUtil.fetch).toHaveBeenCalledTimes(1)
 
             expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(1)
@@ -423,7 +424,7 @@ describe('LotteryService', () => {
         })
 
         test('draw delayed (api with current week returns failed)', async () => {
-            jest.spyOn(HttpUtil, 'getData')
+            jest.spyOn(HttpUtil, 'fetch')
                 .mockReturnValueOnce({returnValue: 'fail'})
                 .mockReturnValueOnce({...mockLottery, drwNo: 0})
             jest.spyOn(LotteryRepository, 'getBatchTargetList').mockReturnValue([
@@ -434,7 +435,7 @@ describe('LotteryService', () => {
             await lotteryService.batchProcess()
             expect(DateUtil.getWeek).toHaveBeenCalledTimes(1)
             expect(LotteryRepository.getBatchTargetList).toHaveBeenCalledTimes(1)
-            expect(HttpUtil.getData).toHaveBeenCalledTimes(2)
+            expect(HttpUtil.fetch).toHaveBeenCalledTimes(2)
 
             expect(LotteryRepository.updateLottery).toHaveBeenCalledTimes(2)
             expect(MailSender.sendMailTo).toHaveBeenCalledTimes(0)

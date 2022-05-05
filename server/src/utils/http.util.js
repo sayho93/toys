@@ -1,73 +1,101 @@
 import axios from 'axios'
 
-const HttpUtil = () => {
-    const getData = async (url, params = {}) => {
-        try {
-            const response = await axios.get(url, {params: params})
-            return response.data
-        } catch (error) {
-            console.log(error)
-            const err = new Error('http get error')
-            err.status = 400
-            throw err
-        }
-    }
+const httpErrorHandler = error => {
+    console.log(error)
+    console.log(error.status)
+    const err = new Error('http error')
+    err.status = 400
+    throw err
+}
 
-    const postData = async (url, data = {}) => {
-        try {
-            const response = await axios.post(url, data)
-            return response.data
-        } catch (error) {
-            console.log(error)
-            const err = new Error('http post error')
-            err.status = 400
-            throw err
-        }
-    }
+const createFetcher = () => {
+    const _identifier = Symbol('__FETCHER__')
+    let fetchStrategy
 
-    const putData = async (url, data = {}) => {
-        try {
-            const response = await axios.put(url, data)
-            return response.data
-        } catch (error) {
-            console.log(error)
-            const err = new Error('http put error')
-            err.status = 400
-            throw err
-        }
-    }
+    const _isFetcher = fn => _identifier in fn
 
-    const patchData = async (url, data = {}) => {
-        try {
-            const response = await axios.patch(url, data)
-            return response.data
-        } catch (error) {
-            console.log(error)
-            const err = new Error('http patch error')
-            err.status = 400
-            throw err
+    const _createFetch = fn => {
+        const fetchFn = async function _fetch(url, args) {
+            return fn(url, args)
         }
-    }
-
-    const deleteData = async (url, data = {}) => {
-        try {
-            const response = await axios.delete(url, data)
-            return response.data
-        } catch (error) {
-            console.log(error)
-            const err = new Error('http delete error')
-            err.status = 400
-            throw err
-        }
+        fetchFn[_identifier] = true
+        return fetchFn
     }
 
     return {
-        getData,
-        postData,
-        putData,
-        patchData,
-        deleteData,
+        fetch: (url, args) => {
+            return fetchStrategy(url, args)
+        },
+        create: fn => {
+            return _createFetch(fn)
+        },
+        use: fetcher => {
+            if (!_isFetcher(fetcher)) {
+                throw new Error(`The fetcher provided is invalid`)
+            }
+            fetchStrategy = fetcher
+        },
     }
 }
 
-export default HttpUtil()
+const HttpUtil = createFetcher()
+
+const makeFetch = method => {
+    return HttpUtil.create(async (url, data = {}) => {
+        const options = {
+            method,
+            headers: {'Content-Type': 'application/json'},
+        }
+
+        options.method === 'GET' || options.method === 'DELETE'
+            ? (url = `${url}?${Object.keys(data)
+                  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+                  .join('&')}`)
+            : (options.body = JSON.stringify(data))
+
+        try {
+            const res = await fetch(url, options)
+            return res.json()
+        } catch (error) {
+            httpErrorHandler(error)
+        }
+    })
+}
+
+const makeAxios = method => {
+    return HttpUtil.create(async (url, data = {}) => {
+        const options = {
+            method,
+        }
+        options.url = url
+        options.method === 'GET' || options.method === 'DELETE' ? (options.params = data) : (options.data = data)
+
+        try {
+            const res = await axios(options)
+            return res.data
+        } catch (error) {
+            httpErrorHandler(error)
+        }
+    })
+}
+
+const HttpStrategy = {
+    axios: {
+        get: makeAxios('GET'),
+        post: makeAxios('POST'),
+        put: makeAxios('PUT'),
+        patch: makeAxios('PATCH'),
+        delete: makeAxios('DELETE'),
+    },
+    fetch: {
+        get: makeFetch('GET'),
+        post: makeFetch('POST'),
+        put: makeFetch('PUT'),
+        patch: makeFetch('PATCH'),
+        delete: makeFetch('DELETE'),
+    },
+}
+
+HttpUtil.strategy = HttpStrategy
+
+export default HttpUtil

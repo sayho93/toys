@@ -24,19 +24,20 @@ const FileController = ({FileService}) => {
         const file = await FileService.getFile(id)
         if (!file) return res.status(404).send('File not found')
 
-        console.log(path.resolve('./uploads/Main-1651666960133.jpeg'))
-        const data = fs.createReadStream(path.resolve('./uploads/Main-1651666960133.jpeg'))
-        data.on('open', () => {
-            console.log('open')
-        })
-        data.on('close', () => {
-            Log.info('done!')
-        })
-        data.on('error', err => {
-            Log.error(err.code)
-            Log.error(err.stack)
-            res.status(500).send('Internal server error')
-        })
+        const data = fs
+            .createReadStream(path.resolve(file.path))
+            .on('open', () => {
+                setTimeout(() => data.emit('error', new Error('timeout')), 0)
+                console.log('open')
+            })
+            .on('close', () => {
+                Log.info('done!')
+            })
+            .on('error', err => {
+                Log.error(err.code)
+                Log.error(err.stack)
+                res.status(500).send('Internal server error')
+            })
         const disposition = 'attachment; filename="' + file.name + '"'
 
         res.setHeader('Content-Type', 'image' + '/' + file.ext)

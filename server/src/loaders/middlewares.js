@@ -11,6 +11,7 @@ const _resInterceptor = (res, send) => content => {
 export const logRequest = (req, res, next) => {
     const {headers} = req
     headers['cache-control'] = 'no-cache'
+    if (req.method === 'DELETE') return next()
     if (req.method === 'GET') Log.http(`[${req.method}] parameter: ${JSON.stringify(req.query)}`)
     else Log.http(`[${req.method}] parameter: ${JSON.stringify(req.body)}`)
     res.locals.user = req.user
