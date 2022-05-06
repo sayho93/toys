@@ -18,12 +18,11 @@ const port = normalizePort(process.env.PORT || Config.app.PORT)
 app.set('port', port)
 
 const sslConfig = Config.cert[process.env.NODE_ENV]
-
 const option = {
     key: fs.readFileSync(sslConfig.PRIVATE_KEY_PATH),
     cert: fs.readFileSync(sslConfig.CERT_PATH),
 }
-if (sslConfig.CHAIN_PATH) option.chain = fs.readFileSync(sslConfig.CHAIN_PATH)
+if (sslConfig.CHAIN_PATH) option.cert = fs.readFileSync(sslConfig.CHAIN_PATH)
 
 const server = spdy.createServer(option, app)
 socketIo(server)
