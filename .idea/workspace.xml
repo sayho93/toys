@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="h2 added">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="ssl related bug fixed">
+      <change afterPath="$PROJECT_DIR$/server/src/utils/taskQueue.util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/tests/taskQueue.t.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tests/httpUtil.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/httpUtil.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,30 +95,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "javascript.nodejs.core.library.configured.version": "17.8.0",
-    "javascript.nodejs.core.library.typings.version": "17.0.24",
-    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys/server/src/configs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "/Users/sayho/WebstormProjects/toys/server/node_modules/jest",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/sayho/WebstormProjects/toys/server/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;17.8.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;17.0.24&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/src/configs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/configs" />
@@ -134,7 +135,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server start:dev">
+  <component name="RunManager" selected="Jest.taskQueue.test.js">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -206,6 +207,18 @@
       </envs>
       <scope-kind value="TEST_FILE" />
       <test-file value="$PROJECT_DIR$/server/tests/service.test.js" />
+      <method v="2" />
+    </configuration>
+    <configuration name="taskQueue.test.js" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="--experimental-vm-modules" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs>
+        <env name="NODE_NO_WARNINGS" value="1" />
+      </envs>
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/server/tests/taskQueue.test.js" />
       <method v="2" />
     </configuration>
     <configuration name="workerThread.test" type="JavaScriptTestRunnerJest">
@@ -292,6 +305,7 @@
       <item itemvalue="Jest.모든 테스트" />
       <item itemvalue="Jest.service.test.js" />
       <item itemvalue="Jest.controller.test.js" />
+      <item itemvalue="Jest.taskQueue.test.js" />
       <item itemvalue="Jest.app.test.js" />
       <item itemvalue="Jest.batching.test.js" />
       <item itemvalue="Jest.cache.test.js" />
@@ -412,14 +426,9 @@
       <workItem from="1651347699259" duration="18359000" />
       <workItem from="1651427032515" duration="8202000" />
       <workItem from="1651489518119" duration="6429000" />
-      <workItem from="1651662760276" duration="42861000" />
-    </task>
-    <task id="LOCAL-00037" summary="null handled">
-      <created>1647371934330</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1647371934330</updated>
+      <workItem from="1651662760276" duration="45114000" />
+      <workItem from="1652099946226" duration="28000" />
+      <workItem from="1652099983190" duration="7312000" />
     </task>
     <task id="LOCAL-00038" summary="null handled">
       <created>1647372531216</created>
@@ -757,7 +766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651764837992</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="ssl related bug fixed">
+      <created>1651809964865</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1651809964865</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,7 +801,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="working on express modules migration" />
     <MESSAGE value="working on reac-bell-chat" />
     <MESSAGE value="working on react-bell-chat" />
     <MESSAGE value="client dependency renewed" />
@@ -810,7 +825,8 @@
     <MESSAGE value="package version migration" />
     <MESSAGE value="httpUtil strategy added" />
     <MESSAGE value="h2 added" />
-    <option name="LAST_COMMIT_MESSAGE" value="h2 added" />
+    <MESSAGE value="ssl related bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="ssl related bug fixed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
