@@ -5,47 +5,48 @@ const TaskQueue = concurrency => {
     const consumerQueue = []
 
     for (let i = 0; i < concurrency; i++) {
-        _consumer()
+        consumer()
     }
 
-    async function _consumer() {
-        while (true) {
+    function consumer() {
+        return new Promise((resolve, reject) => {
+            const task = _getNextTask()
+            resolve(task)
+        })
+            .then(task => task())
+            .then(res => Log.info(res))
+            .then(() => {
+                if (taskQueue.length) consumer()
+            })
+    }
+
+    function _getNextTask() {}
+
+    const _next = async () => {
+        while (running < concurrency && queue.length) {
+            const task = queue.shift()
+            running++
             try {
-                const task = await _getNextTask()
-                // console.log('task is :::::')
-                // console.log(task)
                 await task()
-            } catch (err) {
-                Log.error(err.stack)
+            } finally {
+                running--
+                await _next()
             }
         }
     }
 
-    function _getNextTask() {
-        return new Promise(resolve => {
-            if (taskQueue.length !== 0) {
-                return resolve(taskQueue.shift())
-            }
-
-            consumerQueue.push(resolve)
-        })
-    }
-
     const runTask = task => {
-        return new Promise(resolve => {
-            const taskWrapper = async () => {
-                const ret = await task()
-                return resolve(ret)
-            }
+        return new Promise((resolve, reject) => {
+            queue.push(async () => {
+                try {
+                    await task()
+                    return resolve()
+                } catch (err) {
+                    return reject(err)
+                }
+            })
 
-            if (consumerQueue.length !== 0) {
-                // there is a sleeping consumer available, use it to run our task
-                const consumer = consumerQueue.shift()
-                consumer(taskWrapper)
-            } else {
-                // all consumers are busy, enqueue the task
-                taskQueue.push(taskWrapper)
-            }
+            process.nextTick(_next)
         })
     }
 
