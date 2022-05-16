@@ -1,4 +1,4 @@
-const URL = process.env.NODE_ENV === 'production' ? 'https://psyho.pw:3000' : 'http://localhost:4000'
+const URL = process.env.NODE_ENV === 'production' ? 'https://psyho.pw:3000' : 'https://localhost:4000'
 const API_ENDPOINT = `${URL}/api/v1`
 
 const Constants = {

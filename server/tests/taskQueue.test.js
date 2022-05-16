@@ -11,10 +11,11 @@ describe('TaskQueueUtil', () => {
 
         const jobs = Array.from({length: 10}, (_, idx) => idx + 1)
 
-        await Promise.all(
+        await Promise.allSettled(
             jobs.map(async idx => {
                 await queue.runTask(async () => {
                     await wait(1500)
+                    if (idx === 5) throw new Error('just error')
                     Log.info(`Task ${idx} is done`)
                 })
             })

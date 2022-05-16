@@ -74,8 +74,8 @@ const Config = {
     },
     cert: {
         development: {
-            PRIVATE_KEY_PATH: path.resolve('src/configs/server.key'),
-            CERT_PATH: path.resolve('src/configs/server.crt'),
+            PRIVATE_KEY_PATH: path.resolve('src/configs/server.key.pem'),
+            CERT_PATH: path.resolve('src/configs/server.pem'),
         },
         production: {
             PRIVATE_KEY_PATH: process.env.CERT_PRIVATE_KEY,

@@ -6,7 +6,7 @@ import 'bootstrap-dark-5/dist/css/bootstrap-dark.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'styles/global.css'
 
-import {wrapper} from '../store'
+import {wrapper} from 'store'
 import Layout from '../components/layout'
 import {useEffect} from 'react'
 

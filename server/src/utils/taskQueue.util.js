@@ -8,45 +8,44 @@ const TaskQueue = concurrency => {
         consumer()
     }
 
-    function consumer() {
-        return new Promise((resolve, reject) => {
-            const task = _getNextTask()
-            resolve(task)
-        })
-            .then(task => task())
-            .then(res => Log.info(res))
-            .then(() => {
-                if (taskQueue.length) consumer()
-            })
+    async function consumer() {
+        while (true) {
+            const task = await _getNextTask()
+            await task()
+            // try {
+            //     const task = await _getNextTask()
+            //     await task()
+            // } catch (error) {
+            //     Log.error(error)
+            // }
+        }
     }
 
-    function _getNextTask() {}
-
-    const _next = async () => {
-        while (running < concurrency && queue.length) {
-            const task = queue.shift()
-            running++
-            try {
-                await task()
-            } finally {
-                running--
-                await _next()
+    function _getNextTask() {
+        return new Promise(resolve => {
+            if (taskQueue.length) {
+                return resolve(taskQueue.shift())
             }
-        }
+            consumerQueue.push(resolve)
+        })
     }
 
     const runTask = task => {
         return new Promise((resolve, reject) => {
-            queue.push(async () => {
+            const taskWrapper = async () => {
                 try {
                     await task()
                     return resolve()
                 } catch (err) {
+                    Log.error(err.stack)
                     return reject(err)
                 }
-            })
+            }
 
-            process.nextTick(_next)
+            if (consumerQueue.length) {
+                const consumer = consumerQueue.shift()
+                consumer(taskWrapper)
+            } else taskQueue.push(taskWrapper)
         })
     }
 

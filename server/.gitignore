@@ -1,6 +1,8 @@
 src/configs/FirebaseConfig.json
 src/configs/server.crt
 src/configs/server.key
+src/configs/server.key.pem
+src/configs/server.pem
 
 /node_modules/
 .idea
