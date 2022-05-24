@@ -1,8 +1,10 @@
 import express from 'express'
 import {body} from 'express-validator'
 import {AsyncHandler, checkCache} from '#src/loaders/middlewares'
+import Container from '#src/loaders/container'
 
-const LotteryRoute = ({LotteryController}) => {
+const LotteryRoute = () => {
+    const LotteryController = Container.get('LotteryController')
     const router = express.Router({mergeParams: true})
 
     router.post(
@@ -18,7 +20,7 @@ const LotteryRoute = ({LotteryController}) => {
 
     router.get('/batchTest', AsyncHandler(LotteryController.batchTest))
 
-    return {router}
+    return router
 }
 
 export default LotteryRoute

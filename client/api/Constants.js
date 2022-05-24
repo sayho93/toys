@@ -16,6 +16,10 @@ const Constants = {
     API_SAVE_NUM: `${API_ENDPOINT}/lottery/save`,
     API_FAME_LIST: `${API_ENDPOINT}/lottery/fame`,
 
+    //Shortener
+    URL_SHORTENER: 'link.psyho.pw',
+    API_SHORTENER: `${URL}/link`,
+
     //PLANNER
     API_PLANNER_LIST: `${API_ENDPOINT}/planner/list`,
     API_PLANNER_SAVE: `${API_ENDPOINT}/planner/save`,

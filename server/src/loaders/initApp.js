@@ -5,7 +5,7 @@ import Log, {stream} from '#utils/logger'
 
 import {apiErrorHandler, logRequest, notFoundErrorHandler} from '#src/loaders/middlewares'
 /* Routes */
-import apiRoute from '#routes/api/api.route'
+import route from '#routes/index'
 
 const InitApp = () => {
     const app = express()
@@ -19,7 +19,7 @@ const InitApp = () => {
     app.use(logRequest)
 
     /*Routes*/
-    app.use('/api', apiRoute)
+    app.use('/', route)
 
     /*Error handlers*/
     app.use(notFoundErrorHandler)

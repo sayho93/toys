@@ -1,8 +1,10 @@
 import express from 'express'
 import {body} from 'express-validator'
 import {AsyncHandler, checkCache} from '#src/loaders/middlewares'
+import Container from '#src/loaders/container'
 
-const PlannerRoute = ({PlannerController}) => {
+const PlannerRoute = () => {
+    const PlannerController = Container.get('PlannerController')
     const router = express.Router({mergeParams: true})
 
     router.get('/list', checkCache, AsyncHandler(PlannerController.getPlanners))
@@ -20,7 +22,7 @@ const PlannerRoute = ({PlannerController}) => {
 
     router.get('/latest', checkCache, AsyncHandler(PlannerController.getLatestPlanner))
 
-    return {router}
+    return router
 }
 
 export default PlannerRoute

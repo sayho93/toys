@@ -4,18 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="..">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="bug fix">
+      <change afterPath="$PROJECT_DIR$/client/pages/shortener/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/link.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/repositories/link.repository.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/routes/link.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/link.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/HeaderInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configs/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/configs/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/taskQueue.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/taskQueue.util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tests/taskQueue.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/tests/taskQueue.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/initApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/initApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/api.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/encrypt.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/encrypt.util.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,30 +115,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "javascript.nodejs.core.library.configured.version": "17.8.0",
-    "javascript.nodejs.core.library.typings.version": "17.0.24",
-    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys/server/src/configs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "/Users/sayho/WebstormProjects/toys/server/node_modules/jest",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/sayho/WebstormProjects/toys/server/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;17.8.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;17.0.24&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/configs" />
@@ -437,14 +450,12 @@
       <workItem from="1652099946226" duration="28000" />
       <workItem from="1652099983190" duration="13765000" />
       <workItem from="1652211394343" duration="25000" />
-      <workItem from="1652358335025" duration="19004000" />
-    </task>
-    <task id="LOCAL-00040" summary="splash &amp; appIcon on ios safari fixed">
-      <created>1647427410268</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1647427410268</updated>
+      <workItem from="1652358335025" duration="19742000" />
+      <workItem from="1652865707418" duration="7177000" />
+      <workItem from="1653030547838" duration="847000" />
+      <workItem from="1653037630614" duration="1223000" />
+      <workItem from="1653133845951" duration="624000" />
+      <workItem from="1653381514940" duration="6948000" />
     </task>
     <task id="LOCAL-00041" summary="infinite scroll with intersectionObserver added">
       <created>1647444449263</created>
@@ -782,7 +793,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652405711771</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="bug fix">
+      <created>1652713392719</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1652713392719</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -810,7 +828,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="working on reac-bell-chat" />
     <MESSAGE value="working on react-bell-chat" />
     <MESSAGE value="client dependency renewed" />
     <MESSAGE value="server dependency renewed" />
@@ -835,7 +852,8 @@
     <MESSAGE value="h2 added" />
     <MESSAGE value="ssl related bug fixed" />
     <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
+    <MESSAGE value="bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

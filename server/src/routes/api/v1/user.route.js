@@ -1,8 +1,10 @@
 import express from 'express'
 import {body} from 'express-validator'
 import {AsyncHandler} from '#src/loaders/middlewares'
+import Container from '#src/loaders/container'
 
-const UserRoute = ({UserController}) => {
+const UserRoute = () => {
+    const UserController = Container.get('UserController')
     const router = express.Router({mergeParams: true})
 
     router.get('/worker-test/:num', AsyncHandler(UserController.workerTest))
@@ -34,7 +36,7 @@ const UserRoute = ({UserController}) => {
 
     router.get('/notified/:userId', AsyncHandler(UserController.setUserNotified))
 
-    return {router}
+    return router
 }
 
 export default UserRoute

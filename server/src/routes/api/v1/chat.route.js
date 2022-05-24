@@ -1,8 +1,10 @@
 import express from 'express'
 import {body, param} from 'express-validator'
 import {AsyncHandler} from '#src/loaders/middlewares'
+import Container from '#src/loaders/container'
 
-const ChatRoute = ({ChatController}) => {
+const ChatRoute = () => {
+    const ChatController = Container.get('ChatController')
     const router = express.Router({mergeParams: true})
 
     router.get('/rooms', AsyncHandler(ChatController.rooms))
@@ -18,7 +20,7 @@ const ChatRoute = ({ChatController}) => {
         AsyncHandler(ChatController.addMessage)
     )
 
-    return {router}
+    return router
 }
 
 export default ChatRoute

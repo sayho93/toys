@@ -20,6 +20,7 @@ import UserRepository from '#repositories/user.repository'
 import FileRepository from '#repositories/file.repository'
 import PlannerRepository from '#repositories/planner.repository'
 import LotteryRepository from '#repositories/lottery.repository'
+import LinkRepository from '#repositories/link.repository'
 /* Services */
 import ArticleService from '#services/article.service'
 import ChatService from '#services/chat.service'
@@ -27,6 +28,7 @@ import FileService from '#services/file.service'
 import LotteryService from '#services/lottery.service'
 import UserService from '#services/user.service'
 import PlannerService from '#services/planner.service'
+import LinkService from '#services/link.service'
 /* Controllers */
 import ArticleController from '#controllers/article.controller'
 import ChatController from '#controllers/chat.controller'
@@ -34,13 +36,7 @@ import FileController from '#controllers/file.controller'
 import LotteryController from '#controllers/lottery.controller'
 import PlannerController from '#controllers/planner.controller'
 import UserController from '#controllers/user.controller'
-/* Routes */
-import ArticleRoute from '#routes/api/v1/article.route'
-import ChatRoute from '#routes/api/v1/chat.route'
-import FileRoute from '#routes/api/v1/file.route'
-import LotteryRoute from '#routes/api/v1/lottery.route'
-import PlannerRoute from '#routes/api/v1/planner.route'
-import UserRoute from '#routes/api/v1/user.route'
+import LinkController from '#controllers/link.controller'
 /* Utils */
 import Log from '#utils/logger'
 import HttpUtil from '#utils/http.util'
@@ -103,6 +99,7 @@ const Container = () => {
             LotteryRepository: asFunction(LotteryRepository),
             PlannerRepository: asFunction(PlannerRepository),
             UserRepository: asFunction(UserRepository),
+            LinkRepository: asFunction(LinkRepository),
 
             ArticleService: asFunction(ArticleService),
             ChatService: asFunction(ChatService),
@@ -110,6 +107,7 @@ const Container = () => {
             LotteryService: asFunction(LotteryService),
             PlannerService: asFunction(PlannerService),
             UserService: asFunction(UserService),
+            LinkService: asFunction(LinkService),
 
             ArticleController: asFunction(ArticleController),
             ChatController: asFunction(ChatController),
@@ -117,13 +115,7 @@ const Container = () => {
             LotteryController: asFunction(LotteryController),
             PlannerController: asFunction(PlannerController),
             UserController: asFunction(UserController),
-
-            ArticleRoute: asFunction(ArticleRoute),
-            ChatRoute: asFunction(ChatRoute),
-            FileRoute: asFunction(FileRoute),
-            LotteryRoute: asFunction(LotteryRoute),
-            PlannerRoute: asFunction(PlannerRoute),
-            UserRoute: asFunction(UserRoute),
+            LinkController: asFunction(LinkController),
         })
         Log.debug(`Container created`)
         return container

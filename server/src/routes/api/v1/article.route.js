@@ -1,7 +1,9 @@
 import express from 'express'
 import {AsyncHandler} from '#src/loaders/middlewares'
+import Container from '#src/loaders/container'
 
-const ArticleRoute = ({ArticleController}) => {
+const ArticleRoute = () => {
+    const ArticleController = Container.get('ArticleController')
     const router = express.Router({mergeParams: true})
 
     router.get('/list', AsyncHandler(ArticleController.list))
@@ -12,7 +14,7 @@ const ArticleRoute = ({ArticleController}) => {
 
     router.post('/comment/save', AsyncHandler(ArticleController.saveComment))
 
-    return {router}
+    return router
 }
 
 export default ArticleRoute
