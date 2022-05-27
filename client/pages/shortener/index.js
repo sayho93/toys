@@ -26,7 +26,7 @@ const ShortenerApp = () => {
     }
 
     return (
-        <Container app="Shortener">
+        <Container app="URL Shortener">
             <div className="mb-3 text-center">단축된 URL을 만들어 보세요!</div>
 
             <div className="row g-3 text-center align-items-center justify-content-center mb-2 col-12-sm col-8-md col-4-lg">

@@ -15,8 +15,8 @@ const HeaderInfo = {
             {name: 'Hall of fame', link: '/lotgen/hallOfFame'},
         ],
     },
-    Shortener: {
-        title: 'Shortener',
+    'URL Shortener': {
+        title: 'URL Shortener',
         icon: 'bi-link',
         searchBar: false,
         menus: [],
@@ -33,21 +33,21 @@ const HeaderInfo = {
         searchBar: false,
         menus: [],
     },
-    'Minimal Flex': {
-        title: 'Minimal Flex',
-        icon: 'bi-camera-fill',
-        searchBar: true,
-        menus: [
-            {name: 'Feed', link: '/minimalFlex'},
-            {name: 'My story', link: '/minimalFlex/myStory'},
-        ],
-    },
-    Tutorial: {
-        title: 'Tutorial',
-        icon: 'bi-code-slash',
-        searchBar: false,
-        menus: [],
-    },
+    // 'Minimal Flex': {
+    //     title: 'Minimal Flex',
+    //     icon: 'bi-camera-fill',
+    //     searchBar: true,
+    //     menus: [
+    //         {name: 'Feed', link: '/minimalFlex'},
+    //         {name: 'My story', link: '/minimalFlex/myStory'},
+    //     ],
+    // },
+    // Tutorial: {
+    //     title: 'Tutorial',
+    //     icon: 'bi-code-slash',
+    //     searchBar: false,
+    //     menus: [],
+    // },
 }
 
 export default HeaderInfo
