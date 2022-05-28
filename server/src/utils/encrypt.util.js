@@ -6,7 +6,7 @@ const EncryptUtil = () => {
 
     return {
         encryptSHA(str) {
-            crypto.createHash('sha512').update(str).digest('base64')
+            return crypto.createHash('sha512').update(str).digest('base64')
         },
         hashEncode(num) {
             let encoded = ''
