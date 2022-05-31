@@ -1,6 +1,4 @@
 import dynamic from 'next/dynamic'
-import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
-const Fab = dynamic(() => import('react-tiny-fab').then(mod => mod.Fab), {ssr: false})
 import 'react-tiny-fab/dist/styles.css'
 import Card from 'components/minimalFlex/card'
 import {useCallback, useEffect, useRef, useState} from 'react'
@@ -9,6 +7,8 @@ import Constants from 'api/Constants'
 import WriteModal from 'components/minimalFlex/writeModal'
 import {useRouter} from 'next/router'
 import {toast, ToastContainer} from 'react-toastify'
+
+const Fab = dynamic(() => import('react-tiny-fab').then(mod => mod.Fab), {ssr: false})
 
 const Feed = ({list, mutateList, listSize, setListSize, user}) => {
     const router = useRouter()
@@ -66,9 +66,10 @@ const Feed = ({list, mutateList, listSize, setListSize, user}) => {
             {modalOpen && <WriteModal loading={loading} onSave={onSave} onClose={() => setModalOpen(false)} info={writeInfo} setInfo={setWriteInfo} />}
             <Fab color="primary" icon={<i className="bi bi-pencil-fill" />} event={false} onClick={onFABClick} />
             {list && (
-                <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3, 1400: 4}}>
-                    <Masonry>{list.map(row => row.map(item => <Card key={item.id} data={item} onClick={onClick} />))}</Masonry>
-                </ResponsiveMasonry>
+                // <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3, 1400: 4}}>
+                //     <Masonry></Masonry>
+                // </ResponsiveMasonry>
+                <div>{list.map(row => row.map(item => <Card key={item.id} data={item} onClick={onClick} />))}</div>
             )}
 
             {(!list || !list[0].length) && <p className="text-center">데이터가 없습니다...</p>}

@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="minor error handling mistake">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="minor bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/encrypt.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/encrypt.util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +136,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.service.test.js">
+  <component name="RunManager" selected="npm.server start:dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -436,14 +439,8 @@
       <workItem from="1653381514940" duration="17344000" />
       <workItem from="1653421185070" duration="9276000" />
       <workItem from="1653492090807" duration="15242000" />
-      <workItem from="1653725355700" duration="381000" />
-    </task>
-    <task id="LOCAL-00043" summary=".">
-      <created>1647514116433</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1647514116433</updated>
+      <workItem from="1653725355700" duration="401000" />
+      <workItem from="1653985551212" duration="689000" />
     </task>
     <task id="LOCAL-00044" summary="default planner structure added &amp; service logic added">
       <created>1647540445364</created>
@@ -781,7 +778,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653679673397</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="minor bug fixed">
+      <created>1653725744560</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1653725744560</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,7 +813,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="server dependency renewed" />
     <MESSAGE value="user.service.js test code added" />
     <MESSAGE value="lottery.service.js unit test added" />
     <MESSAGE value="firebase key renewed" />
@@ -834,7 +837,8 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="shortener added" />
     <MESSAGE value="minor error handling mistake" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor error handling mistake" />
+    <MESSAGE value="minor bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor bug fixed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
