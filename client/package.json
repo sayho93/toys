@@ -25,10 +25,10 @@
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.5.4",
     "next-redux-wrapper": "^7.0.5",
-    "react": "^18.1.0",
+    "react": "^18.2.0",
     "react-bell-chat": "^1.0.51",
     "react-color": "^2.19.3",
-    "react-dom": "^18.1.0",
+    "react-dom": "^18.2.0",
     "react-filepond": "^7.1.2",
     "react-redux": "^8.0.2",
     "react-tiny-fab": "^4.0.4",
@@ -39,6 +39,6 @@
     "use-debounce": "^8.0.1"
   },
   "devDependencies": {
-    "prettier": "^2.7.0"
+    "prettier": "^2.7.1"
   }
 }
