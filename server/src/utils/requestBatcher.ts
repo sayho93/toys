@@ -1,9 +1,11 @@
 import Log from '#utils/logger'
+import {Utils} from '#types/utils'
+import RequestBatcher = Utils.RequestBatcher
 
-const RequestBatcher = () => {
+const RequestBatcher = (): RequestBatcher => {
     const runningRequest = new Map()
 
-    const check = (key: string, promise: () => Promise<any>) => {
+    const check = <T>(key: string, promise: () => Promise<T>) => {
         if (runningRequest.has(key)) {
             Log.info(`Batching ${key}`)
             console.log(runningRequest)
@@ -13,7 +15,7 @@ const RequestBatcher = () => {
         const resPromise = promise()
         runningRequest.set(key, resPromise)
         return resPromise
-            .then((res: any) => {
+            .then((res: T) => {
                 runningRequest.delete(key)
                 return res
             })

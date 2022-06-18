@@ -11,22 +11,22 @@ namespace Utils {
     }
 
     export interface PushManager {
-        send(registrationKeys: string[], title: string, message: string, extras: any): Promise<void>
-        sendOnlyData(registrationKeys: string[], extras): void
+        send<T>(registrationKeys: string[], title: string, message: string, extras?: T): Promise<void>
+        sendOnlyData<T>(registrationKeys: string[], extras?: T): void
     }
 
-    export type Task = (...args: any[]) => Promise<any>
+    export type Task<T> = (...args: T[]) => Promise<any>
 
     export interface TaskQueue {
-        runTask(task: () => Promise<any>): Promise<void>
+        runTask<T>(task: () => Promise<T>): Promise<void>
     }
 
     export interface HttpUtil {
-        getData(url: string, params?: any): Promise<any>
-        postData(url: string, data?: any): Promise<any>
-        putData(url: string, data?: any): Promise<any>
-        patchData(url: string, data?: any): Promise<any>
-        deleteData(url: string, params?: any): Promise<any>
+        getData<T extends {}>(url: string, params?: T): Promise<any>
+        postData<T extends {}>(url: string, data?: T): Promise<any>
+        putData<T extends {}>(url: string, data?: T): Promise<any>
+        patchData<T extends {}>(url: string, data?: T): Promise<any>
+        deleteData<T extends {}>(url: string, params?: T): Promise<any>
     }
 
     export interface File {
@@ -51,6 +51,6 @@ namespace Utils {
     }
 
     export interface RequestBatcher {
-        check(key: string, promise: () => Promise<any>): Promise<any>
+        check<T>(key: string, promise: () => Promise<T>): Promise<T>
     }
 }

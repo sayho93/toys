@@ -6,7 +6,9 @@ import Config from '#src/configs/config'
 const logDir = 'logs' // logs 디렉토리 하위에 로그 파일 저장
 const {combine, timestamp, printf, label} = winston.format
 
-if (!printf || !combine || !timestamp || !label) return
+if (!printf || !combine || !timestamp || !label) {
+    throw new Error('winston format error')
+}
 // Define log format
 const logFormat = printf(info => {
     return `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`

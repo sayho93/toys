@@ -19,6 +19,7 @@ export const makeUserService = (
 ): UserService => {
     const signUp = async (email: string, name: string, password: string) => {
         const user = await UserRepository.getUserByEmail(email)
+        console.log(user)
         if (user) {
             throw ErrorHandler.BaseError('중복된 이메일이 존재합니다.', 409)
         }
@@ -33,7 +34,7 @@ export const makeUserService = (
         if (!insertId) throw ErrorHandler.BaseError('회원가입에 실패했습니다.', 500)
 
         const token = Math.random().toString(36).substring(2, 11)
-        const [newUser] = await UserRepository.getUserById(insertId)
+        const newUser = await UserRepository.getUserById(insertId)
         await Promise.all([
             await UserRepository.addAuth(insertId, token),
             MailSender.sendMailTo(

@@ -9,7 +9,8 @@ export const makeUserRepository = (datasource: MariaDBDataSource): UserRepositor
     }
 
     const getUserByEmail = async (email: string) => {
-        return await datasource.exec(`SELECT * FROM user WHERE email = ?`, [email])
+        const [ret] = await datasource.exec(`SELECT * FROM user WHERE email = ?`, [email])
+        return ret
     }
 
     const checkLogin = async (data: DTO.UserDTO) => {
