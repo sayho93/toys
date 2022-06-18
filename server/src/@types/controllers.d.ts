@@ -40,4 +40,11 @@ namespace Controllers {
         getShortLink: controllerFunc
         redirectShortLink: controllerFunc
     }
+
+    export interface PhotoController {
+        addPhoto: controllerFunc
+        getPhotos: controllerFunc
+        getPhoto: controllerFunc
+        removePhoto: controllerFunc
+    }
 }

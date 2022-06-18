@@ -21,7 +21,8 @@ export const makeFileController = (service: FileService, ErrorHandler: ErrorHand
     }
 
     const removeSingleFile = async (req: Request, res: Response) => {
-        const id = +req.params.id
+        // const id = +req.params.id
+        const id = +req.body
         const ret = await service.removeFile(id)
         res.header('Access-Control-Allow-Origin', '*')
         res.json(ret)

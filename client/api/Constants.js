@@ -33,8 +33,11 @@ const Constants = {
     API_ARTICLE_COMMENT_SAVE: `${API_ENDPOINT}/article/comment/save`,
 
     //FILE
-    API_FILE_UPLOAD_SINGLE: `${API_ENDPOINT}/file/upload/single`,
-    API_FILE_REMOVE_SINGLE: `${API_ENDPOINT}/file/remove/single`,
+    API_FILE_UPLOAD_SINGLE: `${API_ENDPOINT}/file/single`,
+    API_FILE_REMOVE_SINGLE: `${API_ENDPOINT}/file/single`,
+
+    //PHOTO
+    API_PHOTO: `${API_ENDPOINT}/photo`,
 }
 
 export default Constants

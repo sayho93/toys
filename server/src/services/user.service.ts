@@ -75,7 +75,7 @@ export const makeUserService = (
     }
 
     const updateToken = async (userId: number, token: string) => {
-        const [user] = await UserRepository.getUserById(userId)
+        const user = await UserRepository.getUserById(userId)
         if (!user) throw ErrorHandler.BaseError('존재하지 않는 유저입니다.', 404)
         return await UserRepository.updateToken(userId, token)
     }

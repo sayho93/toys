@@ -5,6 +5,7 @@ import UserRoute from '#routes/api/v1/user.route'
 import LotteryRoute from '#routes/api/v1/lottery.route'
 import PlannerRoute from '#routes/api/v1/planner.route'
 import FileRoute from '#routes/api/v1/file.route'
+import PhotoRoute from '#routes/api/v1/photo.route'
 
 const router = express.Router()
 
@@ -19,6 +20,7 @@ v1Router.use('/file', FileRoute)
 v1Router.use('/planner', PlannerRoute)
 // v1Router.use('/article', ArticleRoute())
 // v1Router.use('/chat', ChatRoute())
+v1Router.use('/photo', PhotoRoute)
 
 router.use('/v1', v1Router)
 

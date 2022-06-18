@@ -57,4 +57,16 @@ namespace DTO {
         lastPlannerId?: number
         regDate?: string
     }
+
+    export type PhotoDTO = {
+        id?: number
+        userId: number
+        fileId?: number
+        ocrText?: string
+        regDate?: string
+
+        searchTxt?: string
+        page?: number
+        limit?: number
+    }
 }

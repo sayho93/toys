@@ -4,17 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="ts bug fix">
-      <change afterPath="$PROJECT_DIR$/server/tests/service.test.ts" afterDir="false" />
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="photos added | still buggy">
+      <change afterPath="$PROJECT_DIR$/client/components/photos/detailModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/photos/photoList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/photos/uploader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/lib/usePhotoList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/photos/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/photo.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/repositories/photo.repository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/photo.route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/photo.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/HeaderInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/@types/controllers.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/controllers.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/@types/dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/dto.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/@types/repositories.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/repositories.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/@types/services.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/services.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/@types/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/utils.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/repositories/user.repository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/repositories/user.repository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/file.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/logger.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/requestBatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/requestBatcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +43,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -118,7 +136,7 @@
     "dart.analysis.tool.window.visible": "false",
     "javascript.nodejs.core.library.configured.version": "17.8.0",
     "javascript.nodejs.core.library.typings.version": "17.0.24",
-    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys",
+    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys/server/dist",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -132,11 +150,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/dist" />
       <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/server/uploads" />
       <recent name="$PROJECT_DIR$/server/src/configs" />
       <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/client/public/static/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src" />
@@ -146,7 +164,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.service.test.ts">
+  <component name="RunManager" selected="npm.client dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -488,14 +506,9 @@
       <workItem from="1655538651343" duration="116000" />
       <workItem from="1655539298892" duration="2321000" />
       <workItem from="1655541784534" duration="320000" />
-      <workItem from="1655542115874" duration="7823000" />
-    </task>
-    <task id="LOCAL-00050" summary="time notification added">
-      <created>1647682410544</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1647682410544</updated>
+      <workItem from="1655542115874" duration="8811000" />
+      <workItem from="1655552145786" duration="9949000" />
+      <workItem from="1655564880061" duration="13571000" />
     </task>
     <task id="LOCAL-00051" summary="masonry added">
       <created>1647780899385</created>
@@ -833,7 +846,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655545267231</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="adding unit test code">
+      <created>1655551069704</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1655551069704</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -874,8 +894,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="planner unit test added" />
-    <MESSAGE value="batch process performance improved" />
     <MESSAGE value="worker test added" />
     <MESSAGE value="workers injected" />
     <MESSAGE value="api baching with map &amp; redis(only connection) added" />
@@ -899,7 +917,9 @@
     <MESSAGE value="package version migration" />
     <MESSAGE value="init" />
     <MESSAGE value="ts bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="ts bug fix" />
+    <MESSAGE value="adding unit test code" />
+    <MESSAGE value="photos added | still buggy" />
+    <option name="LAST_COMMIT_MESSAGE" value="photos added | still buggy" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

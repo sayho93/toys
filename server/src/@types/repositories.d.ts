@@ -40,4 +40,11 @@ namespace Repositories {
         getFile: (id: number) => Promise<DTO.FileDTO>
         removeFile: (id: number) => Promise<boolean>
     }
+
+    export interface PhotoRepository {
+        addPhoto: (photo: DTO.PhotoDTO) => Promise<number>
+        getPhoto: (id: number) => Promise<DTO.PhotoDTO>
+        getPhotos: (userId: DTO.PhotoDTO) => Promise<DTO.PhotoDTO[]>
+        removePhoto: (id: number) => Promise<number>
+    }
 }

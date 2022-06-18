@@ -21,6 +21,7 @@ import {makeLotteryController} from '#controllers/lottery.controller'
 import {makeUserController} from '#controllers/user.controller'
 import {makePlannerController} from '#controllers/planner.controller'
 import {makeFileController} from '#controllers/file.controller'
+import {makePhotoRepository} from '#repositories/photo.repository'
 
 import LotteryJob from '#jobs/schedulers/lottery.job'
 import {AverageJob} from '#jobs/workers/average.job'
@@ -34,6 +35,8 @@ import DateUtil from '#utils/date.util'
 import HttpUtil from '#utils/http.util'
 import Log from '#utils/logger'
 import RequestBatcher from '#utils/requestBatcher'
+import {makePhotoService} from '#services/photo.service'
+import {makePhotoController} from '#controllers/photo.controller'
 
 const mariaDBDatasource = makeMariaDBDatasource(Config.datasource.mariaDB, ErrorHandlerUtil)
 const mongoDBDatasource = makeMongoDBDatasource(Config.datasource.mongoDB)
@@ -44,18 +47,21 @@ const lotteryRepository = makeLotteryRepository(mariaDBDatasource)
 const plannerRepository = makePlannerRepository(mariaDBDatasource)
 const fileRepository = makeFileRepository(mariaDBDatasource)
 const linkRepository = makeLinkRepository(mariaDBDatasource)
+const photoRepository = makePhotoRepository(mariaDBDatasource)
 
 const userService = makeUserService(userRepository, plannerRepository, ErrorHandlerUtil, MailSender, PushManager, EncryptUtil, Config.app.AUTH_URI, AverageJob)
 const lotteryService = makeLotteryService(lotteryRepository, userRepository, MailSender, PushManager, DateUtil, HttpUtil, Log, Config.app.AUTH_URI)
 const plannerService = makePlannerService(plannerRepository, userRepository, ErrorHandlerUtil, PushManager)
 const fileService = makeFileService(fileRepository, ErrorHandlerUtil, FileUtil, Config.app.EXTERNAL_PATH)
 const linkService = makeLinkService(linkRepository, ErrorHandlerUtil, EncryptUtil)
+const photoService = makePhotoService(photoRepository, ErrorHandlerUtil)
 
 const userController = makeUserController(userService, ErrorHandlerUtil)
 const lotteryController = makeLotteryController(lotteryService, redisDatasource, ErrorHandlerUtil, RequestBatcher)
 const plannerController = makePlannerController(plannerService, redisDatasource, ErrorHandlerUtil, RequestBatcher)
 const fileController = makeFileController(fileService, ErrorHandlerUtil, Log)
 const linkController = makeLinkController(linkService, ErrorHandlerUtil)
+const photoController = makePhotoController(photoService, ErrorHandlerUtil, Log)
 
 const lotteryJob = LotteryJob(lotteryService, redisDatasource)
 
@@ -166,18 +172,21 @@ export default {
     plannerRepository,
     fileRepository,
     linkRepository,
+    photoRepository,
 
     userService,
     lotteryService,
     plannerService,
     fileService,
     linkService,
+    photoService,
 
     userController,
     lotteryController,
     plannerController,
     fileController,
     linkController,
+    photoController,
 
     lotteryJob,
 }

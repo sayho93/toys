@@ -9,7 +9,7 @@ const FileRoute = () => {
 
     router.post('/single', FileUtil.Multipart.single('img'), AsyncHandler(FileController.uploadSingleFile))
 
-    router.delete('/single/:id', AsyncHandler(FileController.removeSingleFile))
+    router.delete('/single', AsyncHandler(FileController.removeSingleFile))
 
     router.get('/single/:id', AsyncHandler(FileController.downloadSingleFile))
 

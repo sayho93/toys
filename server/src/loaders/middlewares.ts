@@ -19,6 +19,10 @@ export const logRequest = (req: Request, res: any, next: NextFunction) => {
 
     res.send = _resInterceptor(req, res, res.send)
 
+    res.on('error', (err: any) => {
+        console.log(err)
+    })
+
     // res.on('finish', () => {
     //     Log.http(`[${req.method}] [${req.originalUrl}] response: [${res.statusCode}] ${res.contentBody}`)
     // })

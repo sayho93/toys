@@ -15,10 +15,10 @@ namespace Utils {
         sendOnlyData<T>(registrationKeys: string[], extras?: T): void
     }
 
-    export type Task<T> = (...args: T[]) => Promise<any>
+    export type Task = (...args: any[]) => Promise<any>
 
     export interface TaskQueue {
-        runTask<T>(task: () => Promise<T>): Promise<void>
+        runTask(task: () => Promise<any>): Promise<void>
     }
 
     export interface HttpUtil {

@@ -37,4 +37,11 @@ namespace Services {
         removeFile: (id: number) => Promise<boolean>
         getFile: (id: number) => Promise<DTO.FileDTO>
     }
+
+    export interface PhotoService {
+        addPhoto: (userId: number, fileId: number, ocrText: string) => Promise<number>
+        getPhotos: (data: DTO.PhotoDTO) => Promise<DTO.PhotoDTO[]>
+        getPhoto: (id: number) => Promise<DTO.PhotoDTO>
+        removePhoto: (id: number) => Promise<boolean>
+    }
 }
