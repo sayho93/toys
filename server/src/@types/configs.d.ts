@@ -14,10 +14,8 @@ namespace Configs {
     }
 
     export type MongoDBConf = DatasourceConfBase & {
-        authMechanism?: AuthMechanism
+        authMechanism?: string
         authSource?: string
-        useNewUrlParser?: boolean
-        useUnifiedTopology?: boolean
     }
 
     export type RedisConf = DatasourceConfBase & {

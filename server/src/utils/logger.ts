@@ -6,6 +6,7 @@ import Config from '#src/configs/config'
 const logDir = 'logs' // logs 디렉토리 하위에 로그 파일 저장
 const {combine, timestamp, printf, label} = winston.format
 
+if (!printf || !combine || !timestamp || !label) return
 // Define log format
 const logFormat = printf(info => {
     return `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`
@@ -15,9 +16,7 @@ const logFormat = printf(info => {
  * Log Level
  * error: 0, warn: 1, info: 2, http: 3, verbose: 4, debug: 5, silly: 6
  */
-if (!fs.existsSync(logDir)) {
-    fs.mkdirSync(logDir)
-}
+if (!fs.existsSync(logDir)) fs.mkdirSync(logDir)
 
 const options = {
     file: {

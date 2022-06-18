@@ -19,10 +19,6 @@ const Config = () => {
         host: process.env.MONGO_HOST,
         user: process.env.MONGO_USERNAME,
         password: process.env.MONGO_PASSWORD,
-        authMechanism: 'DEFAULT',
-        authSource: 'admin',
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
     }
 
     const redis: Configs.RedisConf = {
