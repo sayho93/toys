@@ -4,8 +4,95 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="package version migration">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="init">
+      <change afterPath="$PROJECT_DIR$/server/src/@types/configs.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/@types/controllers.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/@types/datasources.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/@types/dto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/@types/jobs.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/@types/repositories.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/@types/services.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/@types/utils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/configs/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/link.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/lottery.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/planner.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/user.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/datasources/makeMariaDB.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/datasources/mariaDB.datasource.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/datasources/mariadbImpl.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/loaders/container.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/repositories/file.repository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/repositories/link.repository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/repositories/lottery.repository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/repositories/planner.repository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/repositories/user.repository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/file.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/link.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/encrypt.util.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/utils/errorHandler.util.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/configs/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/article.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/chat.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/file.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/link.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/lottery.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/planner.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/user.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/datasources/mariaDB.datasource.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/datasources/mongoDB.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/mongoDB.datasource.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/datasources/redis.datasource.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/redis.datasource.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/jobs/average.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/workers/average.job.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/jobs/lottery.job.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/schedulers/lottery.job.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/initApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/initApp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/requestBatch.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/requestBatcher.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/startupUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/startupUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/message.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/room.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/schemas/customField.shema.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/article.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/chat.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/file.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/link.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/lottery.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/planner.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/repositories/user.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/article.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/chat.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/lottery.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/planner.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/link.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/link.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/article.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/chat.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/file.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/link.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/planner.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/planner.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/socketIO/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/MailSender.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/mailSender.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/PushManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/pushManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/_http.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/http.util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/date.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/date.util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/encrypt.util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/errorHandler.util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/file.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/file.util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/http.util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/logger.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/logger.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/utils/taskQueue.util.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/taskQueue.util.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +113,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/di-container" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,6 +135,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="server/typescript" />
+                    <option name="lastUsedInstant" value="1655539582" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feature/di-container" />
                     <option name="lastUsedInstant" value="1651419948" />
@@ -92,37 +183,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;17.8.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;17.0.24&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "javascript.nodejs.core.library.configured.version": "17.8.0",
+    "javascript.nodejs.core.library.typings.version": "17.0.24",
+    "last_opened_file_path": "/Users/sayho/WebstormProjects/toys/server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/Users/sayho/WebstormProjects/toys/server/node_modules/jest",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/sayho/WebstormProjects/toys/server/node_modules/prettier",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/server/uploads" />
       <recent name="$PROJECT_DIR$/server/src/configs" />
       <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/client/public/static/images" />
-      <recent name="$PROJECT_DIR$/server/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src" />
@@ -132,7 +223,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client build">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -263,6 +354,18 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs>
+        <env name="NODE_NO_WARNINGS" value="1" />
+      </envs>
+      <method v="2" />
+    </configuration>
     <configuration name="server build" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
@@ -314,6 +417,7 @@
       <item itemvalue="npm.server build" />
       <item itemvalue="npm.server start" />
       <item itemvalue="npm.server start:dev" />
+      <item itemvalue="npm.dev" />
     </list>
     <recent_temporary>
       <list>
@@ -445,13 +549,8 @@
       <workItem from="1655367593773" duration="580000" />
       <workItem from="1655387747049" duration="219000" />
       <workItem from="1655389737387" duration="738000" />
-    </task>
-    <task id="LOCAL-00047" summary="planner bug fix &amp; imports optimized">
-      <created>1647610328513</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1647610328513</updated>
+      <workItem from="1655538651343" duration="116000" />
+      <workItem from="1655539298892" duration="1090000" />
     </task>
     <task id="LOCAL-00048" summary="..">
       <created>1647612710644</created>
@@ -789,7 +888,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655387951729</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="package version migration">
+      <created>1655538761473</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1655538761473</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -817,7 +923,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="firebase key renewed" />
     <MESSAGE value="sender class -&gt; function" />
     <MESSAGE value="planner unit test added" />
     <MESSAGE value="batch process performance improved" />
@@ -842,7 +947,8 @@
     <MESSAGE value="deps migration" />
     <MESSAGE value="module versions update" />
     <MESSAGE value="package version migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="package version migration" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
