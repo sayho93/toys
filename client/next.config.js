@@ -24,6 +24,7 @@ module.exports = withPlugins(
                     dest: 'public',
                     scope: '/',
                     runtimeCaching,
+                    buildExcludes: [/middleware-manifest.json$/],
                     register: true,
                     sw: 'service-worker.js',
                 },

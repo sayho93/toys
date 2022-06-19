@@ -1,6 +1,6 @@
-import {getDateString} from 'utils/date'
+import {getDateString, parseDateString} from 'utils/date'
 import {toast, ToastContainer} from 'react-toastify'
-import {useCallback, useEffect, useRef} from 'react'
+import {Fragment, useCallback, useEffect, useRef} from 'react'
 
 const PhotoList = props => {
     const loader = useRef(null)
@@ -29,27 +29,53 @@ const PhotoList = props => {
         [props.list]
     )
 
+    const renderPhotoList = list => {
+        let last = null
+
+        return list.map(row => {
+            const [year, month] = parseDateString(row.regDate)
+            const flagStr = `${year}-${month}`
+
+            let separator = null
+            if (last !== flagStr) {
+                separator = (
+                    <>
+                        <div className="separator" key={last}>
+                            {year}년 {month}월
+                        </div>
+                        <hr />
+                    </>
+                )
+                last = flagStr
+            }
+
+            const rowItem = (
+                <div className="btn btn-dark" onClick={() => props.onClick(row.id)}>
+                    <div className="rounded-3 py-3 px-2 text-white">
+                        <div className="d-flex w-100 justify-content-between mb-2">
+                            <h6 className="mb-1">
+                                {row.fileName}
+                                {row.ocrText && <span className="badge bg-warning ms-2">OCR</span>}
+                            </h6>
+                            <small className="text-sm-end">{getDateString(row.regDate)}</small>
+                        </div>
+                    </div>
+                </div>
+            )
+
+            return (
+                <Fragment key={row.id}>
+                    {separator}
+                    {rowItem}
+                </Fragment>
+            )
+        })
+    }
+
     return (
         <>
             <div className={`align-items-center justify-content-center`}>
-                <div className="row g-3 pb-2">
-                    {props.list &&
-                        props.list.map(subList => {
-                            return subList.map(row => (
-                                <div key={row.id} className="btn btn-dark" onClick={() => props.onClick(row.id)}>
-                                    <div className="rounded-3 py-3 px-2 text-white">
-                                        <div className="d-flex w-100 justify-content-between mb-2">
-                                            <h6 className="mb-1">
-                                                {row.fileName}
-                                                {row.ocrText && <span className="badge bg-warning ms-2">OCR</span>}
-                                            </h6>
-                                            <small className="text-sm-end">{getDateString(row.regDate)}</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        })}
-                </div>
+                <div className="row g-3 pb-2">{props.list && props.list.map(subList => renderPhotoList(subList))}</div>
                 <ToastContainer
                     position="bottom-center"
                     autoClose={2000}

@@ -4,6 +4,15 @@ export const getDateString = dateStr => {
     return date.toISOString().replace('T', ' ').replace('Z', '').substring(0, 19)
 }
 
+export const parseDateString = dateStr => {
+    dateStr = getDateString(dateStr)
+    const [date, time] = dateStr.split(' ')
+    const [year, month, day] = date.split('-').map(v => parseInt(v))
+    const [hour, minute, second] = time.split(':')
+
+    return [year, month, day, hour, minute, second]
+}
+
 export const sameDay = (a, b) => {
     return a.getDate() === b.getDate() && a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear()
 }

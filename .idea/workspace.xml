@@ -5,34 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="photos added | still buggy">
-      <change afterPath="$PROJECT_DIR$/client/components/photos/detailModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/photos/photoList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/components/photos/uploader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/lib/usePhotoList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pages/photos/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/controllers/photo.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/repositories/photo.repository.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/api/v1/photo.route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/services/photo.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/Constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/AppInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/HeaderInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/photos/photoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/photos/photoList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/@types/controllers.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/controllers.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/@types/dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/@types/repositories.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/repositories.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/@types/services.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/services.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/@types/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/utils.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/file.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/file.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/file.route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/utils/date.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/date.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +121,8 @@
     "nodejs.jest.jest_package": "/Users/sayho/WebstormProjects/toys/server/node_modules/jest",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/sayho/WebstormProjects/toys/server/node_modules/prettier",
-    "settings.editor.selected.configurable": "Settings.JavaScript",
+    "settings.editor.selected.configurable": "settings.typescriptcompiler",
+    "ts.external.directory.path": "/Users/sayho/WebstormProjects/toys/server/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -164,7 +142,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client dev">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
       <method v="2" />
     </configuration>
@@ -508,14 +486,7 @@
       <workItem from="1655541784534" duration="320000" />
       <workItem from="1655542115874" duration="8811000" />
       <workItem from="1655552145786" duration="9949000" />
-      <workItem from="1655564880061" duration="13571000" />
-    </task>
-    <task id="LOCAL-00051" summary="masonry added">
-      <created>1647780899385</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1647780899386</updated>
+      <workItem from="1655564880061" duration="17171000" />
     </task>
     <task id="LOCAL-00052" summary="working on article api">
       <created>1647799021553</created>
@@ -853,7 +824,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655551069704</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="photos added | still buggy">
+      <created>1655579448664</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1655579448664</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
