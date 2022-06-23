@@ -88,7 +88,7 @@
     "socket.io": "^4.5.1",
     "spdy": "^4.0.2",
     "underscore": "^1.13.4",
-    "winston": "^3.7.2",
+    "winston": "^3.8.0",
     "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
@@ -103,7 +103,7 @@
     "@types/spdy": "^3.4.5",
     "@types/underscore": "^1.11.4",
     "jest": "^28.1.1",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.18",
     "prettier": "^2.7.1",
     "supertest": "^6.2.3",
     "ts-jest": "^28.0.5",
