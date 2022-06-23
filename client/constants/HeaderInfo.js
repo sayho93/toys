@@ -33,6 +33,12 @@ const HeaderInfo = {
         searchBar: false,
         menus: [],
     },
+    Photos: {
+        title: 'Photos',
+        icon: 'bi-camera',
+        searchBar: true,
+        menus: [],
+    },
     // 'Minimal Flex': {
     //     title: 'Minimal Flex',
     //     icon: 'bi-camera-fill',

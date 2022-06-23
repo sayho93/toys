@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="package version migration">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="package version updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="TypeScript File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -26,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/di-container" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,6 +53,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="server/typescript" />
+                    <option name="lastUsedInstant" value="1655539582" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feature/di-container" />
                     <option name="lastUsedInstant" value="1651419948" />
@@ -112,17 +121,18 @@
     &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.JavaScript&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/dist" />
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/server/uploads" />
       <recent name="$PROJECT_DIR$/server/src/configs" />
       <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/server" />
-      <recent name="$PROJECT_DIR$/client/public/static/images" />
-      <recent name="$PROJECT_DIR$/server/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src" />
@@ -132,10 +142,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client build">
-    <configuration name="rest-api | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api.http" requestIdentifier="#1">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.server dev">
     <configuration name="모든 테스트" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -206,6 +213,18 @@
       <test-file value="$PROJECT_DIR$/server/tests/service.test.js" />
       <method v="2" />
     </configuration>
+    <configuration name="service.test.ts" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.4.0/bin/node" />
+      <node-options value="--experimental-vm-modules" />
+      <jest-package value="$PROJECT_DIR$/server/dist/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs>
+        <env name="NODE_NO_WARNINGS" value="1" />
+      </envs>
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/server/tests/service.test.ts" />
+      <method v="2" />
+    </configuration>
     <configuration name="taskQueue.test.js" type="JavaScriptTestRunnerJest">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -230,16 +249,13 @@
       <test-file value="$PROJECT_DIR$/server/tests/workerThread.test.js" />
       <method v="2" />
     </configuration>
-    <configuration name="client with https" type="NodeJSConfigurationType" path-to-js-file="server.js" working-dir="$PROJECT_DIR$/client">
-      <method v="2" />
-    </configuration>
     <configuration name="client build" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.4.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -249,7 +265,7 @@
       <scripts>
         <script value="dev" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.4.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -259,7 +275,7 @@
       <scripts>
         <script value="start" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.4.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
@@ -269,17 +285,17 @@
       <scripts>
         <script value="build" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.4.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="server start" type="js.build_tools.npm">
+    <configuration name="server dev" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
       <scripts>
-        <script value="start" />
+        <script value="dev" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.4.0/bin/node" />
       <envs>
         <env name="NODE_NO_WARNINGS" value="1" />
       </envs>
@@ -291,14 +307,14 @@
       <scripts>
         <script value="start:dev" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v18.4.0/bin/node" />
       <envs>
         <env name="NODE_NO_WARNINGS" value="1" />
       </envs>
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="HTTP 요청.rest-api | #1" />
+      <item itemvalue="Jest.service.test.ts" />
       <item itemvalue="Jest.taskQueue.test.js" />
       <item itemvalue="Jest.모든 테스트" />
       <item itemvalue="Jest.service.test.js" />
@@ -307,19 +323,13 @@
       <item itemvalue="Jest.batching.test.js" />
       <item itemvalue="Jest.cache.test.js" />
       <item itemvalue="Jest.workerThread.test" />
-      <item itemvalue="Node.js.client with https" />
       <item itemvalue="npm.client build" />
       <item itemvalue="npm.client dev" />
       <item itemvalue="npm.client start" />
       <item itemvalue="npm.server build" />
-      <item itemvalue="npm.server start" />
+      <item itemvalue="npm.server dev" />
       <item itemvalue="npm.server start:dev" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP 요청.rest-api | #1" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
@@ -445,55 +455,14 @@
       <workItem from="1655367593773" duration="580000" />
       <workItem from="1655387747049" duration="219000" />
       <workItem from="1655389737387" duration="738000" />
-    </task>
-    <task id="LOCAL-00047" summary="planner bug fix &amp; imports optimized">
-      <created>1647610328513</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1647610328513</updated>
-    </task>
-    <task id="LOCAL-00048" summary="..">
-      <created>1647612710644</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1647612710644</updated>
-    </task>
-    <task id="LOCAL-00049" summary="ipad landscape splash added yet not working, lottery qr url parser added">
-      <created>1647670213200</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1647670213200</updated>
-    </task>
-    <task id="LOCAL-00050" summary="time notification added">
-      <created>1647682410544</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1647682410544</updated>
-    </task>
-    <task id="LOCAL-00051" summary="masonry added">
-      <created>1647780899385</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1647780899386</updated>
-    </task>
-    <task id="LOCAL-00052" summary="working on article api">
-      <created>1647799021553</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1647799021553</updated>
-    </task>
-    <task id="LOCAL-00053" summary="static file serve on uploads &amp; article api roughly done">
-      <created>1647859906769</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1647859906769</updated>
+      <workItem from="1655538651343" duration="116000" />
+      <workItem from="1655539298892" duration="2321000" />
+      <workItem from="1655541784534" duration="320000" />
+      <workItem from="1655542115874" duration="8811000" />
+      <workItem from="1655552145786" duration="9949000" />
+      <workItem from="1655564880061" duration="18655000" />
+      <workItem from="1655896121981" duration="330000" />
+      <workItem from="1656003574475" duration="310000" />
     </task>
     <task id="LOCAL-00054" summary="filepond added">
       <created>1647885588644</created>
@@ -789,7 +758,56 @@
       <option name="project" value="LOCAL" />
       <updated>1655387951729</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="package version migration">
+      <created>1655538761473</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1655538761473</updated>
+    </task>
+    <task id="LOCAL-00097" summary="init">
+      <created>1655540417110</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1655540417110</updated>
+    </task>
+    <task id="LOCAL-00098" summary="ts bug fix">
+      <created>1655545267231</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1655545267231</updated>
+    </task>
+    <task id="LOCAL-00099" summary="adding unit test code">
+      <created>1655551069704</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1655551069704</updated>
+    </task>
+    <task id="LOCAL-00100" summary="photos added | still buggy">
+      <created>1655579448664</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1655579448664</updated>
+    </task>
+    <task id="LOCAL-00101" summary="photos/separator added">
+      <created>1655624007660</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1655624007660</updated>
+    </task>
+    <task id="LOCAL-00102" summary="package version updates">
+      <created>1655896406776</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1655896406776</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -798,6 +816,19 @@
       <list>
         <option value="$PROJECT_DIR$/client/node_modules/iron-session/next/index.d.ts" />
         <option value="$PROJECT_DIR$/client/node_modules/iron-session/express/index.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/core.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/index.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/utils.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/core.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/index.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/utils.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/core.js.map" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/index.js.map" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/utils.js.map" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/operations.js" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/operations.d.ts" />
+        <option value="$PROJECT_DIR$/server/node_modules/sift/src/operations.js.map" />
+        <option value="$PROJECT_DIR$/server/tests/service.test.js" />
       </list>
     </option>
   </component>
@@ -817,12 +848,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="firebase key renewed" />
-    <MESSAGE value="sender class -&gt; function" />
-    <MESSAGE value="planner unit test added" />
-    <MESSAGE value="batch process performance improved" />
-    <MESSAGE value="worker test added" />
-    <MESSAGE value="workers injected" />
     <MESSAGE value="api baching with map &amp; redis(only connection) added" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="working on di-container implementation using awilix" />
@@ -842,7 +867,13 @@
     <MESSAGE value="deps migration" />
     <MESSAGE value="module versions update" />
     <MESSAGE value="package version migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="package version migration" />
+    <MESSAGE value="init" />
+    <MESSAGE value="ts bug fix" />
+    <MESSAGE value="adding unit test code" />
+    <MESSAGE value="photos added | still buggy" />
+    <MESSAGE value="photos/separator added" />
+    <MESSAGE value="package version updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="package version updates" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
