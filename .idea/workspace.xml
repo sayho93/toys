@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="package version updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -463,6 +460,7 @@
       <workItem from="1655564880061" duration="18655000" />
       <workItem from="1655896121981" duration="330000" />
       <workItem from="1656003574475" duration="310000" />
+      <workItem from="1656188978273" duration="338000" />
     </task>
     <task id="LOCAL-00054" summary="filepond added">
       <created>1647885588644</created>

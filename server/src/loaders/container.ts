@@ -50,7 +50,7 @@ const linkRepository = makeLinkRepository(mariaDBDatasource)
 const photoRepository = makePhotoRepository(mariaDBDatasource)
 
 const userService = makeUserService(userRepository, plannerRepository, ErrorHandlerUtil, MailSender, PushManager, EncryptUtil, Config.app.AUTH_URI, AverageJob)
-const lotteryService = makeLotteryService(lotteryRepository, userRepository, MailSender, PushManager, DateUtil, HttpUtil, Log, Config.app.AUTH_URI)
+const lotteryService = makeLotteryService(lotteryRepository, userRepository, MailSender, PushManager, DateUtil, HttpUtil, Log, Config.app.externalApi.LOTTERY_CHECK)
 const plannerService = makePlannerService(plannerRepository, userRepository, ErrorHandlerUtil, PushManager)
 const fileService = makeFileService(fileRepository, ErrorHandlerUtil, FileUtil, Config.app.EXTERNAL_PATH)
 const linkService = makeLinkService(linkRepository, ErrorHandlerUtil, EncryptUtil)
