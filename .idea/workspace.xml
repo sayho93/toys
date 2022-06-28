@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="package version updates">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="minor bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/container.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/container.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +140,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server dev">
+  <component name="RunManager" selected="npm.server build">
     <configuration name="모든 테스트" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -460,14 +461,8 @@
       <workItem from="1655564880061" duration="18655000" />
       <workItem from="1655896121981" duration="330000" />
       <workItem from="1656003574475" duration="310000" />
-      <workItem from="1656188978273" duration="338000" />
-    </task>
-    <task id="LOCAL-00054" summary="filepond added">
-      <created>1647885588644</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1647885588644</updated>
+      <workItem from="1656188978273" duration="733000" />
+      <workItem from="1656425550434" duration="132000" />
     </task>
     <task id="LOCAL-00055" summary="my story added">
       <created>1647914125192</created>
@@ -805,7 +800,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655896406776</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="minor bugfix">
+      <created>1656189482091</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1656189482092</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -846,7 +848,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="api baching with map &amp; redis(only connection) added" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="working on di-container implementation using awilix" />
     <MESSAGE value="implementation done" />
@@ -871,7 +872,8 @@
     <MESSAGE value="photos added | still buggy" />
     <MESSAGE value="photos/separator added" />
     <MESSAGE value="package version updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="package version updates" />
+    <MESSAGE value="minor bugfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor bugfix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
