@@ -142,7 +142,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client build">
+  <component name="RunManager" selected="npm.client dev">
     <configuration name="모든 테스트" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -466,14 +466,10 @@
       <workItem from="1656188978273" duration="733000" />
       <workItem from="1656425550434" duration="218000" />
       <workItem from="1656519751128" duration="23000" />
-      <workItem from="1656520598638" duration="320000" />
-    </task>
-    <task id="LOCAL-00056" summary="feed done">
-      <created>1647918724892</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1647918724892</updated>
+      <workItem from="1656520598638" duration="553000" />
+      <workItem from="1656736904050" duration="21000" />
+      <workItem from="1656737104707" duration="13000" />
+      <workItem from="1656936129001" duration="305000" />
     </task>
     <task id="LOCAL-00057" summary="comment view &amp; write added">
       <created>1647942862836</created>
@@ -811,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656425762516</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="package version update">
+      <created>1656521123642</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1656521123643</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
