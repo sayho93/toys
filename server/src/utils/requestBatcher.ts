@@ -1,5 +1,6 @@
 import Log from '#utils/logger'
 import {Utils} from '#types/utils'
+import ErrorHandler from '#utils/errorHandler.util'
 import RequestBatcher = Utils.RequestBatcher
 
 const RequestBatcher = (): RequestBatcher => {
@@ -22,6 +23,7 @@ const RequestBatcher = (): RequestBatcher => {
             .catch((err: Error) => {
                 Log.error(err.stack)
                 runningRequest.delete(key)
+                ErrorHandler.dispatchErrorLog(err).then()
             })
     }
 

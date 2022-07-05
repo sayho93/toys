@@ -1,5 +1,6 @@
 import Log from '#utils/logger'
 import {Utils} from '#types/utils'
+import ErrorHandlerUtil from '#utils/errorHandler.util'
 
 const TaskQueue = (concurrency: number) => {
     const taskQueue: Utils.Task[] = []
@@ -38,6 +39,7 @@ const TaskQueue = (concurrency: number) => {
                     await task()
                     return resolve()
                 } catch (err: any) {
+                    await ErrorHandlerUtil.dispatchErrorLog(err)
                     Log.error(err.stack)
                     return reject(err)
                 }

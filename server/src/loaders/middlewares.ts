@@ -2,6 +2,7 @@ import Log from '#utils/logger'
 import createError from 'http-errors'
 import Container from '#src/loaders/container'
 import {ErrorRequestHandler, NextFunction, Request, RequestHandler, Response} from 'express'
+import ErrorHandler from '#utils/errorHandler.util'
 
 const _resInterceptor = (req: Request, res: any, send: Function) => (content: any) => {
     res.contentBody = content
@@ -37,6 +38,7 @@ export const notFoundErrorHandler: RequestHandler = (req, res, next) => {
 export const apiErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     Log.error(err.stack)
     Log.error(JSON.stringify({error: err.message, status: err.status}))
+    if (err.status !== 404) ErrorHandler.dispatchErrorLog(err).then()
     if (err.status) res.status(err.status).json({error: err.message, status: err.status})
     else res.status(500).json({error: 'Internal server error', status: 500})
 }

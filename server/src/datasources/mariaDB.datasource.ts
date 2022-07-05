@@ -19,6 +19,7 @@ export const makeMariaDBDatasource = (config: MariaDBConf, ErrorHandler: ErrorHa
             const [ret] = await pool.query(sql, params)
             return ret
         } catch (error: any) {
+            await ErrorHandler.dispatchErrorLog(error)
             Log.error(error.stack)
             throw ErrorHandler.BaseError('database error', 500)
         }

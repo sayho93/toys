@@ -2,6 +2,7 @@ import {Datasources} from '#types/datasources'
 
 import Redis from 'ioredis'
 import Log from '#utils/logger'
+import ErrorHandler from '#utils/errorHandler.util'
 import RedisConf = Configs.RedisConf
 import RedisDataSource = Datasources.RedisDataSource
 
@@ -29,7 +30,8 @@ export const makeRedisDatasource = (config: RedisConf): RedisDataSource => {
             const keys = await redis.keys(`/api/v1/${prefix}*`)
             console.log(keys)
             keys.forEach(key => redis.del(key))
-        } catch (error) {
+        } catch (error: any) {
+            await ErrorHandler.dispatchErrorLog(error)
             Log.error(error)
         }
     })

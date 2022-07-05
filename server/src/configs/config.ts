@@ -54,6 +54,9 @@ const Config = () => {
                 LOTTERY_CHECK: 'https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=',
             },
             JOB_PATH: path.resolve('src/jobs'),
+            WEBHOOK_URL: process.env.WEBHOOK_URL,
+            WEBHOOK_ID: null,
+            WEBHOOK_TOKEN: null,
         },
         datasource: {
             mariaDB,

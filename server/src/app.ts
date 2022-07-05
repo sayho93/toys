@@ -4,9 +4,19 @@ import spdy from 'spdy'
 import {normalizePort, onError, onListening} from '#src/loaders/startupUtils'
 import fs from 'fs'
 import Config from '#configs/config'
+import ErrorHandlerUtil from '#utils/errorHandler.util'
 
+await ErrorHandlerUtil.getWebhookCredentials()
 const {default: InitApp} = await import('#src/loaders/initApp')
 const app = InitApp()
+
+// try {
+//     const x = 12
+//     //@ts-ignore
+//     x.forEach(i => console.log(i))
+// } catch (err: any) {
+//     await ErrorHandlerUtil.dispatchErrorLog(err)
+// }
 
 const port = normalizePort(process.env.PORT || Config.app.PORT)
 app.set('port', port)

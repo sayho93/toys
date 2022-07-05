@@ -2,6 +2,7 @@ import nodemailer, {SendMailOptions} from 'nodemailer'
 import Config from '#configs/config'
 import Log from '#utils/logger'
 import Underscore from 'underscore'
+import ErrorHandler from '#utils/errorHandler.util'
 
 const MailSender = () => {
     const config = Config.mail
@@ -32,10 +33,11 @@ const MailSender = () => {
             const res = await transporter.sendMail(mailObj)
             Log.verbose(JSON.stringify(res))
             return true
-        } catch (err) {
+        } catch (err: any) {
             console.log(err)
             Log.error(failed)
             failed.push(to)
+            await ErrorHandler.dispatchErrorLog(err)
             return false
         }
     }
@@ -62,6 +64,7 @@ const MailSender = () => {
                 try {
                     await transporter.sendMail(mailObj)
                 } catch (err: any) {
+                    await ErrorHandler.dispatchErrorLog(err)
                     Log.error(err.stack)
                     failed.push(item)
                 }

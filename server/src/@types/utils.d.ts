@@ -38,6 +38,8 @@ namespace Utils {
     export interface ErrorHandler {
         BaseError(message: string, status: number): Error & {status: number}
         validationErrorHandler(req: Request): void
+        getWebhookCredentials(): Promise<void>
+        dispatchErrorLog(err: Error, title?: string): Promise<void>
     }
 
     export interface Encryptor {
