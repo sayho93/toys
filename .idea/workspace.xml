@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="package version update">
+    <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="error messaging via discord webhook added">
+      <change afterPath="$PROJECT_DIR$/report.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/ecosystem.config.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/@types/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/utils.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configs/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/configs/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/datasources/makeMariaDB.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/makeMariaDB.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/datasources/mariaDB.datasource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/mariaDB.datasource.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/datasources/redis.datasource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/datasources/redis.datasource.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/loaders/middlewares.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/loaders/middlewares.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/errorHandler.util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/errorHandler.util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/mailSender.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/mailSender.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/requestBatcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/requestBatcher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/utils/taskQueue.util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/utils/taskQueue.util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/jobs/schedulers/lottery.job.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/jobs/schedulers/lottery.job.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +115,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;17.8.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;17.0.24&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/dist&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -130,7 +123,7 @@
     &quot;nodejs.jest.jest_package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/jest&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.JavaScript&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/sayho/WebstormProjects/toys/server/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -151,7 +144,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server dev">
+  <component name="RunManager" selected="npm.server build">
     <configuration name="모든 테스트" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -479,14 +472,10 @@
       <workItem from="1656736904050" duration="21000" />
       <workItem from="1656737104707" duration="13000" />
       <workItem from="1656936129001" duration="319000" />
-      <workItem from="1657034587397" duration="2836000" />
-    </task>
-    <task id="LOCAL-00058" summary="comment view &amp; write added">
-      <created>1648133790295</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1648133790296</updated>
+      <workItem from="1657034587397" duration="2946000" />
+      <workItem from="1657078149048" duration="2487000" />
+      <workItem from="1657190692002" duration="8039000" />
+      <workItem from="1657266106002" duration="6727000" />
     </task>
     <task id="LOCAL-00059" summary="mongoose added">
       <created>1649015294516</created>
@@ -824,7 +813,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656936437094</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="error messaging via discord webhook added">
+      <created>1657040168031</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1657040168032</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -865,7 +861,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="working on di-container implementation using awilix" />
     <MESSAGE value="implementation done" />
     <MESSAGE value="node segfaults when using dynamic imports" />
     <MESSAGE value="how to retrieve called times?" />
@@ -890,7 +885,8 @@
     <MESSAGE value="package version updates" />
     <MESSAGE value="minor bugfix" />
     <MESSAGE value="package version update" />
-    <option name="LAST_COMMIT_MESSAGE" value="package version update" />
+    <MESSAGE value="error messaging via discord webhook added" />
+    <option name="LAST_COMMIT_MESSAGE" value="error messaging via discord webhook added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

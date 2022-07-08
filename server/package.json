@@ -43,7 +43,7 @@
   "scripts": {
     "start": "yarn && NODE_NO_WARNINGS=1 node src/app.js",
     "start:dev": "npm run build && cd ~/WebstormProjects/toys/server/dist && yarn && node src/app.js",
-    "build": "tsc -p . && cp .env ./dist/.env && cp src/configs/server.pem ./dist/src/configs/server.pem && cp src/configs/server.key.pem ./dist/src/configs/server.key.pem",
+    "build": "tsc -p . && cp .env ./dist/.env && cp src/configs/server.pem ./dist/src/configs/server.pem && cp src/configs/server.key.pem ./dist/src/configs/server.key.pem && cp ./ecosystem.config.cjs ./dist/ecosystem.config.cjs",
     "dev": "nodemon --watch 'src/**/*.ts' --exec node --loader ts-node/esm src/app.ts",
     "test": "jest --detectOpenHandles --forceExit"
   },

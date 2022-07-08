@@ -28,7 +28,8 @@ const LotteryJob = (service: LotteryService, RedisClient: RedisDataSource) => {
     }
 
     const start = () => {
-        if (process.env.NODE_ENV === 'production' && process.env.INSTANCE_ID === '0001') {
+        Log.error(process.env.INSTANCE_ID)
+        if (process.env.NODE_ENV === 'production' && process.env.INSTANCE_ID === '0') {
             _checkNums()
             _notifier()
             Log.verbose('LotteryJob initialized')

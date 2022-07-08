@@ -10,14 +10,6 @@ await ErrorHandlerUtil.getWebhookCredentials()
 const {default: InitApp} = await import('#src/loaders/initApp')
 const app = InitApp()
 
-// try {
-//     const x = 12
-//     //@ts-ignore
-//     x.forEach(i => console.log(i))
-// } catch (err: any) {
-//     await ErrorHandlerUtil.dispatchErrorLog(err)
-// }
-
 const port = normalizePort(process.env.PORT || Config.app.PORT)
 app.set('port', port)
 
@@ -29,6 +21,12 @@ const option = {
 if (sslConfig.CHAIN_PATH) option.cert = fs.readFileSync(sslConfig.CHAIN_PATH)
 
 const server = spdy.createServer(option, app)
-server.listen(port)
+server.listen(port, () => {
+    try {
+        ;(<any>process).send('ready')
+    } catch (err) {
+        console.log(err)
+    }
+})
 server.on('error', error => onError(error, port))
 server.on('listening', () => onListening(server))
