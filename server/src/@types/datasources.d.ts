@@ -1,10 +1,9 @@
-import {Pool} from 'mysql2/promise'
 import {Mongoose} from 'mongoose'
 import Redis from 'ioredis'
 
 namespace Datasources {
     export interface MariaDBDataSource {
-        pool: Pool
+        // pool: Pool
         exec: (sql: string, params: any) => Promise<any>
     }
 

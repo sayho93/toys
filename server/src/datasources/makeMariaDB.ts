@@ -26,6 +26,6 @@ const makeMariaDB = (config: MariaDBConf, ErrorHandler: ErrorHandler): MariaDBDa
         }
     }
 
-    return {pool, exec}
+    return {exec}
 }
 export default makeMariaDB

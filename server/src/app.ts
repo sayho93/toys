@@ -25,7 +25,7 @@ server.listen(port, () => {
     try {
         ;(<any>process).send('ready')
     } catch (err) {
-        console.log(err)
+        console.log('Not clusterd')
     }
 })
 server.on('error', error => onError(error, port))
