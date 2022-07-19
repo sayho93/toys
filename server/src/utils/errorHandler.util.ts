@@ -1,7 +1,7 @@
 import {validationResult} from 'express-validator'
 import {Request} from 'express-validator/src/base'
 import Config from '#configs/config'
-import {MessageEmbed, WebhookClient} from 'discord.js'
+import {EmbedBuilder, WebhookClient} from 'discord.js'
 import HttpUtil from '#utils/http.util'
 
 const ErrorHandlerUtil = () => {
@@ -33,11 +33,14 @@ const ErrorHandlerUtil = () => {
         if (!Config.app.WEBHOOK_ID || !Config.app.WEBHOOK_TOKEN) throw new Error('webhook credentials are missing')
 
         const webhookClient = new WebhookClient({id: Config.app.WEBHOOK_ID, token: Config.app.WEBHOOK_TOKEN})
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle(title ? title : 'Error Report')
-            .setColor('RED')
+            .setColor('#ff0000')
             .setDescription(<string>error.stack)
-            .addField('Message', error.message)
+            .addFields([
+                {name: 'Message', value: error.message},
+                // {name: 'Cause', value: error.cause ? error.cause + '' : ''},
+            ])
         await webhookClient.send({embeds: [embed]})
     }
 

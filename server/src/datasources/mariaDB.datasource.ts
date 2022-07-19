@@ -15,7 +15,7 @@ export const makeMariaDBDatasource = (config: MariaDBConf, ErrorHandler: ErrorHa
     let commandQueue: (() => Promise<any>)[] = []
 
     const init = async () => {
-        pool = await mysql2.createPool(config)
+        pool = mysql2.createPool(config)
         connected = true
         Log.verbose('Connected to MariaDB')
     }
