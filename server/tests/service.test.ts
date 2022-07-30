@@ -1,7 +1,9 @@
 // noinspection DuplicatedCode
 import {jest} from '@jest/globals'
-import Log from '#utils/logger'
-import Container from '#src/loaders/container'
+import Log from '../src/utils/logger'
+import Container from '../src/loaders/container'
+// import Log from '#utils/logger'
+// import Container from '#loaders/container'
 import ErrorHandlerUtil from '../src/utils/errorHandler.util'
 import MailSender from '../src/utils/mailSender'
 import PushManager from '../src/utils/pushManager'
