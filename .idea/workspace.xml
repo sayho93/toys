@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/@types/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/utils.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +148,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server build">
+  <component name="RunManager" selected="npm.client build">
     <configuration name="모든 테스트" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -508,14 +509,9 @@
       <workItem from="1659686607079" duration="3247000" />
       <workItem from="1659811694135" duration="1913000" />
       <workItem from="1660214283201" duration="1435000" />
-      <workItem from="1660474284869" duration="758000" />
-    </task>
-    <task id="LOCAL-00067" summary="user.service.js test code added">
-      <created>1650816258226</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1650816258227</updated>
+      <workItem from="1660474284869" duration="797000" />
+      <workItem from="1661073555232" duration="32000" />
+      <workItem from="1661524232461" duration="635000" />
     </task>
     <task id="LOCAL-00068" summary="lottery.service.js unit test added">
       <created>1650821958404</created>
@@ -853,7 +849,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659812993425</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="package version update">
+      <created>1660475079230</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1660475079231</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

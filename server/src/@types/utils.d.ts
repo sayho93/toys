@@ -11,7 +11,7 @@ namespace Utils {
     }
 
     export interface PushManager {
-        send<T>(registrationKeys: string[], title: string, message: string, extras?: T): Promise<void>
+        send<T>(registrationKeys: string[], title: string, message: string, extras?: T | {}): Promise<void>
         sendOnlyData<T>(registrationKeys: string[], extras?: T): void
     }
 
