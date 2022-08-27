@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="package version update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/@types/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/@types/utils.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/api/v1/user.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +145,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.client build">
+  <component name="RunManager" selected="npm.server build">
     <configuration name="모든 테스트" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -511,14 +508,8 @@
       <workItem from="1660214283201" duration="1435000" />
       <workItem from="1660474284869" duration="797000" />
       <workItem from="1661073555232" duration="32000" />
-      <workItem from="1661524232461" duration="635000" />
-    </task>
-    <task id="LOCAL-00068" summary="lottery.service.js unit test added">
-      <created>1650821958404</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1650821958404</updated>
+      <workItem from="1661524232461" duration="892000" />
+      <workItem from="1661612490784" duration="1196000" />
     </task>
     <task id="LOCAL-00069" summary="firebase key renewed">
       <created>1650825628277</created>
@@ -856,7 +847,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660475079231</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="package version update">
+      <created>1661525106814</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1661525106814</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
