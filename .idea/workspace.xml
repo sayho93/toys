@@ -5,125 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993da5c-c00d-48b5-8beb-d1ddb75e0f3f" name="변경" comment="not a good idea">
-      <change afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.prettierrc.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/Constants.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/Helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Home/appItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Home/appItem.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Loading.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/LoadingFixed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/alert.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/container.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/authModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/generator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/lotGen/numList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/articleView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/card.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/comment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/commentModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/feed.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/minimalFlex/writeModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/photos/detailModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/photos/photoList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/photos/uploader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/planner/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/planner/calendarHeader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/planner/day.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/planner/task.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/planner/taskModal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/tutorial/layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/tutorial/layout.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/AppInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/FirebaseCredentials.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/constants/HeaderInfo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/session.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/useArticleList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/useNumList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/usePhotoList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/useUser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/next.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/logout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/chat/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/hallOfFame.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/history.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/lotgen/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/article.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/minimalFlex/myStory.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/photos/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/planner/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/posts/firstPost.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/posts/tutorial.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/shortener/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/apple-icon-180.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-128x128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-144x144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-152x152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-384x384.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-72x72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/icon-96x96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/manifest-icon-192.maskable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/icons/manifest-icon-512.maskable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1125-2436.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1136-640.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1170-2532.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1242-2208.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1242-2688.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1284-2778.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1334-750.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1536-2048.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1620-2160.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1668-2224.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1668-2388.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-1792-828.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2048-1536.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2048-2732.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2160-1620.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2208-1242.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2224-1668.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2388-1668.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2436-1125.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2532-1170.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2688-1242.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2732-2048.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-2778-1284.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-640-1136.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-750-1334.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/splashscreens/apple-splash-828-1792.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/static/images/defaultUser.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/static/images/imgPlaceholder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/static/images/profile.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/modules/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/modules/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/modules/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/store/modules/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/styles/alert.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/styles/global.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/styles/utils.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/utils/date.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/utils/firebase/enableMessaging.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/utils/lottery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/utils/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/worker/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/lottery.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/lottery.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -261,7 +142,7 @@
       <recent name="$PROJECT_DIR$/client/components/planner" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.server dev">
+  <component name="RunManager" selected="npm.server build">
     <configuration name="모든 테스트" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="--experimental-vm-modules" />
@@ -640,7 +521,7 @@
       <workItem from="1667043056640" duration="4845000" />
       <workItem from="1667142755052" duration="65000" />
       <workItem from="1668011283679" duration="1429000" />
-      <workItem from="1668267691155" duration="925000" />
+      <workItem from="1668267691155" duration="1050000" />
     </task>
     <task id="LOCAL-00070" summary="..">
       <created>1650831997139</created>
