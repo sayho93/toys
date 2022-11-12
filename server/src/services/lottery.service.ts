@@ -93,8 +93,9 @@ export const makeLotteryService = (
 
             if (!user.userId) continue
             const pushTarget = await UserRepository.getUserById(user.userId)
+            console.log(pushTarget)
             const message = `${user.rank}등 당첨을 축하합니다!`
-            const registrationKey = [pushTarget[0].pushToken]
+            const registrationKey = [pushTarget.pushToken]
 
             Log.debug(`Push target: ${JSON.stringify(pushTarget)}`)
             Log.debug(`registrationKey: ${registrationKey}`)
